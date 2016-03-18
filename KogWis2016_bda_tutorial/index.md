@@ -1,6 +1,5 @@
 ---
 title: "Bayesian data analysis: ideas, practices & tools"
-
 output:
   html_document:
     theme: cosmo
@@ -27,7 +26,7 @@ analysis.
 We do not presuppose any particular knowledge or skills, but familiarity with basic statistical
 concepts will help to see the bigger picture more clearly. 
 
-## schedule
+## schedule (tentative!!)
 
 #### session 1: theory
 
