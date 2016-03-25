@@ -2,7 +2,7 @@
 layout: post
 title:  "Game theory in pragmatics"
 date:   2016-03-25 14:48:32 +0100
-categories: jekyll update
+categories: evolution
 ---
 
 ```{r, echo = FALSE, message = FALSE}
