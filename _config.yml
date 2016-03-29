@@ -9,7 +9,7 @@
 title: Bayes, pragmatics, evolution etc.
 email: mchfranke@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  assorted musings and ramblings about language, sience, philosophy of language and science and all that
+  assorted musings and ramblings about language, science, compuational modeling, statistics and such
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: meanwhileina
