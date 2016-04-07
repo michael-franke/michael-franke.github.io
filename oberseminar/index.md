@@ -17,7 +17,7 @@ April 25, 2016\  <span style = "color:firebrick">Thomas Brochhagen</span> (Amste
 &nbsp;\           "Ambiguity and alignment without a common prior"\
 &nbsp;\          &nbsp;\
 
-June 6, 2016\    <span style = "color:firebrick">Sven Lauer</span> (G&ouml;ttingen & University of Konstanz)\
+June 6, 2016\    <span style = "color:firebrick">Sven Lauer</span> (G&ouml;ttingen & Konstanz)\
 &nbsp;\           TBA\
 &nbsp;\          &nbsp;\
 
