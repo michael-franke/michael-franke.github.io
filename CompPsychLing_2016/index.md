@@ -36,8 +36,8 @@ April 27, 2016\   <span style = "color:firebrick">probabilistic context free gra
 &nbsp;\           Hale (2001) "A probabilistic Earley parser as a psycholinguistic model"\
 &nbsp;\           &nbsp;\
 
-May 4, 2016\      <span style = "color:firebrick">information density in production</span>\
-&nbsp;\           J&auml;ger (2010) "Redundancy and reduction: Speakers manage syntactic information density"\
+May 4, 2016\      <span style = "color:firebrick">surprisal theory and experimental data</span>\
+&nbsp;\           Levy (2008) "Expectation-based syntactic comprehension"\
 &nbsp;\           &nbsp;\
 
 May 11&18, 2016\  no class\
@@ -55,7 +55,7 @@ May 25, 2016\      <span style = "color:firebrick">approximate number sense and 
 &nbsp;\           &nbsp;\
 
 June 1, 2016\     <span style = "color:firebrick">building meaning represenations</span>\
-&nbsp;\           Brasoveanu & Dotlacil (2015) "Incremental and predictive interpretation: Experimental evidence and possible accounts"\
+&nbsp;\           Brasoveanu & Dotlacil (2015) "Incremental and predictive interpretation"\
 &nbsp;\           &nbsp;\
 
 June 8, 2016\     <span style = "color:firebrick">processing semantic presuppositions</span>\
@@ -70,11 +70,11 @@ June 15, 2016\    <span style = "color:firebrick">processing pragmatic presuppos
 &nbsp;\           &nbsp;\
 
 June 22, 2016\    <span style = "color:firebrick">implicatures of complex sentences (part 1)</span>\
-&nbsp;\           Potts et al. (2016) "Embedded implicatures as pragmatic inferences under compositional lexical uncertainty"\
+&nbsp;\           Potts et al. (2016) "Embedded implicatures as pragmatic inferences ..."\
 &nbsp;\           &nbsp;\
 
 June 29, 2016\    <span style = "color:firebrick">implicatures of complex sentences (part 2)</span>\
-&nbsp;\           Franke et al. (2016) "Embedded Scalars, Preferred Readings and Prosody: An Experimental Revisit"\
+&nbsp;\           Franke et al. (2016) "Embedded Scalars, Preferred Readings and Prosody"\
 &nbsp;\           &nbsp;\
 
 **acquisition**   &nbsp;\
