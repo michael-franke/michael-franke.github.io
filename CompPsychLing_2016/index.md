@@ -22,6 +22,8 @@ After some general introduction during the first session, we will read one or tw
 
 Each class begins with a very short quiz (2 - 4 questions, possibly multiple choice) about the text that we will discuss in that class. All quizes receive scores. In order to be admitted to the final exam, it is necessary to have at least 70% of the maximally possible total score from all quizes. The grade is based on the score from the final exam.
 
+For a "Proseminar Schein", participants can use one wildcard: they will not have to do the quiz and the exam questions for one paper of their choice. Which paper to use the wildcard for should be communicated in advance. For a "Hauptseminar Schein", participants must prepare to introduce the key ideas of a paper in 10 - 15 minutes.
+
 
 ### schedule (tentative)
 
@@ -31,7 +33,7 @@ Each class begins with a very short quiz (2 - 4 questions, possibly multiple cho
 April 13, 2016\   <span style = "color:firebrick">course overview</span> \
 &nbsp;\           &nbsp;\
 
-April 27, 2016\   <span style = "color:firebrick">what is computational psycholinguistics?</span>\
+April 20, 2016\   <span style = "color:firebrick">what is computational psycholinguistics?</span>\
 &nbsp;\           Crocker (2009) "[Computational psycholinguistics](http://www.coli.uni-saarland.de/~crocker/documents/crocker-nlp-handbook.pdf)"\
 
 **syntax**        &nbsp;\
@@ -56,16 +58,12 @@ May 25, 2016\      <span style = "color:firebrick">information density in produc
 **semantics**     &nbsp;\
 &nbsp;\           &nbsp;\
 
-May 25, 2016\      <span style = "color:firebrick">approximate number sense and processing of *most*</span>\
+June 1, 2016\      <span style = "color:firebrick">approximate number sense and processing of *most*</span>\
 &nbsp;\           Lidz et al. (2011) "Interface transparency and the psychosemantics of *most*"\
 &nbsp;\           &nbsp;\
 
-June 1, 2016\     <span style = "color:firebrick">building meaning represenations</span>\
+June 8, 2016\     <span style = "color:firebrick">building meaning represenations</span>\
 &nbsp;\           Brasoveanu & Dotlacil (2015) "Incremental and predictive interpretation"\
-&nbsp;\           &nbsp;\
-
-June 8, 2016\     <span style = "color:firebrick">processing semantic presuppositions</span>\
-&nbsp;\           &nbsp;\
 &nbsp;\           &nbsp;\
 
 **pragmatics**    &nbsp;\
@@ -99,7 +97,6 @@ July 20, 2016\    <span style = "color:firebrick">exam</span>\
 &nbsp;\           &nbsp;\
 
 ------------------------------------------------------------------------------
-
 
 <span style = "color:white"> &nbsp; </span>
 
