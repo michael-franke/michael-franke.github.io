@@ -3,6 +3,7 @@ title: "Computational Psycholinguistics"
 output:
   html_document:
     theme: cosmo
+    css: mistyle.css
 ---
 
 ### time and venue
@@ -17,6 +18,11 @@ The course will take place on Wednesdays from 10 to 12 in room 1.13.
 
 After some general introduction during the first session, we will read one or two papers per session. **Everybody must have studied each paper carefully at home.** Remaining questions will be answered in class. We will then indulge lavishly in collective reflection and discussion on each paper's potential merits, weaknesses, implications and open issues.
 
+### examination
+
+Each class begins with a very short quiz (2 - 4 questions, possibly multiple choice) about the text that we will discuss in that class. All quizes receive scores. In order to be admitted to the final exam, it is necessary to have at least 70% of the maximally possible total score from all quizes. The grade is based on the score from the final exam.
+
+
 ### schedule (tentative)
 
 <span style = "color:white"> dummy </span>
@@ -26,7 +32,7 @@ April 13, 2016\   <span style = "color:firebrick">course overview</span> \
 &nbsp;\           &nbsp;\
 
 April 27, 2016\   <span style = "color:firebrick">what is computational psycholinguistics?</span>\
-&nbsp;\           Crocker (2009) "Computational psycholinguistics"\
+&nbsp;\           Crocker (2009) "[Computational psycholinguistics](http://www.coli.uni-saarland.de/~crocker/documents/crocker-nlp-handbook.pdf)"\
 
 **syntax**        &nbsp;\
 &nbsp;\           &nbsp;\
