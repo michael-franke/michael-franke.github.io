@@ -25,7 +25,7 @@ Each class begins with a very short quiz (2 - 4 questions, possibly multiple cho
 
 ### schedule (tentative)
 
-<span style = "color:white"> dummy </span>
+<span style = "color:white"> &nbsp; </span>
 
 ----------------- --------------------------------------------------------
 April 13, 2016\   <span style = "color:firebrick">course overview</span> \
@@ -101,7 +101,7 @@ July 20, 2016\    <span style = "color:firebrick">exam</span>\
 ------------------------------------------------------------------------------
 
 
-<span style = "color:white"> dummy </span>
+<span style = "color:white"> &nbsp; </span>
 
 contact: [Michael Franke](mailto:mchfranke@gmail.com)
 
