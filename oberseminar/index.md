@@ -14,7 +14,9 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 
 ---------------- ----------------------------------------------------
 April 25, 2016\  <span style = "color:firebrick">Thomas Brochhagen</span> (Amsterdam)\
-&nbsp;\           "Ambiguity and alignment without a common prior"\
+&nbsp;\           "Ambiguity and alignment without a common prior"
+
+&nbsp;\          <span style = "color:gray">While ambiguity is a pervasive property of natural language communication, it is often characterized as suboptimal. Notwithstanding, recent investigations have proposed ambiguity's vindication to lie in the exploitation of contextual information. Building on these insights, I propose a signaling model that takes context, as well as interlocutors with heterogeneous contextual expectations, i.e. different priors, into consideration. The talk will deal with the question how prior heterogeneity can be overcome, and on the conditions that ensure successful ambiguous communication. Put differently, we will focus on the question whether and when the claim that context can be exploited is justified if interlocutors do not share the same prior. Our main goal is to put forward a model to evaluate predictions about ambiguity's putative advantages and the involved risk of misunderstanding. In doing so, we will touch upon issues related to lexical ambiguity, linguistic convergence in dialogue, and, if time allows, Horn's division of pragmatic labor.</span>\
 &nbsp;\          &nbsp;\
 
 June 6, 2016\    <span style = "color:firebrick">Sven Lauer</span> (G&ouml;ttingen & Konstanz)\
