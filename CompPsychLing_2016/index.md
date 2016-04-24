@@ -41,6 +41,7 @@ April 20, 2016\   <span style = "color:firebrick">what is computational psycholi
 
 April 27, 2016\   <span style = "color:firebrick">surprisal theory and experimental data</span>\
 &nbsp;\           Levy (2008) "[Expectation-based syntactic comprehension](http://idiom.ucsd.edu/~rlevy/papers/levy-2008-cognition.pdf)"\
+&nbsp;\           <span style = "color:gray">[focus: sections 1-3 & the question how theory is related to what kind of data in sections 5-7]</span>\
 &nbsp;\           &nbsp;\
 
 May 4, 2016\      <span style = "color:firebrick">information density in production</span>\
