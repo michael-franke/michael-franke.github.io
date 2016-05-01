@@ -46,6 +46,7 @@ April 27, 2016\   <span style = "color:firebrick">surprisal theory and experimen
 
 May 4, 2016\      <span style = "color:firebrick">information density in production</span>\
 &nbsp;\           J&auml;ger (2010) "[Redundancy and reduction: Speakers manage syntactic information density]( http://dx.doi.org/10.1016/j.cogpsych.2010.02.002)"\
+&nbsp;\           <span style = "color:gray">[focus: sections 1, 2.1-2.3, 2.6 & 3; what is the "Uniform Infomation Density" hypothesis? how are which of its predictions tested here?]</span>\
 &nbsp;\           &nbsp;\
 
 May 11&18, 2016\  no class\
