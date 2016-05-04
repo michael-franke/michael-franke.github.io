@@ -56,7 +56,7 @@ May 11&18, 2016\  no class\
 &nbsp;\           &nbsp;\
 
 May 25, 2016\      <span style = "color:firebrick">the meaning of vague quantifiers</span>\
-&nbsp;\           Sch&ouml;ller & Franke (2015) "Surprising _few_ and _many_"\
+&nbsp;\           Sch&ouml;ller & Franke (2015) "[Surprising _few_ and _many_](http://dx.doi.org/10.3765/salt.v25i0.3058)"\
 &nbsp;\           &nbsp;\
 
 June 1, 2016\      <span style = "color:firebrick">approximate number sense and processing of *most*</span>\
