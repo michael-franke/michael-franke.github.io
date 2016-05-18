@@ -26,6 +26,11 @@ June 6, 2016\    <span style = "color:firebrick">Sven Lauer</span> (G&ouml;tting
 June 13, 2016\   <span style = "color:firebrick">Marie-Christine Meyer</span> (Berlin)\
 &nbsp;\           TBA\
 &nbsp;\          &nbsp;\
+
+June 24, 2016\   <span style = "color:firebrick">Bodo Winter</span> (Merced, Birmingham) & <span style = "color:firebrick">Andy Wendell </span>\
+&nbsp;\           <span style = "color:darkgreen">NOTE THE UNUSUAL DAY, TIME & VENUE: Friday, June 24, 2-6pm, room 036, Keplerstr. 2</span>\
+&nbsp;\           TBA\
+&nbsp;\          &nbsp;\
 ------------------------------------------------------------------------
 
 <span style = "color:white"> dummy </span>
