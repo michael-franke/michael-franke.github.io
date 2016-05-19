@@ -27,8 +27,8 @@ June 13, 2016\   <span style = "color:firebrick">Marie-Christine Meyer</span> (B
 &nbsp;\           TBA\
 &nbsp;\          &nbsp;\
 
-June 24, 2016\   <span style = "color:firebrick">Bodo Winter</span> (Merced, Birmingham) & <span style = "color:firebrick">Andy Wendell </span>\
-&nbsp;\           <span style = "color:darkgreen">NOTE THE UNUSUAL DAY, TIME & VENUE: Friday, June 24, 2-6pm, room 036, Keplerstr. 2</span>\
+June 24, 2016\   <span style = "color:darkgreen">NOTE THE UNUSUAL DAY, TIME & VENUE: Friday, June 24, 2-6pm, room 036, Keplerstr. 2</span>\
+&nbsp;\          <span style = "color:firebrick">Bodo Winter</span> (Merced, Birmingham), <span style = "color:firebrick">Andrew Wedel</span> (Arizona) & <span style = "color:firebrick">Adam Ussishkin</span> (Arizona)\
 &nbsp;\           TBA\
 &nbsp;\          &nbsp;\
 ------------------------------------------------------------------------
