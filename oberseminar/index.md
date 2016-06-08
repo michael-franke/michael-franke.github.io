@@ -14,7 +14,9 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 
 ---------------- ----------------------------------------------------
 June 13, 2016\   <span style = "color:firebrick">Marie-Christine Meyer</span> (Berlin)\
-&nbsp;\           TBA\
+&nbsp;\           "Structural conditions on implicature computation: The latest news"
+
+&nbsp;\          <span style = "color:gray">This talk has two goals. First, to introduce the audience to an ongoing and open-ended debate in the field of formal pragmatics. The debate builds on seminal work by R. Katzir (2007, 2008, 2014) and concerns the role of structure in the definition of the set of alternatives that can be used in the computation of (scalar) implicatures. Structural constraints on alternatives have been shown to provide a solution to the so-called Symmetry Problem (Kroch 1972, von Fintel & Heim 1997), and more general well-formedness conditions on alternatives have been argued to underlie otherwise unrelated phenomena (e.g. Meyer 2015). But the idea that alternatives are structural objects which may as such be subject to structural constraints has recently come under attack in view of data that Katzir’s original proposal cannot account for (Swanson 2010, Trinh & Haida 2015, Romoli 2013). These new data will bring us to the second goal of the talk: To present even more new, i.e., newest data. I will argue that most of the seemingly problematic issues have been insufficiently analyzed and that factors which are completely independent of structural constraints on alternatives, viz.,the presupposition of contrastive connectives (e.g., Toosarvandani 2013) and principles of information encoding (e.g., Parikh 2001) have to be taken into account. Once this is accomplished, a new classification of the data ensues which makes it possible to disentangle genuine issues of the structural approach on the one hand, and confounding factors on the other.</span>\
 &nbsp;\          &nbsp;\
 
 June 24, 2016\   <span style = "color:darkgreen">NOTE THE UNUSUAL DAY, TIME & VENUE: Friday, June 24, 2-6pm, room 036, Keplerstr. 2</span>\
