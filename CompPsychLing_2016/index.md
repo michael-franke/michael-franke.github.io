@@ -71,7 +71,7 @@ June 8, 2016\     <span style = "color:firebrick">building meaning represenation
 &nbsp;\           &nbsp;\
 
 June 15, 2016\    <span style = "color:firebrick">processing pragmatic presuppositions</span>\
-&nbsp;\           &nbsp;\
+&nbsp;\           Schwarz & Tiemann (2016) "[Presupposition Projection in Online Processing](http://dx.doi.org/10.1093/jos/ffw005)"\
 &nbsp;\           &nbsp;\
 
 June 22, 2016\    <span style = "color:firebrick">implicatures of complex sentences (part 1)</span>\
@@ -79,7 +79,7 @@ June 22, 2016\    <span style = "color:firebrick">implicatures of complex senten
 &nbsp;\           &nbsp;\
 
 June 29, 2016\    <span style = "color:firebrick">implicatures of complex sentences (part 2)</span>\
-&nbsp;\           Franke et al. (2016) "[Embedded Scalars, Preferred Readings and Prosody(http://www.sfs.uni-tuebingen.de/~mfranke/Papers/FrankeSchlotterbeck_2016_Embedded%20Scalars.pdf)]"\
+&nbsp;\           Franke et al. (2016) "[Embedded Scalars, Preferred Readings and Prosody](http://www.sfs.uni-tuebingen.de/~mfranke/Papers/FrankeSchlotterbeck_2016_Embedded%20Scalars.pdf)"\
 &nbsp;\           &nbsp;\
 
 **acquisition**   &nbsp;\
