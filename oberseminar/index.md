@@ -12,10 +12,22 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Schedule: upcoming talks
 
 
+-------------- ----------------------------------------------------
+July 4, 2016\  <span style = "color:firebrick">Ryan Cotterell</span> (Johns Hopkins)\
+&nbsp;\        "Modeling Word Forms Using Latent Underlying Morphs and Phonology"
+
+&nbsp;\        <span style = "color:gray">The observed pronunciations or spellings of words are often explained as arising from the “underlying forms” of their morphemes. These forms are latent strings that linguists try to reconstruct by hand. We propose to reconstruct them automatically at scale, enabling generalization to new words. Given some surface word types of a concatenative language along with the abstract morpheme sequences that they express, we show how to recover consistent underlying forms for these morphemes, together with the (stochastic) phonology that maps each concatenation of underlying forms to a surface form. Our technique involves loopy belief propagation in a natural directed graphical model whose variables are unknown strings and whose conditional distributions are encoded as finite-state machines with trainable weights. We define training and evaluation paradigms for the task of surface word prediction, and report results on subsets of 7 languages.</span>\
+&nbsp;\          &nbsp;\
+------------------------------------------------------------------------
+
+<span style = "color:white"> dummy </span>
+<span style = "color:white"> dummy </span>
+
+### Past talks
+
 ---------------- ----------------------------------------------------
-June 24, 2016\   <span style = "color:darkgreen">NOTE THE UNUSUAL DAY, TIME & VENUE: Friday, June 24, 2-6pm, room 036, Keplerstr. 2</span>\
-&nbsp;\          <span style = "color:firebrick">Bodo Winter</span> (Merced, Birmingham) &  <span style = "color:firebrick">Andrew Wedel</span> (Arizona)\
-&nbsp;\           "Robustness in phonetic systems: Evidence from phoneme frequencies and iterated learning"
+June 24, 2016\   <span style = "color:firebrick">Bodo Winter</span> (Merced, Birmingham) &  <span style = "color:firebrick">Andrew Wedel</span> (Arizona)\
+&nbsp;\          "Robustness in phonetic systems: Evidence from phoneme frequencies and iterated learning"
 
 &nbsp;\          <span style = "color:gray">When speakers of a language communicate with one another, they frequently do so in noisy and sometimes rapidly changing acoustic environments. Language is structured so as to resist these perturbations. I will present two projects on the robustness of spoken language. First, a typological study showing that languages prefer phonemes that are perceptually distinct. Second, an iterated learning experiment showing how robust movement-to-acoustic mappings change the course of language evolution. Together with computational models, these studies show that languages evolve under communicative pressures to maintain function in spite of noise.</span>\
 &nbsp;\          &nbsp;\
@@ -26,23 +38,11 @@ June 24, 2016\   <span style = "color:darkgreen">NOTE THE UNUSUAL DAY, TIME & VE
 &nbsp;\          <span style = "color:gray">At the level of individual speakers, evidence from natural speech corpora and laboratory investigations shows that the existence of similar lexical items promotes hyperarticulation of phonetic cues that distinguish them. In parallel, at diachronic time-scales evidence suggests that phoneme inventories evolve under the influence of a bias toward maintenance of existing lexico-semantic distinctions. How might these be causally related? Here we present simple exemplar-based simulations that help us explore hypotheses about a general linking mechanism between pressure to maintain lexical contrasts in individual usage events, and maintenance of phonemic contrasts over diachronic time scales. We show that redundancy in sound categories interacts with communicative pressure to modulate ‘cryptic variation’ in sound categories and show that within the model, this sub-phonemic variation shapes future sound change. </span>\
 &nbsp;\          &nbsp;\
 
-
 &nbsp;\          <span style = "color:firebrick">Adam Ussishkin</span> (Arizona)\
 &nbsp;\          "Maltese root priming is morphological, not phonological"\
 &nbsp;\          <span style = "color:gray">click [here](abstracts/001_Ussishkin_17_May_2016.pdf) for abstract</span>\
 &nbsp;\          &nbsp;\
 
-July 4, 2016\    <span style = "color:firebrick">Ryan Cotterell</span> (Johns Hopkins)\
-&nbsp;\           TBA\
-&nbsp;\          &nbsp;\
-------------------------------------------------------------------------
-
-<span style = "color:white"> dummy </span>
-<span style = "color:white"> dummy </span>
-
-### Past talks
-
----------------- ----------------------------------------------------
 June 13, 2016\   <span style = "color:firebrick">Marie-Christine Meyer</span> (Berlin)\
 &nbsp;\           "Structural conditions on implicature computation: The latest news"
 
