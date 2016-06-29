@@ -82,14 +82,14 @@ June 29, 2016\    <span style = "color:firebrick">implicatures of complex senten
 &nbsp;\           Franke et al. (2016) "[Embedded Scalars, Preferred Readings and Prosody](http://www.sfs.uni-tuebingen.de/~mfranke/Papers/FrankeSchlotterbeck_2016_Embedded%20Scalars.pdf)"\
 &nbsp;\           &nbsp;\
 
-**acquisition**   &nbsp;\
+**learning**      &nbsp;\
 &nbsp;\           &nbsp;\
 
-July 6, 2016\     <span style = "color:firebrick">tba</span>\
+July 6, 2016\     <span style = "color:firebrick">cognitive decline vs. life-long learning</span>\
+&nbsp;\           Ramscar et al. (2014) "[The Myth of Cognitive Decline](http://onlinelibrary.wiley.com/doi/10.1111/tops.12078/full)"\
+&nbsp;\           <span style = "color:gray">[presented by Christian Adam]</span>\
 &nbsp;\           &nbsp;\
 
-July 13, 2016\    <span style = "color:firebrick">tba</span>\
-&nbsp;\           &nbsp;\
 
 **fini**          &nbsp;\
 &nbsp;\           &nbsp;\
