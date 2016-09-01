@@ -12,14 +12,8 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Schedule: upcoming talks
 
 
--------------- ----------------------------------------------------
-July 5, 2016\  <span style = "color:steelblue">Note unusual time & venue: Tuesday, July 5, 12-14 ct, Nauklerstrasse 35, seminar room 3rd floor</span>\
-&nbsp;\        <span style = "color:firebrick">Ryan Cotterell</span> (Johns Hopkins)\
-&nbsp;\        "Modeling Word Forms Using Latent Underlying Morphs and Phonology"
+TBA
 
-&nbsp;\        <span style = "color:gray">The observed pronunciations or spellings of words are often explained as arising from the “underlying forms” of their morphemes. These forms are latent strings that linguists try to reconstruct by hand. We propose to reconstruct them automatically at scale, enabling generalization to new words. Given some surface word types of a concatenative language along with the abstract morpheme sequences that they express, we show how to recover consistent underlying forms for these morphemes, together with the (stochastic) phonology that maps each concatenation of underlying forms to a surface form. Our technique involves loopy belief propagation in a natural directed graphical model whose variables are unknown strings and whose conditional distributions are encoded as finite-state machines with trainable weights. We define training and evaluation paradigms for the task of surface word prediction, and report results on subsets of 7 languages.</span>\
-&nbsp;\          &nbsp;\
-------------------------------------------------------------------------
 
 <span style = "color:white"> dummy </span>
 <span style = "color:white"> dummy </span>
@@ -27,6 +21,13 @@ July 5, 2016\  <span style = "color:steelblue">Note unusual time & venue: Tuesda
 ### Past talks
 
 ---------------- ----------------------------------------------------
+July 5, 2016\    <span style = "color:firebrick">Ryan Cotterell</span> (Johns Hopkins)\
+&nbsp;\          "Modeling Word Forms Using Latent Underlying Morphs and Phonology"
+
+&nbsp;\          <span style = "color:gray">The observed pronunciations or spellings of words are often explained as arising from the “underlying forms” of their morphemes. These forms are latent strings that linguists try to reconstruct by hand. We propose to reconstruct them automatically at scale, enabling generalization to new words. Given some surface word types of a concatenative language along with the abstract morpheme sequences that they express, we show how to recover consistent underlying forms for these morphemes, together with the (stochastic) phonology that maps each concatenation of underlying forms to a surface form. Our technique involves loopy belief propagation in a natural directed graphical model whose variables are unknown strings and whose conditional distributions are encoded as finite-state machines with trainable weights. We define training and evaluation paradigms for the task of surface word prediction, and report results on subsets of 7 languages.</span>\
+&nbsp;\          &nbsp;\
+
+
 June 24, 2016\   <span style = "color:firebrick">Bodo Winter</span> (Merced, Birmingham) &  <span style = "color:firebrick">Andrew Wedel</span> (Arizona)\
 &nbsp;\          "Robustness in phonetic systems: Evidence from phoneme frequencies and iterated learning"
 
