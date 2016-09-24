@@ -5,8 +5,8 @@ output:
     theme: cosmo
 ---
 
-### Overview and introduction papers
-
+# Literature
+### Overview and Introduction
 - Wagenmakers, E.-J., Morey, R. D., & Lee, M. D. ([2016](https://osf.io/3tdh9/)). Bayesian benefits for the pragmatic researcher.
    *Current Directions in Psychological Science, 25*, 169-176.
 
@@ -69,7 +69,7 @@ output:
     **This is the Bayesian bible, and thus must be on this list. It requires a sound background in mathematical statistics.**
 
 
-### Blogs and media
+### Blogs and Media
 If you want to be continuously updated, we recommend creating an account on Twitter and following the authors of the papers above.
 Interesting blogs are written by
 
@@ -83,3 +83,34 @@ Interesting blogs are written by
 - [Statistical Modeling, Causal Inference, and Social Science](https://twitter.com/StatModeling), a blog by [Andrew Gelman](https://twitter.com/StatModeling)
 
 
+# Software
+### JASP
+[JASP](https://jasp-stats.org/) offers an intuitive, slick graphical user interface and provides both
+both classical and Bayesian methods. It allows you to save reproducible .jasp files, paste tables in APA
+format into Word, and makes georgeous plots. Some tutorials can be found [here](https://alexanderetz.com/jasp-tutorials/).
+
+### JAGS
+[JAGS](http://mcmc-jags.sourceforge.net/) stands for Just Another Gibbs Sampler and allows specification of
+models in a domain specific language. It is maintained by [Martyn Plummer](https://martynplummer.wordpress.com/).
+
+**Interfaces:**
+
+- [rjags](http://www.johnmyleswhite.com/notebook/2010/08/20/using-jags-in-r-with-the-rjags-package/)
+- [PyJags](https://github.com/tmiasko/pyjags)
+- [matjags](https://github.com/msteyvers/matjags)
+
+### Stan
+[Stan](http://mc-stan.org/) is named after Stanislav Ulam, who invented the of Monte Carlo method of computation.
+Stan is similar in spirit to JAGS, but has a different syntax, works differently under the hood, and has a
+much bigger team of developers; head of the project is [Andrew Gelman](http://andrewgelman.com/).
+
+**Interfaces:**
+
+- [RStan](http://mc-stan.org/interfaces/rstan.html)
+- [PyStan](http://mc-stan.org/interfaces/pystan.html)
+- [MatlabStan](http://mc-stan.org/interfaces/matlab-stan.html)
+
+### rstanarm
+[rstanarm](http://mc-stan.org/interfaces/rstanarm.html) is an R package that allows you to bypass writing Stan code.
+It comes packaged with a few pre-compiled models that can be called with functions that mimick general R functions
+such as stan_lm() and stan_glm().

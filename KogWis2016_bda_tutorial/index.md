@@ -28,7 +28,7 @@ concepts will help to see the bigger picture more clearly.
 
 ## Resources
 
-Click [here](http://michael-franke.github.io/KogWis2016_bda_tutorial/resources.html) for a list of useful resources on Bayesian data analysis: papers, books, software etc.
+Here is a compilation of [texts on Bayesian data analysis](http://michael-franke.github.io/KogWis2016_bda_tutorial/resources.html), and here is a summary of some handy [tools and software](http://michael-franke.github.io/KogWis2016_bda_tutorial/tools.html).
 
 ## schedule (tentative!!)
 
