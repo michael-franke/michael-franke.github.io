@@ -1,5 +1,5 @@
 ---
-title: "Tools for Bayesian data analysis"
+title: "Texts on Bayesian data analysis"
 output:
   html_document:
     theme: cosmo
