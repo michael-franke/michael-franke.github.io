@@ -26,6 +26,10 @@ analysis.
 We do not presuppose any particular knowledge or skills, but familiarity with basic statistical
 concepts will help to see the bigger picture more clearly. 
 
+## Resources
+
+Click [here](http://michael-franke.github.io/KogWis2016_bda_tutorial/resources.html) for a list of useful resources on Bayesian data analysis: papers, books, software etc.
+
 ## schedule (tentative!!)
 
 #### session 1: theory
