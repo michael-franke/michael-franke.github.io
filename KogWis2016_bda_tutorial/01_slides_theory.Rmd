@@ -22,9 +22,34 @@ require('gridExtra')
 require('rstan')
 theme_set(theme_bw() + theme(plot.background=element_blank()) )
 
+HDIofICDF = function( ICDFname , credMass=0.95 , tol=1e-8 , ... ) {
+  # Arguments:
+  #   ICDFname is R's name for the inverse cumulative density function
+  #     of the distribution.
+  #   credMass is the desired mass of the HDI region.
+  #   tol is passed to R's optimize function.
+  # Return value:
+  #   Highest density iterval (HDI) limits in a vector.
+  # Example of use: For determining HDI of a beta(30,12) distribution, type
+  #   HDIofICDF( qbeta , shape1 = 30 , shape2 = 12 )
+  #   Notice that the parameters of the ICDFname must be explicitly named;
+  #   e.g., HDIofICDF( qbeta , 30 , 12 ) does not work.
+  # Adapted and corrected from Greg Snow's TeachingDemos package.
+  incredMass =  1.0 - credMass
+  intervalWidth = function( lowTailPr , ICDFname , credMass , ... ) {
+    ICDFname( credMass + lowTailPr , ... ) - ICDFname( lowTailPr , ... )
+  }
+  optInfo = optimize( intervalWidth , c( 0 , incredMass ) , ICDFname=ICDFname ,
+                      credMass=credMass , tol=tol , ... )
+  HDIlowTailPr = optInfo$minimum
+  return( c( ICDFname( HDIlowTailPr , ... ) ,
+             ICDFname( credMass + HDIlowTailPr , ... ) ) )
+}
+
 pics_folder_path = "//Users/micha/Library/texmf/tex/latex/pics/"
 ```
 
+<!--
 
 ## At a glance
 
@@ -156,4 +181,64 @@ pics_folder_path = "//Users/micha/Library/texmf/tex/latex/pics/"
 - tools for BDA ( JAGS, Stan (rstanarm), WebPPL, Jasp )
     
 - Bayesian cognitive modeling example
+
+
+
+-->
+
+
+# basics
+
+## crucial notions
+
+- probability distribution
+
+- NHST & $p$-value logic
+
+## binomial distribution
+
+- take $N$ flips of a coin with bias $\theta$
+- <span style = "color:firebrick">binomial distribution</span> gives the probability of observing $k$ successes:
+
+$$P(k \mid N, \theta) = {{N}\choose{k}} \theta^{k} \, (1-\theta)^{N - k}$$
+
+- example: $N=24$, $\theta = 0.5$
+
+```{r, echo = FALSE, fig.align='center', fig.width=4, fig.height=3}
+  
+plotData = data.frame(x = 0:24, 
+                      y = dbinom(0:24, 24, 0.5))
+plotData2 = data.frame(x = c(0:7, 17:24),
+                       y = dbinom(c(0:7, 17:24), 24, 0.5))
+myplot = ggplot(plotData, aes(x = x , y = y )) + geom_bar(stat = "identity", fill = "skyblue", width = 0.35)  + xlab("k") + ylab("P(k | N = 24, 0.5)")
+show(myplot)
+
+```
+
+## NHST $p$-value logic
+
+- we observed $k=7$ successes after $N=24$ flips
+
+- <span style = "color:firebrick">null hypothesis</span>: the coin is fair, i.e., $\theta = 0.5$
+
+- the <span style = "color:firebrick">$p$-value</span> of $k=7$ is the probability of observing an outcome that is at least as unlikely as $k=7$ under the null hypothesis
+
+- <span style = "color:firebrick">significance</span>: reject NH if $p$-value is under a predetermined threshold (e.g., 0.05)
+    - non-significance $\neq$ evidence <span style = "font-style: italic">for</span> "the" alternative hypothesis, since no information about any alternative hypothesis is used anywhere
+    
+
+```{r, echo = FALSE, fig.align='center', fig.width=4, fig.height=2.7}
+  
+plotData = data.frame(x = 0:24, 
+                      y = dbinom(0:24, 24, 0.5))
+plotData2 = data.frame(x = c(0:7, 17:24),
+                       y = dbinom(c(0:7, 17:24), 24, 0.5))
+myplot = ggplot(plotData, aes(x = x , y = y )) + geom_bar(stat = "identity", fill = "skyblue", width = 0.35) +
+  geom_bar(data = plotData2, aes(x = x, y = y), stat = "identity", fill = "darkblue", width = 0.35) +
+  geom_hline(yintercept=dbinom(7,24,0.5)) + xlab("k") + ylab("P(k | N = 24, 0.5)") +
+  # geom_text(data.frame(x = 3, y = 0.05, label = paste0("p = " , round(1-sum(dbinom(8:16, 24, 0.5)),3), collapse = "")), aes(x = x, y = y, label = label)) 
+  geom_text(x = 3, y = 0.03, label = paste0("p = " , round(1-sum(dbinom(8:16, 24, 0.5)),3), collapse = ""))
+show(myplot)
+
+```
 
