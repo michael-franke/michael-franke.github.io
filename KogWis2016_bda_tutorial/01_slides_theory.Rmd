@@ -1,0 +1,159 @@
+---
+title: "Bayesian data analysis"
+subtitle: "Ideas, practices & tools"
+author: "Michael Franke & Fabian Dablander"
+runtime: shiny
+output:
+  ioslides_presentation:
+    css: mistyle.css
+    smaller: yes
+    transition: faster
+---
+```{r setup, include=FALSE, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE, dev.args = list(bg = 'transparent'), fig.align='center')
+require('ggplot2')
+require('reshape2')
+require('coda')
+require('ggmcmc')
+require('rjags')
+require('runjags')
+require('dplyr')
+require('gridExtra')
+require('rstan')
+theme_set(theme_bw() + theme(plot.background=element_blank()) )
+
+pics_folder_path = "//Users/micha/Library/texmf/tex/latex/pics/"
+```
+
+
+## At a glance
+
+- BDA is about what we *should* believe given:
+    - some observable data, and
+    - our model of how this data was generated.
+- Our best friend will be <span style = "color:firebrick">Bayes rule</span>:
+     $$\underbrace{P(\theta \, | \, D)}_{posterior} \propto \underbrace{P(\theta)}_{prior} \times \underbrace{P(D \, | \, \theta)}_{likelihood}$$
+- If $P(\theta \, | \, D)$ is hard to compute, we resort to ~~magic~~ some clever stuff.
+
+<div align = 'center'>
+  <img src="//Users/micha/Library/texmf/tex/latex/pics/bayes.png" alt="reverendB" style="width: 400px;"/>
+</div>
+
+## Example: coin flips
+
+- $\theta \in [0;1]$ is the bias of a coin:
+    - if we throw a coin, the outcome will be heads with probability $\theta$
+- we have no clue about $\theta$ at the outset:
+    - *a priori* we consider every possible value of $\theta$ equally likely
+- we observe that 7 out of 24 flips 7 were heads
+- what shall we believe about $\theta$ now?
+
+```{r, echo=FALSE, fig.width = 5.5, fig.height = 3, dev.args = list(bg = 'transparent'), fig.align='center'}
+  require(ggplot2, quietly = T)
+  require(reshape2, quietly = T)
+  x = seq(0,1, length.out = 1000)
+  prior = dbeta(x, 1, 1)
+  posterior = dbeta(x, 8, 18)
+  df =data.frame(x = x, prior = prior, posterior = posterior)
+  df = melt(df, id.vars = c("x"))
+  ggplot(df, aes(x = x, y = value, color = variable)) + geom_line() + xlab("theta") + ylab("our level of credence") + theme(plot.background=element_blank())
+```
+
+## "Classical statistics"
+
+- <span style = "color:firebrick">null hypothesis significance testing</span> (NHST)
+    - e.g., is the coin fair ($\theta = 0.5$)
+- signals if the NH should be rejected
+    - not: how likely it is or if it is to be accepted
+- relies on sampling distributions & p-values
+    - standard "tests" can have rigid built-in assumptions
+    - implicitly rely on experimenter's intentions
+- looks at point estimates only
+
+<div align = 'center'>
+  <img src="//Users/micha/Library/texmf/tex/latex/pics/significance.gif" alt="significance" style="width: 300px;"/>
+</div>
+
+## Pros & Cons of BDA {.columns-2} 
+
+### Pro
+
+- well-founded & totally general
+- easily extensible / customizable
+- more informative / insightful
+
+<img src="https://metrouk2.files.wordpress.com/2014/02/10667_front_11.jpg" alt="Drawing" style="width: 350px;"/>
+
+### Con
+
+- less ready-made, thinking required
+- not yet fully digested by community
+- higher computational complexity
+
+<div style="text-align: center">
+<img src="//Users/micha/Desktop/data/svn/ProComPrag/teachings/bda+cm2015/slides/pics/minorthreat.jpg" alt="Drawing2" style="width: 210px;"/>
+</div>
+
+
+## 3 times Bayes
+
+
+<span style = "color:white"> &nbsp; </span>
+
+1. **Bayesian data analysis**
+    - Bayesian analogues or alternatives to "classical" tests
+    
+<span style = "color:white"> &nbsp; </span>
+
+
+2. **Bayesian (cognitive) modeling**
+    - custom models of the data-generating process
+    
+<span style = "color:white"> &nbsp; </span>    
+    
+3. **Bayes in the head**
+    - model (human) cognition as Bayesian inference
+
+## Goals of this course
+
+<span style = "color:white"> &nbsp; </span>
+
+- to understand basic ideas of BDA (contrast with NHST)
+
+<span style = "color:white"> &nbsp; </span>
+
+
+- to be able to read current literature on BDA
+    - [further reading suggestions on BDA](http://michael-franke.github.io/KogWis2016_bda_tutorial/resources.html)
+
+<span style = "color:white"> &nbsp; </span>
+
+- to be able to start using tools for BDA
+    - [pointers to useful tools for BDA](http://michael-franke.github.io/KogWis2016_bda_tutorial/tools.html)
+
+<span style = "color:white"> &nbsp; </span>
+
+- to see how BDA blends seamlessly into cognitive modeling
+
+## The road ahead
+
+<span style = "color:firebrick">theory</span>
+
+- posterior inference & credible values
+
+- Bayes factors & model comparison
+
+- model criticism & Bayesian $p$-values
+
+- Bayesian cousins of $t$-test & regression
+
+<span style = "color:white"> &nbsp; </span>
+
+<span style = "color:firebrick">practice</span>
+
+- basics of MCMC sampling
+
+- tools for BDA ( JAGS, Stan (rstanarm), WebPPL, Jasp )
+    
+- Bayesian cognitive modeling example
+

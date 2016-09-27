@@ -39,6 +39,8 @@ Here is a compilation of [texts on Bayesian data analysis](http://michael-franke
     - $p$-values & null-hypothesis significance testing
 - Bayes rule for data analysis
     - priors, likelihoods and posteriors
+    - credible intervals (a.k.a. highest density intervals)
+    - conjugate priors
 - Bayesian inference for complex models
     - statistical models as directed acyclic graphs
     - hierarchical models
