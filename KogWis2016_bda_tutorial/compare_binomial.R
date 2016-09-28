@@ -26,13 +26,13 @@ HDIofICDF = function( ICDFname , credMass=0.95 , tol=1e-8 , ... ) {
 
 
 
-compare_binomial_fixed_N = function(N, bprior = 0.5) {
+compare_binomial_fixed_N = function(N, p_nh = 0.5, a = 0.5, b = 0.5) {
   # bprior gives prior shape; defaults to Jeffreys' priors
   x = 0:N
-  pValues = sapply(1:length(x), function(i) binom.test(x[i], N)$p.value)
-  HDImin = sapply(1:length(x), function(i) HDIofICDF(qbeta, shape1 = x[i] + bprior, shape2 = N - x[i] + bprior)[1])
-  HDImax = sapply(1:length(x), function(i) HDIofICDF(qbeta, shape1 = x[i] + bprior, shape2 = N - x[i] + bprior)[2])
-  BFValues = sapply(1:length(x), function(i) dbeta(0.5, x[i]+bprior, N-x[i] + bprior) / dbeta(0.5, bprior, bprior))
+  pValues = sapply(1:length(x), function(i) binom.test(x[i], N, p = p_nh)$p.value)
+  HDImin = sapply(1:length(x), function(i) HDIofICDF(qbeta, shape1 = x[i] + a, shape2 = N - x[i] + b)[1])
+  HDImax = sapply(1:length(x), function(i) HDIofICDF(qbeta, shape1 = x[i] + a, shape2 = N - x[i] + b)[2])
+  BFValues = sapply(1:length(x), function(i) dbeta(p_nh, x[i]+a, N-x[i] + b) / dbeta(p_nh, a, b))
   results_binomial = data.frame(
     N = rep(N, N+1),
     k = 0:N,
@@ -45,40 +45,47 @@ compare_binomial_fixed_N = function(N, bprior = 0.5) {
   return(results_binomial)
 }
 
-compare_binomial = function(NList = c(10, 50, 100, 1000), bprior = 0.5){
-  results = compare_binomial_fixed_N(NList[1], bprior)
-  if(length(NList)>=1) {
+compare_binomial = function(NList = c(10, 50, 100, 1000), p_true = 0.5, p_nh = 0.5, a = 0.5, b = 0.5, ROPE = 0.01){
+  results = compare_binomial_fixed_N(NList[1], p_nh, a, b)
+  if (length(NList) > 1) {
     for (i in 2:length(NList)) {
-      results = rbind(results, compare_binomial_fixed_N(NList[i], bprior))
+      results = rbind(results, compare_binomial_fixed_N(NList[i], p_nh, a, b))
     }
   }
-  return(results)
+  results = results %>% mutate(pdecision = ifelse(pValue <= 0.05, "H1", "H0"),
+                               BFdecision = ifelse(BFValue >= 6, "H0",
+                                                   ifelse(BFValue <= 1/6, "H1", "??")),
+                               ROPEdecision = ifelse( p_nh+ROPE < HDImin | p_nh-ROPE > HDImax , "H1",
+                                                      ifelse( (HDImin <= p_nh-ROPE & HDImax >= p_nh+ROPE) |
+                                                                (HDImin >= p_nh-ROPE & HDImax >= p_nh+ROPE), "H0", "??"))) %>%
+                      mutate(frequency = dbinom(k, N, prob = p_true))
+  return(list(full_results = results,
+              result_frequencies = 
+           rbind(results %>% group_by(N, BFdecision) %>% rename(decision = BFdecision) %>% 
+                   summarize(frequency = sum(frequency)) %>% mutate(rule = "BF") %>% melt(measure.vars = "frequency"),
+                 results %>% group_by(N, pdecision) %>% rename(decision = pdecision) %>% 
+                   summarize(frequency = sum(frequency)) %>% mutate(rule = "p-value") %>% melt(measure.vars = "frequency"),
+                 results %>% group_by(N, ROPEdecision) %>% rename(decision = ROPEdecision) %>% 
+                   summarize(frequency = sum(frequency)) %>% mutate(rule = "ROPE") %>% melt(measure.vars = "frequency"))))
 }
 
-results = compare_binomial(NList = c(10, 50, 100, 1000, 5000, 10000))
+results = compare_binomial(NList = c(50, 100, 500, 1000, 5000, 10000, 50000, 100000))
+rf = results$result_frequencies
+result_freq_plot = ggplot(rf, aes(x = log(N), y = value)) +
+  geom_point(data = filter(rf, rule == "BF"), aes(y = value, shape = decision, color = "BF")) +
+  geom_point(data = filter(rf, rule == "p-value"), aes(y = value, shape = decision, color = "p-value")) +
+  geom_point(data = filter(rf, rule == "ROPE"), aes(y = value, shape = decision, color = "ROPE")) +
+  geom_line(data = filter(rf, rule == "BF"), aes(y = value, group = decision, color = rule)) +
+  geom_line(data = filter(rf, rule == "p-value"), aes(y = value, group = decision, color = rule)) +
+  geom_line(data = filter(rf, rule == "ROPE"), aes(y = value, group = decision, color = rule)) +
+  theme(legend.title=element_blank())
+show(result_freq_plot)
 
-ROPE = 0
-results = results %>% mutate(pdecision = ifelse(pValue <= 0.05, "significant", "non-significant"),
-                             BFdecision = ifelse(BFValue >= 6, "H0",
-                                           ifelse(BFValue <= 1/6, "H1", "??")),
-                             ROPEdecision = ifelse(min(abs(HDImaxabs(HDImin - 0.5) <= ROPE, "H1",
-                                                   ifelse(HDImax <= 0.5-ROPE, "H0", "??"))
-                             )
-                             
-get_frequencies = function(results, true_prob = 0.5) {
-  results = mutate(results, frequency = dbinom(k, N, prob = true_prob))
-  case_probs = results %>% group_by(BFdecision, pdecision, ROPEdecision) %>%
-    summarize(frequency = sum(frequency)/nlevels(factor(results$N)))
-  return(case_probs)
-}
+plot_results = filter(results$full_results, BFValue < 8 & pValue < 0.2) %>% mutate(N = factor(N))
 
-frequencies = get_frequencies(results, true_prob = 0.5)
-show(frequencies)
-
-plot_results = filter(results, BFValue < 8 & pValue < 0.2)
-
-myplot = qplot(pValue, BFValue, data = plot_results, color = factor(N)) + 
+myplot = qplot(pValue, BFValue, data = plot_results, color = N) + 
   geom_vline(xintercept = 0.05, color = "firebrick") +
-  geom_hline(yintercept = 1/6, color = "firebrick")
+  geom_hline(yintercept = 1/6, color = "firebrick") +
+  geom_hline(yintercept = 6, color = "firebrick")
 show(myplot)
 
