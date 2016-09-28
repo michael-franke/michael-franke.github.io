@@ -49,7 +49,6 @@ HDIofICDF = function( ICDFname , credMass=0.95 , tol=1e-8 , ... ) {
 pics_folder_path = "//Users/micha/Library/texmf/tex/latex/pics/"
 ```
 
-<!--
 
 ## At a glance
 
@@ -61,7 +60,7 @@ pics_folder_path = "//Users/micha/Library/texmf/tex/latex/pics/"
 - If $P(\theta \, | \, D)$ is hard to compute, we resort to ~~magic~~ some clever stuff.
 
 <div align = 'center'>
-  <img src="//Users/micha/Library/texmf/tex/latex/pics/bayes.png" alt="reverendB" style="width: 400px;"/>
+  <img src="//Users/micha/Library/texmf/tex/latex/pics/Bayes.png" alt="reverendB" style="width: 400px;"/>
 </div>
 
 ## Example: coin flips
@@ -183,17 +182,7 @@ pics_folder_path = "//Users/micha/Library/texmf/tex/latex/pics/"
 - Bayesian cognitive modeling example
 
 
-
--->
-
-
-# basics
-
-## crucial notions
-
-- probability distribution
-
-- NHST & $p$-value logic
+# NHST & $p$-value logic
 
 ## binomial distribution
 
@@ -204,13 +193,13 @@ $$P(k \mid N, \theta) = {{N}\choose{k}} \theta^{k} \, (1-\theta)^{N - k}$$
 
 - example: $N=24$, $\theta = 0.5$
 
-```{r, echo = FALSE, fig.align='center', fig.width=4, fig.height=3}
+```{r, echo = FALSE, fig.align='center', fig.width=4, fig.height=2.7}
   
 plotData = data.frame(x = 0:24, 
                       y = dbinom(0:24, 24, 0.5))
 plotData2 = data.frame(x = c(0:7, 17:24),
                        y = dbinom(c(0:7, 17:24), 24, 0.5))
-myplot = ggplot(plotData, aes(x = x , y = y )) + geom_bar(stat = "identity", fill = "skyblue", width = 0.35)  + xlab("k") + ylab("P(k | N = 24, 0.5)")
+myplot = ggplot(plotData, aes(x = x , y = y )) + geom_bar(stat = "identity", fill = "skyblue", width = 0.35)  + xlab("k") + ylab("P(k | N = 24, theta = 0.5)")
 show(myplot)
 
 ```
@@ -221,10 +210,9 @@ show(myplot)
 
 - <span style = "color:firebrick">null hypothesis</span>: the coin is fair, i.e., $\theta = 0.5$
 
-- the <span style = "color:firebrick">$p$-value</span> of $k=7$ is the probability of observing an outcome that is at least as unlikely as $k=7$ under the null hypothesis
+- the <span style = "color:firebrick">$p$-value</span> of $k=7$ is the probability of observing an outcome that is at least as unlikely as $k=7$ under the NH in infinite repetitions of the experiment
 
 - <span style = "color:firebrick">significance</span>: reject NH if $p$-value is under a predetermined threshold (e.g., 0.05)
-    - non-significance $\neq$ evidence <span style = "font-style: italic">for</span> "the" alternative hypothesis, since no information about any alternative hypothesis is used anywhere
     
 
 ```{r, echo = FALSE, fig.align='center', fig.width=4, fig.height=2.7}
@@ -235,10 +223,338 @@ plotData2 = data.frame(x = c(0:7, 17:24),
                        y = dbinom(c(0:7, 17:24), 24, 0.5))
 myplot = ggplot(plotData, aes(x = x , y = y )) + geom_bar(stat = "identity", fill = "skyblue", width = 0.35) +
   geom_bar(data = plotData2, aes(x = x, y = y), stat = "identity", fill = "darkblue", width = 0.35) +
-  geom_hline(yintercept=dbinom(7,24,0.5)) + xlab("k") + ylab("P(k | N = 24, 0.5)") +
+  geom_hline(yintercept=dbinom(7,24,0.5)) + xlab("k") + ylab("P(k | N = 24, theta = 0.5)") +
   # geom_text(data.frame(x = 3, y = 0.05, label = paste0("p = " , round(1-sum(dbinom(8:16, 24, 0.5)),3), collapse = "")), aes(x = x, y = y, label = label)) 
   geom_text(x = 3, y = 0.03, label = paste0("p = " , round(1-sum(dbinom(8:16, 24, 0.5)),3), collapse = ""))
 show(myplot)
 
 ```
 
+## negative binomial distribution
+
+- flip a coin with bias $\theta$ until we have observed $k$ successes
+- <span style = "color:firebrick">negative binomial distribution</span> gives the probability of observing $k$ successes:
+
+$$P(N \mid k, \theta) = \frac{z}{N} {{N}\choose{k}} \theta^{k} \, (1-\theta)^{N - k}$$
+
+- example: $k=7$, $\theta = 0.5$
+
+```{r, echo = FALSE, fig.align='center', fig.width=4, fig.height=2.7}
+
+negBinom <- function(k, N, theta) {
+  sapply(1:length(k), function(x) k[x]/N * dbinom(k[x], N, theta))
+}
+  
+plotData = data.frame(x = 7:35, 
+                      y = negBinom(7, 7:35, 0.5))
+plotData2 = data.frame(x = 24:35,
+                       y = negBinom(7, 24:35, 0.5))
+myplotNB = ggplot(plotData, aes(x = x , y = y )) + geom_bar(stat = "identity", fill = "skyblue", width = 0.35) +
+  # geom_bar(data = plotData2, aes(x = x, y = y), stat = "identity", fill = "darkblue", width = 0.35) +
+  # geom_hline(yintercept=7/24*dbinom(7,24,0.5)) + xlab("N") + 
+  ylab("P(N | k = 7, theta = 0.5)")
+  # geom_text(data.frame(x = 3, y = 0.05, label = paste0("p = " , round(1-sum(dbinom(8:16, 24, 0.5)),3), collapse = "")), aes(x = x, y = y, label = label)) 
+  # geom_text(x = 30, y = 0.015, label = paste0("p = " , round(1-sum(negBinom(7, 7:23, 0.5)),3), collapse = ""))
+show(myplotNB)
+
+```
+
+## another $p$-value for the same data set
+
+- we observed $N=24$ flips for a success count of $k=7$
+    - NB: same data set as before but obtained differently
+
+```{r, echo = FALSE, fig.align='center', fig.width=4, fig.height=2.7}
+
+negBinom <- function(k, N, theta) {
+  sapply(1:length(k), function(x) k[x]/N * dbinom(k[x], N, theta))
+}
+  
+plotData = data.frame(x = 7:35, 
+                      y = negBinom(7, 7:35, 0.5))
+plotData2 = data.frame(x = 24:35,
+                       y = negBinom(7, 24:35, 0.5))
+myplot = ggplot(plotData, aes(x = x , y = y )) + geom_bar(stat = "identity", fill = "skyblue", width = 0.35) +
+  geom_bar(data = plotData2, aes(x = x, y = y), stat = "identity", fill = "darkblue", width = 0.35) +
+  geom_hline(yintercept=7/24*dbinom(7,24,0.5)) + xlab("N") + ylab("P(N | k = 7, theta = 0.5)") +
+  # geom_text(data.frame(x = 3, y = 0.05, label = paste0("p = " , round(1-sum(dbinom(8:16, 24, 0.5)),3), collapse = "")), aes(x = x, y = y, label = label)) 
+  geom_text(x = 30, y = 0.015, label = paste0("p = " , round(1-sum(negBinom(7, 7:23, 0.5)),3), collapse = ""))
+show(myplot)
+
+```
+
+## some properties of $p$-value NHST
+
+<span style = "color:white"> &nbsp; </span>
+
+- hinges on a what it means to repeat the experiment
+    - "model" = data-generating (e.g., psychological) + data-collecting processes
+
+<span style = "color:white"> &nbsp; </span>
+
+- non-significance $\neq$ evidence <span style = "font-style: italic">for</span> "the" alternative hypothesis
+    - no information about any alternative hypothesis is used anywhere
+    
+<span style = "color:white"> &nbsp; </span>
+
+- significance $\neq$ evidence <span style = "font-style: italic">for</span> NH
+    - evidence is a relative notion: shifting plausibility between hypotheses
+
+  
+
+
+# Bayesian basics
+
+## key notions
+
+<span style = "color:firebrick">conditional probability</span>:
+
+$$P(X \, | \, Y) = \frac{P(X \cap Y)}{P(Y)}$$
+
+<span style = "color:firebrick">Bayes rule</span>: 
+
+$$P(X \, | \, Y) = \frac{P(X) \times P(Y \, | \, X)}{P(Y)}$$
+
+<span style = "color:firebrick">Bayes rule for data analysis</span>:
+
+$$\underbrace{P(\theta \, | \, D)}_{posterior} = \frac{\overbrace{P(\theta)}^{prior} \times \overbrace{P(D \, | \, \theta)}^{likelihood}}{\underbrace{P(D)}_{evidence}}$$
+
+## Bayes rule in multi-D
+
+<!---
+|  | blond | brown | red | black
+:---:|:---:|:---:|:---:|:---:|
+blue  | 0.03 | 0.09 | 0.04 | 0.04 |
+green | 0.09 | 0.02 | 0 | 0.05 |
+brown | 0.09 | 0.41 | 0.01 | 0.13 |
+--->
+
+```{r, echo = FALSE, message = FALSE}
+  # require('gtools')
+  # x = matrix(rdirichlet(1, rep(1, 12)), nrow = 3)
+  x = matrix(c(0.03, 0.09, 0.04, 0.04, 0.09, 0.02, 0, 0.05, 0.09, 0.41, 0.01, 0.13), nrow = 3)
+  rownames(x) = c("blue", 'green', 'brown')
+  colnames(x) = c("blond", 'brown', 'red', 'black')
+```
+
+<span style = "color:firebrick">joint probability distribution</span> as two-dimensional matrix:
+
+```{r, echo = FALSE}
+  show(round(x,3))
+```
+
+<span style = "color:firebrick">marginal distribution</span> over eye color:
+
+```{r, echo = FALSE}
+  rowSums(x)
+```
+
+<span style = "color:firebrick">conditional probability</span> given black hair:
+
+```{r, echo = FALSE}
+  round(x[,4] / sum(x[,4]),2)
+```
+
+## model = prior & likelihood
+
+model of a coin flip:
+
+- bias $\theta$ is the probability of heads on a single trial
+- we consider five possibilities $\theta \in \{0, \frac{1}{3}, \frac{1}{2}, \frac{2}{3}, 1\}$
+- flat prior beliefs: $P(\theta) = .2\,, \forall \theta$
+
+model likelihood $P(D \, | \, \theta)$:
+
+```{r, echo = FALSE}
+  x = matrix(c(0, 1, 1/3, 2/3, 1/2, 1/2, 2/3, 1/3, 1, 0), nrow = 2)
+  rownames(x) = c("heads", 'tails')
+  colnames(x) = c("t=0", "t=1/3", "t=1/2", "t=2/3", "t=1")
+  show(round(x,2))
+```
+
+weighing in $P(\theta)$ gives joint-probability distribution as 2d matrix:
+
+```{r, echo = FALSE}
+  y = x * 0.2
+  show(round(y,2))
+```
+
+
+## Bayesian inference
+
+<span style = "color:firebrick">Bayes rule</span>: $P(\theta \, | \, D) \propto P(\theta) \times P(D \, | \, \theta)$
+
+```{r, echo = FALSE}
+  show(round(y,2))
+```
+
+
+<span style = "color:firebrick">posterior probability</span> $P(\theta \, | \, \text{heads})$ after a toss with heads:
+
+```{r, echo = FALSE}
+  posterior = y[1,]/sum(y[1,])
+  show(round(posterior,2))
+```
+
+```{r, echo = FALSE, fig.width = 5.5, fig.height = 2.75, dev.args = list(bg = 'transparent'), fig.align='center'}
+  plotData = data.frame(prior = rep(0.2,5), posterior = posterior, theta = c(0, 1/3, 0.5, 2/3, 1))
+  plotData = melt(plotData, id.vars = c("theta") ) %>% rename(distribution = variable)
+  myplot = ggplot(plotData, aes(x = theta, y = value, color = distribution )) + geom_point() + geom_line() + theme(plot.background=element_blank()) + ylab("probability")
+  show(myplot)
+```
+
+## generalized model of coin flips
+
+- inifinite parameter space $\theta \in [0;1]$
+
+- likelihood of observing $k$ successes, given $N$ flips, is <span style = "color:firebrick">binomial distribution</span>:
+
+$$P(k \mid N, \theta) = {{N}\choose{k}} \theta^{k} \, (1-\theta)^{N - k}$$
+
+- example of a <span style = "color:firebrick">data-generating model</span>:
+
+<div align = 'center'>
+  <img src="//Users/micha/Desktop/data/svn/ProComPrag/teachings/bda+cm2015/slides/pics/modelGraphs/basic_binom_withN.jpg" alt="modelGraph" style="width: 400px;"/>
+</div>
+
+## examples
+
+<span style = "color:firebrick">uniform prior</span>: $\theta \sim Beta(1,1)$
+
+```{r, echo = FALSE, fig.width = 5.5, fig.height = 2.75, dev.args = list(bg = 'transparent'), fig.align='center'}
+  x = seq(0,1,length.out = 250)
+  plotData = data.frame(theta = x,
+                        prior = dbeta(x,1,1),
+                        k1N1 = dbeta(x,2,1),
+                        k1N2 = dbeta(x,2,2),
+                        k2N3 = dbeta(x,3,2),
+                        k3N4 = dbeta(x,4,2))
+  plotData = melt(plotData, id.vars = c("theta")) %>% rename(distribution = variable)
+  myplot = ggplot(plotData, aes(x = theta, y = value, color = distribution, linetype = distribution  )) + 
+    geom_line(size = 1) + theme(plot.background=element_blank()) + ylab("probability")
+  show(myplot)
+```
+
+
+## examples
+
+<span style = "color:firebrick">prior biased towards successes</span>: $\theta \sim Beta(7,3)$
+
+```{r, echo = FALSE, fig.width = 5.5, fig.height = 2.75, dev.args = list(bg = 'transparent'), fig.align='center'}
+  x = seq(0,1,length.out = 250)
+  plotData = data.frame(theta = x,
+                        prior = dbeta(x,7,3),
+                        k1N1 = dbeta(x,8,3),
+                        k1N2 = dbeta(x,8,4),
+                        k2N3 = dbeta(x,9,4),
+                        k3N4 = dbeta(x,10,4))
+  plotData = melt(plotData, id.vars = c("theta")) %>% rename(distribution = variable)
+  myplot = ggplot(plotData, aes(x = theta, y = value, color = distribution, linetype = distribution  )) + 
+    geom_line(size = 1) + theme(plot.background=element_blank()) + ylab("probability")
+  show(myplot)
+```
+
+## examples
+
+<span style = "color:firebrick">prior biased towards losses</span>: $\theta \sim Beta(3,7)$
+
+```{r, echo = FALSE, fig.width = 5.5, fig.height = 2.75, dev.args = list(bg = 'transparent'), fig.align='center'}
+  x = seq(0,1,length.out = 250)
+  plotData = data.frame(theta = x,
+                        prior = dbeta(x,3,7),
+                        k1N1 = dbeta(x,4,7),
+                        k1N2 = dbeta(x,4,8),
+                        k2N3 = dbeta(x,5,8),
+                        k3N4 = dbeta(x,6,8))
+  plotData = melt(plotData, id.vars = c("theta")) %>% rename(distribution = variable)
+  myplot = ggplot(plotData, aes(x = theta, y = value, color = distribution, linetype = distribution )) + 
+    geom_line(size = 1) + theme(plot.background=element_blank()) + ylab("probability")
+  show(myplot)
+```
+
+# estimation <br> comparison <br> criticism
+
+## outlook
+
+<span style = "color:firebrick">model criticism</span>: is my model any good?
+
+- $p$-values
+    - prior, posterior and classical
+- posterior predictive checks
+
+<span style = "color:firebrick">parameter estimation</span>: what to conclude from the data given the model?
+
+- maximum likelihood
+- full Bayesian inference
+- credible intervals
+
+<span style = "color:firebrick">model comparison</span>: which of several models is better?
+
+- information criteria
+- Bayes factors
+
+
+# estimation
+
+## credible interval
+
+For distribution $P(x)$ over $X$, the <span style = "color:firebrick">95% credible interval</span> is a subset $Y \subseteq X$ such that:
+
+1. $P(Y) = .95$, and
+2. no point outside of $Y$ is more likely than any point within.
+
+<span style = "color:white"> dummy </span>
+
+Intuition: range of values we are justified to belief in (categorically).
+
+## examples
+
+<div class = "centered">
+<img src="//Users/micha/Desktop/data/svn/ProComPrag/teachings/bda+cm2015/slides/pics/Kruschke_Fig4_5_HDIExamples.png" alt="KruschkeFig5.3" style="width: 370px;"/>
+</div>
+
+## posterior credible $\theta$'s
+
+- <span style = "color:firebrick">observation</span>: $k = 7$, $N = 24$
+- <span style = "color:firebrick">model</span>:
+    - $\theta \sim Beta(1,1)$
+    - $P(k) \sim Binomial(k,N)$
+- <span style = "color:firebrick">posterior</span>: $P(\theta \mid k=7, N = 24)$
+
+```{r, echo = FALSE, results='hide', warning=FALSE, message=FALSE, fig.width = 5.5, fig.height = 2.75}
+plotData = data.frame(theta = seq(0.01,1, by = 0.01),
+                      post = dbeta(seq(0.01,1, by = 0.01), 8, 18 ))
+hdi = HDIofICDF( qbeta , shape1 = 8 , shape2 = 18 )
+hdiData = data.frame(theta = rep(hdi, each = 2),
+                     post = c(0,dbeta(hdi, 8, 18), 0))
+ggplot(plotData, aes(x = theta, y = post)) + xlim(0,1) + geom_line(color = "black") + ylab("posterior") +
+  geom_line(data = hdiData, aes(x = theta, y = post), color = "firebrick", size = 1) +
+  geom_text(x = mean(hdi), y = 1, label = "HDI: 0.14 - 0.48")
+
+```
+
+## ROPEs and credible values
+
+<span style = "color:firebrick">regions of practical equivalence (ROPE)</span>
+
+- small regions $[\theta - \epsilon, \theta + \epsilon]$ around each $\theta$
+    - values (practically) indistinguishable from $\theta$
+  
+<span style = "color:firebrick">credible values</span>
+
+- value $\theta$ is <span style = "color:firebrick">rejectable</span> if its ROPE lies entirely outside of posterior HDI
+- value $\theta$ is <span style = "color:firebrick">believable</span>
+ if its ROPE lies entirely whithin posterior HDI
+
+## anything goes
+
+- estimation of $P(\theta \mid D)$ is independent of assumptions about sample space and sample procedure
+- any normalizing constant $X$ cancels out:
+
+$$
+\begin{align*}
+P(\theta \mid D) & = \frac{P(\theta) \ P(D \mid \theta)}{\int_{\theta'} P(\theta') \ P(D \mid \theta')} \\
+& = \frac{ \frac{1}{X} \ P(\theta) \ P(D \mid \theta)}{ \ \frac{1}{X}\ \int_{\theta'} P(\theta') \ P(D \mid \theta')} \\
+& = \frac{P(\theta) \ \frac{1}{X}\ P(D \mid \theta)}{  \int_{\theta'} P(\theta') \ \frac{1}{X}\ P(D \mid \theta')}
+\end{align*}
+$$
