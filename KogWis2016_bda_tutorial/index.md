@@ -34,32 +34,22 @@ Here is a compilation of [texts on Bayesian data analysis](http://michael-franke
 
 #### session 1: theory
 
-- basic notions (very briefly)
-    - (conditional) probability, marginal probability, etc.
-    - $p$-values & null-hypothesis significance testing
+- $p$-values & null-hypothesis significance testing
 - Bayes rule for data analysis
-    - priors, likelihoods and posteriors
-    - credible intervals (a.k.a. highest density intervals)
-    - conjugate priors
+- things to do with data and models:
+    - parameter estimation
+        - credible intervals (a.k.a. highest density intervals)
+        - region of practical equivalence
+    - model comparison
+        - information criteria
+        - Bayes factors
+        - Savage-Dickey method
+- comparison of methods for null-hypothesis testing
+
+#### session 2: practice
 - Bayesian inference for complex models
     - statistical models as directed acyclic graphs
     - hierarchical models
-- things to do with data and models:
-    - parameter inference
-    - model comparison 
-    - model criticism
-    - prediction
-- key properties of Bayesian data analysis:
-    - independence of sampling procedure but dependence on prior
-        - leads to: built-in regularization
-        - allows: sequential testing
-    -  principled model comparison (Bayes factor)
-        - allows: quantify evidence in favor of null hypothesis
-        - potential problem: Jeffreys-Lindley paradox
-    - fully general \& freely extensible
-        - allows: custom made (cognitive) models of data-generating process
-
-#### session 2: practice
 - Sampling based approaches to estimation
     - Monte carlo principle & Markov Chains
     - Gibbs sampling

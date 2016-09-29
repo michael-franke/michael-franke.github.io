@@ -1,3 +1,8 @@
+library(dplyr)
+library(reshape2)
+library(ggplot2)
+
+
 ## helper functions
 
 HDIofICDF = function( ICDFname , credMass=0.95 , tol=1e-8 , ... ) {
@@ -69,16 +74,19 @@ compare_binomial = function(NList = c(10, 50, 100, 1000), p_true = 0.5, p_nh = 0
                    summarize(frequency = sum(frequency)) %>% mutate(rule = "ROPE") %>% melt(measure.vars = "frequency"))))
 }
 
-results = compare_binomial(NList = c(50, 100, 500, 1000, 5000, 10000, 50000, 100000))
+results = compare_binomial(NList = c(10, 100, 1000, 10000, 100000))
+
+save(results, file = "results_binomial_comparison.Rdata")
+
 rf = results$result_frequencies
-result_freq_plot = ggplot(rf, aes(x = log(N), y = value)) +
+result_freq_plot = ggplot(rf, aes(x = N, y = value)) + scale_x_log10() +
   geom_point(data = filter(rf, rule == "BF"), aes(y = value, shape = decision, color = "BF")) +
   geom_point(data = filter(rf, rule == "p-value"), aes(y = value, shape = decision, color = "p-value")) +
   geom_point(data = filter(rf, rule == "ROPE"), aes(y = value, shape = decision, color = "ROPE")) +
   geom_line(data = filter(rf, rule == "BF"), aes(y = value, group = decision, color = rule)) +
   geom_line(data = filter(rf, rule == "p-value"), aes(y = value, group = decision, color = rule)) +
   geom_line(data = filter(rf, rule == "ROPE"), aes(y = value, group = decision, color = rule)) +
-  theme(legend.title=element_blank())
+  theme(legend.title=element_blank()) + theme_set(theme_grey() + theme(plot.background=element_blank()) )
 show(result_freq_plot)
 
 plot_results = filter(results$full_results, BFValue < 8 & pValue < 0.2) %>% mutate(N = factor(N))

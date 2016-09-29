@@ -504,6 +504,19 @@ $$P(k \mid N, \theta) = {{N}\choose{k}} \, \theta^{k} \, (1-\theta)^{N - k}$$
     - prior, posterior and classical
 - posterior predictive checks
 
+## preview
+
+|    | estimation | comparison | criticism
+|:---|:---:|:---:|:---:|
+|goal | which $\theta$, given $M$ & $D$? | which better: $M_0$ or $M_1$? | $M$ good model of $D$?
+| method | Bayes rule | Bayes factor | $p$-value
+|no. of models | 1 | 2 | 1
+|$H_0$ | subset of $\theta$  | $P(\theta \mid M_0), P(D \mid \theta, M_0)$ | $P(\theta), P(D \mid \theta)$
+|$H_1$ | ---  | $P(\theta \mid M_1), P(D \mid \theta, M_1)$ | ---
+| prerequisites | $P(\theta), \alpha \times P(D \mid \theta)$  | --- | test statistic
+| pros | lean, easy | intuitive, plausible, Ockham's razor | absolute
+| cons | vagueness in ROPE | prior dependence, computational load | sample space?
+
 # estimation
 
 ## credible interval
@@ -677,4 +690,221 @@ show(data.frame(model = c("null", "alt"),
 
 ## Bayes factors
 
+- take two models (in the sense of "model = prior + likelihood")
+    - $P(\theta_1 , M_1)$ and $P(D \mid \theta_1, M_1)$
+    - $P(\theta_2 , M_2)$ and $P(D \mid \theta_2, M_2)$
+- ideally, we'd want to know the <span style = "font-style: italic">absolute probability</span> of $M_i$ given the data
+    - but then we'd need to know set of all models (for normalization)
+- alternatively, we take odds of models given the data:
 
+$$\underbrace{\frac{P(M_1 \mid D)}{P(M_2 \mid D)}}_{\text{posterior odds}} = \underbrace{\frac{P(D \mid M_1)}{P(D \mid M_2)}}_{\text{Bayes factor}} \ \underbrace{\frac{P(M_1)}{P(M_2)}}_{\text{prior odds}}$$
+
+The <span style = "color:firebrick">Bayes factor</span> is the factor by which our prior odds are changed by the data.
+
+## evidence
+
+<span style = "color:firebrick">Bayes factor</span> in favor of model $M_1$
+
+$$\text{BF}(M_1 > M_2) = \frac{P(D \mid M_1)}{P(D \mid M_2)}$$
+
+<span style = "color:firebrick">evidence</span> of model $M_i$ (= marginal likelihood of data)
+
+$$P(D \mid M_i) = \int P(\theta_i , M_i) \ P(D \mid \theta_i, M_i) \text{ d}\theta_i$$
+
+evidence marginalizes out parameters $\theta_i$: function of prior and likelihood
+
+## example
+
+- observed: $k = 7$ out of $N = 24$ flips came up heads
+- goal: compare a null-model $M_0$ with an alternative model $M_1$
+- model specification:
+    - $M_0$ has $\theta = 0.5$ and $k \sim \text{Binomial}(0.5, N)$
+    - $M_1$ has $\theta \sim \text{Beta}(1,1)$ and $k \sim \text{Binomial}(\theta, N)$
+    
+$$
+\begin{align*}
+\text{BF}(M_0 > M_1) & = \frac{P(D \mid M_0)}{P(D \mid M_1)} \\
+  & = \frac{\text{Binomial}(k,N,0.5)}{\int_0^1 \text{Beta}(\theta, 1, 1) \ \text{Binomial}(k,N, \theta) \text{ d}\theta} \\
+  & = \frac{{{N}\choose{k}} 0.5^{k} \, (1-0.5)^{N - k}}{\int_0^1 {{N}\choose{k}} \theta^{k} \, (1-\theta)^{N - k} \text{ d}\theta} \\
+  & = \frac{0.5^{k} \, (1-0.5)^{N - k}}{BetaFunction(k+1, N-k+1)} \approx `r round(0.5^7 * 0.5^(24-7) / beta(8, 25-7),3)`
+\end{align*}
+$$
+
+## how to interpret Bayes factors
+
+BF(M1 > M2) | interpretation
+:---:|:---:|
+1 | irrelevant data
+1 - 3 | hardly worth ink or breath
+3 - 6 | anecdotal
+6 - 10 | now we're talking: substantial
+10 - 30 | strong
+30 - 100 | very strong
+100 + | decisive (bye, bye $M_2$!)
+
+## how to caculate Bayes factors
+
+1. calculate each model's evidence
+    - brute force clever math
+    - grid approximation
+    - by MCMC estimation
+2. calculate Bayes factor:
+    - transdimensional MCMC
+    - Savage-Dickey method
+
+## properly nested models
+
+- suppose that there are $n$ continuous parameters of interest $\theta = \langle \theta_1, \dots, \theta_n \rangle$
+- $M_1$ is a model defined by $P(\theta \mid M_1)$ & $P(D \mid \theta, M_1)$
+- $M_0$ is <span style = "color:firebrick">properly nested</span> under $M_1$ if:
+    - $M_0$ assigns fixed values to parameters $\theta_i = x_i, \dots, \theta_n = x_n$
+    - $\lim_{\theta_i \rightarrow x_i, \dots, \theta_n \rightarrow x_n} P(\theta_1, \dots, \theta_{i-1} \mid \theta_i, \dots, \theta_n, M_1) = P(\theta_1, \dots, \theta_{i-1} \mid M_0)$
+    - $P(D \mid \theta_1, \dots, \theta_{i-1}, M_0) = P(D \mid \theta_1, \dots, \theta_{i-1}, \theta_i = x_i, \dots, \theta_n = x_n, M_1)$
+
+## Savage-Dickey method
+
+let $M_0$ be <span style = "color:firebrick">properly nested</span> under $M_1$ s.t. $M_0$ fixes $\theta_i = x_i, \dots, \theta_n = x_n$
+
+$$
+\begin{align*}
+\text{BF}(M_0 > M_1) & = \frac{P(D \mid M_0)}{P(D \mid M_1)} \\
+  & = \frac{P(\theta_i = x_i, \dots, \theta_n = x_n \mid D, M_1)}{P(\theta_i = x_i, \dots, \theta_n = x_n \mid M_1)}
+\end{align*}
+$$
+
+```{r, echo = FALSE, results='hide', warning=FALSE, message=FALSE, fig.align='center', fig.width=6, fig.height=3}
+plotData = data.frame(theta = seq(0.01,1, by = 0.01),
+                      posterior = dbeta(seq(0.01,1, by = 0.01), 8, 18 ),
+                      prior = dbeta(seq(0.01,1, by = 0.01), 1, 1))
+plotData = melt(plotData, measure.vars = c("posterior", "prior"))
+pointData = data.frame(x = c(0.5,0.5), y = c(dbeta(0.5,8,18),1))
+
+ggplot(plotData, aes(x = theta, y = value, color = variable)) + xlim(0,1) + geom_line() + ylab("probability") +
+  geom_segment(aes(x = 0.52, y = 0, xend = 0.52, yend = 1), color = "darkgray") +
+  geom_segment(aes(x = 0.48, y = 0, xend = 0.48, yend = dbeta(0.5,8,18)), color = "darkgray") +
+  geom_segment(aes(x = 0.5, y = 1, xend = 0.52, yend = 1), color = "darkgray") +
+  geom_segment(aes(x = 0.5, y = dbeta(0.5,8,18), xend = 0.48, yend = dbeta(0.5,8,18)), color = "darkgray") +
+  annotate("point", x = 0.5, y = 1, color = "black") +
+  annotate("point", x = 0.5, y = dbeta(0.5,8,18), color = "black") + 
+  annotate("text", x = 0.3, y = 0.25, color = "darkgray", label = "P(0.5 | D, M1) = 0.516", size = 3) +
+  annotate("text", x = 0.68, y = 0.75, color = "darkgray", label = "P(0.5 | M1) = 1", size = 3) +
+  theme(legend.title=element_blank())
+
+```
+
+## recap
+
+Bayes rule for <span style = "color:firebrick">parameter estimation</span>:
+
+$$\underbrace{P(\theta \, | \, D)}_{\text{posterior}} \propto \underbrace{P(\theta)}_{\text{prior}} \times \underbrace{P(D \, | \, \theta)}_{\text{likelihood}}$$
+
+Bayes factor for <span style = "color:firebrick">model comparison</span>:
+
+$$
+\begin{align*}
+\underbrace{\frac{P(M_1 \mid D)}{P(M_2 \mid D)}}_{\text{posterior odds}} & = \underbrace{\frac{P(D \mid M_1)}{P(D \mid M_2)}}_{\text{Bayes factor}} \ \underbrace{\frac{P(M_1)}{P(M_2)}}_{\text{prior odds}} \\
+\underbrace{P(D \mid M_i)}_{\text{evidence}} & = \int P(\theta_i \mid M_i) \ P(D \mid \theta_i, M_i) \text{ d}\theta_i
+\end{align*}
+$$
+
+$p$-values for <span style = "color:firebrick">null-hypothesis significance testing</span>
+
+## overview
+
+|    | estimation | comparison | criticism
+|:---|:---:|:---:|:---:|
+|goal | which $\theta$, given $M$ & $D$? | which better: $M_0$ or $M_1$? | $M$ good model of $D$?
+| method | Bayes rule | Bayes factor | $p$-value
+|no. of models | 1 | 2 | 1
+|$H_0$ | subset of $\theta$  | $P(\theta \mid M_0), P(D \mid \theta, M_0)$ | $P(\theta), P(D \mid \theta)$
+|$H_1$ | ---  | $P(\theta \mid M_1), P(D \mid \theta, M_1)$ | ---
+| prerequisites | $P(\theta), \alpha \times P(D \mid \theta)$  | --- | test statistic
+| pros | lean, easy | intuitive, plausible, Ockham's razor | absolute
+| cons | vagueness in ROPE | prior dependence, computational load | sample space?
+
+# comparison of approaches
+
+## Jeffreys-Lindley paradox
+
+```{r}
+k = 49581
+N = 98451
+show(k/N)
+```
+
+
+<div style = "float:left; width:45%;">
+
+### <span style = "color:firebrick">$p$-value NHST</span>
+
+```{r}
+binom.test(k, N)$p.value
+```
+</div>
+<div style = "float:right; width:45%;">
+
+### <span style = "color:firebrick">Savage-Dickey BF</span>
+
+```{r}
+dbeta(0.5, k+1, N - k + 1)
+```  
+</div>
+
+## simulation
+
+- let the true bias be $\theta = 0.5$
+- generate all possible outcomes $k$ keeping $N$ fixed
+    - $N \in \{ 10, 100, 1000, 10000, 100000 \}$
+    - true frequency of $k$ is $Binomial(k \mid N, \theta = 0.5)$
+- look at the frequency of test results, coded thus:
+
+|    | estimation | comparison | criticism
+|:---|:---:|:---:|:---:|
+|$M_0$ | $[.5-\epsilon, 0.5+\epsilon] \sqsubseteq$ 95% HDI or v.v. | BF($M_0$>$M_1$) > 6 | $p$ > 0.05
+|$M_1$ | $[.5-\epsilon, 0.5+\epsilon] \, \cap \,$ 95% HDI $=\emptyset$ | BF($M_1$>$M_0$) > 6 | $p$ <= 0.05
+|?? | otherwise | otherwise | never
+
+## results
+
+```{r, echo = FALSE}
+load(file = "results_binomial_comparison.Rdata")
+```
+
+
+Bayes factor model comparison selects $M_0$ correctly with probability `r round(sum(filter(results[[1]], BFdecision == "H0" & N == 10000)$frequency),3)` for $N = 10000$, and with `r round(sum(filter(results[[1]], BFdecision == "H0" & N == 100000)$frequency),3)` for $N = 100000$.
+
+```{r, echo = FALSE, results='hide', warning=FALSE, message=FALSE, fig.align='center', fig.width=6, fig.height=3}
+
+rf = results$result_frequencies
+result_freq_plot = ggplot(rf, aes(x = N, y = value)) + scale_x_log10() +
+  geom_point(data = filter(rf, rule == "BF"), aes(y = value, shape = decision, color = "BF")) +
+  geom_point(data = filter(rf, rule == "p-value"), aes(y = value, shape = decision, color = "p-value")) +
+  geom_point(data = filter(rf, rule == "ROPE"), aes(y = value, shape = decision, color = "ROPE")) +
+  geom_line(data = filter(rf, rule == "BF"), aes(y = value, group = decision, color = rule)) +
+  geom_line(data = filter(rf, rule == "p-value"), aes(y = value, group = decision, color = rule)) +
+  geom_line(data = filter(rf, rule == "ROPE"), aes(y = value, group = decision, color = rule)) +
+  theme(legend.title=element_blank())
+show(result_freq_plot)
+
+```
+
+<div style = "position:absolute; top: 620px; right:60px;">
+  [c.f., Lindley's solution to 'paradox': adjust $p$ depending on $N$; similar for ROPE's $\epsilon$]
+</div>
+
+# wrap-up
+
+## notions covered
+
+- NHST $p$-value logic
+
+<span style = "color:white"> &nbsp; </span>
+
+- posterior inference
+    - credible intervals, ROPE
+
+<span style = "color:white"> &nbsp; </span>
+
+- model comparison
+    - Bayes factors
+    
