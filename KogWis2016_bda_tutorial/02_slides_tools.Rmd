@@ -1,0 +1,520 @@
+---
+title: "Bayesian data analysis"
+subtitle: "Ideas, practices & tools"
+author: "Michael Franke & Fabian Dablander"
+runtime: shiny
+output:
+  ioslides_presentation:
+    css: mistyle.css
+    smaller: yes
+    transition: faster
+---
+```{r setup, include=FALSE, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE, dev.args = list(bg = 'transparent'), fig.align='center')
+require('ggplot2')
+require('reshape2')
+require('coda')
+require('ggmcmc')
+require('rjags')
+require('runjags')
+require('dplyr')
+require('gridExtra')
+require('rstan')
+theme_set(theme_bw() + theme(plot.background=element_blank()) )
+
+pics_folder_path = "//Users/micha/Library/texmf/tex/latex/pics/"
+```
+
+# sampling from the posterior
+
+## key notions
+
+- Markov Chain Monte Carlo methods
+    - Metropolis Hastings
+    - Gibbs
+    - Hamiltonian MC
+- convergence / representativeness
+    - trace plots
+    - R hat
+- efficiency
+    - autocorrelation
+    - effective sample size
+
+
+## recap
+
+### <span style = "color:firebrick">Bayes rule for data analysis:</span>
+
+$$\underbrace{P(\theta \, | \, D)}_{posterior} \propto \underbrace{P(\theta)}_{prior} \times \underbrace{P(D \, | \, \theta)}_{likelihood}$$
+
+normalizing constant:
+
+$$ \int P(\theta') \times P(D \mid \theta') \, \text{d}\theta' = P(D) $$
+
+<span style = "color:white"> &nbsp; </span>
+
+### <span style = "color:firebrick">problem</span>
+
+how to calculate for unwieldy models with high-dimensional $\theta$?
+
+## approximation by sampling
+
+```{r,echo=FALSE}
+shinyApp(
+  ui=shinyUI(fluidPage(  
+    fluidRow(
+      column(4, sliderInput("a", label = "a:",
+                            min = .1, max = 20, value = 2, step = .1)),
+      column(4, sliderInput("M", label = "number of simulations:",
+                            min = 10, max = 10000, value = 1000, step = 10))
+      
+      ),
+    fluidRow(
+      column(4,sliderInput("b", label = "b:",
+                           min = .1, max = 20, value = 2, step = .1)),
+      column(4, sliderInput("breaks", label = "number of breaks:",
+                            min = 5, max = 100, value = 15, step = 1))
+      ),
+     fluidRow(
+       column(6, h4("distribution")),
+       column(3, h4("quantity"))
+       ),
+    fluidRow(
+      column(6, plotOutput("postsim",height = "250px") ),
+      column(4, tableOutput("table2") )
+      )
+    )),
+  
+  server=function(input, output) {
+    
+    xdraw<-function(input){
+      a=input$a
+      b=input$b
+      M=input$M
+      breaks=input$breaks
+      xdraw = rbeta(n=M,shape1=a,shape2=b)
+      return(xdraw)
+      }
+    
+    x<-reactive(xdraw(input))
+    
+    plothist<-function(xdraw,input){
+      a=input$a
+      b=input$b
+      M=input$M
+      breaks=input$breaks
+      par(mar=c(4,4,2,4))
+      xx=seq(0.001,.999,.001)
+      px= dbeta(xx,shape1=a,shape2=b)
+      fvalues = px
+      no.inf = fvalues[is.finite(fvalues)]
+      maxlimy=max(no.inf)+.5
+      hist(xdraw,xlim=c(0,1),ylim=c(0,maxlimy+.1),breaks=breaks,
+           xlab=expression(x),ylab=expression(p*(italic(x))),main="",freq=FALSE)
+      lines(xx,px,lwd=2,col="red")
+      lines(HPDinterval(as.mcmc(xdraw)), c(0.05,0.05), lwd = 2.5, col = "blue")
+      expr.post=expression(italic(p) * (italic(x)))
+      legend("topright",inset=c(0,0),lwd=2,lty="solid",col="red",
+             legend=expr.post)
+      rug(xdraw)
+    }
+    
+    plottable<-function(xdraw,input){
+      dd=data.frame(1:input$M,xdraw)
+      colnames(dd)<-c("draw","x")
+      dd[1:10,]
+    }
+    
+    plottable2<-function(xdraw,input){
+      a=input$a
+      b=input$b
+      M=input$M
+      outquant = matrix(NA,5,2)
+      outquant[1,1] = a/(a+b)
+      outquant[1,2] = mean(xdraw)
+      outquant[2,1] = sqrt(a*b/((a+b)^2*(a+b+1)))
+      outquant[2,2] = sd(xdraw)
+      outquant[3,1] = NA
+      outquant[3,2] = median(xdraw)
+      outquant[4,2] = HPDinterval(as.mcmc(xdraw))[1]
+      outquant[5,2] = HPDinterval(as.mcmc(xdraw))[2]
+      rownames(outquant)=c("mean","sd","median","HDI low","HDI up")
+      colnames(outquant)=c("true","estimated")
+      outquant
+    }
+    
+    output$postsim <- renderPlot({
+      plothist(x(),input)
+      })
+    
+    output$table2 <- renderTable({
+      plottable2(x(),input)
+    })
+    
+    }
+  )
+```
+
+
+
+
+## problem statement
+
+### <span style = "color:firebrick">notation</span>
+
+- $X = (X_1,\dots,X_k)$ is a vector of random variables 
+- true distribution of $X$ is $P$
+
+### <span style = "color:firebrick">desideratum</span>
+
+an efficient way of getting samples $x \sim P$ without access to $P$ itself
+
+## Markov chain
+
+### <span style = "color:firebrick">intuition</span>
+
+- a sequence of elements from $X$, $x_0, x_1, \dots, x_n$ such that every $x_{i+1}$ depends only on its predecessor $x_i$
+    - think: probabilistic finite state machine
+
+<div align = 'center'>
+<img src="http://flylib.com/books/2/71/1/html/2/files/40fig03.gif" alt="FSA" style="width: 250px;"/>
+</div>
+
+
+### <span style = "color:firebrick">Markov property</span>
+
+$$P(X_{n+1} = x_{n+1} \mid X_0 = x_0, \dots, X_n = x_n) = P(X_{n+1} = x_n \mid X_n = x_n)$$
+
+
+## Markov Chain Monte Carlo methods
+
+### <span style = "color:firebrick">idea</span>
+
+- get sequence of samples $x$ s.t. every sample depends only on predecessor
+- the <span style = "color:firebrick">stationary distribution</span> of the chain is $P$
+- in the limit, then, $x$ are <span style = "color:firebrick">representative samples</span> of $P$, $x \sim P$
+
+<span style = "color:white">dummy</span>
+
+### <span style = "color:firebrick">benefits & pitfalls</span>
+
+<div style = "float:left; width:45%;">
+  <span style = "color:firebrick">good</span>
+  
+  - can approximate any distribution
+  - no need for normalizing constant
+  - only prior and likelihood required
+
+</div>
+<div style = "float:right; width:45%;">
+  <span style = "color:firebrick">bad</span>
+
+  - may take a while
+  - autocorrelation
+  - best MCMC algo depends on case
+
+</div>
+
+# Metropolis Hastings
+
+## island hopping
+
+<div align = 'center'>
+<img src="http://static.giantbomb.com/uploads/original/1/17015/1455061-monkey2_2010_07_31_21_20_48_28.png" alt="islands" style="width: 500px;"/>
+</div>
+
+- set of islands $X = \{x_1, x_2, \dots x_n\}$
+- goal: hop around & visit every island $x_i$ proportional to its population $P(x_i)$
+    - think: "samples" from $X \sim P$ 
+- problem: island hopper can remember at most 2 islands' population
+    - think: we don't know the normalizing constant
+
+## Metropolis Hastings
+
+- let $f(x) = \alpha P(x)$ (e.g., unnormalized posterior)
+- start at random $x^0$, define probability $P_\text{trans}(x^i \rightarrow x^{i+1})$ of going from $x^{i}$ to $x^{i+1}$
+    - <span style = "color:firebrick">proposal</span> $P_\text{prpsl}(x^{i+1} \mid x^i)$: prob. of considering jump to $x^{i+1}$ from $x^{i}$
+    - <span style = "color:firebrick">acceptance</span> $P_\text{accpt}(x^{i+1} \mid x^i)$: prob of making jump when $x^{i+1}$ is proposed
+      $$P_\text{accpt}(x^{i+1} \mid x^i) = \text{min} \left (1, \frac{f(x^{i+1})}{f(x^{i})} \frac{P_\text{prpsl}(x^{i} \mid x^{i+1})}{P_\text{prpsl}(x^{i+1} \mid x^i)} \right)$$
+    - <span style = "color:firebrick">transition</span> $P_\text{trans}(x^i \rightarrow x^{i+1}) = P_\text{prpsl}(x^{i+1} \mid x^i) \times P_\text{accpt}(x^{i+1} \mid x^i)$ 
+
+## properties MH
+
+- motto: always up, down with probability $\frac{f(x^{i+1})}{f(x^{i})}$
+- ratio $\frac{f(x^{i+1})}{f(x^{i})}$ means that we can forget about normalizing constant
+- $P_\text{trans}(x^i \rightarrow x^{i+1})$ defines transition matrix -> Markov chain analysis!
+- for suitable proposal distributions:
+    - stationary distribution exists (first left-hand eigenvector)
+    - every initial condition converges to stationary distribution
+    - stationary distribution is $P$
+
+## influence of proposal distribution
+
+<div class = "centered">
+<img src="//Users/micha/Desktop/data/svn/ProComPrag/teachings/bda+cm2015/slides/pics/Kruschke_Fig7_4_MH_ProposalWidth.png" alt="KruschkeFig7.4" style="width: 560px;"/>
+</div>
+
+# Gibbs sampling
+
+## Gibbs sampling: introduction
+- Metropolis is a very general and versatile algorithm
+- however in specific situations, other algorithms may be better applicable
+- for example, if $X=(X_1,\dots,X_k)$ is a vector of random variables and $P(x)$ is a multidimensional distribution
+- in such cases, the Gibbs sampler may be helpful
+- basic idea: split the multidimensional problem into a series of simpler problems of lower dimensionality
+
+## Gibbs sampling: main idea
+- assume $X=(X_1,X_2,X_3)$ and $p(x)=P(x_1,x_2,x_3)$
+- start with $x^0=(x_1^0,x_2^0,x_3^0)$
+- at iteration $t$ of the Gibbs sampler, we have $x^{i-1}$ and need to generate $x^{i}$
+    - $x_1^{i} \sim  P(x_1 \mid x_2^{i-1},x_3^{i-1})$
+    - $x_2^{i} \sim  P(x_2 \mid x_1^{i},x_3^{i-1})$
+    - $x_3^{i} \sim  P(x_3 \mid x_1^{i},x_2^{i})$
+- for a large $n$, $x^n$ will be a sample from $P(x)$
+    - $x^n_k$ will be a sample from $P(x_k)$ (marginal distribution)
+
+## example: Gibbs for 2 coin flips
+
+<div class = "centered">
+<img src="//Users/micha/Desktop/data/svn/ProComPrag/teachings/bda+cm2015/slides/pics/Kruschke_Fig7_8_Gibbs_2BetaExample.png" alt="KruschkeFig7.8" style="width: 610px;"/>
+</div>
+
+## example: MH for 2 coin flips
+
+<div class = "centered">
+<img src="//Users/micha/Desktop/data/svn/ProComPrag/teachings/bda+cm2015/slides/pics/Kruschke_Fig7_6_MH_2BetaExample.png" alt="KruschkeFig7.6" style="width: 610px;"/>
+</div>
+
+## summary
+
+- Gibbs sampling can be more efficient than MH
+- Gibbs needs samples from conditional posterior distribution
+    - MH is more generally applicable
+- preformance of MCMC algorithms depends on proposal distribution
+
+clever software helps determines which algorithm to use and how to fine-tune it
+
+# Hamiltonian MC
+
+## Hamiltonian motion
+
+<div style = "float:left; width:70%;">
+- Hamiltonian movement
+    - reformulates classical mechanics
+    - precursor of statistical physics
+    - closed system differential equations
+    - <span style = "color:firebrick">potential vs. kinetic energy</span>
+    
+</div>
+<div style = "float:right; width:25%;">
+<div class = "right">
+<img src="https://qph.is.quoracdn.net/main-qimg-cf906bd5c030f6d2e375ef9ba849ce79?convert_to_webp=true" alt="Hamilton" style="width: 125px;"/>
+</div>  
+</div>  
+
+<span style = "color:white"> dummy </span>
+<span style = "color:white"> dummy </span>
+<span style = "color:white"> dummy </span>
+
+<div style = "float:left; width:45%;">
+  
+  <span style = "color:firebrick">potential</span>
+  
+  <div class = "right">
+  <img src="http://www.adonisthemovie.com/wp-content/uploads/2013/04/roadrunnerdie.jpg" alt="potential" style="height: 225px;"/>
+  </div>
+</div>
+<div style = "float:right; width:45%;">
+  
+  <span style = "color:firebrick">kinetic</span>
+  
+  <div class = "right">
+  <img src="http://v010o.popscreen.com/eGV4NnRkMTI=_o_road-runner-versus-coyote.jpg" alt="kinetic" style="height: 225px;"/>
+  </div>  
+  
+</div>  
+
+## example
+
+<div class = "centered">
+<img src="//Users/micha/Desktop/data/svn/ProComPrag/teachings/bda+cm2015/slides/pics/Kruschke_Fig14_1_HMCProposal.png" alt="KruschkeFig14.1" style="width: 460px;"/>
+</div>
+
+## tuning parameters
+
+- <span style = "color:firebrick">momentum</span>
+    - e.g., standard deviation of Gaussian that determines initial jiggle
+
+<span style = "color:white"> dummy </span>
+
+- <span style = "color:firebrick">step size</span>
+    - how big a step to take in discretization of gradient
+    
+<span style = "color:white"> dummy </span>    
+    
+- <span style = "color:firebrick">number of steps</span>
+    - how many steps before producing the proposal
+
+# assessing sample chains
+
+## problem statements
+
+### <span style = "color:firebrick">convergence/representativeness</span>
+
+- we have samples from MCMC, ideally several chains
+- in the limit, samples must be representative of $P$
+- how do we know that our meagre finite samples are representative?
+
+### <span style = "color:firebrick">efficiency</span>
+
+- ideally, we'd like as small a sample set as possible
+- how do we measure that we have "enough" samples?
+
+<!--
+
+## R packages to compare MCMC chains
+
+```{r}
+require('coda')
+require('ggmcmc')
+```
+
+<div class = "columns-2">
+
+<div align = 'center'>
+<img src="http://i.huffpost.com/gen/1063477/original.jpg" alt="islands" style="width: 300px;"/>
+</div>
+
+`coda` and `ggmcmc` basically do the same thing, but they differ in, say, aesthetics
+
+</div>
+
+
+## example MCMC data
+
+```{r, echo = FALSE}
+require('coda')
+
+fakeData = rnorm(200, mean = 0, sd = 1)
+
+f = function(mu, sigma){
+  if (sigma <=0){
+    return(0)
+  }
+  priorMu = dunif(mu, min = -4, max = 4)
+  priorSigma = dunif(sigma, min = 0, max = 4)
+  likelihood =  prod(dnorm(fakeData, mean = mu, sd = sigma))
+  return(priorMu * priorSigma * likelihood)
+}
+
+MH = function(f, iterations = 50, chains = 2, burnIn = 0){
+  out = array(0, dim = c(chains, iterations - burnIn, 2))
+  dimnames(out) = list("chain" = 1:chains, 
+                       "iteration" = 1:(iterations-burnIn), 
+                       "variable" = c("mu", "sigma"))
+  for (c in 1:chains){
+    mu = runif(1, min = -4, max = 4)
+    sigma = runif(1, min = 0, max = 4)
+    for (i in 1:iterations){
+      muNext = mu + runif(1, min = -1.25, max = 0.25)
+      sigmaNext = sigma + runif(1, min = -0.25, max = 0.25)
+      rndm = runif(1, 0, 1)
+      if (f(mu, sigma) < f(muNext, sigmaNext) | f(muNext, sigmaNext) >= f(mu, sigma) * rndm) {
+        mu = muNext
+        sigma = sigmaNext
+      }
+      if (i >= burnIn){
+        out[c,i-burnIn,1] = mu
+        out[c,i-burnIn,2] = sigma
+      }
+    }
+  }
+  return(mcmc.list(mcmc(out[1,,]), mcmc(out[2,,])))
+}
+
+out = MH(f, 60000,2,10000)
+```
+
+
+```{r}
+out = MH(f, 60000,2,10000) # this is the output of the program of Ex 4 in HW 2
+                  # its an MCMC-list from 'coda' package: i.e., a list
+                  # of MCMC-objects
+show(summary(out))
+```
+
+## example MCMC data
+
+```{r}
+out2 = ggs(out)  # cast the same information into a format that 'ggmcmc' uses
+show(head(out2)) # this is now a data.frame
+```
+
+
+## trace plots in 'coda'
+
+```{r}
+plot(out)
+```
+
+## trace plots in 'ggmcmc'
+
+```{r}
+ggs_traceplot(out2)
+```
+
+## visual inspection of convergence
+
+EJ Wagenmakers:
+
+- trace plots from multiple chains should look like:
+    - <span style = "color:black">caterpillars madly in love with each other</span>
+-->
+
+## examining sample chains: beginning
+
+<div class = "centered">
+<img src="//Users/micha/Desktop/data/svn/ProComPrag/teachings/bda+cm2015/slides/pics/Kruschke_Fig7_10_Diagnostics1.png" alt="KruschkeFig7.10" style="width: 610px;"/>
+</div>
+
+## examining sample chains: rest
+
+<div class = "centered">
+<img src="//Users/micha/Desktop/data/svn/ProComPrag/teachings/bda+cm2015/slides/pics/Kruschke_Fig7_11_Diagnostics2.png" alt="KruschkeFig7.11" style="width: 610px;"/>
+</div>
+
+## R hat
+
+$\hat{R}$-statistics,
+
+- a.k.a.:
+    - Gelman-Rubin statistics
+    - shrink factor
+    - potential scale reduction factor
+- idea:
+    - compare variance within a chain to variance between chains
+    - [think: ANOVA]
+- in practice:
+    - use software to compute it
+    - aim for $\hat{R} \le 1.1$ for all continuous variables
+
+
+## autocorrelation
+
+<div class = "centered">
+<img src="//Users/micha/Desktop/data/svn/ProComPrag/teachings/bda+cm2015/slides/pics/Kruschke_Fig7_12_Autocorrelation.png" alt="KruschkeFig7.12" style="width: 510px;"/>
+</div>
+
+## effective sample size
+
+- intuition:
+    - how many samples are "efficient, actual samples" if we strip off autocorrelation
+
+- definition:
+
+$$\text{ESS} = \frac{N}{ 1 + 2 \sum_{k=1}^{\infty} ACF(k)}$$
+
+# 
+
+
+    

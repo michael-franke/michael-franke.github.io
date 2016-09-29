@@ -434,7 +434,7 @@ b {
 a {
   color: #2a7cdf;
   text-decoration: none;
-  border-bottom: 1px solid rgba(42, 124, 223, 0.5);
+  /*border-bottom: 1px solid rgba(42, 124, 223, 0.5);*/
 }
 /* line 271, ../scss/default.scss */
 a:hover {

@@ -53,6 +53,7 @@ Here is a compilation of [texts on Bayesian data analysis](http://michael-franke
 - Sampling based approaches to estimation
     - Metropolis-Hastings
     - Gibbs sampling
+    - Hamiltonian MC
 - tools for BDA:
     - JAGS
     - Stan & rstanarm
