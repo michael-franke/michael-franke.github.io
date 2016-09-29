@@ -1,0 +1,184 @@
+---
+title: "Bayesian data analysis: some exercises"
+output:
+  html_document:
+    theme: cosmo
+---
+
+For these exercises below, we will rely on the statistical programming language R, JAGS, and JASP. You should feel free to solve them in any other way you'd prefer. If you have questions or concerns, do not hesitate to contact [Michael Franke](http://www.sfs.uni-tuebingen.de/~mfranke/) or [Fabian Dablander](https://twitter.com/fdabl).
+
+## Coin flips!
+Suppose you flip a coin $n = 10$ times and observe heads $k = 7$ times (heads are coded as 1s). Our model for the data is
+the Binomial distribution.
+
+a. Compute the *p*-value for the null hypothesis $H_0: \theta = .5$ of a fair coin.
+
+b. Plot the likelihood curve for possible values of $\theta$. Which value maximizes the likelihood?
+
+c. Compare $H_0: \theta = 0.5$ against the composite alternative hypothesis $H_1: \theta \sim \text{U}(0, 1)$. Use grid approximation to compute this Bayes factor.
+
+d. Let's say we expect a coin biased towards head, and specify $H_1: \theta \sim \mathcal{Beta}(4, 1)$. How does the Bayes factor change? Why is this reasonable?
+
+e. Below you see some code for estimating the posterior $p(\theta|N, k)$. Run the code and
+plot the posterior distribution. Compute the effective sample size and check convergence using Gelman-Rubin's $\hat R$.
+
+```{r, message = FALSE}
+require('coda')
+require('rjags')
+require('ggmcmc')
+
+ms = '
+model {
+  theta ~ dunif(0, 1)
+  k ~ dbinom(theta, N)
+}
+'
+
+params = c('theta')
+data = list('k' = 7, 'N' = 10)
+model = jags.model(textConnection(ms), data = data,
+                   n.chains = 3, n.adapt = 1000, quiet = TRUE)
+samples = coda.samples(model, variable.names = params, n.iter = 10000)
+```
+
+f. Let's extend this example. Assume you have two coins, A and B, with a bias of $\theta = .9$ and $\theta = .1$, respectively. For each trial, you pick one of them randomly and throw it. The data you observe is
+
+```{r}
+set.seed(77)
+
+N = 10
+dat = rep(NA, N)
+for (i in 1:N) {
+  pick = sample(0:1, 1)
+  theta = ifelse(pick, .9, .1)
+  dat[i] = rbinom(1, 1, prob = theta)
+}
+
+dat
+```
+
+Use JAGS to estimate, for each coin flip, the probability that it came from coin A or B.
+
+## What do we infer?
+```{r, warnings = FALSE, message = FALSE, eval= FALSE}
+require('rjags')
+require('reshape2')
+require('ggmcmc')
+
+set.seed(1638) 
+dat = data.frame(A = rnorm(100, mean = 100, sd = 10),
+                      B = rnorm(100, mean = 110, sd = 15))
+dat = melt(dat, variable.name = "Drug", value.name = "HeartRate")
+
+# specify model
+modelString = "
+model{
+  # priors
+  muA ~ dunif(30,200)
+  muB ~ dunif(30,200)
+  varA ~ dunif(0, 1000)
+  varB ~ dunif(0, 1000)
+  tauA = 1/varA
+  tauB = 1/varB
+
+  # likelihood
+  for (i in 1:200){
+    HeartRate[i] ~ dnorm(ifelse(Drug[i] == 0, muA, muB), 
+                         ifelse(Drug[i] == 0, tauA, tauB))
+  }
+
+  muDiff = muB - muA
+  varDiff = varB - varA
+}
+"
+
+# prepare for JAGS
+dataList = list(Drug = ifelse(dat$Drug == "A", 0, 1),
+                HeartRate = dat$HeartRate)
+
+# set up and run model
+jagsModel = jags.model(file = textConnection(modelString), data = dataList, n.chains = 3)
+codaSamples = coda.samples(jagsModel, variable.names = c("muDiff", "varDiff"), n.iter = 10000)
+```
+
+a. Describe what is going on in a few words, and try to guess the intention of this analysis. I.e., what is most likely the research question that this analysis is trying to answer?
+
+b. Run the analysis and report the result. Include (i) a summary of the sampling outcome, (ii) density plots of the relevant parameters (individually per chain), and (iii) checks on the quality of the sampling (trace plots, R-hat and effective sample size). Interpret your results (i.e., should we think that we have approximated the true posterior? is our sampling efficient?).
+
+c. Given your answer to the question above about the likely research question behind this analysis, what would be your conclusion given this analysis?
+
+
+## Linear Regression
+We will work with data about the speed of a car and the distance needed to stop.
+
+```{r}
+head(cars) # this is the data set we work with
+```
+
+It is intuitive that there should be some kind of functional dependency between the speed that a car travels at and the distance it takes for it to come to a halt when breaking. Indeed, we can verify this by plotting 'distance' against 'speed' and then adding a simple linear regression line, obtained here with the R function *lm*.
+
+<span style = "color:gray">We could get this regression line directly from ggplot, but then we might not realize that this is actually a regression analysis. We also want to know the values of slope and intercept of the regression line later on.</span>
+
+```{r, message = FALSE}
+require('ggplot2')
+coeff = coef(lm(formula = dist ~ speed, data = cars)) # get slope & intercept of linear model
+qplot(cars[,'speed'], cars[,'dist']) + xlab('speed') + ylab('distance') + theme_bw() + 
+  geom_abline(intercept = coeff[1], slope = coeff[2], color = "skyblue")
+```
+
+We are going to write a simple Bayesian linear estimator for 'distance' as a function of 'speed'. Concretely, we want to implement the following Bayesian model, where $x_{i}$ is the $i$-th entry in the data frame for variable speed and $y_{i}$ is the $i$-th entry for variable distance:
+
+$$\beta_0 \sim \text{Norm}(0, 1000)$$
+$$\beta_1 \sim \text{Norm}(0, 1000)$$
+$$\sigma^2_{\epsilon} \sim \text{Unif}(0, 1000)$$
+
+$$\mu_i = \beta_0 + \beta_1 x_i$$
+$$y_i \sim \text{Norm}(\mu_i, \sigma^2_{\epsilon})$$
+
+To explain, $\beta_1$ is the slope, $\beta_0$ is the intercept. We assume that these give us a mean $\mu_i$ for each $x_i$. The value $y_i$ is then assumed to be normally distributed around this $\mu_i$.
+
+a. Implement this model in JAGS. Rember that JAGS wants precision not variance as the second argument to a normal distribution!
+
+b. Run the model with sufficient burn-in and samples. Report the usual diagnostics on the samples (summary, traceplots, R-hat, efficient sample size) to make sure that your analysis is sound.
+
+c. Plot the density of the posteriors of $\beta_0$ and $\beta_1$ and get the 95% HDIs for both variables. Compare your results with the coefficients returned by *lm*. (If you get completely different results, there's something wrong.)
+
+d. Which information do you get from the Bayesian analysis that you do not get from calling *lm*?
+
+## Logistic Regression
+a. Implement a logistic regression, predicting admission as a function of all other variables. Check convergence and interpret your results.
+
+```{r, warning = FALSE, message = FALSE}
+library('rjags')
+dat = read.csv('http://www.ats.ucla.edu/stat/data/binary.csv')
+head(dat)
+```
+
+b. Sanity-check your result using classical estimation (R function **glm**).
+
+```{r, eval = FALSE}
+freq = glm(...)
+```
+
+c. Fit your model on the first 350 observations only (the *training set*). Use JAGS to predict the other 50 (the *test set*). You can do this by writing 
+
+```{r}
+dat[351:400, 1] <- NA
+```
+
+and then just estimate as usual (with 'y' as a parameter you additionally estimate). You will get $x$ predictions for each value, where $x$ is the total number of iterations of your chains (i.e., samples from the posterior predictive distribution). Average them, predict $y = 1$ if $\hat y > .5$, and compute the mean prediction error (i.e., check if your predicted values equal the observations in your test set).
+
+d. Use them same procedure as above, but remove the [GRE](https://www.ets.org/gre/revised_general/scores/how/) score as a predictor. How does your prediction accuracy change? What do you conclude? Is it in stark contrast to your posterior inference about the GRE predictor?
+
+## JASP
+Download [JASP](https://jasp-stats.org/). In Wagenmakers et al. (2015), the authors tried to replicate the finding first reported by Topolinski and Sparenberg (2012) that clockwise movements induce psychological states that are associated with an orientation towards the future. In two seperate conditions, participants had to turn kitchen rolls either clockwise or counterclockwise, while answering questions about their openness to new experiences. What was the result? Let's find out!
+
+b) Start JASP and open the Kitchen Rolls data set. Run a classical and Bayesian independent T-test using "mean_NEO" and "Rotation" as dependent and grouping variable, respectively. Plot descriptives, the prior and the posterior. What do the results mean? Is the hypothesis supported?
+
+c) The prior for the alternative hypothesis is a Cauchy prior over the effect size. Increase the width of this prior to 2. How does the Bayes factor change? Why is that?
+
+d) Similarly, decrease the prior width. What do you observe?
+
+e) Let's say we don't have the raw data, but merely the result of the classical analysis, t(100) = -0.754 and the descriptives (N = 48 in the clockwise condition, N = 54 in the counter-clockwise condition). Click on the icon on the top right and open the "Summary Stats" module. Compute the Bayes factor.
+
+f) Run a robustness check. What do you observe?
