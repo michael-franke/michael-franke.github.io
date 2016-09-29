@@ -100,7 +100,7 @@ pics_folder_path = "//Users/micha/Library/texmf/tex/latex/pics/"
 
 ## Pros & Cons of BDA {.columns-2} 
 
-### Pro
+### <span style = "color:firebrick">Pro</span>
 
 - well-founded & totally general
 - easily extensible / customizable
@@ -108,7 +108,7 @@ pics_folder_path = "//Users/micha/Library/texmf/tex/latex/pics/"
 
 <img src="https://metrouk2.files.wordpress.com/2014/02/10667_front_11.jpg" alt="Drawing" style="width: 350px;"/>
 
-### Con
+### <span style = "color:firebrick">Con</span>
 
 - less ready-made, thinking required
 - not yet fully digested by community
@@ -124,18 +124,18 @@ pics_folder_path = "//Users/micha/Library/texmf/tex/latex/pics/"
 
 <span style = "color:white"> &nbsp; </span>
 
-1. **Bayesian data analysis**
+<span style = "color:firebrick">Bayesian data analysis</span>
     - Bayesian analogues or alternatives to "classical" tests
     
 <span style = "color:white"> &nbsp; </span>
 
 
-2. **Bayesian (cognitive) modeling**
+<span style = "color:firebrick">Bayesian (cognitive) modeling</span>
     - custom models of the data-generating process
     
 <span style = "color:white"> &nbsp; </span>    
     
-3. **Bayes in the head**
+<span style = "color:firebrick">Bayes in the head</span>
     - model (human) cognition as Bayesian inference
 
 ## Goals of this course
@@ -189,7 +189,7 @@ pics_folder_path = "//Users/micha/Library/texmf/tex/latex/pics/"
 - take $N$ flips of a coin with bias $\theta$
 - <span style = "color:firebrick">binomial distribution</span> gives the probability of observing $k$ successes:
 
-$$P(k \mid N, \theta) = {{N}\choose{k}} \theta^{k} \, (1-\theta)^{N - k}$$
+$$P(k \mid N, \theta) = {{N}\choose{k}} \, \theta^{k} \, (1-\theta)^{N - k}$$
 
 - example: $N=24$, $\theta = 0.5$
 
@@ -233,9 +233,9 @@ show(myplot)
 ## negative binomial distribution
 
 - flip a coin with bias $\theta$ until we have observed $k$ successes
-- <span style = "color:firebrick">negative binomial distribution</span> gives the probability of observing $k$ successes:
+- <span style = "color:firebrick">negative binomial distribution</span> gives the probability of observing $N$ flips:
 
-$$P(N \mid k, \theta) = \frac{z}{N} {{N}\choose{k}} \theta^{k} \, (1-\theta)^{N - k}$$
+$$P(N \mid k, \theta) = \frac{z}{N} \, {{N}\choose{k}} \, \theta^{k} \, (1-\theta)^{N - k}$$
 
 - example: $k=7$, $\theta = 0.5$
 
@@ -259,7 +259,7 @@ show(myplotNB)
 
 ```
 
-## another $p$-value for the same data set
+## another $p$-value for "same" data set
 
 - we observed $N=24$ flips for a success count of $k=7$
     - NB: same data set as before but obtained differently
@@ -359,11 +359,9 @@ brown | 0.09 | 0.41 | 0.01 | 0.13 |
 
 model of a coin flip:
 
-- bias $\theta$ is the probability of heads on a single trial
-- we consider five possibilities $\theta \in \{0, \frac{1}{3}, \frac{1}{2}, \frac{2}{3}, 1\}$
-- flat prior beliefs: $P(\theta) = .2\,, \forall \theta$
-
-model likelihood $P(D \, | \, \theta)$:
+- <span style = "color:firebrick">bias parameter</span> $\theta \in \{0, \frac{1}{3}, \frac{1}{2}, \frac{2}{3}, 1\}$: probability of success on single trial
+- flat <span style = "color:firebrick">prior beliefs</span>: $P(\theta) = .2\,, \forall \theta$
+- <span style = "color:firebrick">likelihood</span> $P(D \, | \, \theta)$ of data given $\theta$:
 
 ```{r, echo = FALSE}
   x = matrix(c(0, 1, 1/3, 2/3, 1/2, 1/2, 2/3, 1/3, 1, 0), nrow = 2)
@@ -409,17 +407,26 @@ weighing in $P(\theta)$ gives joint-probability distribution as 2d matrix:
 
 - likelihood of observing $k$ successes, given $N$ flips, is <span style = "color:firebrick">binomial distribution</span>:
 
-$$P(k \mid N, \theta) = {{N}\choose{k}} \theta^{k} \, (1-\theta)^{N - k}$$
+$$P(k \mid N, \theta) = {{N}\choose{k}} \, \theta^{k} \, (1-\theta)^{N - k}$$
 
 - example of a <span style = "color:firebrick">data-generating model</span>:
+
+<span style = "color:white"> &nbsp; </span>
 
 <div align = 'center'>
   <img src="//Users/micha/Desktop/data/svn/ProComPrag/teachings/bda+cm2015/slides/pics/modelGraphs/basic_binom_withN.jpg" alt="modelGraph" style="width: 400px;"/>
 </div>
 
+<div style = "position:absolute; top: 620px; right:60px;">
+  [see Lee & Wagenmakers ([2015](https://bayesmodels.com)) on conventions for graphical notation]
+</div>
+
+
 ## examples
 
 <span style = "color:firebrick">uniform prior</span>: $\theta \sim Beta(1,1)$
+
+<span style = "color:white"> &nbsp; </span>
 
 ```{r, echo = FALSE, fig.width = 5.5, fig.height = 2.75, dev.args = list(bg = 'transparent'), fig.align='center'}
   x = seq(0,1,length.out = 250)
@@ -437,6 +444,8 @@ $$P(k \mid N, \theta) = {{N}\choose{k}} \theta^{k} \, (1-\theta)^{N - k}$$
 
 
 ## examples
+
+<span style = "color:white"> &nbsp; </span>
 
 <span style = "color:firebrick">prior biased towards successes</span>: $\theta \sim Beta(7,3)$
 
@@ -458,6 +467,8 @@ $$P(k \mid N, \theta) = {{N}\choose{k}} \theta^{k} \, (1-\theta)^{N - k}$$
 
 <span style = "color:firebrick">prior biased towards losses</span>: $\theta \sim Beta(3,7)$
 
+<span style = "color:white"> &nbsp; </span>
+
 ```{r, echo = FALSE, fig.width = 5.5, fig.height = 2.75, dev.args = list(bg = 'transparent'), fig.align='center'}
   x = seq(0,1,length.out = 250)
   plotData = data.frame(theta = x,
@@ -476,12 +487,6 @@ $$P(k \mid N, \theta) = {{N}\choose{k}} \theta^{k} \, (1-\theta)^{N - k}$$
 
 ## outlook
 
-<span style = "color:firebrick">model criticism</span>: is my model any good?
-
-- $p$-values
-    - prior, posterior and classical
-- posterior predictive checks
-
 <span style = "color:firebrick">parameter estimation</span>: what to conclude from the data given the model?
 
 - maximum likelihood
@@ -493,19 +498,31 @@ $$P(k \mid N, \theta) = {{N}\choose{k}} \theta^{k} \, (1-\theta)^{N - k}$$
 - information criteria
 - Bayes factors
 
+<span style = "color:firebrick">model criticism</span>: is my model any good?
+
+- $p$-values
+    - prior, posterior and classical
+- posterior predictive checks
 
 # estimation
 
 ## credible interval
 
-For distribution $P(x)$ over $X$, the <span style = "color:firebrick">95% credible interval</span> is a subset $Y \subseteq X$ such that:
+<span style = "color:white"> &nbsp; </span>
 
-1. $P(Y) = .95$, and
+For distribution $P(x)$ over $X$, the <span style = "color:firebrick">$n$% credible interval</span> is a subset $Y \subseteq X$ such that:
+
+1. $P(Y) = \frac{n}{100}$, and
 2. no point outside of $Y$ is more likely than any point within.
 
 <span style = "color:white"> dummy </span>
 
-Intuition: range of values we are justified to belief in (categorically).
+<span style = "color:firebrick">Intuition</span>: range of values we are justified to belief in (categorically).
+
+<div style = "position:absolute; top: 620px; right:60px;">
+[alternative terminology: highest density interval (HDI), credible region, ...]  
+</div>
+
 
 ## examples
 
@@ -535,21 +552,34 @@ ggplot(plotData, aes(x = theta, y = post)) + xlim(0,1) + geom_line(color = "blac
 
 ## ROPEs and credible values
 
-<span style = "color:firebrick">regions of practical equivalence (ROPE)</span>
+<span style = "color:white"> &nbsp; </span>
+
+### <span style = "color:firebrick">regions of practical equivalence (ROPE)</span>
 
 - small regions $[\theta - \epsilon, \theta + \epsilon]$ around each $\theta$
     - values (practically) indistinguishable from $\theta$
+
+<span style = "color:white"> &nbsp; </span>
   
-<span style = "color:firebrick">credible values</span>
+### <span style = "color:firebrick">credible values</span>
 
 - value $\theta$ is <span style = "color:firebrick">rejectable</span> if its ROPE lies entirely outside of posterior HDI
 - value $\theta$ is <span style = "color:firebrick">believable</span>
  if its ROPE lies entirely whithin posterior HDI
 
-## anything goes
+<div style = "position:absolute; top: 620px; right:60px;">
+  [this is mainly Kruschke's ([2014](https://sites.google.com/site/doingbayesiandataanalysis/)) approach]
+</div>
 
-- estimation of $P(\theta \mid D)$ is independent of assumptions about sample space and sample procedure
+
+## independence of stopping rule
+
+<span style = "color:white"> &nbsp; </span>
+
+- $P(\theta \mid D)$ is independent of stopping criterion during data collection
 - any normalizing constant $X$ cancels out:
+
+<span style = "color:white"> &nbsp; </span>
 
 $$
 \begin{align*}
@@ -558,3 +588,93 @@ P(\theta \mid D) & = \frac{P(\theta) \ P(D \mid \theta)}{\int_{\theta'} P(\theta
 & = \frac{P(\theta) \ \frac{1}{X}\ P(D \mid \theta)}{  \int_{\theta'} P(\theta') \ \frac{1}{X}\ P(D \mid \theta')}
 \end{align*}
 $$
+
+# model comparison
+
+## model comparison
+
+<span style = "color:white"> &nbsp; </span>
+
+### <span style = "color:firebrick">main question</span>
+
+which model is better given data? (e.g., null model vs. alternative)
+
+<span style = "color:white"> &nbsp; </span>
+
+### <span style = "color:firebrick">caveat</span> 
+
+different answers may imply different notions of "model" & purposes of modeling
+
+
+## key notions
+
+
+### <span style = "color:firebrick">information criteria</span>
+
+- maximum likelihood estimation
+- free parameters
+- model complexity
+    
+    
+### <span style = "color:firebrick">Bayes factors</span>
+
+- Savage-Dickey method
+- Lindley paradox
+
+## Akaike information criterion
+
+### <span style = "color:firebrick">motivation</span>
+
+- model is better, the higher $P(D \mid \hat{\theta})$
+    - where $\hat{\theta} \in \arg \max_\theta P(D \mid \theta)$
+- model is worse, the more parameters it has
+    - principle of parsimony (Ockham's razor)
+- information theoretic notion:
+    - amount of information lost when we assume that the data was generated by model under $\hat{\theta}$
+
+### <span style = "color:firebrick">definition</span>
+
+Let $M$ be a model with $k$ parameters, and $D$ be some data:
+
+$$\text{AIC}(M, D) = 2k - \ln P(D \mid \hat{\theta})$$
+
+The smaller the AIC, the better the model.
+
+## model comparison by AIC
+
+compute AICs for both models:
+
+```{r}
+k = 7
+N = 24
+AIC_nh = - dbinom(k,N, prob = 0.5, log = T)
+AIC_ah = 2 - dbinom(k,N, prob = k/N, log = T)
+show(data.frame(model = c("null", "alt"),
+                AIC = c(AIC_nh, AIC_ah) ))
+```
+
+<span style = "color:firebrick">weight of evidence</span>:
+
+- let $AIC_i$ be model $i$'s AIC & let $\Delta_i = AIC_i - \min_j AIC_j$
+- weight of evidence for model $i$ is: $w_i \propto \exp(-0.5 \Delta_i)$
+- e.g., weight of evidence for alternative model is `r round(exp(0.5*(AIC_nh - AIC_ah)),3)` (small!)
+
+
+<div style = "position:absolute; top: 620px; right:60px;">
+  [e.g., Burnham & Anderson (2002)]
+</div>
+
+
+
+## remarks
+
+- given more and more data, repeated model selection by AIC does not guarantee ending up with the true model
+- "model" for AICs is just likelihood; no prior
+- discounting number of parameters, like AIC does, does not take effective strength of parameters into account
+- there are other information criteria that address some of these problems:
+    - Bayesian information criterion
+    - deviance information criterion
+
+## Bayes factors
+
+
