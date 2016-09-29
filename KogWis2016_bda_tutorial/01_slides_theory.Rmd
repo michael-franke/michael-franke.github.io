@@ -725,7 +725,7 @@ $$
 \begin{align*}
 \text{BF}(M_0 > M_1) & = \frac{P(D \mid M_0)}{P(D \mid M_1)} \\
   & = \frac{\text{Binomial}(k,N,0.5)}{\int_0^1 \text{Beta}(\theta, 1, 1) \ \text{Binomial}(k,N, \theta) \text{ d}\theta} \\
-  & = {{N}\choose{k}} \frac{  0.5^{k} \, (1-0.5)^{N - k}}{\int_0^1 \theta^{k} \, (1-\theta)^{N - k} \text{ d}\theta} \\
+  & = {{{N}\choose{k}}} \frac{  0.5^{k} \, (1-0.5)^{N - k}}{\int_0^1 \theta^{k} \, (1-\theta)^{N - k} \text{ d}\theta} \\
   & = \frac{0.5^{k} \, (1-0.5)^{N - k}}{BetaFunction(k+1, N-k+1)} \approx `r round(0.5^7 * 0.5^(24-7) / beta(8, 25-7),3)`
 \end{align*}
 $$
