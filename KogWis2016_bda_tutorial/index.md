@@ -56,9 +56,10 @@ Here is a compilation of [texts on Bayesian data analysis](http://michael-franke
     - Hamiltonian MC
 - tools for BDA:
     - JAGS
-    - Stan & rstanarm
-    - JASP
+    - Stan 
     - WebPPL
+    - JASP
+    - rstanarm
 - Bayesian cognitive modeling
     - case study: task types & link functions
 - Q\&A and conclusions
