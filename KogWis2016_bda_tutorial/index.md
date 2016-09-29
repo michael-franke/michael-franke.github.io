@@ -30,7 +30,7 @@ concepts will help to see the bigger picture more clearly.
 
 Here is a compilation of [texts on Bayesian data analysis](http://michael-franke.github.io/KogWis2016_bda_tutorial/resources.html), and here is a summary of some handy [tools and software](http://michael-franke.github.io/KogWis2016_bda_tutorial/tools.html).
 
-## schedule (tentative!!)
+## schedule (still a teeny-weeny bit tentative!!)
 
 #### session 1: theory
 
@@ -51,17 +51,17 @@ Here is a compilation of [texts on Bayesian data analysis](http://michael-franke
     - statistical models as directed acyclic graphs
     - hierarchical models
 - Sampling based approaches to estimation
-    - Monte carlo principle & Markov Chains
+    - Metropolis-Hastings
     - Gibbs sampling
-- introduce Stan
-    - syntax, interfaces
-- R package `rstanarm' (interfaces Stan)
-    - regression examples
-- Bayes factor model comparison in practice
-    - analytical computation of evidence
+- tools for BDA:
+    - JAGS
+    - Stan & rstanarm
     - JASP
+    - WebPPL
+- Bayesian cognitive modeling
+    - case study: task types & link functions
 - Q\&A and conclusions
 
 ## optional exercises
 
-TO BE ADDED SOON  
+At a certain point, the best way to learn is to do. Here are a bunch of [exercises](http://michael-franke.github.io/KogWis2016_bda_tutorial/exercises.html) that might help you out of the comfort zone. If you need help find your way out of the bottle, please do not hesitate to get in touch!
