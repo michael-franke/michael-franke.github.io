@@ -49,6 +49,9 @@ Here is a compilation of [texts on Bayesian data analysis](http://michael-franke
 - comparison of methods for null-hypothesis testing
 
 #### session 2: practice
+
+[slides 2](http://michael-franke.github.io/KogWis2016_bda_tutorial/02_slides_tools.html)
+
 - Bayesian inference for complex models
     - statistical models as directed acyclic graphs
     - hierarchical models
@@ -63,7 +66,7 @@ Here is a compilation of [texts on Bayesian data analysis](http://michael-franke
     - JASP
     - rstanarm
 - Bayesian cognitive modeling
-    - case study: task types & link functions
+    - case study: task types & link functions ([slides](http://michael-franke.github.io/KogWis2016_bda_tutorial/03_slides_CogMod.html))
 - Q\&A and conclusions
 
 ## optional exercises
