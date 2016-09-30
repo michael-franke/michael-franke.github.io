@@ -30,7 +30,7 @@ concepts will help to see the bigger picture more clearly.
 
 Here is a compilation of [texts on Bayesian data analysis](http://michael-franke.github.io/KogWis2016_bda_tutorial/resources.html), and here is a summary of some handy [tools and software](http://michael-franke.github.io/KogWis2016_bda_tutorial/tools.html).
 
-## schedule (still a teeny-weeny bit tentative!!)
+## schedule
 
 #### session 1: theory
 
