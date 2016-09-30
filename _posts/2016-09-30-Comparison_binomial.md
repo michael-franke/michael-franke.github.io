@@ -38,32 +38,13 @@ As for Bayes factors for nested model comparison, the script uses the Savage-Dic
  
 Finally, let us also consider the approach to null-hypothesis testing suggested by John Kruschke, e.g., in his [delightful textbook](http://www.indiana.edu/~kruschke/DoingBayesianDataAnalysis/). This approach looks at the posterior distribution over $$\theta$$, given the data, and ask whether a so-called region of practical equivalence (ROPE) around the null-value $$\theta = 0.5$$, say $$[0.5 - \epsilon, 0.5+\epsilon]$$ has overlap with or enitrely lies within or contains the 95% credible interval of the posterior. Here, I chose $$\epsilon = 0.01$$ and a prior $$\theta \sim Beta(0.5,0.5)$$ like in the alternative model for the Bayes factor approach. For the purposes of this little calculation, let's say that the ROPE approach rejects the null hypothesis if the interval $$[0.5 - \epsilon, 0.5+\epsilon]$$ has no overlap with the 95% credible interval of the posterior.
  
-Let us then look at how frequently a false rejection of the null hypothesis would occur under each of these approaches. The $$p$$-value approach false rejects the true null hypothesis with this probability, depending on $$NN$$:
+Let us then look at how frequently a false rejection of the null hypothesis would occur under each of these approaches for different sample sizes $$N$$.
  
-
-{% highlight text %}
-##       frequency     approach     N
-## 1  2.148438e-02      p-value    10
-## 2  3.520020e-02      p-value   100
-## 3  4.629120e-02      p-value  1000
-## 4  4.883295e-02      p-value 10000
-## 5  4.955571e-02      p-value 1e+05
-## 6  2.148438e-02 Bayes Factor    10
-## 7  3.517642e-03 Bayes Factor   100
-## 8  8.899860e-04 Bayes Factor  1000
-## 9  2.830168e-04 Bayes Factor 10000
-## 10 8.033180e-05 Bayes Factor 1e+05
-## 11 1.093750e-01         ROPE    10
-## 12 3.520020e-02         ROPE   100
-## 13 1.038813e-02         ROPE  1000
-## 14 7.799431e-05         ROPE 10000
-## 15 1.206445e-16         ROPE 1e+05
-{% endhighlight %}
-
 ![plot of chunk unnamed-chunk-2](/mfpics/unnamed-chunk-2-1.png)
  
+We see that, unsurprisingly, the $$p$$-value approach falsely rejects the null hypothesis at close to 5% of the time for larger and larger $$N$$. Interstingly, as $$N$$ grows, the Bayes factor approach seems to correctly not reject the true null almost always. Finally, the ROPE approach falsely rejects the true null remarkably often for small $$NN$$. Based on the specifics of this set-up (e.g., $p$-value threshold 0.05, Bayes Factor threshold 6, ROPE's $$\epsilon=0.01$$), we may conclude that the Bayes factor approach is most successful at avoiding falsely rejecting the true null. A more nuanced conclusion would be that both the $$p$$-value as well as the ROPE based approach should ideally have thresholds ($p$-values and $$\epsilon$$) that are somehow sensitive to $$N$$. This echoes Lindley's solution to the Jeffreys-Lindley paradox.
  
-The Bayes factor approach falsely rejects the null hypothesis (here defined as accepting the alternative hypothesis) with this probability, depending on $$N$$:
+There's much more room for exploration here, but for today, I'll leave at that.
  
  
  
