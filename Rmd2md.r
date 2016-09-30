@@ -32,8 +32,8 @@ rmd2md <- function( path_site = getwd(),
     content <- readLines(file.path(path_site,dir_rmd,f))
     frontMatter <- which(substr(content, 1, 3) == '---')
     if(length(frontMatter) >= 2 & 1 %in% frontMatter) {
-      statusLine <- which(substr(content, 1, 8) == '-status:')
-      publishedLine <- which(substr(content, 1, 11) == '-published:')
+      statusLine <- which(substr(content, 1, 7) == 'status:')
+      publishedLine <- which(substr(content, 1, 10) == 'published:')
       if(statusLine > frontMatter[1] & statusLine < frontMatter[2]) {
         status <- unlist(strsplit(content[statusLine], ':'))[2]
         status <- sub('[[:space:]]+$', '', status)
