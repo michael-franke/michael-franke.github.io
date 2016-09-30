@@ -60,9 +60,10 @@ Let us then look at how frequently a false rejection of the null hypothesis woul
 ## 15 1.206445e-16         ROPE 1e+05
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-2](/mfpics/mypic.png)
+![plot of chunk unnamed-chunk-2](/mfpics/unnamed-chunk-2-1.png)
  
  
+The Bayes factor approach falsely rejects the null hypothesis (here defined as accepting the alternative hypothesis) with this probability, depending on $$N$$:
  
  
  
