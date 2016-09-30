@@ -22,18 +22,18 @@ rmd2md <- function( path_site = getwd(),
                     in_ext='.rmd', 
                     recursive=FALSE) {
   
-  require(knitr, quietly=TRUE, warn.conflicts=FALSE)
+  require(knitr, quietly=FALSE, warn.conflicts=FALSE)
   
   #andy change to avoid path problems when running without sh on windows 
   files <- list.files(path=file.path(path_site,dir_rmd), pattern=in_ext, ignore.case=TRUE, recursive=recursive)
-  
+  show(files)
   for(f in files) {
     message(paste("Processing ", f, sep=''))
     content <- readLines(file.path(path_site,dir_rmd,f))
     frontMatter <- which(substr(content, 1, 3) == '---')
     if(length(frontMatter) >= 2 & 1 %in% frontMatter) {
-      statusLine <- which(substr(content, 1, 7) == 'status:')
-      publishedLine <- which(substr(content, 1, 10) == 'published:')
+      statusLine <- which(substr(content, 1, 8) == '-status:')
+      publishedLine <- which(substr(content, 1, 11) == '-published:')
       if(statusLine > frontMatter[1] & statusLine < frontMatter[2]) {
         status <- unlist(strsplit(content[statusLine], ':'))[2]
         status <- sub('[[:space:]]+$', '', status)
