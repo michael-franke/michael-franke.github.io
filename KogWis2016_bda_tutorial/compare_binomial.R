@@ -76,7 +76,7 @@ compare_binomial = function(NList = c(10, 50, 100, 1000), p_true = 0.5, p_nh = 0
 
 results = compare_binomial(NList = c(10, 100, 1000, 10000, 100000))
 
-save(results, file = "results_binomial_comparison.Rdata")
+# save(results, file = "results_binomial_comparison.Rdata")
 
 rf = results$result_frequencies
 result_freq_plot = ggplot(rf, aes(x = N, y = value)) + scale_x_log10() +
