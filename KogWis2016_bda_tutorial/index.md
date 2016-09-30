@@ -34,6 +34,8 @@ Here is a compilation of [texts on Bayesian data analysis](http://michael-franke
 
 #### session 1: theory
 
+[slides 1](http://michael-franke.github.io/KogWis2016_bda_tutorial/01_slides_theory.html)
+
 - $p$-values & null-hypothesis significance testing
 - Bayes rule for data analysis
 - things to do with data and models:
