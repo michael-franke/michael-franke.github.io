@@ -40,22 +40,7 @@ Finally, let us also consider the approach to null-hypothesis testing suggested 
  
 Let us then look at how frequently a false rejection of the true null hypothesis would occur under each of these approaches for different sample sizes $$N$$.
  
-
-{% highlight text %}
-## Error in FUN(left, right): non-numeric argument to binary operator
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in ggplot(data = false_rejections, aes(x = N, y = frequency, fill = approach)): object 'false_rejections' not found
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in show(myplot): object 'myplot' not found
-{% endhighlight %}
+![plot of chunk unnamed-chunk-2](/mfpics/unnamed-chunk-2-1.png)
  
 We see that, unsurprisingly, the $$p$$-value approach falsely rejects the null hypothesis at close to 5% of the time for larger and larger $$N$$. Interestingly, as $$N$$ grows, the Bayes factor approach seems to correctly not reject the true null almost always. Finally, the ROPE approach falsely rejects the true null remarkably often for small $$N$$. Based on the specifics of this set-up (e.g., $p$-value threshold 0.05, Bayes Factor threshold 6, ROPE's $$\epsilon=0.01$$), we may conclude that the Bayes factor approach is most successful at avoiding falsely rejecting the true null. A more nuanced conclusion would be that both the $$p$$-value as well as the ROPE-based approach should ideally have thresholds ($p$-values and $$\epsilon$$) that are somehow sensitive to $$N$$. This echoes Lindley's solution to the [Jeffreys-Lindley paradox](https://en.wikipedia.org/wiki/Lindley%27s_paradox).
  
