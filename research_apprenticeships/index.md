@@ -15,7 +15,7 @@ Below is a list of possible topics offered by various members of our institute. 
 |**title** | <span style = "color:firebrick">Bayesian cognitive modeling of experimental data</span>
 |**areas** | language processing, language structure
 |**contact**  | [Michael Franke](http://www.sfs.uni-tuebingen.de/~mfranke/)  
-|   | We will study probabilistic cognitive modeling from a Bayesian point of view, in the style of Lee & Wagenmakers ([2015](https://bayesmodels.com/)). The apprenticeship will familiarize students with the basics of Bayesian data analysis and its main tools. We will then go through some of the key examples in Lee & Wagenmaker's textbook and round the project off with a novel and individual case study based on linguistic data.
+|   | We will study probabilistic cognitive modeling from a Bayesian point of view, in the style of Lee & Wagenmakers ([2015](https://bayesmodels.com/)). The apprenticeship will familiarize students with the basics of Bayesian data analysis and its main tools. We will then go through some of the key examples in Lee & Wagenmakers' textbook and round the project off with a novel and individual case study based on linguistic data.
 | <span style = "color:white"> contactation </span>
    | &nbsp;
 |**title** | <span style = "color:firebrick">Current issues at the semantics/pragmatics interface</span>
