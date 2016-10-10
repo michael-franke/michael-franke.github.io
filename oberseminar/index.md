@@ -5,14 +5,12 @@ output:
     theme: cosmo
 ---
 
+
 The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mondays from 10 to 12.
 
 <span style = "color:white"> dummy </span>
 
-### Schedule: upcoming talks
-
-
-
+### Probabilistic modeling of psycholinguistic data
 
 ---------------- ----------------------------------------------------
 Nov 11, 2016\    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">Daniel Gutzmann</span> (Cologne)\
