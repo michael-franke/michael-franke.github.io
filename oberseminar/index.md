@@ -10,7 +10,7 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 
 <span style = "color:white"> dummy </span>
 
-### Probabilistic modeling of psycholinguistic data
+### Upcoming talks
 
 ---------------- ----------------------------------------------------
 Nov 11, 2016\    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">Daniel Gutzmann</span> (Cologne)\
