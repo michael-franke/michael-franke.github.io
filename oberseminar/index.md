@@ -13,11 +13,11 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
-Nov 28, 2016\    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">Andreas Bischoff</span> (Freiburg)\
+Oct 31, 2016\    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">Andreas Bischoff</span> (Freiburg)\
 &nbsp;\          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBA\
 &nbsp;\          &nbsp;\
 
-Nov 11, 2016\    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">Daniel Gutzmann</span> (Cologne)\
+Nov 14, 2016\    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">Daniel Gutzmann</span> (Cologne)\
 &nbsp;\          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBA\
 &nbsp;\          &nbsp;\
 
