@@ -26,7 +26,7 @@ Nov 28, 2016\    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">T
 &nbsp;\          &nbsp;\
 
 Dec 5, 2016\     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">Bill Thompson</span> (Brussels)\
-&nbsp;\          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBA
+&nbsp;\          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBA\
 &nbsp;\          &nbsp;\
 
 
