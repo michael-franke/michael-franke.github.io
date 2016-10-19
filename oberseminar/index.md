@@ -27,6 +27,8 @@ Nov 28, 2016\    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">T
 
 Dec 5, 2016\     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">Bill Thompson</span> (Brussels)\
 &nbsp;\          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBA
+&nbsp;\          &nbsp;\
+
 
 Jan 16, 2017\    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">Maribel Romero</span> (Konstanz)\
 &nbsp;\          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBA
