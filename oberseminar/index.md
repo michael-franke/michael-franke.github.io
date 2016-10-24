@@ -15,29 +15,36 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 <span style = "color:white"> &nbsp; </span>
 
 ---------------- ----------------------------------------------------
-Oct 31, 2016\    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">Andreas Bischoff</span> (Freiburg)\
-&nbsp;\          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBA\
+Oct 31, 2016\    <span style = "color:firebrick">Andreas Bischoff</span> (Freiburg)\
+&nbsp;\          "Lautwandelketten und Maximisierung akustischer Distinktivität"
+
+&nbsp;\          <span style = "color:gray">Ein besonderes Phänomen des Lautwandels sind Lautwandelketten (engl. chain shifts). Als solche bezeichnet man den Effekt, dass ein Lautwandel einen weiteren Lautwandel auslöst. So kann ein Lautwandel /e/ > /ɪ/ einerseits die Ursache für einen folgenden Lautwandel /ɪ/ > /i/ (sog. Phonologischer Schub, engl. pushing) darstellen, andererseits auch einen Lautwandel /a/ > /e/ nach sich ziehen (sog. Phonologischer Sog, engl. pulling). Mit Hilfe von solchen Verschiebungsketten kann die akustische Distinktivität der Phoneme aufrecht erhalten werden und sind daher u. a. für die Theorie der self organization relevant. Der Vortrag wird das Phänomen aus akustischer, theoretischer und empirischer Sicht thematisieren und die Fragen stellen, wie oft diese erscheinen und wie wichtig sie als Ursache für Lautwandel sind.</span>\
 &nbsp;\          &nbsp;\
 
-Nov 14, 2016\    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">Daniel Gutzmann</span> (Cologne)\
-&nbsp;\          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBA\
+Nov 14, 2016\    <span style = "color:firebrick">Daniel Gutzmann</span> (Cologne)\
+&nbsp;\          TBA\
 &nbsp;\          &nbsp;\
 
-Nov 28, 2016\    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">Thomas Müller</span> (Jena)\
-&nbsp;\          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBA\
-&nbsp;\          &nbsp;\
-
-Dec 5, 2016\     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">Bill Thompson</span> (Brussels)\
-&nbsp;\          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBA\
+Nov 28, 2016\    <span style = "color:firebrick">Thomas Müller</span> (Jena)\
+&nbsp;\          "'I see what you mean!' - The Influence of Common Perceptual Context and Perspective-Taking on the Evolution of Graphic Codes"\
+&nbsp;\          <span style = "color:gray">click [here](abstracts/002_MüllerEtal_2016.pdf) for abstract</span>\
 &nbsp;\          &nbsp;\
 
 
-Jan 16, 2017\    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">Maribel Romero</span> (Konstanz)\
-&nbsp;\          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBA\
+&nbsp;\          TBA\
 &nbsp;\          &nbsp;\
 
-Jan 30, 2017\    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style = "color:firebrick">Timo Roettger</span> (Cologne)\
-&nbsp;\          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBA\
+Dec 5, 2016\     <span style = "color:firebrick">Bill Thompson</span> (Brussels)\
+&nbsp;\          TBA\
+&nbsp;\          &nbsp;\
+
+
+Jan 16, 2017\    <span style = "color:firebrick">Maribel Romero</span> (Konstanz)\
+&nbsp;\          TBA\
+&nbsp;\          &nbsp;\
+
+Jan 30, 2017\    <span style = "color:firebrick">Timo Roettger</span> (Cologne)\
+&nbsp;\          TBA\
 &nbsp;\          &nbsp;\
 --------------------------------------------------------------------------
 
