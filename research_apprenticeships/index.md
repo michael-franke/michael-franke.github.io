@@ -12,6 +12,12 @@ Below is a list of possible topics offered by various members of our institute. 
 
 |    |     
 |:--------------|:------------------------------------------------------------------------------------|
+|**title** | <span style = "color:firebrick">Information and language</span>
+|**areas** | language variation and change, language structure
+|**contact**  | [Christian Bentz](http://www.christianbentz.de/)
+|   | Human language is an information encoding device. This apprenticeship aims to familiarize students with the theory of information and how it relates to research in linguistics. The RA offers several topics: 1) language variation: information-theoretic accounts of linguistic diversity, 2) language change: the evolution of information-encoding in human languages, 3) language structure: investigating the difference between language and other communication systems. Depending on preferences and skills, these topics can entail detailed literature reviews, (small scale) corpus building, basic statistical analyses and visualizations with R.
+| <span style = "color:white"> contactation </span>
+   | &nbsp;
 |**title** | <span style = "color:firebrick">Bayesian cognitive modeling of experimental data</span>
 |**areas** | language processing, language structure
 |**contact**  | [Michael Franke](http://www.sfs.uni-tuebingen.de/~mfranke/)  
