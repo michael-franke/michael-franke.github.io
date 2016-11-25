@@ -15,21 +15,10 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 <span style = "color:white"> &nbsp; </span>
 
 ---------------- ----------------------------------------------------
-Nov 14, 2016\    <span style = "color:firebrick">Daniel Gutzmann</span> (Cologne)\
-&nbsp;\          "Expressive, much?"\
-&nbsp;\          (Joint work with Robert Henderson, The University of Arizona)\
-&nbsp;\          <span style = "color:gray">click [here](abstracts/003_Gutzmann_Henderson_2016.pdf) for abstract</span>\
-&nbsp;\          &nbsp;\
-
 Nov 28, 2016\    <span style = "color:firebrick">Thomas Müller</span> (Jena)\
 &nbsp;\          "'I see what you mean!' - The Influence of Common Perceptual Context and Perspective-Taking on the Evolution of Graphic Codes"\
 &nbsp;\          <span style = "color:gray">click [here](abstracts/002_MüllerEtal_2016.pdf) for abstract</span>\
 &nbsp;\          &nbsp;\
-
-Dec 5, 2016\     <span style = "color:firebrick">Bill Thompson</span> (Brussels)\
-&nbsp;\          TBA\
-&nbsp;\          &nbsp;\
-
 
 Jan 16, 2017\    <span style = "color:firebrick">Maribel Romero</span> (Konstanz)\
 &nbsp;\          TBA\
@@ -46,6 +35,11 @@ Jan 30, 2017\    <span style = "color:firebrick">Timo Roettger</span> (Cologne)\
 ### Past talks
 
 ---------------- ----------------------------------------------------
+Nov 14, 2016\    <span style = "color:firebrick">Daniel Gutzmann</span> (Cologne)\
+&nbsp;\          "Expressive, much?"\
+&nbsp;\          (Joint work with Robert Henderson, The University of Arizona)\
+&nbsp;\          <span style = "color:gray">click [here](abstracts/003_Gutzmann_Henderson_2016.pdf) for abstract</span>\
+&nbsp;\          &nbsp;\
 Oct 31, 2016\    <span style = "color:firebrick">Andreas Bischoff</span> (Freiburg)\
 &nbsp;\          "Lautwandelketten und Maximisierung akustischer Distinktivität"
 
