@@ -17,7 +17,7 @@ The first thought that came to mind is that we preferably call a poodle "dog" an
  
 To speak of optimality in a statistically variable context screams for precisification. Here is a first stab. A language is *discriminative* to the extent that it maximizes a measure like this one:
  
-$$$$\sum_c P(c) \sum_o P(o \mid c) \sum_{m} P_S(m \mid o,c) \sum_{o'} P_L(o' \mid m,c) \ \log (P_L(o' \mid m,c)) $$$$
+$$\sum_c P(c) \sum_o P(o \mid c) \sum_{m} P_S(m \mid o,c) \sum_{o'} P_L(o' \mid m,c) \ \log (P_L(o' \mid m,c)) $$
  
 Here, $$P(c)$$ is the probability which which a context $$c$$ occurs. A context $$c$$ consists of a variable number of objects $$o$$ and $$P(o \mid c)$$ is the probability that a speaker wants to talk about object $$o$$ when it occurs in context $$c$$ (i.e., to distinguish $$c$$ from other objects). When a speaker wants to talk about $$o$$ in $$c$$ she will use message $$m$$ with probability $$P_S(m \mid o,c)$$. Finally, the listener will assign probability $$P_L(o' \mid m,c)$$ to the proposition that the object the speaker wanted to refer to with $$m$$ in $$c$$ was $$o'$$. 
  
@@ -25,7 +25,7 @@ The formula above seems to qualify a pair of production and interpretation rules
  
 One language that maximizes disrcriminability independent of $$P(c)$$ is one that has a unique name for each object $$o$$. Such a language is not learnable if there are unboundedly many potential objects. Languages should also be optimized for learnability. I first stab at formalizing as possibly suitable notion could be to require that languages should maximize compressibility or minimize the entropy over the occurrence probability of messages:
  
-$$$$\sum_m P(m)\log P(m)$$$$
+$$\sum_m P(m)\log P(m)$$
  
 Here $$P(m) = \sum_{o,c} P_S(m \mid o,c)$$ is the occurrence probability of message $$m$$. A language that maximizes the latter measure is one that uses only one message all of the time. A language that minimizes it uses all (conceivable) messages with the same overall probability.
  
