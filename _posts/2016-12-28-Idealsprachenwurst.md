@@ -1,0 +1,28 @@
+---		
+layout: post		
+title:  "Philosophie der Idealen Sprache goes Wahlkrampf"		
+date:   2016-12-28 16:40:00 +0100		
+categories: commentary, politics, humor		
+status: publish
+published: true
+---
+ 
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+ 
+Bundesagrarminister Christian Schmidt von der CSU geht der "veganen Wurst" an den Kragen. Fleischersatzprodukte mit Bezeichnungen wie etwa "Soya Schnitzel" oder "vegetarisches Döner" seien irreführend, finde der CSU Politiker. So berichten heute verschiedene Zeitungen nach einem Interview des Ministers in der Bildzeitung. Auf [tagesschau.de](https://www.tagesschau.de/inland/schmidt-schnitzel-101.html) liest man:
+ 
+> Bundesagrarminister Christian Schmidt will Fleischbezeichnungen für vegetarische und vegane Lebensmittel verbieten. Begriffe wie "vegetarisches Schnitzel" oder "vegane Currywurst" seien "komplett irreführend und verunsichern die Verbraucher", sagte der CSU-Politiker der "Bild".
+> 
+> "Ich setze mich dafür ein, dass sie im Sinne einer klaren Verbraucherkennzeichnung verboten werden." Niemand dürfe "bei diesen Pseudo-Fleischgerichten so tun, als ob es Fleisch wäre", forderte Schmidt. Hersteller sollten eigene Namen für ihre pflanzlichen Produkte finden.
+ 
+Die Aufmachung des Interviews in der Bild hat eine etwas andere Stoßrichtung:
+ 
+<div align = 'center'>
+  <img src="../mfpics/Screenshot_Bild_Schmidt.png" alt="" style="width: 400px;"/>
+</div>
+ 
+Dennoch erkennen Fachmenschen sofort die eigentliche und heroische Motivation von Schmidts Kampfansage. Zunächst muss das Volk eingelullt werden für die folgenden höheren Zwecke. Zwar geht es jetzt (noch) um die Wurst, damit auch jeder Hans W. sich angesprochen, ernst genommen und von den Eliten repräsentiert fühlt. Spätestens drei Stunden nach der Wahl jedoch wird klar sein: wesentlich ist das Wesen der Sprache. Die Wurst ist wurscht, sprachliche Undeutlichkeit ist der Feind des klaren Gedankens. Nicht der Verbraucher, sondern der Gebraucher von unklaren Bezeichnungen muss geschützt werden. Unser geistiges Wohl steht auf dem Spiel bei so viel Schwammigkeit der Bezeichnungen im Supermarkt und überall anders auch!
+ 
+Die [FAZ](http://www.faz.net/aktuell/wirtschaft/nach-schmidt-interview-darf-ein-schnitzel-vegan-heissen-14594929.html) sucht schon mal in der richtigen Richtung, wenn sie nach der ursprünglichen Bedeutung von "Schnitzel" fragt: verwandt mit dem heutigen Wort "Schnitt" sei die ursprüngliche Bedeutung allgemein ein "abgeschnittenes, abgerissenes kleines Stückchen von etwas". Somit dürften "vegetarische Schnitzel" so niemals heißen, da die Soyapaste in Form gepresst wird, ohne dass etwas abgeschnitten würde. Produktionsmethoden könnten angepasst werden, aber, so meine These, diese Argumentationslinie ist ein Rohrkrepierer, denn was die "ursprüngliche" Bedeutung eines Wortes im Mittelhochdeutschen war, juckt keinen verwirrten Verbraucher, sondern verwirrt noch mehr. Wenn ich eine aufbrausende Dame ein "geiles Weib" nenne, hilft mir keine Flucht in die Etymologie. Zurecht!
+ 
+Damit wird klar: Minister Schmidt hat es auf die undurchsichtigen Eigenheiten der deutschen Bedeutungskomposition abgesehen. Die [Philosophie der Idealen Sprache](https://www.britannica.com/topic/ideal-language) wird Politikum. Vorgedacht schon vor fast 100 Jahren von Geistesgiganten wie Frege, Russell und dem jungen Wittgenstein, fordert diese schon schläfrig gewordene Strömung der analytischen Philosophie eine Aufhellung verschleierter Sprachpraktiken, damit die eigentliche Bedeutung (oder Bedeutungslosigkeit) von Ausdrücken und Aussagen offen zutage tritt. Das Problem ist also ein Grundlegendes. Ein konsequenter Aufklärer wie Minister Schmidt wird nach den Würsten zur Ruhe kommen, sondern das volle Ausmaß des Übels auf europäischer Bühne an den Pranger stellen. Keine Fischgräte zu finden in den "salzigen Heringen", kein Lungenkrebs zu erhaschen beim Konsum von "Kaugummizigaretten", kein Land zu kaufen mit den "Schokoladentalern". Die Verbraucher müssen Klarheit haben, dass die "Bauernsalami" von und nicht aus Bauern gemacht wurde, die "Putenschnitzel" aber aus und nicht von den Puten. Man lege eine schützende Hand über all die Ermüdeten, die sich der sprachlichen Fallstricken blind einen Koffeinkick von "Karokaffee" erhoffen. Oh, schützt unsere Jugend, die zum Komasaufen mit "Malzbier" aufschlägt; stand direkt daneben im Regal! Es muss eine klare Grenze gezogen werden zwischen "Katzenpfötchen", "Gummibärchen" und "Spaghettieis". Was geschähe, wenn findige Immobilienmakler bald "Lebkuchen-" und "Puppenhäuser" sowie "Luftschlösser" und "Sandburgen" anböten und sich vor Gericht wehrten mit Verweis auf die langjährigen Praktiken der Hersteller von "Zuckerwatte", "Plastikfröschen" und "Gartenzwergen"? Wer sollte da den Überblick bewahren. Bei der "vegetarischen Ente" im chinesichen Restaurant muss klar sein, dass es ausschließlich Fleisch einer Ente enthält, die sich ihr Leben lang vorwiegend vegetarisch ernährt hat. Adjektive wie "ehemalige", "mutmaßliche", "frühere" sind gänzlich abzuschaffen und Darmausscheidungen sind auf keinem Fall als "Kackwurst" zu bezeichen, sonst beißt ein verwirrter Verbraucher noch rein.
