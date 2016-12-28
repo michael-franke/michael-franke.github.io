@@ -17,10 +17,6 @@ Bundesagrarminister Christian Schmidt von der CSU geht der "veganen Wurst" an de
  
 Die Aufmachung des Interviews in der Bild hat eine etwas andere Stoßrichtung:
  
-<div align = 'center'>
-  <img src="/mfpics/Screenshot_Bild_Schmidt.png" alt="" style="width: 400px;"/>
-</div>
- 
 ![plot of chunk unnamed-chunk-2](/mfpics/Screenshot_Bild_Schmidt.png)
  
 Dennoch erkennen Fachmenschen sofort die eigentliche und heroische Motivation von Schmidts Kampfansage. Zunächst muss das Volk eingelullt werden für die folgenden höheren Zwecke. Zwar geht es jetzt (noch) um die Wurst, damit auch jeder Hans W. sich angesprochen, ernst genommen und von den Eliten repräsentiert fühlt. Spätestens drei Stunden nach der Wahl jedoch wird klar sein: wesentlich ist das Wesen der Sprache. Die Wurst ist wurscht, sprachliche Undeutlichkeit ist der Feind des klaren Gedankens. Nicht der Verbraucher, sondern der Gebraucher von unklaren Bezeichnungen muss geschützt werden. Unser geistiges Wohl steht auf dem Spiel bei so viel Schwammigkeit der Bezeichnungen im Supermarkt und überall anders auch!
