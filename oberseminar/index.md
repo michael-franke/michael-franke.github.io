@@ -15,14 +15,11 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 <span style = "color:white"> &nbsp; </span>
 
 ---------------- ----------------------------------------------------
-Jan 16, 2017\    <span style = "color:firebrick">Maribel Romero</span> (Konstanz)\
-&nbsp;\          "On the readings of *many*"\
-&nbsp;\          <span style = "color:gray">click [here](abstracts/romero-Tuebingen-ab.pdf) for abstract</span>\
-&nbsp;\          &nbsp;\
+Jan 30, 2017\    <span style = "color:firebrick">Timo Roettgr & Mathias Stoeber</span> (Cologne)\
 
-Jan 30, 2017\    <span style = "color:firebrick">Timo Roettger</span> (Cologne)\
-&nbsp;\          TBA\
-&nbsp;\          &nbsp;\
+&nbsp;\          "Manual Response Tracking during Intonation-Based Intention Recognition"\
+&nbsp;\          <span style = "color:gray">During the perception of an unfolding speech signal listeners use prosodic information to guide their interpretation of what a speaker intends to communicate. This process can take place long before disambiguating lexical information becomes available, allowing the comprehender to make rapid inferences about what a speaker intends to say, even if these inferences are based on partial information. The inference process can only be fully understood using experimental techniques that measure the real-time integration of prosodic information to resolve temporally ambiguous interpretations. While eye tracking experiments have advanced our knowledge about the real-time integration of prosodic information tremendously, we will propose that tracking hand movements complement existing methodologies and offer low-cost alternatives to eye tracking: It has been demonstrated that continuous nonlinear trajectories recorded from the streaming of x,y coordinates of computer mouse movements can serve as an informative indicator of cognitive processes. This talk will introduce mouse tracking as a tool for speech scientists, capable of unravelling the temporal dynamics of speech processing. Additionally, we will present preliminary results of a mouse tracking paradigm attempting to illuminate prosody-based intention recognition. In light of the presented data, we will discuss both methodological advantages and challenges of the proposed paradigm. We hope to convince the audience that mouse tracking is a methodology which holds great promise for low-cost but detailed exploration of fine-grained temporal aspects of speech perception in general and prosody-based intention recognition in particular.</span>
+
 --------------------------------------------------------------------------
 
 <span style = "color:white"> dummy </span>
@@ -31,7 +28,13 @@ Jan 30, 2017\    <span style = "color:firebrick">Timo Roettger</span> (Cologne)\
 ### Past talks
 
 ---------------- ----------------------------------------------------
+Jan 16, 2017\    <span style = "color:firebrick">Maribel Romero</span> (Konstanz)\
+&nbsp;\          "On the readings of *many*"\
+&nbsp;\          <span style = "color:gray">click [here](abstracts/romero-Tuebingen-ab.pdf) for abstract</span>\
+&nbsp;\          &nbsp;\
+
 Nov 28, 2016\    <span style = "color:firebrick">Thomas Müller</span> (Jena)\
+
 &nbsp;\          "'I see what you mean!' - The Influence of Common Perceptual Context and Perspective-Taking on the Evolution of Graphic Codes"\
 &nbsp;\          <span style = "color:gray">click [here](abstracts/002_MüllerEtal_2016.pdf) for abstract</span>\
 &nbsp;\          &nbsp;\
@@ -41,13 +44,16 @@ Nov 14, 2016\    <span style = "color:firebrick">Daniel Gutzmann</span> (Cologne
 &nbsp;\          (Joint work with Robert Henderson, The University of Arizona)\
 &nbsp;\          <span style = "color:gray">click [here](abstracts/003_Gutzmann_Henderson_2016.pdf) for abstract</span>\
 &nbsp;\          &nbsp;\
+
 Oct 31, 2016\    <span style = "color:firebrick">Andreas Bischoff</span> (Freiburg)\
+
 &nbsp;\          "Lautwandelketten und Maximisierung akustischer Distinktivität"
 
 &nbsp;\          <span style = "color:gray">Ein besonderes Phänomen des Lautwandels sind Lautwandelketten (engl. chain shifts). Als solche bezeichnet man den Effekt, dass ein Lautwandel einen weiteren Lautwandel auslöst. So kann ein Lautwandel /e/ > /ɪ/ einerseits die Ursache für einen folgenden Lautwandel /ɪ/ > /i/ (sog. Phonologischer Schub, engl. pushing) darstellen, andererseits auch einen Lautwandel /a/ > /e/ nach sich ziehen (sog. Phonologischer Sog, engl. pulling). Mit Hilfe von solchen Verschiebungsketten kann die akustische Distinktivität der Phoneme aufrecht erhalten werden und sind daher u. a. für die Theorie der self organization relevant. Der Vortrag wird das Phänomen aus akustischer, theoretischer und empirischer Sicht thematisieren und die Fragen stellen, wie oft diese erscheinen und wie wichtig sie als Ursache für Lautwandel sind.</span>\
 &nbsp;\          &nbsp;\
 
 July 5, 2016\    <span style = "color:firebrick">Ryan Cotterell</span> (Johns Hopkins)\
+
 &nbsp;\          "Modeling Word Forms Using Latent Underlying Morphs and Phonology"
 
 &nbsp;\          <span style = "color:gray">The observed pronunciations or spellings of words are often explained as arising from the “underlying forms” of their morphemes. These forms are latent strings that linguists try to reconstruct by hand. We propose to reconstruct them automatically at scale, enabling generalization to new words. Given some surface word types of a concatenative language along with the abstract morpheme sequences that they express, we show how to recover consistent underlying forms for these morphemes, together with the (stochastic) phonology that maps each concatenation of underlying forms to a surface form. Our technique involves loopy belief propagation in a natural directed graphical model whose variables are unknown strings and whose conditional distributions are encoded as finite-state machines with trainable weights. We define training and evaluation paradigms for the task of surface word prediction, and report results on subsets of 7 languages.</span>\
@@ -55,12 +61,14 @@ July 5, 2016\    <span style = "color:firebrick">Ryan Cotterell</span> (Johns Ho
 
 
 June 24, 2016\   <span style = "color:firebrick">Bodo Winter</span> (Merced, Birmingham) &  <span style = "color:firebrick">Andrew Wedel</span> (Arizona)\
+
 &nbsp;\          "Robustness in phonetic systems: Evidence from phoneme frequencies and iterated learning"
 
 &nbsp;\          <span style = "color:gray">When speakers of a language communicate with one another, they frequently do so in noisy and sometimes rapidly changing acoustic environments. Language is structured so as to resist these perturbations. I will present two projects on the robustness of spoken language. First, a typological study showing that languages prefer phonemes that are perceptually distinct. Second, an iterated learning experiment showing how robust movement-to-acoustic mappings change the course of language evolution. Together with computational models, these studies show that languages evolve under communicative pressures to maintain function in spite of noise.</span>\
 &nbsp;\          &nbsp;\
 
 &nbsp;\          <span style = "color:firebrick">Andrew Wedel</span> (Arizona) & <span style = "color:firebrick">Bodo Winter</span> (Merced, Birmingham)\
+
 &nbsp;\           "The interaction of functional pressure, redundancy and category variation in phonetic systems"
 
 &nbsp;\          <span style = "color:gray">At the level of individual speakers, evidence from natural speech corpora and laboratory investigations shows that the existence of similar lexical items promotes hyperarticulation of phonetic cues that distinguish them. In parallel, at diachronic time-scales evidence suggests that phoneme inventories evolve under the influence of a bias toward maintenance of existing lexico-semantic distinctions. How might these be causally related? Here we present simple exemplar-based simulations that help us explore hypotheses about a general linking mechanism between pressure to maintain lexical contrasts in individual usage events, and maintenance of phonemic contrasts over diachronic time scales. We show that redundancy in sound categories interacts with communicative pressure to modulate ‘cryptic variation’ in sound categories and show that within the model, this sub-phonemic variation shapes future sound change. </span>\
@@ -72,12 +80,14 @@ June 24, 2016\   <span style = "color:firebrick">Bodo Winter</span> (Merced, Bir
 &nbsp;\          &nbsp;\
 
 June 13, 2016\   <span style = "color:firebrick">Marie-Christine Meyer</span> (Berlin)\
+
 &nbsp;\           "Structural conditions on implicature computation: The latest news"
 
 &nbsp;\          <span style = "color:gray">This talk has two goals. First, to introduce the audience to an ongoing and open-ended debate in the field of formal pragmatics. The debate builds on seminal work by R. Katzir (2007, 2008, 2014) and concerns the role of structure in the definition of the set of alternatives that can be used in the computation of (scalar) implicatures. Structural constraints on alternatives have been shown to provide a solution to the so-called Symmetry Problem (Kroch 1972, von Fintel & Heim 1997), and more general well-formedness conditions on alternatives have been argued to underlie otherwise unrelated phenomena (e.g. Meyer 2015). But the idea that alternatives are structural objects which may as such be subject to structural constraints has recently come under attack in view of data that Katzir’s original proposal cannot account for (Swanson 2010, Trinh & Haida 2015, Romoli 2013). These new data will bring us to the second goal of the talk: To present even more new, i.e., newest data. I will argue that most of the seemingly problematic issues have been insufficiently analyzed and that factors which are completely independent of structural constraints on alternatives, viz.,the presupposition of contrastive connectives (e.g., Toosarvandani 2013) and principles of information encoding (e.g., Parikh 2001) have to be taken into account. Once this is accomplished, a new classification of the data ensues which makes it possible to disentangle genuine issues of the structural approach on the one hand, and confounding factors on the other.</span>\
 &nbsp;\          &nbsp;\
 
 June 6, 2016\    <span style = "color:firebrick">Sven Lauer</span> (G&ouml;ttingen & Konstanz)\
+
 &nbsp;\          "(Un)conditional imperatives, (un)conditional modals, and (un)conditional endorsement"\
 &nbsp;\          (Joint work with Cleo Condoravdi, Stanford University)
 
