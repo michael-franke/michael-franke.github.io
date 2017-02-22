@@ -15,10 +15,7 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 <span style = "color:white"> &nbsp; </span>
 
 ---------------- ----------------------------------------------------
-Jan 30, 2017\    <span style = "color:firebrick">Timo Roettger & Mathias Stoeber</span> (Cologne)\
-
-&nbsp;\          "Manual Response Tracking during Intonation-Based Intention Recognition"\
-&nbsp;\          <span style = "color:gray">During the perception of an unfolding speech signal listeners use prosodic information to guide their interpretation of what a speaker intends to communicate. This process can take place long before disambiguating lexical information becomes available, allowing the comprehender to make rapid inferences about what a speaker intends to say, even if these inferences are based on partial information. The inference process can only be fully understood using experimental techniques that measure the real-time integration of prosodic information to resolve temporally ambiguous interpretations. While eye tracking experiments have advanced our knowledge about the real-time integration of prosodic information tremendously, we will propose that tracking hand movements complement existing methodologies and offer low-cost alternatives to eye tracking: It has been demonstrated that continuous nonlinear trajectories recorded from the streaming of x,y coordinates of computer mouse movements can serve as an informative indicator of cognitive processes. This talk will introduce mouse tracking as a tool for speech scientists, capable of unravelling the temporal dynamics of speech processing. Additionally, we will present preliminary results of a mouse tracking paradigm attempting to illuminate prosody-based intention recognition. In light of the presented data, we will discuss both methodological advantages and challenges of the proposed paradigm. We hope to convince the audience that mouse tracking is a methodology which holds great promise for low-cost but detailed exploration of fine-grained temporal aspects of speech perception in general and prosody-based intention recognition in particular.</span>
+TBA              
 
 --------------------------------------------------------------------------
 
@@ -28,6 +25,12 @@ Jan 30, 2017\    <span style = "color:firebrick">Timo Roettger & Mathias Stoeber
 ### Past talks
 
 ---------------- ----------------------------------------------------
+Jan 30, 2017\    <span style = "color:firebrick">Timo Roettger & Mathias Stoeber</span> (Cologne)\
+
+&nbsp;\          "Manual Response Tracking during Intonation-Based Intention Recognition"\
+&nbsp;\          <span style = "color:gray">During the perception of an unfolding speech signal listeners use prosodic information to guide their interpretation of what a speaker intends to communicate. This process can take place long before disambiguating lexical information becomes available, allowing the comprehender to make rapid inferences about what a speaker intends to say, even if these inferences are based on partial information. The inference process can only be fully understood using experimental techniques that measure the real-time integration of prosodic information to resolve temporally ambiguous interpretations. While eye tracking experiments have advanced our knowledge about the real-time integration of prosodic information tremendously, we will propose that tracking hand movements complement existing methodologies and offer low-cost alternatives to eye tracking: It has been demonstrated that continuous nonlinear trajectories recorded from the streaming of x,y coordinates of computer mouse movements can serve as an informative indicator of cognitive processes. This talk will introduce mouse tracking as a tool for speech scientists, capable of unravelling the temporal dynamics of speech processing. Additionally, we will present preliminary results of a mouse tracking paradigm attempting to illuminate prosody-based intention recognition. In light of the presented data, we will discuss both methodological advantages and challenges of the proposed paradigm. We hope to convince the audience that mouse tracking is a methodology which holds great promise for low-cost but detailed exploration of fine-grained temporal aspects of speech perception in general and prosody-based intention recognition in particular.</span>\
+&nbsp;\          &nbsp;\
+
 Jan 16, 2017\    <span style = "color:firebrick">Maribel Romero</span> (Konstanz)\
 &nbsp;\          "On the readings of *many*"\
 &nbsp;\          <span style = "color:gray">click [here](abstracts/romero-Tuebingen-ab.pdf) for abstract</span>\
