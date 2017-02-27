@@ -51,7 +51,7 @@ qplot(pred,obs) + ylab("observation") + xlab('prediction') +
   geom_abline(slope = 1, intercept = 0, color = "firebrick") + xlim(c(0,1)) + ylim(c(0,1))
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-2](/mfpics/unnamed-chunk-2-1.png)
+![plot of chunk unnamed-chunk-2](/mfpics/2017-02-27-CorrelationMultinomial.Rmd/unnamed-chunk-2-1.png)
  
  
 The perfect model would predict exactly the observed frequencies. So, for the perfect model, all points in a prediction-observation plot would lie on the straight line with intercept 0 and slope 1, plotted above in red. Seen in this light, the predictions by our fictitious model seem to be very good, impressionistically speaking. 
@@ -117,10 +117,10 @@ obs = jitter(c(rep(.9,90), rep(.6,10), rep(.1,90), rep(.4,10)),factor = 0.1)
 show(qplot(pred, obs) + ylab("observation") + xlab('prediction'))
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-5](/mfpics/unnamed-chunk-5-1.png)
+![plot of chunk unnamed-chunk-5](/mfpics/2017-02-27-CorrelationMultinomial.Rmd/unnamed-chunk-5-1.png)
  
  
-The correlation score of 0.9715 is very high (and immensely significant). We are heading towards a publication here!
+The correlation score of 0.9717 is very high (and immensely significant). We are heading towards a publication here!
  
 But wait a minute. Actually, half of our prediction values are superfluous in a sense. If we predict choice probability $p$ for one option, the model must predict $1-p$ for the other, of course. Similarly if the observed choice frequency of one option is $f$, that of the other must be $1-f$. So what happens if we scrap the redundant part of our data? Let's grab the predictions and frequencies for only one of the two options:
  
@@ -131,9 +131,9 @@ obsInd = obs[1:100]
 show(qplot(predInd, obsInd) + ylab("observation") + xlab('prediction'))
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-6](/mfpics/unnamed-chunk-6-1.png)
+![plot of chunk unnamed-chunk-6](/mfpics/2017-02-27-CorrelationMultinomial.Rmd/unnamed-chunk-6-1.png)
  
-That doesn't look like a tremendous achievement anymore and, indeed, the correlation score is a poor man's 0.1056. 
+That doesn't look like a tremendous achievement anymore and, indeed, the correlation score is a poor man's 0.0265. 
  
 Bottomline: if we look at what the model predicts for both choice options, we get a very high correlation. But predictions and observations for one choice option fully determine the other, so this part of the information seems entirely redundant. Yet, if we leave it out, our measure of glory plummets. What to make of this?
  
@@ -148,7 +148,7 @@ obsUniform = rep(c(.6,.4), each = 100)
 show(qplot(predUniform, obsUniform) + ylab("observation") + xlab('prediction'))
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-7](/mfpics/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-7](/mfpics/2017-02-27-CorrelationMultinomial.Rmd/unnamed-chunk-7-1.png)
  
 Yeeha! We have a perfect correlation of 1, because all prediction and observation pairs lie on a linear line. However, that line does not have slope 1 and intercept 0. Our model is not the perfect model.
  
