@@ -9,16 +9,16 @@ published: true
  
 
  
-#### Why this post
+### Why this post
  
 I have recently seen a number of studies report on the quality of model fits in terms of correlation scores, where the data to be explained are categorical choice frequencies. I have succumbed to this myself. It is not a good idea. Here are some considerations why.
  
-#### What's multinomial data?
+### What's multinomial data?
  
 Suppose that you have a number of experimental conditions in which subjects make a choice between a finite, usually small, set of unordered options. Here is an example, taken from [recent work](http://dx.doi.org/10.1371/journal.pone.0154854) of Judith Degen and myself. Participants saw a picture like this:
  
 <div align = 'center'>
-  <img src="mfpics/simplenew.png" alt="referenceGame" style="width: 500px;"/>
+  <img src="/mfpics/simplenew.png" alt="referenceGame" style="width: 500px;"/>
 </div>
  
 The three creatures on the left are possible referents, the icons on the right are available messages. The task is to play a simple communication game. In the speaker role, participants use one of the available messages to refer to a given creature (production trials). In the listener role, participants guess which of these creatures the speaker is trying to refer to with the use of a given message (interpretation trials). 
@@ -30,7 +30,7 @@ The details of this experiment are not important here. It's just an example of a
  
 This is just one condition, of course. Usually, there will be more. But this suffices for illustration.
  
-#### Models for multinomial data
+### Models for multinomial data
  
 A lot of recent and highly exciting work supplies such count data with computational models that, usually, couch some intuition or informal theory into a formal framework that makes predictions about each choice's probability. In the case above, for instance, we may consult the interpretation of the [Rational Speech Act model](http://science.sciencemag.org/content/336/6084/998) or some other incarnation of similar ideas (see, e.g., Franke & Jäger [2016](https://www.degruyter.com/view/j/zfsw.2016.35.issue-1/zfs-2016-0002/zfs-2016-0002.xml) for overview). 
  
@@ -56,7 +56,7 @@ qplot(pred,obs) + ylab("observation") + xlab('prediction') +
  
 The perfect model would predict exactly the observed frequencies. So, for the perfect model, all points in a prediction-observation plot would lie on the straight line with intercept 0 and slope 1, plotted above in red. Seen in this light, the predictions by our fictitious model seem to be very good, impressionistically speaking. 
  
-#### Correlation scores
+### Correlation scores
  
 Let's put a number to the impression, because numbers convince by implicit gesture towards rigor. A number of papers have used **correlation scores** for this purpose. I will not point to any paper and certainly not to any person in particular, except for this one lost soul: myself! Yes, I have used correlation scores to suggest that a model is doing a good job. But the practice is far from ideal. To see this, let's first look at what correlation scores are.
  
@@ -79,9 +79,9 @@ cov(pred,obs) / ( sd(pred) * sd(obs))
  
 This looks pretty good, and may be considered a measure of the quality of the model.
  
-#### Some problems
+### Some problems
  
-##### Insensitivity to number of observations
+#### Insensitivity to number of observations
  
 Suppose we have two conditions. One is as before, the other with some fictitious data like so:
  
@@ -106,7 +106,7 @@ The correlation of predictions and frequencies is 0.9985, which would indicate t
  
 Bottomline: since correlation scores only look at the frequencies of choices, normalized by each condition, we lose information about the total number of samples in each condition. So we loose the intuition that predicting frequencies very closely should be a greater achievement if there are many samples than when there are only few. 
  
-##### High correlation for questionable models: Part 1
+#### High correlation for questionable models: Part 1
  
 Let's assume that we have a vector of predictions for several independent binomial conditions for simplicity:
  
@@ -120,7 +120,7 @@ show(qplot(pred, obs) + ylab("observation") + xlab('prediction'))
 ![plot of chunk unnamed-chunk-5](/mfpics/unnamed-chunk-5-1.png)
  
  
-The correlation score of 0.9708 is very high (and immensely significant). We are heading towards a publication here!
+The correlation score of 0.9722 is very high (and immensely significant). We are heading towards a publication here!
  
 But wait a minute. Actually, half of our prediction values are superfluous in a sense. If we predict choice probability $p$ for one option, the model must predict $1-p$ for the other, of course. Similarly if the observed choice frequency of one option is $f$, that of the other must be $1-f$. So what happens if we scrap the redundant part of our data? Let's grab the predictions and frequencies for only one of the two options:
  
@@ -133,11 +133,11 @@ show(qplot(predInd, obsInd) + ylab("observation") + xlab('prediction'))
 
 ![plot of chunk unnamed-chunk-6](/mfpics/unnamed-chunk-6-1.png)
  
-That doesn't look like a tremendous achievement anymore and, indeed, the correlation score is a poor man's -0.2439. 
+That doesn't look like a tremendous achievement anymore and, indeed, the correlation score is a poor man's 0.2354. 
  
 Bottomline: if we look at what the model predicts for both choice options, we get a very high correlation. But predictions and observations for one choice option fully determine the other, so this part of the information seems entirely redundant. Yet, if we leave it out, our measure of glory plummets. What to make of this?
  
-##### High correlation for questionable models: Part 2
+#### High correlation for questionable models: Part 2
  
 Let's look at another dodgy model with a shiny correlation score. Suppose that the model predicts a single choice probability for all conditions in a binomial choice task and we observe (miraculously) the same frequency of choices for all conditions, however, with a difference between these two. For example: 
  
@@ -154,7 +154,7 @@ Yeeha! We have a perfect correlation of 1, because all prediction and observatio
  
 Bottomline: the correlation score can be a perfect 1 even if the model is not the perfect model.
  
-##### Showdown: bringing in likelihoods
+#### Showdown: bringing in likelihoods
  
 Is this bad? Yes it is. Suppose that each condition had 20 observations. Then a theoretical prediction of .9 and an observed frequency of .6 is rather surprising, even for a single condition. 
  
