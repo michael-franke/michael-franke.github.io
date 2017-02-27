@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "On correlation scores as a criterion for the quality of a model for discrete choice situations"
+title: "Measuring model fit for categorical data with correlation scores? - Not such a good idea."
 date:   2017-02-27
 categories: statistics, modeling
 status: publish
@@ -120,7 +120,7 @@ show(qplot(pred, obs) + ylab("observation") + xlab('prediction'))
 ![plot of chunk unnamed-chunk-5](/mfpics/unnamed-chunk-5-1.png)
  
  
-The correlation score of 0.9722 is very high (and immensely significant). We are heading towards a publication here!
+The correlation score of 0.9715 is very high (and immensely significant). We are heading towards a publication here!
  
 But wait a minute. Actually, half of our prediction values are superfluous in a sense. If we predict choice probability $p$ for one option, the model must predict $1-p$ for the other, of course. Similarly if the observed choice frequency of one option is $f$, that of the other must be $1-f$. So what happens if we scrap the redundant part of our data? Let's grab the predictions and frequencies for only one of the two options:
  
@@ -133,7 +133,7 @@ show(qplot(predInd, obsInd) + ylab("observation") + xlab('prediction'))
 
 ![plot of chunk unnamed-chunk-6](/mfpics/unnamed-chunk-6-1.png)
  
-That doesn't look like a tremendous achievement anymore and, indeed, the correlation score is a poor man's 0.2354. 
+That doesn't look like a tremendous achievement anymore and, indeed, the correlation score is a poor man's 0.1056. 
  
 Bottomline: if we look at what the model predicts for both choice options, we get a very high correlation. But predictions and observations for one choice option fully determine the other, so this part of the information seems entirely redundant. Yet, if we leave it out, our measure of glory plummets. What to make of this?
  
