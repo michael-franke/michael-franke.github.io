@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Measuring model fit for categorical data with correlation scores? - Not such a good idea."
+title: "Measuring model fit for categorical data with correlation scores? - Probably not such a good idea."
 date:   2017-02-27
 categories: statistics, modeling
 status: publish
@@ -8,13 +8,10 @@ published: true
 ---
  
 
-{% highlight text %}
-## Loading required package: magrittr
-{% endhighlight %}
  
 ### Why this post
  
-I have recently seen a number of studies report on the quality of model fits in terms of correlation scores, where the data to be explained are categorical choice frequencies. I have succumbed to this myself. It is not a good idea. Here are some considerations why.
+A number of papers recently crossed my path that reported on a computational model's goodness-of-fit in terms of correlation scores, where the data to be explained were frequencies of a discrete (categorical) choice task. Inspired by others (though this is a very lame excuse), I have occasionally adopted this practice myself. But: it is not a good idea. Here are some considerations why.
  
 ### What's multinomial data?
  
@@ -123,7 +120,7 @@ show(qplot(pred, obs) + ylab("observation") + xlab('prediction'))
 ![plot of chunk unnamed-chunk-5](/mfpics/2017-02-27-CorrelationMultinomial.Rmd/unnamed-chunk-5-1.png)
  
  
-The correlation score of 0.9718 is very high (and immensely significant). We are heading towards a publication here!
+The correlation score of 0.9712 is very high (and immensely significant). We are heading towards a publication here!
  
 But wait a minute. Actually, half of our prediction values are superfluous in a sense. If we predict choice probability $p$ for one option, the model must predict $1-p$ for the other, of course. Similarly if the observed choice frequency of one option is $f$, that of the other must be $1-f$. So what happens if we scrap the redundant part of our data? Let's grab the predictions and frequencies for only one of the two options:
  
@@ -136,7 +133,7 @@ show(qplot(predInd, obsInd) + ylab("observation") + xlab('prediction'))
 
 ![plot of chunk unnamed-chunk-6](/mfpics/2017-02-27-CorrelationMultinomial.Rmd/unnamed-chunk-6-1.png)
  
-That doesn't look like a tremendous achievement anymore and, indeed, the correlation score is a poor man's 0.0743. 
+That doesn't look like a tremendous achievement anymore and, indeed, the correlation score is a poor man's -0.0315. 
  
 Bottomline: if we look at what the model predicts for both choice options, we get a very high correlation. But predictions and observations for one choice option fully determine the other, so this part of the information seems entirely redundant. Yet, if we leave it out, our measure of glory plummets. What to make of this?
  
@@ -188,3 +185,7 @@ A model which predicts this for 100 conditions (like assumed above) should be se
 What this means is that even though for each condition the model's prediction is, let's say, not very good, by exploiting the fact that half of the frequency observations are a linear function of the other half, and likewise for the predictions, we get a perfect correlation score. The model is devilishly dubious, but the corrlation rocks heavenly!
  
 This problem also affects the previous case where we had most predictions coincide with the observed frequencies, of course. If every condition had 20 observations, the surprise of predicting .9 and observing 12 out of 20 does persist. From a likelihood perspective the model is shaky while the correlation is high.
+ 
+#### Conclusion
+ 
+Here are just a few examples that gesture towards the conceptual inadequacy of correlation scores as measures of model fit for categorical data. This does not speak to the case where a model predicts a metric variable (e.g., ordinary linear regression), where correlation scores have a clear interpretation and their use a clear rationale. Another issue not touched by any of the above is: what else to use to measure goodness-of-fit of a model for categorical data. Rescaled likelihood suggests itself, and I hope to be able to write about this soon.
