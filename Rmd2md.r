@@ -14,7 +14,7 @@
 #' @return nothing.
 #' @author Jason Bryer <jason@bryer.org> edited by Andy South
 rmd2md <- function( path_site = getwd(),
-                    dir_rmd = "_rmd",
+                    dir_rmd = "mfRmd",
                     dir_md = "_posts",                              
                     #dir_images = "figures",
                     url_images = "mfpics/",
