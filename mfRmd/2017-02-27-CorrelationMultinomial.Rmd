@@ -13,7 +13,7 @@ require('dplyr')
 require('ggplot2')
 ```
 
-### Why this post
+### Why this post?
 
 A number of papers recently crossed my path that reported on a computational model's goodness-of-fit in terms of correlation scores, where the data to be explained were frequencies of a discrete (categorical) choice task. Inspired by others (though this is a very lame excuse), I have occasionally adopted this practice myself. But: it is not a good idea. Here are some considerations why.
 
