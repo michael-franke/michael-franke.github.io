@@ -60,9 +60,9 @@ The perfect model would predict exactly the observed frequencies. So, for the pe
  
 Let's put a number to the impression, because numbers convince by implicit gesture towards rigor. A number of papers have used **correlation scores** for this purpose. I will not point to any paper and certainly not to any person in particular, except for this one lost soul: myself! Yes, I have used correlation scores to suggest that a model is doing a good job. But the practice is far from ideal. To see this, let's first look at what correlation scores are.
  
-Let $\vec{o}$ be a vector of observations and $\vec{p}$ a vector of predictions, equally long and aligned with each other. **Pearsson's correlation coefficent** is then defined simply as the covariance between $\vec{o}$ and $\vec{p}$ divided by the product of their standard deviations:
+Let $$\vec{o}$$ be a vector of observations and $$\vec{p}$$ a vector of predictions, equally long and aligned with each other. **Pearsson's correlation coefficent** is then defined simply as the covariance between $$\vec{o}$$ and $$\vec{p}$$ divided by the product of their standard deviations:
  
-$$r(\vec{o}, \vec{p}) = \frac{cov(\vec{o}, \vec{p})}{sd(\vec{o}) \ sd(\vec{p})} $$
+$$$$r(\vec{o}, \vec{p}) = \frac{cov(\vec{o}, \vec{p})}{sd(\vec{o}) \ sd(\vec{p})} $$$$
  
 The correlation coefficient in the simple case above is then:
  
@@ -102,7 +102,7 @@ Suppose we have two conditions. One is as before, the other with some fictitious
  
 A few things to notice here. Firstly, we have far less observations for the second condition, only 120 as opposed to 612. Secondly, the predictions of the model are perfect for the second condition. 
  
-The correlation of predictions and frequencies is 0.9985, which would indicate that the model is really good. This seems intuitive, because it predicts the first condition really well and the second condition perfectly. However, this is not the point. The point is simply to highlight that the correlation score will not reflect the number of samples taken by condition. If we had a count of $<1,10,1>$ or of $100,1000,100$ for condition 2, the correlation score would have remained unchanged. This is okay for condition 2 in isolation, because the prediction remains perfect in each case, but it is odd because it does not reflect that the "goodness" of the model in condition 1 should have a different weight in each case. If there are more observations in condition 1, the slight imperfection should, intuitively speaking, weigh more than when there are more observations in condition 2. 
+The correlation of predictions and frequencies is 0.9985, which would indicate that the model is really good. This seems intuitive, because it predicts the first condition really well and the second condition perfectly. However, this is not the point. The point is simply to highlight that the correlation score will not reflect the number of samples taken by condition. If we had a count of $$<1,10,1>$$ or of $$100,1000,100$$ for condition 2, the correlation score would have remained unchanged. This is okay for condition 2 in isolation, because the prediction remains perfect in each case, but it is odd because it does not reflect that the "goodness" of the model in condition 1 should have a different weight in each case. If there are more observations in condition 1, the slight imperfection should, intuitively speaking, weigh more than when there are more observations in condition 2. 
  
 Bottomline: since correlation scores only look at the frequencies of choices, normalized by each condition, we lose information about the total number of samples in each condition. So we loose the intuition that predicting frequencies very closely should be a greater achievement if there are many samples than when there are only few. 
  
@@ -120,9 +120,9 @@ show(qplot(pred, obs) + ylab("observation") + xlab('prediction'))
 ![plot of chunk unnamed-chunk-5](/mfpics/2017-02-27-CorrelationMultinomial.Rmd/unnamed-chunk-5-1.png)
  
  
-The correlation score of 0.971 is very high (and immensely significant). We are heading towards a publication here!
+The correlation score of 0.9712 is very high (and immensely significant). We are heading towards a publication here!
  
-But wait a minute. Actually, half of our prediction values are superfluous in a sense. If we predict choice probability $p$ for one option, the model must predict $1-p$ for the other, of course. Similarly if the observed choice frequency of one option is $f$, that of the other must be $1-f$. So what happens if we scrap the redundant part of our data? Let's grab the predictions and frequencies for only one of the two options:
+But wait a minute. Actually, half of our prediction values are superfluous in a sense. If we predict choice probability $$p$$ for one option, the model must predict $$1-p$$ for the other, of course. Similarly if the observed choice frequency of one option is $$f$$, that of the other must be $$1-f$$. So what happens if we scrap the redundant part of our data? Let's grab the predictions and frequencies for only one of the two options:
  
 
 {% highlight r %}
@@ -133,7 +133,7 @@ show(qplot(predInd, obsInd) + ylab("observation") + xlab('prediction'))
 
 ![plot of chunk unnamed-chunk-6](/mfpics/2017-02-27-CorrelationMultinomial.Rmd/unnamed-chunk-6-1.png)
  
-That doesn't look like a tremendous achievement anymore and, indeed, the correlation score is a poor man's -0.0278. 
+That doesn't look like a tremendous achievement anymore and, indeed, the correlation score is a poor man's -0.0845. 
  
 Bottomline: if we look at what the model predicts for both choice options, we get a very high correlation. But predictions and observations for one choice option fully determine the other, so this part of the information seems entirely redundant. Yet, if we leave it out, our measure of glory plummets. What to make of this?
  
