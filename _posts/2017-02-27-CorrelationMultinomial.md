@@ -9,6 +9,8 @@ published: true
  
 
  
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+ 
 ### Why this post?
  
 A number of papers recently crossed my path that reported on a computational model's goodness-of-fit in terms of correlation scores, where the data to be explained were frequencies of a discrete (categorical) choice task. Inspired by others (though this is a very lame excuse), I have occasionally adopted this practice myself. But: it is not a good idea. Here are some considerations why.
@@ -62,7 +64,7 @@ Let's put a number to the impression, because numbers convince by implicit gestu
  
 Let $$\vec{o}$$ be a vector of observations and $$\vec{p}$$ a vector of predictions, equally long and aligned with each other. **Pearsson's correlation coefficent** is then defined simply as the covariance between $$\vec{o}$$ and $$\vec{p}$$ divided by the product of their standard deviations:
  
-$$$$r(\vec{o}, \vec{p}) = \frac{cov(\vec{o}, \vec{p})}{sd(\vec{o}) \ sd(\vec{p})} $$$$
+$$r(\vec{o}, \vec{p}) = \frac{cov(\vec{o}, \vec{p})}{sd(\vec{o}) \ sd(\vec{p})} $$
  
 The correlation coefficient in the simple case above is then:
  
@@ -120,7 +122,7 @@ show(qplot(pred, obs) + ylab("observation") + xlab('prediction'))
 ![plot of chunk unnamed-chunk-5](/mfpics/2017-02-27-CorrelationMultinomial.Rmd/unnamed-chunk-5-1.png)
  
  
-The correlation score of 0.9712 is very high (and immensely significant). We are heading towards a publication here!
+The correlation score of 0.9713 is very high (and immensely significant). We are heading towards a publication here!
  
 But wait a minute. Actually, half of our prediction values are superfluous in a sense. If we predict choice probability $$p$$ for one option, the model must predict $$1-p$$ for the other, of course. Similarly if the observed choice frequency of one option is $$f$$, that of the other must be $$1-f$$. So what happens if we scrap the redundant part of our data? Let's grab the predictions and frequencies for only one of the two options:
  
@@ -133,7 +135,7 @@ show(qplot(predInd, obsInd) + ylab("observation") + xlab('prediction'))
 
 ![plot of chunk unnamed-chunk-6](/mfpics/2017-02-27-CorrelationMultinomial.Rmd/unnamed-chunk-6-1.png)
  
-That doesn't look like a tremendous achievement anymore and, indeed, the correlation score is a poor man's -0.0845. 
+That doesn't look like a tremendous achievement anymore and, indeed, the correlation score is a poor man's -0.0199. 
  
 Bottomline: if we look at what the model predicts for both choice options, we get a very high correlation. But predictions and observations for one choice option fully determine the other, so this part of the information seems entirely redundant. Yet, if we leave it out, our measure of glory plummets. What to make of this?
  
