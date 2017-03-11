@@ -26,6 +26,12 @@ Below is a list of possible topics offered by various members of our institute. 
 |   |One of the big challenges in computational historical linguistics is to infer language trees from raw word lists in phonetic transcription, without the aid of additional expert knowledge such as manual cognate classification or identification of loan words. The dominant approach so far is to start by assessing the phonetic similarity of words from different languages. Kirby & Ellison ([2006](http://dl.acm.org/citation.cfm?id=1220210)) make an interesting alternative proposal. Starting from language-internal comparison of word forms, they construct a lexical network for each language under consideration. The degree of relatedness between two languages is then assessed by comparing the structures of their lexical networks. In the apprenticeship project, this method should be applied to the various cross-linguistic resources that have become available since 2006. In a second step, the method should be modified in such a way that it can be used as a heuristics to identify cognate words and loan words across related languages. Programming skills are essential. Some background/interest in historical linguistics and/or phonology and phonetics will be a plus.
 | <span style = "color:white"> contactation </span>
    | &nbsp;
+|**title** | <span style = "color:firebrick">Studying dialect data</span>
+|**areas** | language variation & change, language structure
+|**contact**  | [Igor Yanovich](http://www.sfs.uni-tuebingen.de/~yanovich/)
+|   | Spoken languages vary from town to town and village to village. That variation has been recorded by dialectologists in impressive surveys published as dialectological atlases. Such atlases represent a snapshop of the living language in its diversity, and can even allow researchers a good view into the past. In this project, you will learn more about how dialects can differ from each other and how they can be structured linguistically and geographically. The practical part of the internship will involve working with a dialectological atlas, both by hand and electronically, in order to better understand the information hidden in the atlas’s maps.
+| <span style = "color:white"> contactation </span>
+   | &nbsp;
 |**title** | <span style = "color:firebrick">Computational phylogenetics</span>
 |**areas** | language processing, language structure
 |**contact**  | [Taraka Rama](taraka-rama.kasicheyanula@uni-tuebingen.de)

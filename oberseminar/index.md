@@ -12,11 +12,9 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 
 ### Upcoming talks
 
-<span style = "color:white"> &nbsp; </span>
-
 ---------------- ----------------------------------------------------
-TBA              
-
+May 29, 2017\    &nbsp;&nbsp;&nbsp; <span style = "color:firebrick">Suzanne Stevenson</span> (Toronto)\
+&nbsp;\          &nbsp;&nbsp;&nbsp; TBA\              
 --------------------------------------------------------------------------
 
 <span style = "color:white"> dummy </span>
