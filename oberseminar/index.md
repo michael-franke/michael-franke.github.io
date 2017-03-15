@@ -13,6 +13,10 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
+April 24, 2017\  &nbsp;&nbsp;&nbsp; <span style = "color:firebrick">Olivier Morin</span> (Jena)\
+&nbsp;\          &nbsp;&nbsp;&nbsp; TBA\              
+May 8, 2017\     &nbsp;&nbsp;&nbsp; <span style = "color:firebrick">Heather Burnett</span> (Paris)\
+&nbsp;\          &nbsp;&nbsp;&nbsp; TBA\              
 May 29, 2017\    &nbsp;&nbsp;&nbsp; <span style = "color:firebrick">Suzanne Stevenson</span> (Toronto)\
 &nbsp;\          &nbsp;&nbsp;&nbsp; TBA\              
 --------------------------------------------------------------------------
