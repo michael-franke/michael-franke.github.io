@@ -12,17 +12,21 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 
 ### Upcoming talks
 
---------------------- ----------------------------------------------------
-April 24, 2017\       &nbsp;&nbsp;&nbsp; <span style = "color:firebrick">Bill Thompson</span> (Nijmegen)\
-&nbsp;\               &nbsp;&nbsp;&nbsp; TBA\         
-May 8, 2017\          &nbsp;&nbsp;&nbsp; <span style = "color:firebrick">Heather Burnett</span> (Paris)\
-&nbsp;\               &nbsp;&nbsp;&nbsp; TBA\         
-May 22, 2017\         &nbsp;&nbsp;&nbsp; <span style = "color:firebrick">Olivier Morin</span> (Jena)\
-&nbsp;\               &nbsp;&nbsp;&nbsp; TBA\         
-May 29, 2017\         &nbsp;&nbsp;&nbsp; <span style = "color:firebrick">Suzanne Stevenson</span> (Toronto)\
-&nbsp;\               &nbsp;&nbsp;&nbsp; TBA\   
-November 27, 2017\    &nbsp;&nbsp;&nbsp; <span style = "color:firebrick">Guido Seiler</span> (Munich)\
-&nbsp;\               &nbsp;&nbsp;&nbsp; TBA\   
+---------------- ----------------------------------------------------
+April 24, 2017\  <span style = "color:firebrick">Bill Thompson</span> (Nijmegen)\
+
+&nbsp;\          "Mapping Semantic Networks Across Languages: First Impressions"\
+&nbsp;\          <span style = "color:gray">Words carve up human experience into richly structured categories of events, objects, relationships, emotions, and ideas. Categories like these subserve human communication and interaction, but it has long been unclear how similar these categories are for speakers of different languages. Recent progress in applied machine learning and artificial intelligence has resulted in large scale machine-readable representations of semantic networks across many languages. I’ll present some preliminary results of a collaborative project whose goal is to leverage these resources, in combination with more traditional linguistic resources, to map patterns of regularity and diversity across semantic domains in many languages. I’ll also discus ways in which these inferred networks can be fused with agent-based simulation and experimental techniques to model the evolution of semantic systems.</span>\
+&nbsp;\          &nbsp;\
+
+May 8, 2017\     <span style = "color:firebrick">Heather Burnett</span> (Paris)\
+&nbsp;\          TBA\         
+May 22, 2017\    <span style = "color:firebrick">Olivier Morin</span> (Jena)\
+&nbsp;\          TBA\         
+May 29, 2017\    <span style = "color:firebrick">Suzanne Stevenson</span> (Toronto)\
+&nbsp;\          TBA\   
+Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
+&nbsp;\          TBA\   
 --------------------------------------------------------------------------
 
 <span style = "color:white"> dummy </span>
