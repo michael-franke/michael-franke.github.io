@@ -13,18 +13,54 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
-April 24, 2017\  <span style = "color:firebrick">Bill Thompson</span> (Nijmegen)\
+May 8, 2017\     <span style = "color:firebrick">Heather Burnett</span> (Paris)\
 
-&nbsp;\          "Mapping Semantic Networks Across Languages: First Impressions"\
-&nbsp;\          <span style = "color:gray">Words carve up human experience into richly structured categories of events, objects, relationships, emotions, and ideas. Categories like these subserve human communication and interaction, but it has long been unclear how similar these categories are for speakers of different languages. Recent progress in applied machine learning and artificial intelligence has resulted in large scale machine-readable representations of semantic networks across many languages. I’ll present some preliminary results of a collaborative project whose goal is to leverage these resources, in combination with more traditional linguistic resources, to map patterns of regularity and diversity across semantic domains in many languages. I’ll also discus ways in which these inferred networks can be fused with agent-based simulation and experimental techniques to model the evolution of semantic systems.</span>\
+&nbsp;\          "Signaling Games, Sociolinguistic Variation and the Construction of Style"\         
+&nbsp;\          <span style = "color:gray">In this presentation, I introduce social meaning games (SMGs), which are developed for the analysis of the strategic aspect of sociolinguistic variation (in the sense of Labov 1963, Labov 1966, et seq.). While remarks have been made (eg. Goffman 1970, Dror et al. 2013, Clark 2014) about the potential usefulness of game theory in the analysis of the meaning of variable linguistic phenomena (for example, variable use of the English (ING) suffix (1)), a general framework uniting variationist sociolinguistics with game theoretic pragmatics has yet to be developed.</span>\
+&nbsp;\          &nbsp;\
+&nbsp;\          <span style = "color:gray">(1) I’m workin’ on it vs I’m working on it..</span>\
+&nbsp;\          &nbsp;\
+&nbsp;\          <span style = "color:gray">I propose that such a unification is possible through the integration of the *Third Wave* approach to the meaning of sociolinguistic variation (see Eckert 2000, 2008, 2012) with signalling games (Lewis 1969) and a Bayesian approach to speaker/listener reasoning (see Oaksford & Chater 2007 for a review). The combination of ‘signaling games + Bayesian reasoning’ has previously been argued to be particularly useful in the analysis of a large class of pragmatic phenomena, including scalar implicatures, manner implicatures and context-sensitive reference (see Franke & Jäger 2016 for an overview)..</span>\
+
+&nbsp;\          <span style = "color:gray">I define the games and then show the predictions of this framework for both linguistic production and interpretation, as exemplified by the modeling of six empirical studies: .</span>\
+&nbsp;\          &nbsp;\
+&nbsp;\          <span style = "color:gray">PRODUCTION</span>\
+&nbsp;\          &nbsp;\
+&nbsp;\          <span style = "color:gray">1. Labov (1966)’s study of the social stratification of (ING, i.e -in’ vs -ing) in New York City.</span>\
+&nbsp;\          <span style = "color:gray">2. Labov (2012)’s study of President Obama and Sara Palin’s use of (ING) in formal vs informal settings.</span>\
+&nbsp;\          <span style = "color:gray">3. Gratton (2015)’s study of the use of (ING) by non-binary individuals (i.e., individuals whose gender identity does not respect the male/female binary) in their home vs a public coffee shop..</span>\
+&nbsp;\          &nbsp;\
+&nbsp;\          <span style = "color:gray">INTERPRETATION</span>\
+&nbsp;\          &nbsp;\
+&nbsp;\          <span style = "color:gray">4. Campbell-Kibler (2007)'s experimental study of the interpretation of (ING) in the United States..</span>\
+&nbsp;\          <span style = "color:gray">5. Podesva et al. (2015)'s experimental study of the interpretation of /t/ release in the speech of 6 American politicians.</span>\
+&nbsp;\          <span style = "color:gray">6. Levon (2014)'s experimental study of the relationship between gender stereotypes and the interpretation of high/low pitch by men in the UK..</span>\
+&nbsp;\          &nbsp;\
+&nbsp;\          <span style = "color:gray">Based on these examples, I argue that SMGs have potential to provide a new, precise understanding  of how we use our linguistic resources to communicate information and carve out our place in the social world..</span>\
+&nbsp;\          &nbsp;\
+&nbsp;\          <span style = "color:gray">SELECTED REFERENCES.</span>\
+&nbsp;\          &nbsp;\
+&nbsp;\          <span style = "color:gray">Campbell-Kibler, K. (2007). Accent,(ing), and the social logic of listener perceptions. American speech, 82(1):32–64.</span>\
+&nbsp;\          <span style = "color:gray">Clark, R. (2011). Meaningful Games. Cambridge: MIT Press.</span>\
+&nbsp;\          <span style = "color:gray">Eckert, P. (2012). Three waves of variation study. Annual Revue of Anthropology. 41:87-100.</span>\
+&nbsp;\          <span style = "color:gray">Eckert, P. (2008). Variation and the indexical field. Journal of sociolinguistics, 12(4):453–476. </span>\
+&nbsp;\          <span style = "color:gray">Eckert, P. (2000). Language variation as social practice: The linguistic construction of identity in Belten High. Wiley-Blackwell.</span>\
+&nbsp;\          <span style = "color:gray">Franke, M. & Jäger, G. (2016). Probabilistic pragmatics, or why Bayes’ rule is probably important for pragmatics. Zeitschrift für  Sprachwissenschaft, 35:3–44. </span>\
+&nbsp;\          <span style = "color:gray">Goffman, E. (1970). Strategic interaction, volume 1. University of Pennsylvania Press. </span>\
+&nbsp;\          <span style = "color:gray">Gratton, C. (2015). Indexin’ Gender: Variable (ING) and the Creation of Non-Binary Trans Identities. Best poster at New Ways of Analyzing Linguistic Variation 44. U. Toronto</span>\
+&nbsp;\          <span style = "color:gray">Labov, W. (1966). The Social Stratification of English in New York City. Washington DC:Center for Applied Linguistics.</span>\
+&nbsp;\          <span style = "color:gray">Labov, W. (2012). Dialect Diversity in America: The Politics of Language Change. Charlottesville: University of Virginia Press.</span>\
+&nbsp;\          <span style = "color:gray">Levon, E. (2014). Categories, stereotypes, and the linguistic perception of sexuality. Language in Society, 43(05):539–566. </span>\
+&nbsp;\          <span style = "color:gray">Lewis, D. (1969). Convention: A Philosophical Study. Harvard University Press.</span>\
+&nbsp;\          <span style = "color:gray">Oaksford M. & N. Chater (2007). Bayesian Rationality: the probabilistic approach to human reasoning. OUP.</span>\
+&nbsp;\          <span style = "color:gray">Podesva, R. J., Reynolds, J., Callier, P., and Baptiste, J. (2015). Constraints on the social meaning of released/t: A production and perception study of us politicians. Language Variation and Change, 27(01):59–87.</span>\
 &nbsp;\          &nbsp;\
 
-May 8, 2017\     <span style = "color:firebrick">Heather Burnett</span> (Paris)\
-&nbsp;\          TBA\         
-May 22, 2017\    <span style = "color:firebrick">Olivier Morin</span> (Jena)\
-&nbsp;\          TBA\         
+       
 May 29, 2017\    <span style = "color:firebrick">Suzanne Stevenson</span> (Toronto)\
 &nbsp;\          TBA\   
+July 3, 2017\    <span style = "color:firebrick">Olivier Morin</span> (Jena)\
+&nbsp;\          TBA\
 Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
 &nbsp;\          TBA\   
 --------------------------------------------------------------------------
@@ -35,6 +71,12 @@ Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
 ### Past talks
 
 ---------------- ----------------------------------------------------
+April 24, 2017\  <span style = "color:firebrick">Bill Thompson</span> (Nijmegen)\
+
+&nbsp;\          "Mapping Semantic Networks Across Languages: First Impressions"\
+&nbsp;\          <span style = "color:gray">Words carve up human experience into richly structured categories of events, objects, relationships, emotions, and ideas. Categories like these subserve human communication and interaction, but it has long been unclear how similar these categories are for speakers of different languages. Recent progress in applied machine learning and artificial intelligence has resulted in large scale machine-readable representations of semantic networks across many languages. I’ll present some preliminary results of a collaborative project whose goal is to leverage these resources, in combination with more traditional linguistic resources, to map patterns of regularity and diversity across semantic domains in many languages. I’ll also discus ways in which these inferred networks can be fused with agent-based simulation and experimental techniques to model the evolution of semantic systems.</span>\
+&nbsp;\          &nbsp;\
+
 Jan 30, 2017\    <span style = "color:firebrick">Timo Roettger & Mathias Stoeber</span> (Cologne)\
 
 &nbsp;\          "Manual Response Tracking during Intonation-Based Intention Recognition"\
