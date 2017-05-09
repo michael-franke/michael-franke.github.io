@@ -13,6 +13,37 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
+May 29, 2017\    <span style = "color:firebrick">Suzanne Stevenson</span> (Toronto)\
+
+&nbsp;\          TBA\   
+
+&nbsp;\          &nbsp;\
+
+July 3, 2017\    <span style = "color:firebrick">Olivier Morin</span> (Jena)\
+
+&nbsp;\          TBA\
+
+&nbsp;\          &nbsp;\
+
+July 17, 2017\    <span style = "color:firebrick">Robert D. Hawkins</span> (Stanford)\
+
+&nbsp;\          TBA\   
+
+&nbsp;\          &nbsp;\
+
+Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
+
+&nbsp;\          TBA\   
+
+
+--------------------------------------------------------------------------
+
+<span style = "color:white"> dummy </span>
+<span style = "color:white"> dummy </span>
+
+### Past talks
+
+---------------- ----------------------------------------------------
 May 8, 2017\     <span style = "color:firebrick">Heather Burnett</span> (Paris)\
 
 &nbsp;\          "Signaling Games, Sociolinguistic Variation and the Construction of Style"\         
@@ -56,21 +87,6 @@ May 8, 2017\     <span style = "color:firebrick">Heather Burnett</span> (Paris)\
 &nbsp;\          <span style = "color:gray">Podesva, R. J., Reynolds, J., Callier, P., and Baptiste, J. (2015). Constraints on the social meaning of released/t: A production and perception study of us politicians. Language Variation and Change, 27(01):59–87.</span>\
 &nbsp;\          &nbsp;\
 
-       
-May 29, 2017\    <span style = "color:firebrick">Suzanne Stevenson</span> (Toronto)\
-&nbsp;\          TBA\   
-July 3, 2017\    <span style = "color:firebrick">Olivier Morin</span> (Jena)\
-&nbsp;\          TBA\
-Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
-&nbsp;\          TBA\   
---------------------------------------------------------------------------
-
-<span style = "color:white"> dummy </span>
-<span style = "color:white"> dummy </span>
-
-### Past talks
-
----------------- ----------------------------------------------------
 April 24, 2017\  <span style = "color:firebrick">Bill Thompson</span> (Nijmegen)\
 
 &nbsp;\          "Mapping Semantic Networks Across Languages: First Impressions"\
