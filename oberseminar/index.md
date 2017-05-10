@@ -19,6 +19,12 @@ May 29, 2017\    <span style = "color:firebrick">Suzanne Stevenson</span> (Toron
 
 &nbsp;\          &nbsp;\
 
+June 26, 2017\    <span style = "color:firebrick">Judith Degen</span> (Stanford)\
+
+&nbsp;\          TBA\
+
+&nbsp;\          &nbsp;\
+
 July 3, 2017\    <span style = "color:firebrick">Olivier Morin</span> (Jena)\
 
 &nbsp;\          TBA\
