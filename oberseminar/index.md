@@ -13,6 +13,40 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
+May 24, 2017\    <span style = "color:firebrick">Ralf Vogel</span> (Bielefeld)\
+
+&nbsp;\          "Experimental explorations on grammatical taboos in Standard German"\
+&nbsp;\          <span style = "color:firebrick">notice unusal time: Wednesday 10-12, but usual room: 1.13</span>\
+&nbsp;\          <span style = "color:gray">Since about 20 years, the use of experimental methods in syntactic research has been growing steadily. Recently, Sprouse et al. (2013) nevertheless showed that linguists' expert judgements have a very high degree of accuracy as compared to the outcomes of elicitation experiments. </span>\
+
+&nbsp;\          <span style = "color:gray">Experimental methods are therefore best applied when complementing, not replacing the traditional method of expert judgements. Such a situation occurs when a phenomenon exceeds the capacities of the expert's judgements. I see (at least) two sources for such excessive demands:</span>\
+
+&nbsp;\          <span style = "color:gray">A psychological one: differences between expressions might be too subtle to assess reliably from the linguists' armchair (e.g. gradient acceptability, degrees of markedness).</span>\
+
+&nbsp;\          <span style = "color:gray">A sociological one: certain expressions might have a controversial status within the speech community. The expert judgement (perhaps then even controversial among linguists) in such a situation will only be one opinion among others.</span>\
+
+&nbsp;\          <span style = "color:gray">Grammatical taboos have both features: they are socioculturally induced instances of grammatical markedness.</span>\
+
+&nbsp;\          <span style = "color:gray">Grammatical taboos have a paradoxical nature. They are structures or constructions that are part of the language insofar as they are used by the speakers and therefore obviously a natural consequence of the language's grammatical apparatus. Nevertheless speakers at the same time believe (to varying degrees) that they are not part of their language. This is usually due to prescription that can occur in various ways and comes along with a particular ideology of standard language that is dominant within the speech community and therefore also an important influence of participants' behaviour in grammatical experiments.</span>\
+
+&nbsp;\          <span style = "color:gray">I will present several explorative experimental studies on grammatical taboos. My example cases from standard German are auxiliary "tun", V2-Sentences with "weil", d-Pronouns and the double perfect. I am trying to find answers to the following questions, a.o.:</span>\
+
+&nbsp;\          <span style = "color:gray">- Can we adjust our experimental methods in order to minimize the influence of  prescription?</span>\
+
+&nbsp;\          <span style = "color:gray">- Can grammatical taboos be distinguished empirically from other cases of syntactic markedness?</span>\
+
+&nbsp;\          <span style = "color:gray">- Can we decide for very strong taboos, using experimental methods, whether those are instances of markedness or ungrammaticality?</span>\
+
+&nbsp;\          <span style = "color:gray">- Can we identify sociolinguistic factors that correlate with subjects' evaluation of grammatical taboos?</span>\
+
+&nbsp;\          <span style = "color:gray">Two main results of my studies are:</span>\
+
+&nbsp;\          <span style = "color:gray">i) There is reason to be optimistic with respect to the issue of successfully establishing and evaluating the category of grammatical taboos, using the observational means provided by experimental syntax;</span>\
+
+&nbsp;\          <span style = "color:gray">ii) There is good reason and perhaps even an urgent need for theoretical and empirical grammarians to include the sociocultural dimension of grammar into their models. ("la langue est un fait social", de Saussure)</span>\
+
+&nbsp;\          &nbsp;\
+
 May 29, 2017\    <span style = "color:firebrick">Suzanne Stevenson</span> (Toronto)\
 
 &nbsp;\          TBA\   
