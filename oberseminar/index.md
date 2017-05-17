@@ -65,6 +65,12 @@ July 3, 2017\    <span style = "color:firebrick">Olivier Morin</span> (Jena)\
 
 &nbsp;\          &nbsp;\
 
+July 3, 2017\    <span style = "color:firebrick">Anna Howell</span> (Tübingen)\
+
+&nbsp;\          TBA\
+
+&nbsp;\          &nbsp;\
+
 July 17, 2017\    <span style = "color:firebrick">Robert D. Hawkins</span> (Stanford)\
 
 &nbsp;\          TBA\   
