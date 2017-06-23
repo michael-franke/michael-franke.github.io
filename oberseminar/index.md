@@ -13,21 +13,11 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
-May 29, 2017\    <span style = "color:firebrick">Suzanne Stevenson</span> (Toronto)\
+June 26, 2017\   <span style = "color:firebrick">Judith Degen</span> (Stanford)\
 
-&nbsp;\          "Knowledge mismatch in communicative interaction: Probabilistic weighing of perspectives" \
+&nbsp;\          "Mentioning atypical properties of objects is communicatively efficient" \
 
-&nbsp;\          (Joint work with Daphna Heller, Mindaugas Mozuraitis, and Chris Parisien)\
-
-&nbsp;\          <span style = "color:gray">Knowledge mismatch is inherent to communicative interaction, since conversational partners naturally differ in their knowledge and beliefs.  Effective conversational moves, such as asking a question or referring to an entity, crucially depend then on each participant acting appropriately with respect to which knowledge is privileged (unique to that participant) and which is shared among the participants.  For example, much work in linguistics suggests that a definite referring expression such as the knife must be interpreted in the context of mutual knowledge (“common ground”) in which there is a uniquely identifiable knife relevant to both conversational partners.</span>\
-
-&nbsp;\          <span style = "color:gray">What has been less clear is the moment-by-moment cognitive processing by which people reconcile knowledge mismatch in language production and interpretation.  We propose a theory and computational model in which differing views of relevant knowledge, both privileged to the individual and shared with the conversational partner, are simultaneously and probabilistically considered at the earliest moments of language processing.  This approach arises from a view of communicative interaction as a process requiring continual and rapid accessing and updating of both privileged and shared knowledge.</span>\
-
-&nbsp;\          &nbsp;\
-
-June 26, 2017\    <span style = "color:firebrick">Judith Degen</span> (Stanford)\
-
-&nbsp;\          TBA\
+&nbsp;\          <span style = "color:gray">What governs how much information speakers include in referring expressions? Atypical properties of objects are more likely to be included in referring expressions than typical ones (Sedivy 2003; Westerbeek et al 2015). For example, speakers are more likely to call a blue banana a “blue banana” and a yellow banana a "banana". A unified account of this phenomenon is lacking. We ask: when should a rational speaker mention an object’s color? Reference production is modeled within the Rational Speech Act framework (Frank & Goodman 2012). Utterances (e.g., “banana”, “blue”, and “blue banana”) are taken to have a graded semantics: rather than assuming all bananas are equally good instances of “banana”, we empirically elicited object-utterance typicality values for all possible utterances. Pragmatic speakers select utterances proportionally to the probability that a literal listener using a graded semantics will select the intended referent. We evaluate the proposed model on a dataset of freely produced referring expressions collected in an interactive reference game experiment via the web. We conclude that the systematicity with which speakers redundantly mention color implicates a system geared towards communicative efficiency rather than towards wasteful overinformativeness, and discuss potential extensions of this approach to other production phenomena, such as optional instrument mention.</span>\
 
 &nbsp;\          &nbsp;\
 
@@ -62,6 +52,18 @@ Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
 ### Past talks
 
 ---------------- ----------------------------------------------------
+May 29, 2017\    <span style = "color:firebrick">Suzanne Stevenson</span> (Toronto)\
+
+&nbsp;\          "Knowledge mismatch in communicative interaction: Probabilistic weighing of perspectives" \
+
+&nbsp;\          (Joint work with Daphna Heller, Mindaugas Mozuraitis, and Chris Parisien)\
+
+&nbsp;\          <span style = "color:gray">Knowledge mismatch is inherent to communicative interaction, since conversational partners naturally differ in their knowledge and beliefs.  Effective conversational moves, such as asking a question or referring to an entity, crucially depend then on each participant acting appropriately with respect to which knowledge is privileged (unique to that participant) and which is shared among the participants.  For example, much work in linguistics suggests that a definite referring expression such as the knife must be interpreted in the context of mutual knowledge (“common ground”) in which there is a uniquely identifiable knife relevant to both conversational partners.</span>\
+
+&nbsp;\          <span style = "color:gray">What has been less clear is the moment-by-moment cognitive processing by which people reconcile knowledge mismatch in language production and interpretation.  We propose a theory and computational model in which differing views of relevant knowledge, both privileged to the individual and shared with the conversational partner, are simultaneously and probabilistically considered at the earliest moments of language processing.  This approach arises from a view of communicative interaction as a process requiring continual and rapid accessing and updating of both privileged and shared knowledge.</span>\
+
+&nbsp;\          &nbsp;\
+
 May 24, 2017\    <span style = "color:firebrick">Ralf Vogel</span> (Bielefeld)\
 
 &nbsp;\          "Experimental explorations on grammatical taboos in Standard German"\
