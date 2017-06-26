@@ -13,7 +13,8 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
-June 26, 2017\   <span style = "color:firebrick">Judith Degen</span> (Stanford)\
+June 28, 2017\   <span style = "color:firebrick">Judith Degen</span> (Stanford)\
+&nbsp;\          <span style = "color:green">NOTE THE UNUSUAL DAY: WEDNESDAY</span>\
 
 &nbsp;\          "Mentioning atypical properties of objects is communicatively efficient" \
 
