@@ -149,7 +149,7 @@ P(D \mid M_0) & = \int P(D \mid \psi, M_0) P(\psi \mid M_0) \ \text{d}\psi \\
 ##### Example: coin biases
  
 Let's illustrate the Savage-Dickey method with a simpler example for which we can also give an analytic solution for the Bayes factor. Suppose we observed `k=7` successes in `N=24` flips of a coin. The complex model $$M_1$$ has a likelihood function $$ P(k 
-\mid \theta, M_1) = \text{Binomial}(k \mid N, \theta)$$ and a prior $$ P(\theta) = \text{Beta}(1,1) $$. The simpler, nesting model has the same likelihood function $$ P(k 
+\mid \theta, M_1) = \text{Binomial}(k \mid N, \theta)$$ and a prior $$ P(\theta) = \text{Beta}(\theta \mid 1,1) $$. The simpler, nesting model has the same likelihood function $$ P(k 
 \mid \theta, M_0) = \text{Binomial}(k \mid N, \theta)$$ but fixes $$ \theta = 0.5$$. We can then compute the Bayes factor in favor of the simpler model precisely as follows:
  
 $$
@@ -166,7 +166,7 @@ The Savage-Dickey method gives the same result:
 $$
 \begin{align*}
 \frac{P(D \mid M_0)}{P(D \mid M_1)} & = \frac{P(\theta = 0.5 \mid D, M_1)}{P(\theta = 0.5 \mid M_1)} \\
-  & = \frac{\text{Beta}(\theta = 0.5 \mid 8, 18)}{1} \approx 1
+  & = \frac{\text{Beta}(\theta = 0.5 \mid 8, 18)}{1} \approx 0.516
 \end{align*}
 $$
  
