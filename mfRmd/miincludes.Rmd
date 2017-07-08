@@ -1,7 +1,0 @@
-$$ \definecolor{firebrick}{RGB}{178,34,34} \newcommand{\red}[1]{{\color{firebrick}{#1}}} $$
-$$ \definecolor{mygray}{RGB}{178,34,34} \newcommand{\mygray}[1]{{\color{mygray}{#1}}} $$
-$$ \newcommand{\set}[1]{\{#1\}} $$
-$$ \newcommand{\tuple}[1]{\langle#1\rangle} $$
-$$\newcommand{\States}{{T}}$$
-$$\newcommand{\state}{{t}}$$
-$$\newcommand{\pow}[1]{{\mathcal{P}(#1)}}$$

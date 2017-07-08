@@ -9,9 +9,9 @@ published: false
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-```{r, child = "miincludes.Rmd"}
+$$ \newcommand{\tuple}[1]{\langle#1\rangle} $$
 
-```
+$$ \newcommand{\tuple}[1]{\langle#1\rangle} $$
 
 ### Model comparison by Bayes factors
 
