@@ -125,8 +125,8 @@ The Savage-Dickey density ratio method for calculating Bayes factors is particul
 
 - $$M_1$$ has parameters $$\theta = \tuple{\phi, \psi}$$ with vector $$\phi$$ free to vary;
 - $$M_0$$ has parameters $$\tuple{\phi, \psi}$$ with $$\phi = \phi_0$$ set to fixed values;
-- **prior continuity**: $$\lim_{\phi \rightarrow \phi_0} P(\psi \mid \phi, M_1) = P(\psi \mid M_0)$$; and
-- $$P(D \mid \tuple{\phi_0, \psi}, M_0) = P(D \mid \tuple{\phi_0, \psi}, M_1)$$
+- **prior continuity**: $$\lim_{\phi \rightarrow \phi_0} P(\psi \mid \phi, M_1) = P(\psi \mid M_0)$$;
+- **equal likelihood**: $$P(D \mid \tuple{\phi_0, \psi}, M_0) = P(D \mid \tuple{\phi_0, \psi}, M_1)$$
 
 If models are properly nested we can compute the Bayes factor with the Savage-Dickey method as follows:
 
@@ -135,7 +135,7 @@ $$ \begin{align*}
 \frac{P(\phi_0 \mid D, M_1)}{P(\phi_0 \mid M_1)}
 \end{align*} $$ 
 
-
+This seems like magic. To compute the Bayes factor we only need to look at the ratio of the posterior of the parameters $$\phi_0$$ under the more complex model $$M_1$$ given data $$D$$ and their prior of $$\phi_0$$ under $$M_1$$. To see that the above holds (the feeling of magic notwithstanding), here's a proof sketch:
 
 $$ \begin{align*}
 P(D \mid M_0) & = \int P(D \mid \psi, M_0) P(\psi \mid M_0) \ \text{d}\psi \\
@@ -143,5 +143,22 @@ P(D \mid M_0) & = \int P(D \mid \psi, M_0) P(\psi \mid M_0) \ \text{d}\psi \\
  & = P(D \mid \phi = \phi_0, M_1) \ \ \ \ \ \ \text{(by Bayes rule)} \\
  & = \frac{P(\phi = \phi_0 \mid D, M_1) P(D \mid M_1)}{P(\phi = \phi_0 \mid M_1)}
 \end{align*} $$
+
+##### Example: coin biases
+
+Let's illustrate the Savage-Dickey method with a simpler example for which we can also give an analytic solution for the Bayes factor. Suppose we observed `k=7` successes in `N=24` flips of a coin. The complex model $$M_1$$ has a likelihood function $$ P(k 
+mid \theta, M_1) = \text{Binomial}(k \mid N, \theta)$$ and a prior $$ P(\theta) = \text{Beta}(1,1) $$. The simpler, nesting model has the same likelihood function $$ P(k 
+mid \theta, M_0) = \text{Binomial}(k \mid N, \theta)$$ but fixes $$ \theta = 0.5$$. We can then compute the Bayes factor in favor of the simpler model precisely as follows:
+
+$$
+\begin{align*}
+\frac{P(D \mid M_0)}{P(D \mid M_1)} & = \frac{\text{Binomial}(k,N,0.5)}{\int_0^1 \text{Beta}(\theta, 1, 1) \ \text{Binomial}(k,N, \theta) \text{ d}\theta} \\
+  & = \frac{\binom{N}{k} 0.5^{k} \, (1-0.5)^{N - k}}{\int_0^1 \binom{N}{k} \theta^{k} \, (1-\theta)^{N - k} \text{ d}\theta} \\
+  & = \frac{\binom{N}{k} 0.5^{N}}{\binom{N}{k} \int_0^1  \theta^{k} \, (1-\theta)^{N - k} \text{ d}\theta} \\
+  & = \frac{0.5^{N}}{BetaFunction(k+1, N-k+1)} \approx `r round(0.5^7 * 0.5^(24-7) / beta(8, 25-7),3)`
+\end{align*}
+$$
+
+
 
 ... **to be continued** ...
