@@ -13,7 +13,7 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
-July 3, 2017\    <span style = "color:firebrick">Anna Howell</span> (Tübingen)\
+July 10, 2017\   <span style = "color:firebrick">Anna Howell</span> (Tübingen)\
 
 &nbsp;\          "Alternatives and Disjunction through the lens of Disjunctive Questions in Yoruba"\
 &nbsp;\          <span style = "color:gray">click [here](abstracts/004_Howell_2017.pdf) for abstract</span>\
