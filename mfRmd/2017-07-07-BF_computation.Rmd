@@ -9,6 +9,10 @@ published: false
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+```{r, child = "miincludes.Rmd"}
+
+```
+
 ### Model comparison by Bayes factors
 
 A model $$M_i$$, in the Bayesian sense, is a pair consisting of a conditional likelihood function $$P(D \mid \theta, M_i)$$ for observable data $$D$$ together with a prior $$P(\theta \mid M_i)$$ over parameter vector $$\theta$$. Ideally, we might like to assess the absolute probability of model $$M_i$$ after seeing data $$D$$. We can express this quantity using Bayes rule:
@@ -113,6 +117,31 @@ model{
 }
 ```
 
-We are interested in comparing two models, both variants of the GCM. The first, more complex model is the one shown up here where weight has a flat prior over the unit interval `w ~ dbeta(1,1)`. The second, simpler model is essentially the same but fixes the value of weight `w = 0.5`. This means that these models are so-called _nested models_ and this, in turn, allows for computation of Bayes factors by the Savage-Dickey method.
+We are interested in comparing two models, both variants of the GCM. The first, more complex model is the one shown up here where weight has a flat prior over the unit interval `w ~ dbeta(1,1)`. The second, simpler model is essentially the same but fixes the value of weight `w = 0.5`. This means that these models are so-called _properly nested models_ and this, in turn, allows for computation of Bayes factors by the Savage-Dickey method.
+
+### Savage-Dickey density ratio
+
+The Savage-Dickey density ratio method for calculating Bayes factors is particularly nice and elegant, but it only applies to _properly nested models_. Intuitively speaking, two models are _nested_ if they are exactly alike but the parameter space of the nested model is a subset of the parameter space of the nesting model; they are _properly nested_ if additional continuity assumptions of the prior over parameters hold. Concretely, model $$M_0$$ is **properly nested** under $$M_1$$ if:
+
+- $$M_1$$ has parameters $$\theta = \tuple{\phi, \psi}$$ with vector $$\phi$$ free to vary;
+- $$M_0$$ has parameters $$\tuple{\phi, \psi}$$ with $$\phi = \phi_0$$ set to fixed values;
+- **prior continuity**: $$\lim_{\phi \rightarrow \phi_0} P(\psi \mid \phi, M_1) = P(\psi \mid M_0)$$; and
+- $$P(D \mid \tuple{\phi_0, \psi}, M_0) = P(D \mid \tuple{\phi_0, \psi}, M_1)$$
+
+If models are properly nested we can compute the Bayes factor with the Savage-Dickey method as follows:
+
+$$ \begin{align*}
+\frac{P(D \mid M_0)}{P(D \mid M_1)}  & = 
+\frac{P(\phi_0 \mid D, M_1)}{P(\phi_0 \mid M_1)}
+\end{align*} $$ 
+
+
+
+$$ \begin{align*}
+P(D \mid M_0) & = \int P(D \mid \psi, M_0) P(\psi \mid M_0) \ \text{d}\psi \\
+ & = \int P(D \mid \psi, \phi = \phi_0, M_1) P(\psi \mid \phi = \phi_0, M_1)  \ \text{d}\psi\\
+ & = P(D \mid \phi = \phi_0, M_1) \ \ \ \ \ \ \text{(by Bayes rule)} \\
+ & = \frac{P(\phi = \phi_0 \mid D, M_1) P(D \mid M_1)}{P(\phi = \phi_0 \mid M_1)}
+\end{align*} $$
 
 ... **to be continued** ...
