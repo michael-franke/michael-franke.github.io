@@ -62,7 +62,7 @@ In the implementation of Lee & Wagenmakers, the GCM has three meaningful paramet
 
 In its simplest form, the model aims to predict the population-level category choices for `nstim = 8` different stimuli. Category membership is stored in variable `a = c(1,1,1,2,1,2,2,2)`, where an entry of `1` for the $i$-th item means that it was presented as belonging to the first category during training. There are `t = 320` trials in total (from different participants, but we do not distinguish these here.) The correct category choices (where correctness is determined by `a`) are stored in variable `y = c(245, 218, 255, 126, 182, 71, 102, 65)`. Additionally, we supply two $$8\times8$$ distance matrices `d1` and `d2` that give the distance between any two items along the two feature dimensions.
 
-```{r}
+```{r, eval = FALSE}
 #################################################
 ## load & prepare data
 #### data from Kruschke (1993) 
@@ -111,6 +111,6 @@ model{
 
 Notice that the bias parameter has been set to `b=0.5` and is thus not a free parameter. A visualization of the model as a probabilistic dependency net is this (taken from Lee & Wagenmakers 2014, Chapter 17):
 
-![plot of chunk unnamed-chunk-2](/mfpics/GCM_graphical_model_LW2014.pn)
+![plot of chunk unnamed-chunk-2](/mfpics/GCM_graphical_model_LW2014.png)
 
 ... **to be continued** ...
