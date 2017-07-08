@@ -52,13 +52,88 @@ And, once we are at it, we will also have a look at posterior predictive $$p$$-v
  
 ### The running-example model(s): Generalized Context Model
  
-Chapter 17 of Lee & Wagenmakers' ([2014](https://bayesmodels.com)) textbook on _Bayesian Cognitive Modeling_ features a concise implementation of the classic Generalized Context Model (GCM) of categorization. The model aims to predict the likelihood of correctly categorizing items after an initial learning period. Items differ along a number of numeric feature dimensions. (In the present case there will just be two.) The GCM resolves around three assumptions: (i) the probability of classifying item $$i$$ as belonging to category $$A$$ is derived from a measure of relative similarity of $$i$$ to all those items $$j$$ which were presented as belonging to category $$A$$ during training; (ii) similarity of any two items is a function of relative weighing of feature dimensions; (iii) there is room for general category preference (category $$A$$ is more likely to be chosen accross the board). (See chapter 17 of Lee & Wagenmakers and the papers cited therein for further details.)
+Chapter 17 of Lee & Wagenmakers' ([2014](https://bayesmodels.com)) textbook on _Bayesian Cognitive Modeling_ features a concise implementation of the classic Generalized Context Model (GCM) of categorization. The model aims to predict the likelihood of correctly categorizing items after an initial learning period. Items differ along a number of numeric feature dimensions. (In the present case there will just be two categories and two feature dimensions.) The GCM resolves around three assumptions: (i) the probability of classifying item $$i$$ as belonging to category $$A$$ is derived from a measure of relative similarity of $$i$$ to all those items $$j$$ which were presented as belonging to category $$A$$ during training; (ii) similarity of any two items is a function of relative weighing of feature dimensions; (iii) there is room for general category preference (category $$A$$ is more likely to be chosen accross the board). (See chapter 17 of Lee & Wagenmakers and the papers cited therein for further details.)
  
-In the implementation of Lee & Wagenmakers, the GCM has three meaningful free parameters:
+In the implementation of Lee & Wagenmakers, the GCM has three meaningful parameters:
  
 - **bias** $$b \in [0;1]$$: overal bias in favor of one category over the other (there are only two categories in this case)
 - **attention weight** $$w \in [0;1]$$: bias for weighing one feature dimension more strongly than the other (there are only two in this case)
 - **generalization strength** $$c$$: how much training items $$j$$ that are further away from the to-be-categorized item $$i$$ affect the current choice
+ 
+In its simplest form, the model aims to predict the population-level category choices for `nstim = 8` different stimuli. Category membership is stored in variable `a = c(1,1,1,2,1,2,2,2)`, where an entry of `1` for the $i$-th item means that it was presented as belonging to the first category during training. There are `t = 320` trials in total (from different participants, but we do not distinguish these here.) The correct category choices (where correctness is determined by `a`) are stored in variable `y = c(245, 218, 255, 126, 182, 71, 102, 65)`. Additionally, we supply two $$8\times8$$ distance matrices `d1` and `d2` that give the distance between any two items along the two feature dimensions.
+ 
+
+{% highlight r %}
+#################################################
+## load & prepare data
+#### data from Kruschke (1993) 
+#### taken from Lee & Wagenmakers (2014)
+#################################################
+load("KruschkeData.Rdata") 
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Warning in readChar(con, 5L, useBytes = TRUE): cannot open compressed file
+## 'KruschkeData.Rdata', probable reason 'No such file or directory'
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in readChar(con, 5L, useBytes = TRUE): cannot open the connection
+{% endhighlight %}
+
+
+
+{% highlight r %}
+x <- y
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in eval(expr, envir, enclos): object 'y' not found
+{% endhighlight %}
+
+
+
+{% highlight r %}
+y <- rowSums(x) # successful identifications per category
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in is.data.frame(x): object 'x' not found
+{% endhighlight %}
+
+
+
+{% highlight r %}
+t <- n * nsubj  # number of trials
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in eval(expr, envir, enclos): object 'nsubj' not found
+{% endhighlight %}
+
+
+
+{% highlight r %}
+dataList <- list(y=y, nstim=nstim, t=t, a=a, d1=d1, d2=d2)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in eval(expr, envir, enclos): object 'y' not found
+{% endhighlight %}
+ 
+The JAGS code for the GCM looks like this (taken from Lee & Wagenmakers, 2014):
  
 
 {% highlight r %}
@@ -93,6 +168,8 @@ model{
 }
 {% endhighlight %}
  
+Notice that the bias parameter has been set to `b=0.5` and is thus not a free parameter. A visualization of the model as a probabilistic dependency net is this (taken from Lee & Wagenmakers 2014, Chapter 17):
  
+![plot of chunk unnamed-chunk-2](/mfpics/GCM_graphical_model_LW2014.pn)
  
 ... **to be continued** ..
