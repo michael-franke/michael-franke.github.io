@@ -70,67 +70,10 @@ In its simplest form, the model aims to predict the population-level category ch
 #### taken from Lee & Wagenmakers (2014)
 #################################################
 load("KruschkeData.Rdata") 
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Warning in readChar(con, 5L, useBytes = TRUE): cannot open compressed file
-## 'KruschkeData.Rdata', probable reason 'No such file or directory'
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in readChar(con, 5L, useBytes = TRUE): cannot open the connection
-{% endhighlight %}
-
-
-
-{% highlight r %}
 x <- y
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in eval(expr, envir, enclos): object 'y' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
 y <- rowSums(x) # successful identifications per category
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in is.data.frame(x): object 'x' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
 t <- n * nsubj  # number of trials
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in eval(expr, envir, enclos): object 'nsubj' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
 dataList <- list(y=y, nstim=nstim, t=t, a=a, d1=d1, d2=d2)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in eval(expr, envir, enclos): object 'y' not found
 {% endhighlight %}
  
 The JAGS code for the GCM looks like this (taken from Lee & Wagenmakers, 2014):
@@ -170,6 +113,6 @@ model{
  
 Notice that the bias parameter has been set to `b=0.5` and is thus not a free parameter. A visualization of the model as a probabilistic dependency net is this (taken from Lee & Wagenmakers 2014, Chapter 17):
  
-![plot of chunk unnamed-chunk-2](/mfpics/GCM_graphical_model_LW2014.pn)
+![plot of chunk unnamed-chunk-2](/mfpics/GCM_graphical_model_LW2014.png)
  
-... **to be continued** ..
+... **to be continued** ...
