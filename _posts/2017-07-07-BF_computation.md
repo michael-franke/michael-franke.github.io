@@ -167,6 +167,7 @@ $$
 \begin{align*}
 \frac{P(D \mid M_0)}{P(D \mid M_1)} & = \frac{P(\theta = 0.5 \mid D, M_1)}{P(\theta = 0.5 \mid M_1)} \\
   & = \frac{\text{Beta}(\theta = 0.5 \mid 8, 18)}{1} \approx 1
+\end{align*}
 $$
  
 This derivation uses the fact that the beta distribution is a conjugate prior for the binomial likelihood function, so that we can easily compute the posterior of $$\theta$$ after seeing data analytically, just using the beta function again.
