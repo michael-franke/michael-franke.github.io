@@ -228,14 +228,14 @@ An approximation of the Bayes factor in favor of the complex model is then:
  
 
 {% highlight r %}
-paste0("Bayes factor in favor of the complex model: ", 
+paste0("Approximate Bayes factor in favor of the complex model (using Savage-Dickey): ", 
        round(1/posterior_w,3) )
 {% endhighlight %}
 
 
 
 {% highlight text %}
-## [1] "Bayes factor in favor of the complex model: 4.736"
+## [1] "Approximate Bayes factor in favor of the complex model (using Savage-Dickey): 4.736"
 {% endhighlight %}
  
 In sum, the Savage-Dickey method is an elegant and practical method for computing (or approximating, if based on sampling) Bayes factors for properly nested models. It is particularly useful when the nested model fixes just a small number of parameters that are free in the nesting model. The method needs to go through two bottlenecks that can introduce imprecision in an estimate: first, we may have to rely on posterior samples; second, we may have to rely an numerical approximation of a point-density from the samples.
@@ -321,22 +321,53 @@ To compute an approximate Bayes factor in this way, we call this function twice:
  
 
 {% highlight r %}
-lh_flat   = sample_likelihoods(betaParameter = 1) %>% exp %>% mean 
-lh_biased = sample_likelihoods(betaParameter = 50000) %>% exp %>% mean 
+samples_complex = sample_likelihoods(betaParameter = 1)
+samples_simple  = sample_likelihoods(betaParameter = 50000)
+marg_lh_complex   = samples_complex %>% exp %>% mean 
+marg_lh_simple    = samples_simple  %>% exp %>% mean 
 {% endhighlight %}
  
-The final result is remarkably close to the previous one from the Savage-Dickey method:
+The final result is reaonably close to the previous one from the Savage-Dickey method:
  
 
 {% highlight r %}
-paste0("Bayes factor in favor of flat prior model: ", 
-       round(lh_flat/lh_biased ,3))
+paste0("Approximate Bayes factor in favor of the complex model (using naive MC): ", 
+       round(marg_lh_complex/marg_lh_simple ,3))
 {% endhighlight %}
 
 
 
 {% highlight text %}
-## [1] "Bayes factor in favor of flat prior model: 4.328"
+## [1] "Approximate Bayes factor in favor of the complex model (using naive MC): 4.354"
+{% endhighlight %}
+ 
+It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also the result from the Savage-Dickey method (the red line).
+ 
+
+{% highlight r %}
+BFVec = sapply(seq(10000,nSamples, by = 200), 
+               function(i) samples_complex[1:i] %>% exp %>% mean / 
+                           samples_simple[1:i]  %>% exp %>% mean)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in seq.default(10000, nSamples, by = 200): object 'nSamples' not found
+{% endhighlight %}
+
+
+
+{% highlight r %}
+ggplot(data.frame(i = seq(10000,nSamples, by = 200), BF = BFVec), aes(x=i, y=BF)) +
+  geom_line() + geom_hline(yintercept = 4.3, color = "firebrick") + 
+  xlab("number of samples") + ylab('approximate Bayes factor')
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in seq.default(10000, nSamples, by = 200): object 'nSamples' not found
 {% endhighlight %}
  
  

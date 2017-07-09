@@ -248,7 +248,7 @@ posterior_w <- dlogspline(0.5, fit.posterior)
 An approximation of the Bayes factor in favor of the complex model is then:
 
 ```{r, results='markup'}
-paste0("Bayes factor in favor of the complex model: ", 
+paste0("Approximate Bayes factor in favor of the complex model (using Savage-Dickey): ", 
        round(1/posterior_w,3) )
 ```
 
@@ -333,15 +333,28 @@ sample_likelihoods = function(betaParameter){
 To compute an approximate Bayes factor in this way, we call this function twice: once for the more complex, nesting model for which we set `betaParameter = 1`; and once for the simpler, nested model for which we approximate a fixed value of `w = 0.5` simply by setting `betaParameter = 5000`. (This yields a very heavily peaked beta prior with mode at `w=0.5` and should be good enough an approximation for our modest purposes.)
 
 ```{r}
-lh_flat   = sample_likelihoods(betaParameter = 1) %>% exp %>% mean 
-lh_biased = sample_likelihoods(betaParameter = 50000) %>% exp %>% mean 
+samples_complex = sample_likelihoods(betaParameter = 1)
+samples_simple  = sample_likelihoods(betaParameter = 50000)
+marg_lh_complex   = samples_complex %>% exp %>% mean 
+marg_lh_simple    = samples_simple  %>% exp %>% mean 
 ```
 
-The final result is remarkably close to the previous one from the Savage-Dickey method:
+The final result is reaonably close to the previous one from the Savage-Dickey method:
 
 ```{r, results='markup'}
-paste0("Bayes factor in favor of flat prior model: ", 
-       round(lh_flat/lh_biased ,3))
+paste0("Approximate Bayes factor in favor of the complex model (using naive MC): ", 
+       round(marg_lh_complex/marg_lh_simple ,3))
+```
+
+It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also the result from the Savage-Dickey method (the red line).
+
+```{r}
+BFVec = sapply(seq(10000,nSamples, by = 200), 
+               function(i) samples_complex[1:i] %>% exp %>% mean / 
+                           samples_simple[1:i]  %>% exp %>% mean)
+ggplot(data.frame(i = seq(10000,nSamples, by = 200), BF = BFVec), aes(x=i, y=BF)) +
+  geom_line() + geom_hline(yintercept = 4.3, color = "firebrick") + 
+  xlab("number of samples") + ylab('approximate Bayes factor')
 ```
 
 
