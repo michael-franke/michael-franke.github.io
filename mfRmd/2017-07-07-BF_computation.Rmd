@@ -7,6 +7,14 @@ status: process
 published: false
 ---
 
+```{r setup, include=FALSE, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE, 
+                      dev.args = list(bg = 'transparent'), fig.align='center',
+                      cache=TRUE)
+show = function(x) { x }
+theme_set(theme_bw() + theme(plot.background=element_blank()) )
+```
+
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 $$ \newcommand{\tuple}[1]{\langle#1\rangle} $$
@@ -220,6 +228,14 @@ codaSamples = coda.samples(jagsModel,
 ms = ggs(codaSamples)  # cast the data into tidy format
 ```
 
+We can then estimate the posterior density at $$w = 0.5$$, using the log-splines package:
+
+```{r}
+fit.posterior <- logspline(filter(ms, Parameter == "w")$value, ubound=1, lbound=0)
+posterior_w <- dlogspline(0.5, fit.posterior) # this gives the posterior density at w = 0.5
+
+paste0("Bayes factor in favor of the complex model: ", round(1/posterior_w,3) )
+```
 
 
 
