@@ -212,10 +212,17 @@ We can then estimate the posterior density at $$w = 0.5$$, using the log-splines
  
 
 {% highlight r %}
-fit.posterior <- logspline(filter(ms, Parameter == "w")$value, ubound=1, lbound=0)
-posterior_w <- dlogspline(0.5, fit.posterior) # this gives the posterior density at w = 0.5
- 
-paste0("Bayes factor in favor of the complex model: ", round(1/posterior_w,3) )
+post_samples = filter(ms, Parameter == "w")$value
+fit.posterior <- logspline(post_samples, ubound=1, lbound=0)
+posterior_w <- dlogspline(0.5, fit.posterior)
+paste0("Bayes factor in favor of the complex model: ", 
+       round(1/posterior_w,3) )
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## [1] "Bayes factor in favor of the complex model: 4.497"
 {% endhighlight %}
  
  
