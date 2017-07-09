@@ -10,7 +10,7 @@ published: false
 ```{r setup, include=FALSE, echo = FALSE, message = FALSE}
 knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE, results='hide',
                       dev.args = list(bg = 'transparent'), fig.align='center',
-                      cache=TRUE)
+                      cache=FALSE)
 show = function(x) { x }
 library(tidyverse)
 theme_set(theme_bw() + theme(plot.background=element_blank()) )
@@ -314,6 +314,7 @@ modelFile = paste0(local_path,"GCM_2_BF_naiveMC.txt")
 First, it defines a function that takes a `betaParameter` argument for the beta-prior over `w` to be fed to JAGS. The function returns the samples of the data's likelihood under the prior.
 
 ```{r}
+nSamples = 150000
 sample_likelihoods = function(betaParameter){
   # fix betaParameter for prior of w
   dataList$betaParameter = betaParameter
@@ -324,7 +325,7 @@ sample_likelihoods = function(betaParameter){
   update(jagsModel, n.iter = 15000)
   codaSamples = coda.samples(jagsModel, 
                              variable.names = c("lh"),
-                             n.iter = 150000)
+                             n.iter = nSamples)
   # returns the sampled log likelihood values
   filter(ggs(codaSamples), Parameter == "lh")$value
 }

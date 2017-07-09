@@ -235,7 +235,7 @@ paste0("Approximate Bayes factor in favor of the complex model (using Savage-Dic
 
 
 {% highlight text %}
-## [1] "Approximate Bayes factor in favor of the complex model (using Savage-Dickey): 4.736"
+## [1] "Approximate Bayes factor in favor of the complex model (using Savage-Dickey): 4.54"
 {% endhighlight %}
  
 In sum, the Savage-Dickey method is an elegant and practical method for computing (or approximating, if based on sampling) Bayes factors for properly nested models. It is particularly useful when the nested model fixes just a small number of parameters that are free in the nesting model. The method needs to go through two bottlenecks that can introduce imprecision in an estimate: first, we may have to rely on posterior samples; second, we may have to rely an numerical approximation of a point-density from the samples.
@@ -301,6 +301,7 @@ First, it defines a function that takes a `betaParameter` argument for the beta-
  
 
 {% highlight r %}
+nSamples = 150000
 sample_likelihoods = function(betaParameter){
   # fix betaParameter for prior of w
   dataList$betaParameter = betaParameter
@@ -311,7 +312,7 @@ sample_likelihoods = function(betaParameter){
   update(jagsModel, n.iter = 15000)
   codaSamples = coda.samples(jagsModel, 
                              variable.names = c("lh"),
-                             n.iter = 150000)
+                             n.iter = nSamples)
   # returns the sampled log likelihood values
   filter(ggs(codaSamples), Parameter == "lh")$value
 }
@@ -338,7 +339,7 @@ paste0("Approximate Bayes factor in favor of the complex model (using naive MC):
 
 
 {% highlight text %}
-## [1] "Approximate Bayes factor in favor of the complex model (using naive MC): 4.354"
+## [1] "Approximate Bayes factor in favor of the complex model (using naive MC): 4.518"
 {% endhighlight %}
  
 It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also the result from the Savage-Dickey method (the red line).
@@ -348,27 +349,12 @@ It is diagnostic to see the temporal development of the Bayes factor approximati
 BFVec = sapply(seq(10000,nSamples, by = 200), 
                function(i) samples_complex[1:i] %>% exp %>% mean / 
                            samples_simple[1:i]  %>% exp %>% mean)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in seq.default(10000, nSamples, by = 200): object 'nSamples' not found
-{% endhighlight %}
-
-
-
-{% highlight r %}
 ggplot(data.frame(i = seq(10000,nSamples, by = 200), BF = BFVec), aes(x=i, y=BF)) +
   geom_line() + geom_hline(yintercept = 4.3, color = "firebrick") + 
   xlab("number of samples") + ylab('approximate Bayes factor') %>% show
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in seq.default(10000, nSamples, by = 200): object 'nSamples' not found
-{% endhighlight %}
+<img src="/mfpics/2017-07-07-BF_computation.Rmd/naiveMCtemp-1.png" title="plot of chunk naiveMCtemp" alt="plot of chunk naiveMCtemp" style="display: block; margin: auto;" />
  
  
  
