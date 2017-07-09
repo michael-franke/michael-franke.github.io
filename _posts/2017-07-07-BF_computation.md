@@ -235,7 +235,7 @@ paste0("Approximate BF in favor of complex model (Savage-Dickey): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.4"
+## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.536"
 {% endhighlight %}
  
 In sum, the Savage-Dickey method is an elegant and practical method for computing (or approximating, if based on sampling) Bayes factors for properly nested models. It is particularly useful when the nested model fixes just a small number of parameters that are free in the nesting model. The method needs to go through two bottlenecks that can introduce imprecision in an estimate: first, we may have to rely on posterior samples; second, we may have to rely an numerical approximation of a point-density from the samples.
@@ -297,11 +297,11 @@ modelFile = "GCM_2_BF_naiveMC.txt"
  
 
  
-First, it defines a function that takes a `betaParameter` argument for the beta-prior over `w` to be fed to JAGS. The function returns the samples of the data's likelihood under the prior.
+First, it defines a function that takes a `betaParameter` argument for the beta-prior over `w` to be fed to JAGS. The function returns 200,000 samples of the data's likelihood under the prior.
  
 
 {% highlight r %}
-nSamples = 150000
+nSamples = 200000
 sample_likelihoods = function(betaParameter){
   # fix betaParameter for prior of w
   dataList$betaParameter = betaParameter
@@ -339,7 +339,7 @@ paste0("Approximate BF in favor of complex model (naive MC): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (naive MC): 4.291"
+## [1] "Approximate BF in favor of complex model (naive MC): 4.551"
 {% endhighlight %}
  
 It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also the result from the Savage-Dickey method (the red line).
