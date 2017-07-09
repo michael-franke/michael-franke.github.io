@@ -215,6 +215,12 @@ We can then estimate the posterior density at $$w = 0.5$$, using the log-splines
 post_samples = filter(ms, Parameter == "w")$value
 fit.posterior <- logspline(post_samples, ubound=1, lbound=0)
 posterior_w <- dlogspline(0.5, fit.posterior)
+{% endhighlight %}
+ 
+An approximation of the Bayes factor in favor of the complex model is then:
+ 
+
+{% highlight r %}
 paste0("Bayes factor in favor of the complex model: ", 
        round(1/posterior_w,3) )
 {% endhighlight %}
@@ -225,7 +231,115 @@ paste0("Bayes factor in favor of the complex model: ",
 ## [1] "Bayes factor in favor of the complex model: 4.497"
 {% endhighlight %}
  
+In sum, the Savage-Dickey method is an elegant and practical method for computing (or approximating, if based on sampling) Bayes factors for properly nested models. It is particularly useful when the nested model fixes just a small number of parameters that are free in the nesting model. The method needs to go through two bottlenecks that can introduce imprecision in an estimate: first, we may have to rely on posterior samples; second, we may have to rely an numerical approximation of a point-density from the samples.
  
+### Naive Monte Carlo simulation
+ 
+While the Savage-Dickey method targets calculation of the Bayes factor directly, we can also target a single model's marginal likelihood, as described above. Under certain circumstances (see end of this section for a critical assessment), even naive Monte Carlo simulation can work well and is very easy to implement when we already have a way of generating posterior samples, e.g., using an implementation in JAGS or similar software.
+ 
+Naive Monte Carlo sampling approximates the marginal likelihood of model $$M_i$$ by sampling repeatedly parameter values from their prior and recording the likelihood of the data under the sample parameter values. If we sample enough, the mean of the recorded likelihoods will approximate the true marginalized likelihood:
+ 
+$$P(D \mid M_i) = \int P(D \mid \theta, M_i) \ P(\theta, M_i) \ \text{d}\theta \approx \frac{1}{n} \sum^{n}_{\theta_i \sim P(\theta \mid M_i)} P(D \mid \theta, M_i)$$
+ 
+If we already have a JAGS implementation that produces samples from the posterior distribution, it only takes minor changes to obtain code that generates samples from the prior and returns the likelihood of the observed data. The following code, which is available in file `GCM_2_BF_naiveMC.txt` does exactly this. The crucial part is that we do _not_ condition on the data; we take samples from the prior distribution. Instead we record (here: in variable `lh`) the likelihood of the observed data under each sample from the prior distribution.
+ 
+
+{% highlight r %}
+# Generalized Context Model; 
+# version for naive MC sampling of marginal likelihood
+model{
+  # Decision Data
+  for (i in 1:nstim){
+    # y[i] ~ dbin(r[i],t) # commented out: conditioning on observed data
+    lhT[i] = dbin(y[i],r[i],t) # record likelihood of data instead
+  }
+  lh = sum(log(lhT))
+  # Decision Probabilities
+  for (i in 1:nstim){
+    r[i] <- sum(numerator[i,])/sum(denominator[i,])
+    for (j in 1:nstim){
+      tmp1[i,j,1] <- b*s[i,j]
+      tmp1[i,j,2] <- 0
+      tmp2[i,j,1] <- 0
+      tmp2[i,j,2] <- (1-b)*s[i,j]
+      numerator[i,j] <- tmp1[i,j,a[j]]
+      denominator[i,j] <- tmp1[i,j,a[j]] + tmp2[i,j,a[j]]
+    }
+  }  
+  # Similarities
+  for (i in 1:nstim){
+    for (j in 1:nstim){
+      s[i,j] <- exp(-c*(w*d1[i,j]+(1-w)*d2[i,j]))
+    }
+  }
+  # Priors
+  c  ~ dunif(0,5)
+  w  ~ dbeta(betaParameter,betaParameter)
+  b <- 0.5 
+}
+{% endhighlight %}
+ 
+Notice that the script also introduces a parameterization of the prior for `w`. This is handy because it allows us to use the same JAGS code for both models. (We need to compute the marginal likelihood for each model to obtain the Bayes factor estimate.)
+ 
+The script in file `GCM_2_BF_naiveMC.R` approximate the marginal likelihood through naive Monte Carlo sampling. It's major steps are reproduced here. 
+ 
+First, it defines a function that takes a `betaParameter` argument for the beta-prior over `w` to be fed to JAGS. The function returns the samples of the data's likelihood under the prior.
+ 
+
+{% highlight r %}
+sample_likelihoods = function(betaParameter){
+  # fix betaParameter for prior of w
+  dataList$betaParameter = betaParameter
+  # set up and run model
+  jagsModel = jags.model(file = modelFile, 
+                         data = dataList,
+                         n.chains = 2)
+  update(jagsModel, n.iter = 15000)
+  codaSamples = coda.samples(jagsModel, 
+                             variable.names = c("lh"),
+                             n.iter = 150000)
+  # returns the sampled log likelihood values
+  filter(ggs(codaSamples), Parameter == "lh")$value
+}
+{% endhighlight %}
+ 
+To compute an approximate Bayes factor in this way, we call this function twice: once for the more complex, nesting model for which we set `betaParameter = 1`; and once for the simpler, nested model for which we approximate a fixed value of `w = 0.5` simply by setting `betaParameter = 5000`. (This yields a very heavily peaked beta prior with mode at `w=0.5` and should be good enough an approximation for our modest purposes.)
+ 
+
+{% highlight r %}
+lh_flat   = sample_likelihoods(betaParameter = 1) %>% exp %>% mean 
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in jags.model(file = modelFile, data = dataList, n.chains = 2): object 'modelFile' not found
+{% endhighlight %}
+
+
+
+{% highlight r %}
+lh_biased = sample_likelihoods(betaParameter = 50000) %>% exp %>% mean 
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in jags.model(file = modelFile, data = dataList, n.chains = 2): object 'modelFile' not found
+{% endhighlight %}
+
+
+
+{% highlight r %}
+paste0("Bayes factor in favor of flat prior model: ", 
+       round(lh_flat/lh_biased ,3))
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in paste0("Bayes factor in favor of flat prior model: ", round(lh_flat/lh_biased, : object 'lh_flat' not found
+{% endhighlight %}
  
  
 ... **to be continued** ...
