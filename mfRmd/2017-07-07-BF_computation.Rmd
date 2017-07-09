@@ -10,8 +10,9 @@ published: false
 ```{r setup, include=FALSE, echo = FALSE, message = FALSE}
 knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE, results='hide',
                       dev.args = list(bg = 'transparent'), fig.align='center',
-                      cache=TRUE)
+                      cache=FALSE)
 show = function(x) { x }
+library(tidyverse)
 theme_set(theme_bw() + theme(plot.background=element_blank()) )
 ```
 
@@ -332,8 +333,8 @@ sample_likelihoods = function(betaParameter){
 To compute an approximate Bayes factor in this way, we call this function twice: once for the more complex, nesting model for which we set `betaParameter = 1`; and once for the simpler, nested model for which we approximate a fixed value of `w = 0.5` simply by setting `betaParameter = 5000`. (This yields a very heavily peaked beta prior with mode at `w=0.5` and should be good enough an approximation for our modest purposes.)
 
 ```{r, results='markup'}
-lh_flat   = sample_likelihoods(betaParameter = 1) %>% exp %>% mean 
 lh_biased = sample_likelihoods(betaParameter = 50000) %>% exp %>% mean 
+lh_flat   = sample_likelihoods(betaParameter = 1) %>% exp %>% mean 
 paste0("Bayes factor in favor of flat prior model: ", 
        round(lh_flat/lh_biased ,3))
 ```
