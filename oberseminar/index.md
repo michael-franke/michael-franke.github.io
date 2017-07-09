@@ -13,21 +13,10 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
-July 3, 2017\    <span style = "color:firebrick">Olivier Morin</span> (Jena)\
+July 10, 2017\   <span style = "color:firebrick">Anna Howell</span> (Tübingen)\
 
-&nbsp;\          "Cognition, history and chance in the evolution of visual culture"\
-
-&nbsp;\          <span style = "color:gray">Worldwide visual culture provides ideal material to test and compare a range of hypotheses coming from cognitive science, cultural evolution, and cultural history. Images, designs and patterns are naturally well documented, and visual cognition is among the least controversial areas of cognitive science. Thus, questions that would receive tentative or debatable answers if asked about languages, or social norms, can be addressed with precision when visual culture is concerned. Two studies will be presented.</span>
-
-&nbsp;\          <span style = "color:gray">One describes widespread cognitive constraints on the shape of letters in 116 scripts (Thaï, Greek, Afáka, etc.). Orientation anisotropy, vertical symmetry dominance, and orientation-based segregation of letters, all left a clear mark on most of the world's writing systems. Contrary to the received view in cultural evolution, scripts did not gradually evolve to fit these cognitive constraints, nor did cultural selection play any role in the process.</span>
-
-&nbsp;\          <span style = "color:gray">Our second case study focuses on the diffusion of heraldic designs on coats of arms (between the late middle ages and early modern times). These designs could spread by imitation, but given the limited number of motifs and tinctures, the chances for some of them of being independently reinvented were substantial. A model which assumes that heraldic designs diffuse by independent reinvention only was tested on two heraldic corpus. The model predicts the appearance of actual designs in the historical record with surprising accuracy. These two studies suggest ways that a quantified history of visual culture can shed light on mechanisms of cultural change on a vast scale.</span>\
-
-&nbsp;\          &nbsp;\
-
-July 3, 2017\    <span style = "color:firebrick">Anna Howell</span> (Tübingen)\
-
-&nbsp;\          TBA\
+&nbsp;\          "Alternatives and Disjunction through the lens of Disjunctive Questions in Yoruba"\
+&nbsp;\          <span style = "color:gray">click [here](abstracts/004_Howell_2017.pdf) for abstract</span>\
 
 &nbsp;\          &nbsp;\
 
@@ -50,6 +39,18 @@ Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
 ### Past talks
 
 ---------------- ----------------------------------------------------
+July 3, 2017\    <span style = "color:firebrick">Olivier Morin</span> (Jena)\
+
+&nbsp;\          "Cognition, history and chance in the evolution of visual culture"\
+
+&nbsp;\          <span style = "color:gray">Worldwide visual culture provides ideal material to test and compare a range of hypotheses coming from cognitive science, cultural evolution, and cultural history. Images, designs and patterns are naturally well documented, and visual cognition is among the least controversial areas of cognitive science. Thus, questions that would receive tentative or debatable answers if asked about languages, or social norms, can be addressed with precision when visual culture is concerned. Two studies will be presented.</span>
+
+&nbsp;\          <span style = "color:gray">One describes widespread cognitive constraints on the shape of letters in 116 scripts (Thaï, Greek, Afáka, etc.). Orientation anisotropy, vertical symmetry dominance, and orientation-based segregation of letters, all left a clear mark on most of the world's writing systems. Contrary to the received view in cultural evolution, scripts did not gradually evolve to fit these cognitive constraints, nor did cultural selection play any role in the process.</span>
+
+&nbsp;\          <span style = "color:gray">Our second case study focuses on the diffusion of heraldic designs on coats of arms (between the late middle ages and early modern times). These designs could spread by imitation, but given the limited number of motifs and tinctures, the chances for some of them of being independently reinvented were substantial. A model which assumes that heraldic designs diffuse by independent reinvention only was tested on two heraldic corpus. The model predicts the appearance of actual designs in the historical record with surprising accuracy. These two studies suggest ways that a quantified history of visual culture can shed light on mechanisms of cultural change on a vast scale.</span>\
+
+&nbsp;\          &nbsp;\
+
 June 28, 2017\   <span style = "color:firebrick">Judith Degen</span> (Stanford)\
 
 &nbsp;\          "Mentioning atypical properties of objects is communicatively efficient" \
