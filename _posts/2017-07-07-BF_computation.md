@@ -196,7 +196,14 @@ Then we run JAGS and retrieve 50000 samples of the posterior over $$w$$ after a 
  
 
 {% highlight r %}
-jagsModel = jags.model(file = "GCM_1_posterior_inference.txt", 
+modelFile = "GCM_1_posterior_inference.txt"
+{% endhighlight %}
+ 
+
+ 
+
+{% highlight r %}
+jagsModel = jags.model(file = modelFile, 
                        data = dataList, # dataList was defined above
                        n.chains = 2)
 update(jagsModel, n.iter = 15000)
@@ -228,7 +235,7 @@ paste0("Bayes factor in favor of the complex model: ",
 
 
 {% highlight text %}
-## [1] "Bayes factor in favor of the complex model: 4.497"
+## [1] "Bayes factor in favor of the complex model: 4.736"
 {% endhighlight %}
  
 In sum, the Savage-Dickey method is an elegant and practical method for computing (or approximating, if based on sampling) Bayes factors for properly nested models. It is particularly useful when the nested model fixes just a small number of parameters that are free in the nesting model. The method needs to go through two bottlenecks that can introduce imprecision in an estimate: first, we may have to rely on posterior samples; second, we may have to rely an numerical approximation of a point-density from the samples.
@@ -283,6 +290,13 @@ Notice that the script also introduces a parameterization of the prior for `w`. 
  
 The script in file `GCM_2_BF_naiveMC.R` approximate the marginal likelihood through naive Monte Carlo sampling. It's major steps are reproduced here. 
  
+
+{% highlight r %}
+modelFile = "GCM_2_BF_naiveMC.txt"
+{% endhighlight %}
+ 
+
+ 
 First, it defines a function that takes a `betaParameter` argument for the beta-prior over `w` to be fed to JAGS. The function returns the samples of the data's likelihood under the prior.
  
 
@@ -313,7 +327,7 @@ lh_flat   = sample_likelihoods(betaParameter = 1) %>% exp %>% mean
 
 
 {% highlight text %}
-## Error in jags.model(file = modelFile, data = dataList, n.chains = 2): object 'modelFile' not found
+## Error in jags.model(file = modelFile, data = dataList, n.chains = 2): Cannot open model file "mfRmd/GCM_2_BF_naiveMC.txt"
 {% endhighlight %}
 
 
@@ -325,7 +339,7 @@ lh_biased = sample_likelihoods(betaParameter = 50000) %>% exp %>% mean
 
 
 {% highlight text %}
-## Error in jags.model(file = modelFile, data = dataList, n.chains = 2): object 'modelFile' not found
+## Error in jags.model(file = modelFile, data = dataList, n.chains = 2): Cannot open model file "mfRmd/GCM_2_BF_naiveMC.txt"
 {% endhighlight %}
 
 

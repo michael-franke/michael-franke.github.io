@@ -207,7 +207,15 @@ dataList <- list(y=y, nstim=nstim, t=t, a=a, d1=d1, d2=d2)
 ```
 
 ```{r, eval = FALSE}
-jagsModel = jags.model(file = "GCM_1_posterior_inference.txt", 
+modelFile = "GCM_1_posterior_inference.txt"
+```
+
+```{r, echo = FALSE}
+modelFile = paste0(local_path,"GCM_1_posterior_inference.txt")
+```
+
+```{r, eval = FALSE}
+jagsModel = jags.model(file = modelFile, 
                        data = dataList, # dataList was defined above
                        n.chains = 2)
 update(jagsModel, n.iter = 15000)
@@ -293,6 +301,14 @@ model{
 Notice that the script also introduces a parameterization of the prior for `w`. This is handy because it allows us to use the same JAGS code for both models. (We need to compute the marginal likelihood for each model to obtain the Bayes factor estimate.)
 
 The script in file `GCM_2_BF_naiveMC.R` approximate the marginal likelihood through naive Monte Carlo sampling. It's major steps are reproduced here. 
+
+```{r, eval = FALSE}
+modelFile = "GCM_2_BF_naiveMC.txt"
+```
+
+```{r, echo = FALSE}
+modelFile = paste0(local_path,"GCM_2_BF_naiveMC.txt")
+```
 
 First, it defines a function that takes a `betaParameter` argument for the beta-prior over `w` to be fed to JAGS. The function returns the samples of the data's likelihood under the prior.
 
