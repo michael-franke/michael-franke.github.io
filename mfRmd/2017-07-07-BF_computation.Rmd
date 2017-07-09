@@ -248,7 +248,7 @@ posterior_w <- dlogspline(0.5, fit.posterior)
 An approximation of the Bayes factor in favor of the complex model is then:
 
 ```{r, results='markup'}
-paste0("Approximate Bayes factor in favor of the complex model (using Savage-Dickey): ", 
+paste0("Approximate BF in favor of complex model (Savage-Dickey): ", 
        round(1/posterior_w,3) )
 ```
 
@@ -343,19 +343,23 @@ marg_lh_simple    = samples_simple  %>% exp %>% mean
 The final result is reaonably close to the previous one from the Savage-Dickey method:
 
 ```{r, results='markup'}
-paste0("Approximate Bayes factor in favor of the complex model (using naive MC): ", 
+paste0("Approximate BF in favor of complex model (naive MC): ", 
        round(marg_lh_complex/marg_lh_simple ,3))
 ```
 
 It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also the result from the Savage-Dickey method (the red line).
 
-```{r naiveMCtemp,  results='markup', fig.align='center', fig.width=7, fig.height=3.5}
+```{r naiveMCtemp,  results='markup', fig.align='center', fig.width=8, fig.height=4}
 BFVec = sapply(seq(10000,nSamples, by = 200), 
                function(i) samples_complex[1:i] %>% exp %>% mean / 
                            samples_simple[1:i]  %>% exp %>% mean)
-ggplot(data.frame(i = seq(10000,nSamples, by = 200), BF = BFVec), aes(x=i, y=BF)) +
-  geom_line() + geom_hline(yintercept = 4.3, color = "firebrick") + 
-  xlab("number of samples") + ylab('approximate Bayes factor') %>% show
+ggplot(data.frame(i = seq(10000,nSamples, by = 200), 
+                  BF = BFVec), 
+       aes(x=i, y=BF)) +
+  geom_line() + 
+  geom_hline(yintercept = 1/posterior_w,3, color = "firebrick") + 
+  xlab("number of samples") + 
+  ylab('approximate Bayes factor')
 ```
 
 
