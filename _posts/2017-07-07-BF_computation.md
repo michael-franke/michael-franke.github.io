@@ -361,7 +361,7 @@ BFVec = sapply(seq(10000,nSamples, by = 200),
 {% highlight r %}
 ggplot(data.frame(i = seq(10000,nSamples, by = 200), BF = BFVec), aes(x=i, y=BF)) +
   geom_line() + geom_hline(yintercept = 4.3, color = "firebrick") + 
-  xlab("number of samples") + ylab('approximate Bayes factor')
+  xlab("number of samples") + ylab('approximate Bayes factor') %>% show
 {% endhighlight %}
 
 

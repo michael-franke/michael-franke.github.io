@@ -348,13 +348,13 @@ paste0("Approximate Bayes factor in favor of the complex model (using naive MC):
 
 It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also the result from the Savage-Dickey method (the red line).
 
-```{r}
+```{r naiveMCtemp,  results='markup', fig.align='center', fig.width=7, fig.height=3.5}
 BFVec = sapply(seq(10000,nSamples, by = 200), 
                function(i) samples_complex[1:i] %>% exp %>% mean / 
                            samples_simple[1:i]  %>% exp %>% mean)
 ggplot(data.frame(i = seq(10000,nSamples, by = 200), BF = BFVec), aes(x=i, y=BF)) +
   geom_line() + geom_hline(yintercept = 4.3, color = "firebrick") + 
-  xlab("number of samples") + ylab('approximate Bayes factor')
+  xlab("number of samples") + ylab('approximate Bayes factor') %>% show
 ```
 
 
