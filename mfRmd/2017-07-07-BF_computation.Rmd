@@ -10,9 +10,10 @@ published: false
 ```{r setup, include=FALSE, echo = FALSE, message = FALSE}
 knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE, results='hide',
                       dev.args = list(bg = 'transparent'), fig.align='center',
-                      cache=FALSE)
+                      cache=TRUE)
 show = function(x) { x }
 library(tidyverse)
+set.seed(6121978)
 theme_set(theme_bw() + theme(plot.background=element_blank()) )
 ```
 
