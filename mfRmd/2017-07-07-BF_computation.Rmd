@@ -27,18 +27,19 @@ local_path = "mfRmd/"
 # local_path = ""
 ```
 
+The goal of this post is to review a number of methods that approximate Bayes factors or marginalized likelihoods. 
 
 ### Model comparison by Bayes factors
 
 A model $$M_i$$, in the Bayesian sense, is a pair consisting of a conditional likelihood function $$P(D \mid \theta, M_i)$$ for observable data $$D$$ together with a prior $$P(\theta \mid M_i)$$ over parameter vector $$\theta$$. Ideally, we might like to assess the absolute probability of model $$M_i$$ after seeing data $$D$$. We can express this quantity using Bayes rule:
 
-$$ P(M_i \mid D) = \frac{P(M_i) \ P(D \mid M_i)}{\int P(M_j) \ P(D \mid M_j) \  \text{d} M_j}$$ 
+$$ P(M_i \mid D) = \frac{P(M_i) \ P(D \mid M_i)}{\int P(M_j) \ P(D \mid M_j) \  \text{d} M_j}\,.$$ 
 
 Quantifying over the whole class of possible models is dauntingly complex. This likely remains true even for a fixed data set and within a confined sub-genre of models (e.g., all regression models with combinations of a finite set of explanatory factors).
 
-A good solution is to be more modest and to compare just two models to each other. The question to ask is then: How much does the observation of data $$D$$ impact our beliefs about the relative model probabilities? We can express this using Bayes rule as the ratio of our posterior beliefs about models, which eliminates the need to have the normalizing constant for the previous equation.
+A good solution is to be more modest and to compare just two models to each other. The question to ask is then: How much does the observation of data $$D$$ impact our beliefs about the relative model probabilities? We can express this using Bayes rule as the ratio of our posterior beliefs about models, which eliminates the need to have the normalizing constant for the previous equation, like so:
 
-$$ \underbrace{\frac{P(M_1 \mid D)}{P(M_2 \mid D)}}_{\text{posterior odds}} =   \underbrace{\frac{P(M_1)}{P(M_2)}}_{\text{prior odds}} \ \underbrace{\frac{P(D \mid M_1)}{P(D \mid M_2)}}_{\text{Bayes factor}} $$
+$$ \underbrace{\frac{P(M_1 \mid D)}{P(M_2 \mid D)}}_{\text{posterior odds}} =   \underbrace{\frac{P(M_1)}{P(M_2)}}_{\text{prior odds}} \ \underbrace{\frac{P(D \mid M_1)}{P(D \mid M_2)}}_{\text{Bayes factor}}\,. $$
 
 The fraction on the left-hand side is the posterior odds ratio: our relative beliefs about models $$M_1$$ and $$M_2$$ _after_ seeing data $$D$$. On the right-hand side we have a product of two intuitively interpretable quantities. First, there is the prior odds: our relative beliefs about models $$M_1$$ and $$M_2$$ _before_ seeing data $$D$$. Second, there is the so-called **Bayes factor**. This way of introducing Bayes factors invites to think of them as **the factor by which our prior odds change in the light of the data**.
 
@@ -271,8 +272,8 @@ If we already have a JAGS implementation that produces samples from the posterio
 model{
   # Decision Data
   for (i in 1:nstim){
-    # y[i] ~ dbin(r[i],t) # commented out: conditioning on observed data
-    lhT[i] = dbin(y[i],r[i],t) # record likelihood of data instead
+    # y[i] ~ dbin(r[i],t) # commented out because we are NOT conditioning on data
+    lhT[i] = dbin(y[i],r[i],t) # we track the likelihood of the data instead
   }
   lh = sum(log(lhT))
   # Decision Probabilities
@@ -348,7 +349,7 @@ paste0("Approximate BF in favor of complex model (naive MC): ",
        round(marg_lh_complex/marg_lh_simple ,3))
 ```
 
-It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also the result from the Savage-Dickey method (the red line).
+It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also to the result from the Savage-Dickey method (the red line).
 
 ```{r naiveMCtemp,  results='markup', fig.align='center', fig.width=8, fig.height=4}
 BFVec = sapply(seq(10000,nSamples, by = 200), 
@@ -361,6 +362,79 @@ ggplot(data.frame(i = seq(10000,nSamples, by = 200),
   geom_hline(yintercept = 1/posterior_w,3, color = "firebrick") + 
   xlab("number of samples") + 
   ylab('approximate Bayes factor')
+```
+
+
+### Transdimensional MCMC
+
+A straightforward method for approximating posterior model odds is transdimensional MCMC. We consider the posterior over a binary model flag parameter $m \in {0,1}$ which helps represent our prior and posterior beliefs about which of models $M_0$ and $M_1$ is true. We look at a single encompassing model that contains both models that are to be compared. The likelihood function of the encompassing model is switched between that of $M_0$ or $M_1$ depending on the current value of $m$. A JAGS model that implements such an encompassing model is in the file `GCM_3_BF_transdimensional.txt` and reproduced here:
+
+```{r, eval = FALSE}
+# Generalized Context Model
+model{
+  # Decision Data
+  for (i in 1:nstim){
+    y[i] ~ dbin(r[i],t)
+    r[i] = ifelse(m == 0, r1[i], r2[i]) # which likelihood to use depends on model flag
+  }  
+  # Decision Probabilities
+  for (i in 1:nstim){
+    r1[i] <- sum(numerator1[i,])/sum(denominator1[i,])
+    r2[i] <- sum(numerator2[i,])/sum(denominator2[i,])
+    for (j in 1:nstim){
+      tmp11[i,j,1] <- b1*s1[i,j]
+      tmp12[i,j,1] <- b2*s2[i,j]
+      tmp11[i,j,2] <- 0
+      tmp12[i,j,2] <- 0
+      tmp21[i,j,1] <- 0
+      tmp22[i,j,1] <- 0
+      tmp21[i,j,2] <- (1-b1)*s1[i,j]
+      tmp22[i,j,2] <- (1-b2)*s2[i,j]
+      numerator1[i,j] <- tmp11[i,j,a[j]]
+      numerator2[i,j] <- tmp12[i,j,a[j]]
+      denominator1[i,j] <- tmp11[i,j,a[j]] + tmp21[i,j,a[j]]
+      denominator2[i,j] <- tmp12[i,j,a[j]] + tmp22[i,j,a[j]]
+    }
+  }  
+  # Similarities
+  for (i in 1:nstim){
+    for (j in 1:nstim){
+      s1[i,j] <- exp(-c1*(w1*d1[i,j]+(1-w1)*d2[i,j]))
+      s2[i,j] <- exp(-c2*(w2*d1[i,j]+(1-w2)*d2[i,j]))
+    }
+  }
+  # Priors
+  c1  ~ dunif(0,5)
+  c2  ~ dunif(0,5)
+  w1  ~ dbeta(1,1)
+  w2  ~ dbeta(betaParameter,betaParameter)
+  b1 <- 0.5 
+  b2 <- 0.5
+  m ~ dbern(0.5) # model flag: prior odds are even
+}
+```
+
+The script in file `GCM_3_BF_transdimensional.R` collects posterior samples from the model above.
+
+```{r, eval = FALSE}
+modelFile = "GCM_3_BF_transdimensional.txt"
+```
+
+```{r, echo = FALSE}
+modelFile = paste0(local_path,"GCM_3_BF_transdimensional.txt")
+```
+
+All we really need to do is collect samples of the posterior over $m$. Since we assumed that models are equally probable a priori (by taking $m \sim \text{Bernoulli}(0.5)$), the fraction of samples for which $m = 1$ approximates the Bayes factor in favor of the complex model:
+
+```{r}
+jagsModel = jags.model(file = modelFile, 
+                       data = dataList,
+                       n.chains = 2)
+update(jagsModel, n.iter = 15000)
+codaSamples = coda.samples(jagsModel, 
+                           variable.names = c("m"),
+                           n.iter = 150000)
+paste0("BF in favor of complex model (transcendental): ", round(1/mean(filter(ggs(codaSamples), Parameter == "m")$value) ,3))
 ```
 
 
