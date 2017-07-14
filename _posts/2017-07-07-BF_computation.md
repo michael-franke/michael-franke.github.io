@@ -236,7 +236,7 @@ paste0("Approximate BF in favor of complex model (Savage-Dickey): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.886"
+## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.891"
 {% endhighlight %}
  
 In sum, the Savage-Dickey method is an elegant and practical method for computing (or approximating, if based on sampling) Bayes factors for properly nested models. It is particularly useful when the nested model fixes just a small number of parameters that are free in the nesting model. The method needs to go through two bottlenecks that can introduce imprecision in an estimate: first, we may have to rely on posterior samples; second, we may have to rely an numerical approximation of a point-density from the samples.
@@ -340,7 +340,7 @@ paste0("Approximate BF in favor of complex model (naive MC): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (naive MC): 4.499"
+## [1] "Approximate BF in favor of complex model (naive MC): 4.514"
 {% endhighlight %}
  
 It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also to the result from the Savage-Dickey method (the red line).
@@ -425,6 +425,7 @@ All we really need to do is collect samples of the posterior over $m$. Since we 
  
 
 {% highlight r %}
+show(modelFile)
 jagsModel = jags.model(file = modelFile, 
                        data = dataList,
                        n.chains = 2)
