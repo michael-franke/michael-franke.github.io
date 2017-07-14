@@ -105,7 +105,8 @@ If models are properly nested we can compute the Bayes factor with the Savage-Di
 $$ \begin{align*}
 \frac{P(D \mid M_0)}{P(D \mid M_1)}  & = 
 \frac{P(\phi_0 \mid D, M_1)}{P(\phi_0 \mid M_1)}
-\end{align*} $$ 
+\end{align*} 
+$$ 
  
 This seems like magic. To compute the Bayes factor we only need to look at the ratio of the posterior of the parameters $$\phi_0$$ under the more complex model $$M_1$$ given data $$D$$ and their prior of $$\phi_0$$ under $$M_1$$. To see that the above holds (the feeling of magic notwithstanding), here's a proof sketch:
  
@@ -114,7 +115,8 @@ P(D \mid M_0) & = \int P(D \mid \psi, M_0) P(\psi \mid M_0) \ \text{d}\psi \\
  & = \int P(D \mid \psi, \phi = \phi_0, M_1) P(\psi \mid \phi = \phi_0, M_1)  \ \text{d}\psi\\
  & = P(D \mid \phi = \phi_0, M_1) \ \ \ \ \ \ \text{(by Bayes rule)} \\
  & = \frac{P(\phi = \phi_0 \mid D, M_1) P(D \mid M_1)}{P(\phi = \phi_0 \mid M_1)}
-\end{align*} $$
+\end{align*} 
+$$
  
 #### Example: coin biases
  
@@ -459,12 +461,31 @@ A method similar to the previous promises to get around this problem, at least w
 $$ P(D \mid \alpha, \theta_i, \theta_j) = \alpha P(D \mid \theta_i, M_i ) + (1- \alpha) P(D \mid \theta_j, M_j) $$ 
  
 It is easy to show that for a flat prior $$\alpha \sim \text{Beta}(1,1)$$, the posterior of $$\alpha$$ is linear:
+$$
+\begin{align*}
+P(\alpha \mid D) & \propto \int \int P(\alpha) \ P(\theta_i \mid M_i) \ P(\theta_j \mid M_j) \ \left ( \alpha P(D \mid \theta_i, M_i) +  (1- \alpha) P(D \mid \theta_j, M_j) \right ) \ \text{d} \theta_i \ \text{d} \theta_j \\
+& \propto \int \int  \ P(\theta_i \mid M_i) \ P(\theta_j \mid M_j) \ \left ( \alpha \left ( P(D \mid \theta_i, M_i ) - P(D \mid \theta_j, M_j ) \right ) + P(D \mid \theta_j, M_j) \right ) \ \text{d} \theta_i \ \text{d} \theta_j \\
+& = \alpha \ \int \int  \ P(\theta_i \mid M_i) \ P(\theta_j \mid M_j) \left ( P(D \mid \theta_i, M_i ) - P(D \mid \theta_j, M_j ) \right )  \ \text{d} \theta_i \ \text{d} \theta_j \ +  \\
+& \ \ \ \ \ \ \ \ \ \ \ \ \int \int  \ P(\theta_i \mid M_i) \ P(\theta_j \mid M_j) P(D \mid \theta_j, M_j )  \ \text{d} \theta_i \ \text{d} \theta_j \\
+& = \alpha (P(D \mid M_i) - P(D \mid M_j)) + P(D \mid M_j) \\
+& = m \alpha + c
+\end{align*}
+$$
+ 
+Since the posterior of $$\alpha$$ is a distribution which satisfies $$ \int P(\alpha \mid D) \ \text{d} \alpha = 1$$, we get that $$m = 2 - 2c$$. Since each model nested under the supermodel as a special case of $$\alpha = 0$$ or $$\alpha = 1$$ we can use the Savage-Dickey method to express the posterior of $$\alpha$$ as a function of $c$ only:
+ 
  
 $$
 \begin{align*}
-P(\alpha \mid D) & \propto \int \int P(\alpha) P(\theta_i \mid M_i) P(\theta_j \mid M_j) \left \[ \alpha P(D \mid \theta_i, M_i ) + (1- \alpha) P(D \mid \theta_j, M_j) \right \]  \ \text{d} \theta_i \ \text{d} \theta_j \\
- & \propto \int \int P(\theta_i \mid M_i) P(\theta_j \mid M_j) \left \[ \alpha (P(D \mid \theta_i, M_i ) - P(D \mid \theta_j, M_j )) + P(D \mid \theta_j, M_j) \right \]  \ \text{d} \theta_i \ \text{d} \theta_j \\
-\end{align*}
+\frac{P( M_i \mid D )}{P(M_j \mid D)} & = \frac{P(M_i \mid D)}{P(M_{\text{super}} \mid D)} \frac{P(M_{\text{super}} \mid D)}{P(M_j  \mid D)} \\
+& = \frac{P(\alpha = 0 \mid D, M_{\text{super}})}{P(\alpha_0 \mid D, M_{\text{super}})} \frac{P(\alpha_0 \mid D, M_{\text{super}})} {P(\alpha = 1  \mid D, M_{\text{super}})} \\
+& = \frac{P(\alpha = 0 \mid D, M_{\text{super}})}{P(\alpha = 1  \mid D, M_{\text{super}})} \\
+& = \frac{c}{m+c} = \frac{c}{2 - c}\,.
+\end{align*} 
 $$
+ 
+ 
+ 
+ 
  
 ... **to be continued** ...
