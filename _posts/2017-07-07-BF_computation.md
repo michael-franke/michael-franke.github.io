@@ -430,7 +430,7 @@ dataList$betaParameter = 50000
 jagsModel = jags.model(file = modelFile, 
                        data = dataList,
                        n.chains = 2)
-update(jagsModel, n.iter = 15000)
+update(jagsModel, n.iter = 50000)
 codaSamples = coda.samples(jagsModel, 
                            variable.names = c("m"),
                            n.iter = 150000)
@@ -450,8 +450,21 @@ paste0("BF in favor of complex model (transcendental): ",
 ## [1] "BF in favor of complex model (transcendental): 5.345"
 {% endhighlight %}
  
+This method of estimation can be imprecise, especially when one model is much better than another. The intuitive reason is that whenever the MCMC chain sets $$m=i$$, the parameters for model $$j$$ are free to meander wherever they like. This, in turn, makes it less likely that a proposal with $$m=j$$ is accepted. One possible solution to this is to use so-called pseudo-priors: set the priors for parameters of model $$j$$ to some function that resembles their posterior distribution when $$m=i$$, but use the actual priors when $$m=j$$.
  
+### Supermodels
  
+A method similar to the previous promises to get around this problem, at least when the models' marginal likelihoods are not too different. Instead of a model flag, which determines which model's likelihood function to use, we instead combine the model's likelihoods in a linear way. Concretely, given parameter vector $$\theta_i$$ and $$\theta_j$$ for models $$M_i$$ and $$M_j$$ respectively, we look at a model which contains both $$M_i$$ and $$M_j$$ and which has as the likelihood function of the data:
  
+$$ P(D \mid \alpha, \theta_i, \theta_j) = \alpha P(D \mid \theta_i, M_i ) + (1- \alpha) P(D \mid \theta_j, M_j) $$ 
+ 
+It is easy to show that for a flat prior $$\alpha \sim \text{Beta}(1,1)$$, the posterior of $$\alpha$$ is linear:
+ 
+$$
+\begin{align*}
+P(\alpha \mid D) & \propto \int \int P(\alpha) P(\theta_i \mid M_i) P(\theta_j \mid M_j) \left \[ \alpha P(D \mid \theta_i, M_i ) + (1- \alpha) P(D \mid \theta_j, M_j) \right \]  \ \text{d} \theta_i \ \text{d} \theta_j \\
+ & \propto \int \int P(\theta_i \mid M_i) P(\theta_j \mid M_j) \left \[ \alpha (P(D \mid \theta_i, M_i ) - P(D \mid \theta_j, M_j )) + P(D \mid \theta_j, M_j) \right \]  \ \text{d} \theta_i \ \text{d} \theta_j \\
+\end{align*}
+$$
  
 ... **to be continued** ...
