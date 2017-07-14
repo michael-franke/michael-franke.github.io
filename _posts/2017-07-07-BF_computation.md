@@ -422,15 +422,7 @@ modelFile = "GCM_3_BF_transdimensional.txt"
  
 
  
-All we really need to do is collect samples of the posterior over $$m$$. Since we assumed that models are equally probable a priori (by taking $$m \sim \text{Bernoulli}(0.5)$$), the fraction of samples for which $$m = 1$$ approximates the Bayes factor in favor of the complex model:
- 
-
-{% highlight r %}
-modelFile
-show(modelFile)
-{% endhighlight %}
- 
-test
+All we really need to do is collect samples of the posterior over $$m$$: 
  
 
 {% highlight r %}
@@ -442,8 +434,22 @@ update(jagsModel, n.iter = 15000)
 codaSamples = coda.samples(jagsModel, 
                            variable.names = c("m"),
                            n.iter = 150000)
-paste0("BF in favor of complex model (transcendental): ", round(1/mean(filter(ggs(codaSamples), Parameter == "m")$value) ,3))
 {% endhighlight %}
+ 
+Since we assumed that models are equally probable a priori (by taking $$m \sim \text{Bernoulli}(0.5)$$), the fraction of samples for which $$m = 1$$ approximates the Bayes factor in favor of the complex model:
+  
+
+{% highlight r %}
+paste0("BF in favor of complex model (transcendental): ", 
+       round(1/mean(filter(ggs(codaSamples), Parameter == "m")$value) ,3))
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## [1] "BF in favor of complex model (transcendental): 5.345"
+{% endhighlight %}
+ 
  
  
  
