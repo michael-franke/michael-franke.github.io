@@ -367,7 +367,7 @@ ggplot(data.frame(i = seq(10000,nSamples, by = 200),
 
 ### Transdimensional MCMC
 
-A straightforward method for approximating posterior model odds is transdimensional MCMC. We consider the posterior over a binary model flag parameter $m \in {0,1}$ which helps represent our prior and posterior beliefs about which of models $M_0$ and $M_1$ is true. We look at a single encompassing model that contains both models that are to be compared. The likelihood function of the encompassing model is switched between that of $M_0$ or $M_1$ depending on the current value of $m$. A JAGS model that implements such an encompassing model is in the file `GCM_3_BF_transdimensional.txt` and reproduced here:
+A straightforward method for approximating posterior model odds is transdimensional MCMC. We consider the posterior over a binary model flag parameter $$m \in {0,1}$$ which helps represent our prior and posterior beliefs about which of models $$M_0$$ and $$M_1$$ is true. We look at a single encompassing model that contains both models that are to be compared. The likelihood function of the encompassing model is switched between that of $$M_0$$ or $$M_1$$ depending on the current value of $$m$$. A JAGS model that implements such an encompassing model is in the file `GCM_3_BF_transdimensional.txt` and reproduced here:
 
 ```{r, eval = FALSE}
 # Generalized Context Model
@@ -425,16 +425,17 @@ modelFile = "GCM_3_BF_transdimensional.txt"
 modelFile = paste0(local_path,"GCM_3_BF_transdimensional.txt")
 ```
 
-All we really need to do is collect samples of the posterior over $m$. Since we assumed that models are equally probable a priori (by taking $m \sim \text{Bernoulli}(0.5)$), the fraction of samples for which $m = 1$ approximates the Bayes factor in favor of the complex model:
+All we really need to do is collect samples of the posterior over $$m$$. Since we assumed that models are equally probable a priori (by taking $$m \sim \text{Bernoulli}(0.5)$$), the fraction of samples for which $$m = 1$$ approximates the Bayes factor in favor of the complex model:
 
 ```{r}
 modelFile
+show(modelFile)
 ```
 
 test
 
 ```{r}
-jagsModel = jags.model(file = modelFile, 
+jagsModel = jags.model(file = paste0(local_path,"GCM_3_BF_transdimensional.txt"), 
                        data = dataList,
                        n.chains = 2)
 update(jagsModel, n.iter = 15000)

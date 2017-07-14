@@ -236,7 +236,7 @@ paste0("Approximate BF in favor of complex model (Savage-Dickey): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.192"
+## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.736"
 {% endhighlight %}
  
 In sum, the Savage-Dickey method is an elegant and practical method for computing (or approximating, if based on sampling) Bayes factors for properly nested models. It is particularly useful when the nested model fixes just a small number of parameters that are free in the nesting model. The method needs to go through two bottlenecks that can introduce imprecision in an estimate: first, we may have to rely on posterior samples; second, we may have to rely an numerical approximation of a point-density from the samples.
@@ -340,7 +340,7 @@ paste0("Approximate BF in favor of complex model (naive MC): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (naive MC): 4.248"
+## [1] "Approximate BF in favor of complex model (naive MC): 4.354"
 {% endhighlight %}
  
 It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also to the result from the Savage-Dickey method (the red line).
@@ -364,7 +364,7 @@ ggplot(data.frame(i = seq(10000,nSamples, by = 200),
  
 ### Transdimensional MCMC
  
-A straightforward method for approximating posterior model odds is transdimensional MCMC. We consider the posterior over a binary model flag parameter $m \in {0,1}$ which helps represent our prior and posterior beliefs about which of models $M_0$ and $M_1$ is true. We look at a single encompassing model that contains both models that are to be compared. The likelihood function of the encompassing model is switched between that of $M_0$ or $M_1$ depending on the current value of $m$. A JAGS model that implements such an encompassing model is in the file `GCM_3_BF_transdimensional.txt` and reproduced here:
+A straightforward method for approximating posterior model odds is transdimensional MCMC. We consider the posterior over a binary model flag parameter $$m \in {0,1}$$ which helps represent our prior and posterior beliefs about which of models $$M_0$$ and $$M_1$$ is true. We look at a single encompassing model that contains both models that are to be compared. The likelihood function of the encompassing model is switched between that of $$M_0$$ or $$M_1$$ depending on the current value of $$m$$. A JAGS model that implements such an encompassing model is in the file `GCM_3_BF_transdimensional.txt` and reproduced here:
  
 
 {% highlight r %}
@@ -422,18 +422,19 @@ modelFile = "GCM_3_BF_transdimensional.txt"
  
 
  
-All we really need to do is collect samples of the posterior over $m$. Since we assumed that models are equally probable a priori (by taking $m \sim \text{Bernoulli}(0.5)$), the fraction of samples for which $m = 1$ approximates the Bayes factor in favor of the complex model:
+All we really need to do is collect samples of the posterior over $$m$$. Since we assumed that models are equally probable a priori (by taking $$m \sim \text{Bernoulli}(0.5)$$), the fraction of samples for which $$m = 1$$ approximates the Bayes factor in favor of the complex model:
  
 
 {% highlight r %}
 modelFile
+show(modelFile)
 {% endhighlight %}
  
 test
  
 
 {% highlight r %}
-jagsModel = jags.model(file = modelFile, 
+jagsModel = jags.model(file = paste0(local_path,"GCM_3_BF_transdimensional.txt"), 
                        data = dataList,
                        n.chains = 2)
 {% endhighlight %}
@@ -441,7 +442,7 @@ jagsModel = jags.model(file = modelFile,
 
 
 {% highlight text %}
-## Error in jags.model(file = modelFile, data = dataList, n.chains = 2): RUNTIME ERROR:
+## Error in jags.model(file = paste0(local_path, "GCM_3_BF_transdimensional.txt"), : RUNTIME ERROR:
 ## Compilation error on line 38.
 ## Unknown variable betaParameter
 ## Either supply values for this variable with the data
@@ -452,6 +453,17 @@ jagsModel = jags.model(file = modelFile,
 
 {% highlight r %}
 update(jagsModel, n.iter = 15000)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in update.jags(jagsModel, n.iter = 15000): JAGS model must be recompiled
+{% endhighlight %}
+
+
+
+{% highlight r %}
 codaSamples = coda.samples(jagsModel, 
                            variable.names = c("m"),
                            n.iter = 150000)
@@ -460,7 +472,7 @@ codaSamples = coda.samples(jagsModel,
 
 
 {% highlight text %}
-## Error in jags.samples(model, variable.names, n.iter, thin, type = "trace", : No valid monitors set
+## Error in model$iter(): JAGS model must be recompiled
 {% endhighlight %}
 
 
