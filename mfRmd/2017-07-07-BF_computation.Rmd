@@ -437,7 +437,7 @@ jagsModel = jags.model(file = modelFile,
 update(jagsModel, n.iter = 75000)
 codaSamples = coda.samples(jagsModel, 
                            variable.names = c("m"),
-                           n.iter = 150000)
+                           n.iter = 250000)
 ```
 
 Since we assumed that models are equally probable a priori (by taking $$m \sim \text{Bernoulli}(0.5)$$), the fraction of samples for which $$m = 1$$ approximates the Bayes factor in favor of the complex model:
@@ -557,7 +557,7 @@ jagsModel = jags.model(file = modelFile,
 update(jagsModel, n.iter = 75000)
 codaSamples = coda.samples(jagsModel, 
                            variable.names = c("alpha"),
-                           n.iter = 150000)
+                           n.iter = 250000)
 ```
 
 Subsequently, we obtain a point-estimate for the best-fitting $$c$$ that may have generated these posterior samples and compute the Bayes factor from it with the following function:
