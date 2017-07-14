@@ -10,10 +10,10 @@ published: false
 ```{r setup, include=FALSE, echo = FALSE, message = FALSE}
 knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE, results='hide',
                       dev.args = list(bg = 'transparent'), fig.align='center',
-                      cache=TRUE)
+                      cache=FALSE)
 show = function(x) { x }
 library(tidyverse)
-set.seed(6121978)
+set.seed(36121978)
 theme_set(theme_bw() + theme(plot.background=element_blank()) )
 ```
 
@@ -434,7 +434,7 @@ dataList$betaParameter = 50000
 jagsModel = jags.model(file = modelFile, 
                        data = dataList,
                        n.chains = 2)
-update(jagsModel, n.iter = 50000)
+update(jagsModel, n.iter = 75000)
 codaSamples = coda.samples(jagsModel, 
                            variable.names = c("m"),
                            n.iter = 150000)
@@ -554,10 +554,10 @@ We collect samples from the posterior of $$\alpha$$:
 jagsModel = jags.model(file = modelFile, 
                        data = dataList,
                        n.chains = 2)
-update(jagsModel, n.iter = 50000)
+update(jagsModel, n.iter = 75000)
 codaSamples = coda.samples(jagsModel, 
                            variable.names = c("alpha"),
-                           n.iter = 100000)
+                           n.iter = 150000)
 ```
 
 Subsequently, we obtain a point-estimate for the best-fitting $$c$$ that may have generated these posterior samples and compute the Bayes factor from it with the following function:
@@ -567,8 +567,10 @@ get_BF = function(alpha) {
   nll = Vectorize(function(c) {
     - sum(log(2*(1-c) * alpha + c))
   })
-  c = optim(par = list(c = 0.1), fn = nll, lower = 0.000001, method = "L-BFGS-B")$par
-  # c = density(alpha, from = 0, to = 1)$y[1]
+  c = optim(par = list(c = 0.1), 
+            fn = nll, 
+            lower = 0.000000001, 
+            method = "L-BFGS-B")$par
   (2-c)/c
 }
 ```
