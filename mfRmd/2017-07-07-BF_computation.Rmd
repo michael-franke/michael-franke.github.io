@@ -468,7 +468,7 @@ P(\alpha \mid D) & \propto \int \int P(\alpha) \ P(\theta_i \mid M_i) \ P(\theta
 \end{align*}
 $$
 
-Since the posterior of $$\alpha$$ is a distribution which satisfies $$ \int P(\alpha \mid D) \ \text{d} \alpha = 1$$, we get that $$m = 2 - 2c$$. Since each model nested under the supermodel as a special case of $$\alpha = 0$$ or $$\alpha = 1$$ we can use the Savage-Dickey method to express the posterior of $$\alpha$$ as a function of $c$ only:
+Since the posterior of $$\alpha$$ is a distribution which satisfies $$ \int P(\alpha \mid D) \ \text{d} \alpha = 1$$, we get that $$m = 2 - 2c$$. Since each model nested under the supermodel as a special case of $$\alpha = 0$$ or $$\alpha = 1$$ we can use the Savage-Dickey method to express the posterior of $$\alpha$$ as a function of $$c$$ only:
 
 
 $$
@@ -480,7 +480,105 @@ $$
 \end{align*} 
 $$
 
+To obtain posterior samples from $$\alpha$$ we use the JAGS code:
 
+```{r, eval = FALSE}
+# Generalized Context Model
+data{
+  one = 1
+  zero = 0
+  C = 1000000
+}
+model{
+  # Decision Data
+  for (i in 1:nstim){
+    lh1[i] = dbin(y[i],r1[i],t)
+    lh2[i] = dbin(y[i],r2[i],t)
+  } 
+  # one ~ dbern(alpha * prod(lh1) + (1-alpha) * prod(lh2))
+  zero ~ dpois(-log(alpha * prod(lh1) + (1-alpha) * prod(lh2)) + C)
+  # Decision Probabilities
+  for (i in 1:nstim){
+    r1[i] <- sum(numerator1[i,])/sum(denominator1[i,])
+    r2[i] <- sum(numerator2[i,])/sum(denominator2[i,])
+    for (j in 1:nstim){
+      tmp11[i,j,1] <- b1*s1[i,j]
+      tmp12[i,j,1] <- b2*s2[i,j]
+      tmp11[i,j,2] <- 0
+      tmp12[i,j,2] <- 0
+      tmp21[i,j,1] <- 0
+      tmp22[i,j,1] <- 0
+      tmp21[i,j,2] <- (1-b1)*s1[i,j]
+      tmp22[i,j,2] <- (1-b2)*s2[i,j]
+      numerator1[i,j] <- tmp11[i,j,a[j]]
+      numerator2[i,j] <- tmp12[i,j,a[j]]
+      denominator1[i,j] <- tmp11[i,j,a[j]] + tmp21[i,j,a[j]]
+      denominator2[i,j] <- tmp12[i,j,a[j]] + tmp22[i,j,a[j]]
+    }
+  }  
+  # Similarities
+  for (i in 1:nstim){
+    for (j in 1:nstim){
+      s1[i,j] <- exp(-c1*(w1*d1[i,j]+(1-w1)*d2[i,j]))
+      s2[i,j] <- exp(-c2*(w2*d1[i,j]+(1-w2)*d2[i,j]))
+    }
+  }
+  # Priors
+  c1  ~ dunif(0,5)
+  c2  ~ dunif(0,5)
+  w1  ~ dbeta(1,1)
+  w2  ~ dbeta(betaParameter,betaParameter)
+  b1 <- 0.5 
+  b2 <- 0.5
+  alpha ~ dbeta(1,1) 
+}
+```
+
+NB the zero trick.
+
+This code is also in file `GCM_4_supermodels.txt`.
+
+```{r, eval = FALSE}
+modelFile = "GCM_4_supermodels.txt"
+```
+
+
+```{r, echo = FALSE}
+modelFile = paste0(local_path,"GCM_4_supermodels.txt")
+```
+
+
+We collect samples from the posterior of $$\alpha$$:
+
+```{r}
+jagsModel = jags.model(file = modelFile, 
+                       data = dataList,
+                       n.chains = 2)
+update(jagsModel, n.iter = 50000)
+codaSamples = coda.samples(jagsModel, 
+                           variable.names = c("alpha"),
+                           n.iter = 100000)
+```
+
+Subsequently, we obtain a point-estimate for the best-fitting $$c$$ that may have generated these posterior samples and compute the Bayes factor from it with the following function:
+
+```{r}
+get_BF = function(alpha) {
+  nll = Vectorize(function(c) {
+    - sum(log(2*(1-c) * alpha + c))
+  })
+  c = optim(par = list(c = 0.1), fn = nll, lower = 0.000001, method = "L-BFGS-B")$par
+  # c = density(alpha, from = 0, to = 1)$y[1]
+  (2-c)/c
+}
+```
+
+This gives us another estimate of the Bayes factor:
+
+```{r results = "markup"}
+paste0("BF in favor of complex model (supermodels): ", 
+       round(get_BF(filter(ggs(codaSamples), Parameter == "alpha")$value) ,3))
+```
 
 
 
