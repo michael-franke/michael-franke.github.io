@@ -434,50 +434,14 @@ test
  
 
 {% highlight r %}
-jagsModel = jags.model(file = paste0(local_path,"GCM_3_BF_transdimensional.txt"), 
+dataList$betaParameter = 50000
+jagsModel = jags.model(file = modelFile, 
                        data = dataList,
                        n.chains = 2)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in jags.model(file = paste0(local_path, "GCM_3_BF_transdimensional.txt"), : RUNTIME ERROR:
-## Compilation error on line 38.
-## Unknown variable betaParameter
-## Either supply values for this variable with the data
-## or define it  on the left hand side of a relation.
-{% endhighlight %}
-
-
-
-{% highlight r %}
 update(jagsModel, n.iter = 15000)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in update.jags(jagsModel, n.iter = 15000): JAGS model must be recompiled
-{% endhighlight %}
-
-
-
-{% highlight r %}
 codaSamples = coda.samples(jagsModel, 
                            variable.names = c("m"),
                            n.iter = 150000)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in model$iter(): JAGS model must be recompiled
-{% endhighlight %}
-
-
-
-{% highlight r %}
 paste0("BF in favor of complex model (transcendental): ", round(1/mean(filter(ggs(codaSamples), Parameter == "m")$value) ,3))
 {% endhighlight %}
  

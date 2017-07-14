@@ -435,7 +435,8 @@ show(modelFile)
 test
 
 ```{r}
-jagsModel = jags.model(file = paste0(local_path,"GCM_3_BF_transdimensional.txt"), 
+dataList$betaParameter = 50000
+jagsModel = jags.model(file = modelFile, 
                        data = dataList,
                        n.chains = 2)
 update(jagsModel, n.iter = 15000)
