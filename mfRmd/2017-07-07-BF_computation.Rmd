@@ -10,7 +10,7 @@ published: false
 ```{r setup, include=FALSE, echo = FALSE, message = FALSE}
 knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE, results='hide',
                       dev.args = list(bg = 'transparent'), fig.align='center',
-                      cache=FALSE)
+                      cache=TRUE)
 show = function(x) { x }
 library(tidyverse)
 set.seed(6121978)
@@ -420,6 +420,7 @@ The script in file `GCM_3_BF_transdimensional.R` collects posterior samples from
 modelFile = "GCM_3_BF_transdimensional.txt"
 ```
 
+
 ```{r, echo = FALSE}
 modelFile = paste0(local_path,"GCM_3_BF_transdimensional.txt")
 ```
@@ -427,7 +428,12 @@ modelFile = paste0(local_path,"GCM_3_BF_transdimensional.txt")
 All we really need to do is collect samples of the posterior over $m$. Since we assumed that models are equally probable a priori (by taking $m \sim \text{Bernoulli}(0.5)$), the fraction of samples for which $m = 1$ approximates the Bayes factor in favor of the complex model:
 
 ```{r}
-show(modelFile)
+modelFile
+```
+
+test
+
+```{r}
 jagsModel = jags.model(file = modelFile, 
                        data = dataList,
                        n.chains = 2)
