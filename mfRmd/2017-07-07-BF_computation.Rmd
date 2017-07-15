@@ -10,7 +10,7 @@ published: false
 ```{r setup, include=FALSE, echo = FALSE, message = FALSE}
 knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE, results='hide',
                       dev.args = list(bg = 'transparent'), fig.align='center',
-                      cache=TRUE)
+                      cache=FALSE)
 show = function(x) { x }
 library(tidyverse)
 set.seed(36121978)
@@ -68,7 +68,7 @@ The following will spell out some methods for computing a Bayes factor. We apply
 3. transdimensional MCMC
 4. supermodels
 
-Data and full scripts (only the most important parts of which are shown here) are available for [download](code/BF_computation.zip).
+Data and full scripts (only the most important parts of which are shown here) are available for [download](http://michael-franke.github.io/code/BF_computation.zip).
 
 ### The running-example model(s): Generalized Context Model
 
@@ -266,11 +266,11 @@ In sum, the Savage-Dickey method is an elegant and practical method for computin
 
 While the Savage-Dickey method targets calculation of the Bayes factor directly, we can also target a single model's marginal likelihood, as described above. Under certain circumstances (see end of this section for a critical assessment), even naive Monte Carlo simulation can work well and is very easy to implement when we already have a way of generating posterior samples, e.g., using an implementation in JAGS or similar software.
 
-Naive Monte Carlo sampling approximates the marginal likelihood of model $$M_i$$ by sampling repeatedly parameter values from their prior and recording the likelihood of the data under the sample parameter values. If we sample enough, the mean of the recorded likelihoods will approximate the true marginalized likelihood:
+Naive Monte Carlo sampling approximates the marginal likelihood of model $$M_i$$ by sampling repeatedly parameter values from the prior and recording the likelihood of the data given the sampled parameter values. If we sample enough, the mean of the recorded likelihoods will approximate the true marginalized likelihood:
 
 $$P(D \mid M_i) = \int P(D \mid \theta, M_i) \ P(\theta, M_i) \ \text{d}\theta \approx \frac{1}{n} \sum^{n}_{\theta_i \sim P(\theta \mid M_i)} P(D \mid \theta, M_i)$$
 
-If we already have a JAGS implementation that produces samples from the posterior distribution, it only takes minor changes to obtain code that generates samples from the prior and returns the likelihood of the observed data. The following code, which is available in file `GCM_2_BF_naiveMC.txt` does exactly this. The crucial part is that we do _not_ condition on the data; we take samples from the prior distribution. Instead we record (here: in variable `lh`) the likelihood of the observed data under each sample from the prior distribution.
+If we already have a JAGS implementation that produces samples from the posterior distribution, it only takes minor changes to obtain code that generates samples from the prior and returns the likelihood of the observed data. The following code, which is available in file `GCM_2_BF_naiveMC.txt` does exactly this. The crucial part is that we do _not_ condition on the data; we take samples from the prior distribution. Instead we record (here: in variable `lh`) the log-likelihood of the observed data under each sample from the prior distribution.
 
 ```{r, eval = FALSE}
 # Generalized Context Model; 
@@ -278,7 +278,8 @@ If we already have a JAGS implementation that produces samples from the posterio
 model{
   # Decision Data
   for (i in 1:nstim){
-    # y[i] ~ dbin(r[i],t) # commented out because we are NOT conditioning on data
+    # y[i] ~ dbin(r[i],t) # commented out because we are
+                          # NOT conditioning on data
     lhT[i] = dbin(y[i],r[i],t) # we track the likelihood of the data instead
   }
   lh = sum(log(lhT))
@@ -339,7 +340,7 @@ sample_likelihoods = function(betaParameter){
 }
 ```
 
-To compute an approximate Bayes factor in this way, we call this function twice: once for the more complex, nesting model for which we set `betaParameter = 1`; and once for the simpler, nested model for which we approximate a fixed value of `w = 0.5` simply by setting `betaParameter = 5000`. (This yields a very heavily peaked beta prior with mode at `w=0.5` and should be good enough an approximation for our modest purposes.)
+To compute an approximate Bayes factor in this way, we call this function twice: once for the more complex, nesting model for which we set `betaParameter = 1`; and once for the simpler, nested model for which we approximate a fixed value of `w = 0.5` simply by setting `betaParameter = 50000`. (This yields a very heavily peaked beta prior with mode at `w=0.5` and should be good enough an approximation for our modest purposes.)
 
 ```{r}
 samples_complex = sample_likelihoods(betaParameter = 1)
@@ -373,7 +374,7 @@ ggplot(data.frame(i = seq(10000,nSamples, by = 200),
 
 ### Transdimensional MCMC
 
-A straightforward method for approximating posterior model odds is transdimensional MCMC. We consider the posterior over a binary model flag parameter $$m \in {0,1}$$ which helps represent our prior and posterior beliefs about which of models $$M_0$$ and $$M_1$$ is true. We look at a single encompassing model that contains both models that are to be compared. The likelihood function of the encompassing model is switched between that of $$M_0$$ or $$M_1$$ depending on the current value of $$m$$. A JAGS model that implements such an encompassing model is in the file `GCM_3_BF_transdimensional.txt` and reproduced here:
+A straightforward method for approximating posterior model odds is transdimensional MCMC. We consider the posterior over a binary model flag parameter $$m \in \{0,1\}$$ which helps represent our prior and posterior beliefs about which of models $$M_0$$ and $$M_1$$ is true. We look at a single encompassing model that contains both models that are to be compared. The likelihood function of the encompassing model is switched between that of $$M_0$$ or $$M_1$$ depending on the current value of $$m$$. A JAGS model that implements such an encompassing model is in the file `GCM_3_BF_transdimensional.txt` and reproduced here:
 
 ```{r, eval = FALSE}
 # Generalized Context Model
@@ -381,7 +382,8 @@ model{
   # Decision Data
   for (i in 1:nstim){
     y[i] ~ dbin(r[i],t)
-    r[i] = ifelse(m == 0, r1[i], r2[i]) # which likelihood to use depends on model flag
+    r[i] = ifelse(m == 0, r1[i], r2[i]) # which likelihood to 
+                                        # use depends on model flag
   }  
   # Decision Probabilities
   for (i in 1:nstim){
@@ -456,7 +458,7 @@ This method of estimation can be imprecise, especially when one model is much be
 
 ### Supermodels
 
-A method similar to the previous promises to get around this problem, at least when the models' marginal likelihoods are not too different. Instead of a model flag, which determines which model's likelihood function to use, we instead combine the model's likelihoods in a linear way. Concretely, given parameter vector $$\theta_i$$ and $$\theta_j$$ for models $$M_i$$ and $$M_j$$ respectively, we look at a model which contains both $$M_i$$ and $$M_j$$ and which has as the likelihood function of the data:
+A method similar to the previous promises to get around this problem, at least when the models' marginal likelihoods are not too different. I will refer to this approach as 'supermodels' here, taking inspiration from [this tutorial paper](https://arxiv.org/abs/1609.02186). Instead of a model flag, which determines which model's likelihood function to use, we instead combine the model's likelihoods in a linear way. Concretely, given parameter vector $$\theta_i$$ and $$\theta_j$$ for models $$M_i$$ and $$M_j$$ respectively, we look at a model which contains both $$M_i$$ and $$M_j$$ and which has as the likelihood function of the data:
 
 $$ P(D \mid \alpha, \theta_i, \theta_j) = \alpha P(D \mid \theta_i, M_i ) + (1- \alpha) P(D \mid \theta_j, M_j) $$ 
 

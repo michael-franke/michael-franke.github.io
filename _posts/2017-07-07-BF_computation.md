@@ -57,7 +57,7 @@ The following will spell out some methods for computing a Bayes factor. We apply
 3. transdimensional MCMC
 4. supermodels
  
-Data and full scripts (only the most important parts of which are shown here) are available for [download](code/BF_computation.zip).
+Data and full scripts (only the most important parts of which are shown here) are available for [download](http://michael-franke.github.io/code/BF_computation.zip).
  
 ### The running-example model(s): Generalized Context Model
  
@@ -242,7 +242,7 @@ paste0("Approximate BF in favor of complex model (Savage-Dickey): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.736"
+## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.377"
 {% endhighlight %}
  
 In sum, the Savage-Dickey method is an elegant and practical method for computing (or approximating, if based on sampling) Bayes factors for properly nested models. It is particularly useful when the nested model fixes just a small number of parameters that are free in the nesting model. The method needs to go through two bottlenecks that can introduce imprecision in an estimate: first, we may have to rely on posterior samples; second, we may have to rely an numerical approximation of a point-density from the samples.
@@ -251,11 +251,11 @@ In sum, the Savage-Dickey method is an elegant and practical method for computin
  
 While the Savage-Dickey method targets calculation of the Bayes factor directly, we can also target a single model's marginal likelihood, as described above. Under certain circumstances (see end of this section for a critical assessment), even naive Monte Carlo simulation can work well and is very easy to implement when we already have a way of generating posterior samples, e.g., using an implementation in JAGS or similar software.
  
-Naive Monte Carlo sampling approximates the marginal likelihood of model $$M_i$$ by sampling repeatedly parameter values from their prior and recording the likelihood of the data under the sample parameter values. If we sample enough, the mean of the recorded likelihoods will approximate the true marginalized likelihood:
+Naive Monte Carlo sampling approximates the marginal likelihood of model $$M_i$$ by sampling repeatedly parameter values from the prior and recording the likelihood of the data given the sampled parameter values. If we sample enough, the mean of the recorded likelihoods will approximate the true marginalized likelihood:
  
 $$P(D \mid M_i) = \int P(D \mid \theta, M_i) \ P(\theta, M_i) \ \text{d}\theta \approx \frac{1}{n} \sum^{n}_{\theta_i \sim P(\theta \mid M_i)} P(D \mid \theta, M_i)$$
  
-If we already have a JAGS implementation that produces samples from the posterior distribution, it only takes minor changes to obtain code that generates samples from the prior and returns the likelihood of the observed data. The following code, which is available in file `GCM_2_BF_naiveMC.txt` does exactly this. The crucial part is that we do _not_ condition on the data; we take samples from the prior distribution. Instead we record (here: in variable `lh`) the likelihood of the observed data under each sample from the prior distribution.
+If we already have a JAGS implementation that produces samples from the posterior distribution, it only takes minor changes to obtain code that generates samples from the prior and returns the likelihood of the observed data. The following code, which is available in file `GCM_2_BF_naiveMC.txt` does exactly this. The crucial part is that we do _not_ condition on the data; we take samples from the prior distribution. Instead we record (here: in variable `lh`) the log-likelihood of the observed data under each sample from the prior distribution.
  
 
 {% highlight r %}
@@ -264,7 +264,8 @@ If we already have a JAGS implementation that produces samples from the posterio
 model{
   # Decision Data
   for (i in 1:nstim){
-    # y[i] ~ dbin(r[i],t) # commented out because we are NOT conditioning on data
+    # y[i] ~ dbin(r[i],t) # commented out because we are
+                          # NOT conditioning on data
     lhT[i] = dbin(y[i],r[i],t) # we track the likelihood of the data instead
   }
   lh = sum(log(lhT))
@@ -325,7 +326,7 @@ sample_likelihoods = function(betaParameter){
 }
 {% endhighlight %}
  
-To compute an approximate Bayes factor in this way, we call this function twice: once for the more complex, nesting model for which we set `betaParameter = 1`; and once for the simpler, nested model for which we approximate a fixed value of `w = 0.5` simply by setting `betaParameter = 5000`. (This yields a very heavily peaked beta prior with mode at `w=0.5` and should be good enough an approximation for our modest purposes.)
+To compute an approximate Bayes factor in this way, we call this function twice: once for the more complex, nesting model for which we set `betaParameter = 1`; and once for the simpler, nested model for which we approximate a fixed value of `w = 0.5` simply by setting `betaParameter = 50000`. (This yields a very heavily peaked beta prior with mode at `w=0.5` and should be good enough an approximation for our modest purposes.)
  
 
 {% highlight r %}
@@ -346,7 +347,7 @@ paste0("Approximate BF in favor of complex model (naive MC): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (naive MC): 4.354"
+## [1] "Approximate BF in favor of complex model (naive MC): 4.451"
 {% endhighlight %}
  
 It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also to the result from the Savage-Dickey method (the red line).
@@ -453,7 +454,7 @@ paste0("BF in favor of complex model (transcendental): ",
 
 
 {% highlight text %}
-## [1] "BF in favor of complex model (transcendental): 5.345"
+## [1] "BF in favor of complex model (transcendental): 5.01"
 {% endhighlight %}
  
 This method of estimation can be imprecise, especially when one model is much better than another. The intuitive reason is that whenever the MCMC chain sets $$m=i$$, the parameters for model $$j$$ are free to meander wherever they like. This, in turn, makes it less likely that a proposal with $$m=j$$ is accepted. One possible solution to this is to use so-called pseudo-priors: set the priors for parameters of model $$j$$ to some function that resembles their posterior distribution when $$m=i$$, but use the actual priors when $$m=j$$.
@@ -596,7 +597,7 @@ paste0("BF in favor of complex model (supermodels): ",
 
 
 {% highlight text %}
-## [1] "BF in favor of complex model (supermodels): 3.907"
+## [1] "BF in favor of complex model (supermodels): 4.46"
 {% endhighlight %}
  
  
