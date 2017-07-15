@@ -242,7 +242,7 @@ paste0("Approximate BF in favor of complex model (Savage-Dickey): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.631"
+## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.228"
 {% endhighlight %}
  
 In sum, the Savage-Dickey method is an elegant and practical method for computing (or approximating, if based on sampling) Bayes factors for properly nested models. It is particularly useful when the nested model fixes just a small number of parameters that are free in the nesting model. The method needs to go through two bottlenecks that can introduce imprecision in an estimate: first, we may have to rely on posterior samples; second, we may have to rely an numerical approximation of a point-density from the samples.
@@ -347,7 +347,7 @@ paste0("Approximate BF in favor of complex model (naive MC): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (naive MC): 4.395"
+## [1] "Approximate BF in favor of complex model (naive MC): 4.348"
 {% endhighlight %}
  
 It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also to the result from the Savage-Dickey method (the red line).
@@ -455,7 +455,7 @@ paste0("BF in favor of complex model (transcendental): ",
 
 
 {% highlight text %}
-## [1] "BF in favor of complex model (transcendental): 5.062"
+## [1] "BF in favor of complex model (transcendental): 4.871"
 {% endhighlight %}
  
 This method of estimation can be imprecise, especially when one model is much better than another. The intuitive reason is that whenever the MCMC chain sets $$m=i$$, the parameters for model $$j$$ are free to meander wherever they like. This, in turn, makes it less likely that a proposal with $$m=j$$ is accepted. One possible solution to this is to use so-called pseudo-priors: set the priors for parameters of model $$j$$ to some function that resembles their posterior distribution when $$m=i$$, but use the actual priors when $$m=j$$.
@@ -597,7 +597,7 @@ paste0("BF in favor of complex model (supermodels): ",
 
 
 {% highlight text %}
-## [1] "BF in favor of complex model (supermodels): 4.161"
+## [1] "BF in favor of complex model (supermodels): 4.09"
 {% endhighlight %}
  
 ### Summary
