@@ -57,6 +57,7 @@ The following will spell out some methods for computing a Bayes factor. We apply
 3. transdimensional MCMC
 4. supermodels
  
+Data and full scripts (only the most important parts of which are shown here) are available for [download](code/BF_computation.zip).
  
 ### The running-example model(s): Generalized Context Model
  
@@ -92,7 +93,9 @@ We are interested in comparing two models, both variants of the GCM. The first, 
  
 ### Savage-Dickey density ratio
  
-The Savage-Dickey density ratio method for calculating Bayes factors is particularly nice and elegant. (An excellent tutorial on this method is [[Wagenmakers et. al (2010)]](http://www.ejwagenmakers.com/2010/WagenmakersEtAlCogPsy2010.pdf)) but it only applies to _properly nested models_. Intuitively speaking, two models are _nested_ if they are exactly alike but the parameter space of the nested model is a subset of the parameter space of the nesting model; they are _properly nested_ if additional continuity assumptions of the prior over parameters hold. Concretely, model $$M_0$$ is **properly nested** under $$M_1$$ if:
+The Savage-Dickey density ratio method for calculating Bayes factors is particularly nice and elegant. An excellent tutorial on this method is [[Wagenmakers et. al (2010)]](http://www.ejwagenmakers.com/2010/WagenmakersEtAlCogPsy2010.pdf). 
+ 
+Unfortunately, the Savage-Dickey method only applies to _properly nested models_. Intuitively speaking, two models are _nested_ if they are exactly alike but the parameter space of the nested model is a subset of the parameter space of the nesting model; they are _properly nested_ if additional continuity assumptions of the prior over parameters hold. Concretely, model $$M_0$$ is **properly nested** under $$M_1$$ if:
  
 - $$M_1$$ has parameters $$\theta = \tuple{\phi, \psi}$$ with vector $$\phi$$ free to vary;
 - $$M_0$$ has parameters $$\tuple{\phi, \psi}$$ with $$\phi = \phi_0$$ set to fixed values;
