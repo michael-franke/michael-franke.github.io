@@ -36,34 +36,33 @@ If the Bayes factor is close to 1, then data $$D$$ does little to change our rel
  
 ### Marginal likelihoods
  
-While Bayes factors are conceptually appealing, their computation can still be very complex. The quantity $$P(D \mid M_i)$$ is often called the **marginal likelihood**. (It is also sometimes called the _evidence_ but this usage of the term may be misleading because in natural language we usually refer to observational data as 'evidence'; rather the Bayes factor $$\frac{P(D \mid M_i)}{P(D \mid \neg M_i)}$$ is an plausible formalization of 'evidence' in favor of a model.) This term looks inoccuous but it is not. It can be a viciously complicated integral, because the likelihood of observation $$D$$ under the model $$M_i$$ must quantify over all possible parameters of that model, weighed as usual by their priors:
+While Bayes factors are conceptually appealing, their computation can still be very complex. The quantity $$P(D \mid M_i)$$ is often called the **marginal likelihood**. (It is also sometimes called the _evidence_ but this usage of the term may be misleading because in natural language we usually refer to observational data as 'evidence'; rather the Bayes factor $$\frac{P(D \mid M_i)}{P(D \mid \neg M_i)}$$ is a plausible formalization of 'evidence' in favor of a model.) This term looks inoccuous but it is not. It can be a viciously complicated integral, because the likelihood of observation $$D$$ under the model $$M_i$$ must quantify over all possible parameters of that model, weighed as usual by their priors:
  
-$$ P(D \mid M_i) = \int P(\theta) \ P(D \mid \theta, M_i) \ \text{d}\theta$$ 
+$$ P(D \mid M_i) = \int P(\theta \mid M_i) \ P(D \mid \theta, M_i) \ \text{d}\theta$$ 
  
 You may recognize in this integral the normalizing constant needed for parameter inference if we drop explicit reference to the specific model currently in focus:
  
 $$ P(\theta \mid D) = \frac{P(\theta) \ P(D \mid \theta)}{\int P(\theta') \ P(D \mid \theta') \ \text{d} \theta'} $$ 
  
-Normally, we would like to avoid having to calculate the marginal likelihood, which is exactly why MCMC methods are so great: they approximate the posterior distribution over paramters $$P(\theta \mid D)$$ _without_ knowledge or computation of the marginal likelihood. This makes clear why computing Bayes factors, in general, can be quite difficult or a substantial computational burden. 
+Normally, we would like to avoid having to calculate the marginal likelihood, which is exactly why MCMC methods are so great: they approximate the posterior distribution over parameters $$P(\theta \mid D)$$ _without_ knowledge or computation of the marginal likelihood. This makes clear why computing Bayes factors, in general, can be quite difficult or a substantial computational burden. 
  
 ### Methods for Bayes factor computation
  
-Two general approaches for computing or approximating Bayes factors can be distinguished. We can either target the marginal likelihood of each model in separation. Or, we can target the Bayes factor directly. Both approaches have advantages and disadvantages, as we will see presently.
+Two general approaches for computing or approximating Bayes factors can be distinguished. We can target the marginal likelihood of each model in separation. Or, we can target the Bayes factor directly. Both approaches have advantages and disadvantages, as we will see presently.
  
-The following will spell out XXX ways of computing a Bayes factor for the same models. In this way we can compare directly the results from each method and its results. The methods covere here are:
+The following will spell out some methods for computing a Bayes factor. We apply these methods to the same models so that we can compare directly the results from each method and its results. The methods covered here are:
  
 1. Savage-Dickey density ratio (only applicable for _nested models_; see below)
 2. naive Monte Carlo sampling
 3. transdimensional MCMC
 4. supermodels
  
-And, once we are at it, we will also have a look at posterior predictive $$p$$-values, just to make sure that model criticism is not confused with model comparison.
  
 ### The running-example model(s): Generalized Context Model
  
-Chapter 17 of Lee & Wagenmakers' ([2014](https://bayesmodels.com)) textbook on _Bayesian Cognitive Modeling_ features a concise implementation of the classic Generalized Context Model (GCM) of categorization. The model aims to predict the likelihood of correctly categorizing items after an initial learning period. Items differ along a number of numeric feature dimensions. (In the present case there will just be two categories and two feature dimensions.) The GCM resolves around three assumptions: (i) the probability of classifying item $$i$$ as belonging to category $$A$$ is derived from a measure of relative similarity of $$i$$ to all those items $$j$$ which were presented as belonging to category $$A$$ during training; (ii) similarity of any two items is a function of relative weighing of feature dimensions; (iii) there is room for general category preference (category $$A$$ is more likely to be chosen accross the board). (See chapter 17 of Lee & Wagenmakers and the papers cited therein for further details.)
+Chapter 17 of Lee & Wagenmakers' ([2014](https://bayesmodels.com)) textbook on _Bayesian Cognitive Modeling_ features a concise implementation of the classic Generalized Context Model (GCM) of categorization. The model aims to predict the likelihood of correctly categorizing items after an initial learning period. Items differ along a number of numeric feature dimensions. (In the present case there will just be two categories and two feature dimensions.) The GCM revolves around three assumptions: (i) the probability of classifying item $$i$$ as belonging to category $$A$$ is derived from a measure of relative similarity of $$i$$ to all those items $$j$$ which were presented as belonging to category $$A$$ during training; (ii) similarity of any two items is a function of relative weighing of feature dimensions; (iii) there is room for general category preference (category $$A$$ is more likely to be chosen accross the board). (See chapter 17 of Lee & Wagenmakers and the papers cited therein for further details.)
  
-In its simplest form, the model aims to predict the population-level category choices for `nstim = 8` different stimuli. Category membership is stored in variable `a = c(1,1,1,2,1,2,2,2)`, where an entry of `1` for the $i$-th item means that it was presented as belonging to the first category during training. There are `t = 320` trials in total (from different participants, but we do not distinguish these here.) The correct category choices (where correctness is determined by `a`) are stored in variable `y = c(245, 218, 255, 126, 182, 71, 102, 65)`. Additionally, we supply two $$8\times8$$ distance matrices `d1` and `d2` that give the distance between any two items along the two feature dimensions.
+In its simplest form, the model aims to predict the population-level category choices for `nstim = 8` different stimuli. Category membership is stored in variable `a = c(1,1,1,2,1,2,2,2)`, where an entry of `1` for the $$i$$-th item means that it was presented as belonging to the first category during training. There are `t = 320` trials in total (from different participants, but we do not distinguish these here.) The correct category choices (where correctness is determined by `a`) are stored in variable `y = c(245, 218, 255, 126, 182, 71, 102, 65)`. Additionally, we supply two $$8\times8$$ distance matrices `d1` and `d2` that give the distance between any two items along the two feature dimensions.
  
 
 {% highlight r %}
@@ -93,7 +92,7 @@ We are interested in comparing two models, both variants of the GCM. The first, 
  
 ### Savage-Dickey density ratio
  
-The Savage-Dickey density ratio method for calculating Bayes factors is particularly nice and elegant, but it only applies to _properly nested models_. Intuitively speaking, two models are _nested_ if they are exactly alike but the parameter space of the nested model is a subset of the parameter space of the nesting model; they are _properly nested_ if additional continuity assumptions of the prior over parameters hold. Concretely, model $$M_0$$ is **properly nested** under $$M_1$$ if:
+The Savage-Dickey density ratio method for calculating Bayes factors is particularly nice and elegant. (An excellent tutorial on this method is [[Wagenmakers et. al (2010)]](http://www.ejwagenmakers.com/2010/WagenmakersEtAlCogPsy2010.pdf)) but it only applies to _properly nested models_. Intuitively speaking, two models are _nested_ if they are exactly alike but the parameter space of the nested model is a subset of the parameter space of the nesting model; they are _properly nested_ if additional continuity assumptions of the prior over parameters hold. Concretely, model $$M_0$$ is **properly nested** under $$M_1$$ if:
  
 - $$M_1$$ has parameters $$\theta = \tuple{\phi, \psi}$$ with vector $$\phi$$ free to vary;
 - $$M_0$$ has parameters $$\tuple{\phi, \psi}$$ with $$\phi = \phi_0$$ set to fixed values;
@@ -104,25 +103,27 @@ If models are properly nested we can compute the Bayes factor with the Savage-Di
  
 $$ \begin{align*}
 \frac{P(D \mid M_0)}{P(D \mid M_1)}  & = 
-\frac{P(\phi_0 \mid D, M_1)}{P(\phi_0 \mid M_1)}
+\frac{P(\phi = \phi_0 \mid D, M_1)}{P(\phi = \phi_0 \mid M_1)}
 \end{align*} 
 $$ 
  
-This seems like magic. To compute the Bayes factor we only need to look at the ratio of the posterior of the parameters $$\phi_0$$ under the more complex model $$M_1$$ given data $$D$$ and their prior of $$\phi_0$$ under $$M_1$$. To see that the above holds (the feeling of magic notwithstanding), here's a proof sketch:
+This seemingly magical result states that in order to compute the Bayes factor we only need to look at the ratio of the posterior of the parameters $$\phi_0$$ under the more complex model $$M_1$$ given data $$D$$ and the prior of $$\phi_0$$ under $$M_1$$. To see that the above holds (the feeling of magic notwithstanding), here's a proof sketch:
  
 $$ \begin{align*}
 P(D \mid M_0) & = \int P(D \mid \psi, M_0) P(\psi \mid M_0) \ \text{d}\psi \\
  & = \int P(D \mid \psi, \phi = \phi_0, M_1) P(\psi \mid \phi = \phi_0, M_1)  \ \text{d}\psi\\
- & = P(D \mid \phi = \phi_0, M_1) \ \ \ \ \ \ \text{(by Bayes rule)} \\
- & = \frac{P(\phi = \phi_0 \mid D, M_1) P(D \mid M_1)}{P(\phi = \phi_0 \mid M_1)}
+ & = P(D \mid \phi = \phi_0, M_1)  \\
+ & = \frac{P(\phi = \phi_0 \mid D, M_1) P(D \mid M_1)}{P(\phi = \phi_0 \mid M_1)} \ \ \ \ \ \ \text{(by Bayes rule)}
 \end{align*} 
 $$
+ 
+The above is a direct consequence of this last line.
  
 #### Example: coin biases
  
 Let's illustrate the Savage-Dickey method with a simpler example for which we can also give an analytic solution for the Bayes factor. Suppose we observed `k=7` successes in `N=24` flips of a coin. The complex model $$M_1$$ has a likelihood function $$ P(k 
-\mid \theta, M_1) = \text{Binomial}(k \mid N, \theta)$$ and a prior $$ P(\theta) = \text{Beta}(\theta \mid 1,1) $$. The simpler, nesting model has the same likelihood function $$ P(k 
-\mid \theta, M_0) = \text{Binomial}(k \mid N, \theta)$$ but fixes $$ \theta = 0.5$$. We can then compute the Bayes factor in favor of the simpler model precisely as follows:
+\mid \theta, M_1) = \text{Binomial}(k \mid N, \theta)$$ and a prior $$ P(\theta) = \text{Beta}(\theta \mid 1,1) $$. The simpler (nested) model has the same likelihood function $$ P(k 
+\mid \theta, M_0) = \text{Binomial}(k \mid N, \theta)$$ but fixes $$ \theta = 0.5$$. We can then compute the Bayes factor in favor of the simpler $$M_0$$ as follows:
  
 $$
 \begin{align*}
@@ -142,7 +143,7 @@ $$
 \end{align*}
 $$
  
-This derivation uses the fact that the beta distribution is a conjugate prior for the binomial likelihood function, so that we can easily compute the posterior of $$\theta$$ after seeing $$k=7$$ for $$N=24$$ analytically, just using the beta distribution again. In general, starting with a prior $$\theta \sim \text{Beta}(1,1)$$ the posterior over $$\theta$$ will be $$\theta \sim \text{Beta}(k+1, N-K+1)$$ after seeing $$k$$ successes out of $$N$$ flips.
+This derivation uses the fact that the beta distribution is a conjugate prior for the binomial likelihood function, so that we can easily compute the posterior of $$\theta$$ after seeing $$k=7$$ for $$N=24$$ analytically, just using the beta distribution again. In general, starting with a prior $$\theta \sim \text{Beta}(1,1)$$ the posterior over $$\theta$$ will be $$\theta \sim \text{Beta}(k+1, N-k+1)$$ after seeing $$k$$ successes out of $$N$$ flips.
  
 #### Savage-Dickey for the GCM example
  
@@ -238,7 +239,7 @@ paste0("Approximate BF in favor of complex model (Savage-Dickey): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.205"
+## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.736"
 {% endhighlight %}
  
 In sum, the Savage-Dickey method is an elegant and practical method for computing (or approximating, if based on sampling) Bayes factors for properly nested models. It is particularly useful when the nested model fixes just a small number of parameters that are free in the nesting model. The method needs to go through two bottlenecks that can introduce imprecision in an estimate: first, we may have to rely on posterior samples; second, we may have to rely an numerical approximation of a point-density from the samples.
@@ -342,7 +343,7 @@ paste0("Approximate BF in favor of complex model (naive MC): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (naive MC): 4.534"
+## [1] "Approximate BF in favor of complex model (naive MC): 4.354"
 {% endhighlight %}
  
 It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also to the result from the Savage-Dickey method (the red line).
@@ -449,7 +450,7 @@ paste0("BF in favor of complex model (transcendental): ",
 
 
 {% highlight text %}
-## [1] "BF in favor of complex model (transcendental): 5.307"
+## [1] "BF in favor of complex model (transcendental): 5.345"
 {% endhighlight %}
  
 This method of estimation can be imprecise, especially when one model is much better than another. The intuitive reason is that whenever the MCMC chain sets $$m=i$$, the parameters for model $$j$$ are free to meander wherever they like. This, in turn, makes it less likely that a proposal with $$m=j$$ is accepted. One possible solution to this is to use so-called pseudo-priors: set the priors for parameters of model $$j$$ to some function that resembles their posterior distribution when $$m=i$$, but use the actual priors when $$m=j$$.
@@ -592,7 +593,7 @@ paste0("BF in favor of complex model (supermodels): ",
 
 
 {% highlight text %}
-## [1] "BF in favor of complex model (supermodels): 3.606"
+## [1] "BF in favor of complex model (supermodels): 3.907"
 {% endhighlight %}
  
  
