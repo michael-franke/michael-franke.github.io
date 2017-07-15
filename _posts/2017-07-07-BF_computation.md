@@ -242,7 +242,7 @@ paste0("Approximate BF in favor of complex model (Savage-Dickey): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.377"
+## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.327"
 {% endhighlight %}
  
 In sum, the Savage-Dickey method is an elegant and practical method for computing (or approximating, if based on sampling) Bayes factors for properly nested models. It is particularly useful when the nested model fixes just a small number of parameters that are free in the nesting model. The method needs to go through two bottlenecks that can introduce imprecision in an estimate: first, we may have to rely on posterior samples; second, we may have to rely an numerical approximation of a point-density from the samples.
@@ -347,7 +347,7 @@ paste0("Approximate BF in favor of complex model (naive MC): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (naive MC): 4.451"
+## [1] "Approximate BF in favor of complex model (naive MC): 4.599"
 {% endhighlight %}
  
 It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also to the result from the Savage-Dickey method (the red line).
@@ -371,7 +371,7 @@ ggplot(data.frame(i = seq(10000,nSamples, by = 200),
  
 ### Transdimensional MCMC
  
-A straightforward method for approximating posterior model odds is transdimensional MCMC. We consider the posterior over a binary model flag parameter $$m \in {0,1}$$ which helps represent our prior and posterior beliefs about which of models $$M_0$$ and $$M_1$$ is true. We look at a single encompassing model that contains both models that are to be compared. The likelihood function of the encompassing model is switched between that of $$M_0$$ or $$M_1$$ depending on the current value of $$m$$. A JAGS model that implements such an encompassing model is in the file `GCM_3_BF_transdimensional.txt` and reproduced here:
+A straightforward method for approximating posterior model odds is transdimensional MCMC. We consider the posterior over a binary model flag parameter $$m \in \{0,1\}$$ which helps represent our prior and posterior beliefs about which of models $$M_0$$ and $$M_1$$ is true. We look at a single encompassing model that contains both models that are to be compared. The likelihood function of the encompassing model is switched between that of $$M_0$$ or $$M_1$$ depending on the current value of $$m$$. A JAGS model that implements such an encompassing model is in the file `GCM_3_BF_transdimensional.txt` and reproduced here:
  
 
 {% highlight r %}
@@ -380,7 +380,8 @@ model{
   # Decision Data
   for (i in 1:nstim){
     y[i] ~ dbin(r[i],t)
-    r[i] = ifelse(m == 0, r1[i], r2[i]) # which likelihood to use depends on model flag
+    r[i] = ifelse(m == 0, r1[i], r2[i]) # which likelihood to 
+                                        # use depends on model flag
   }  
   # Decision Probabilities
   for (i in 1:nstim){
@@ -454,16 +455,16 @@ paste0("BF in favor of complex model (transcendental): ",
 
 
 {% highlight text %}
-## [1] "BF in favor of complex model (transcendental): 5.01"
+## [1] "BF in favor of complex model (transcendental): 5.258"
 {% endhighlight %}
  
 This method of estimation can be imprecise, especially when one model is much better than another. The intuitive reason is that whenever the MCMC chain sets $$m=i$$, the parameters for model $$j$$ are free to meander wherever they like. This, in turn, makes it less likely that a proposal with $$m=j$$ is accepted. One possible solution to this is to use so-called pseudo-priors: set the priors for parameters of model $$j$$ to some function that resembles their posterior distribution when $$m=i$$, but use the actual priors when $$m=j$$.
  
 ### Supermodels
  
-A method similar to the previous promises to get around this problem, at least when the models' marginal likelihoods are not too different. Instead of a model flag, which determines which model's likelihood function to use, we instead combine the model's likelihoods in a linear way. Concretely, given parameter vector $$\theta_i$$ and $$\theta_j$$ for models $$M_i$$ and $$M_j$$ respectively, we look at a model which contains both $$M_i$$ and $$M_j$$ and which has as the likelihood function of the data:
+A method similar to the previous promises to get around this problem, at least when the models' marginal likelihoods are not too different. I will refer to this approach as 'supermodels' here, taking inspiration from [this tutorial paper](https://arxiv.org/abs/1609.02186). Instead of a model flag, which determines which model's likelihood function to use, we instead combine the model's likelihoods in a linear way. Concretely, given parameter vectors $$\theta_i$$ and $$\theta_j$$ for models $$M_i$$ and $$M_j$$ respectively, we look at a model which contains both $$M_i$$ and $$M_j$$ and which has as the likelihood function of the data:
  
-$$ P(D \mid \alpha, \theta_i, \theta_j) = \alpha P(D \mid \theta_i, M_i ) + (1- \alpha) P(D \mid \theta_j, M_j) $$ 
+$$ P(D \mid \alpha, \theta_i, \theta_j) = \alpha P(D \mid \theta_i, M_i ) + (1- \alpha) P(D \mid \theta_j, M_j) \,. $$ 
  
 It is easy to show that for a flat prior $$\alpha \sim \text{Beta}(1,1)$$, the posterior of $$\alpha$$ is linear:
 $$
@@ -477,7 +478,7 @@ P(\alpha \mid D) & \propto \int \int P(\alpha) \ P(\theta_i \mid M_i) \ P(\theta
 \end{align*}
 $$
  
-Since the posterior of $$\alpha$$ is a distribution which satisfies $$ \int P(\alpha \mid D) \ \text{d} \alpha = 1$$, we get that $$m = 2 - 2c$$. Since each model nested under the supermodel as a special case of $$\alpha = 0$$ or $$\alpha = 1$$ we can use the Savage-Dickey method to express the posterior of $$\alpha$$ as a function of $$c$$ only:
+Since the posterior of $$\alpha$$ is a distribution which satisfies $$ \int P(\alpha \mid D) \ \text{d} \alpha = 1$$, we get that $$m = 2 - 2c$$. Since each model nested under the supermodel is a special case of either $$\alpha = 0$$ or $$\alpha = 1$$ we can use the Savage-Dickey method to express the posterior of $$\alpha$$ as a function of $$c$$ only:
  
  
 $$
@@ -597,7 +598,7 @@ paste0("BF in favor of complex model (supermodels): ",
 
 
 {% highlight text %}
-## [1] "BF in favor of complex model (supermodels): 4.46"
+## [1] "BF in favor of complex model (supermodels): 4.716"
 {% endhighlight %}
  
  

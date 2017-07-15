@@ -458,9 +458,9 @@ This method of estimation can be imprecise, especially when one model is much be
 
 ### Supermodels
 
-A method similar to the previous promises to get around this problem, at least when the models' marginal likelihoods are not too different. I will refer to this approach as 'supermodels' here, taking inspiration from [this tutorial paper](https://arxiv.org/abs/1609.02186). Instead of a model flag, which determines which model's likelihood function to use, we instead combine the model's likelihoods in a linear way. Concretely, given parameter vector $$\theta_i$$ and $$\theta_j$$ for models $$M_i$$ and $$M_j$$ respectively, we look at a model which contains both $$M_i$$ and $$M_j$$ and which has as the likelihood function of the data:
+A method similar to the previous promises to get around this problem, at least when the models' marginal likelihoods are not too different. I will refer to this approach as 'supermodels' here, taking inspiration from [this tutorial paper](https://arxiv.org/abs/1609.02186). Instead of a model flag, which determines which model's likelihood function to use, we instead combine the model's likelihoods in a linear way. Concretely, given parameter vectors $$\theta_i$$ and $$\theta_j$$ for models $$M_i$$ and $$M_j$$ respectively, we look at a model which contains both $$M_i$$ and $$M_j$$ and which has as the likelihood function of the data:
 
-$$ P(D \mid \alpha, \theta_i, \theta_j) = \alpha P(D \mid \theta_i, M_i ) + (1- \alpha) P(D \mid \theta_j, M_j) $$ 
+$$ P(D \mid \alpha, \theta_i, \theta_j) = \alpha P(D \mid \theta_i, M_i ) + (1- \alpha) P(D \mid \theta_j, M_j) \,. $$ 
 
 It is easy to show that for a flat prior $$\alpha \sim \text{Beta}(1,1)$$, the posterior of $$\alpha$$ is linear:
 $$
@@ -474,7 +474,7 @@ P(\alpha \mid D) & \propto \int \int P(\alpha) \ P(\theta_i \mid M_i) \ P(\theta
 \end{align*}
 $$
 
-Since the posterior of $$\alpha$$ is a distribution which satisfies $$ \int P(\alpha \mid D) \ \text{d} \alpha = 1$$, we get that $$m = 2 - 2c$$. Since each model nested under the supermodel as a special case of $$\alpha = 0$$ or $$\alpha = 1$$ we can use the Savage-Dickey method to express the posterior of $$\alpha$$ as a function of $$c$$ only:
+Since the posterior of $$\alpha$$ is a distribution which satisfies $$ \int P(\alpha \mid D) \ \text{d} \alpha = 1$$, we get that $$m = 2 - 2c$$. Since each model nested under the supermodel is a special case of either $$\alpha = 0$$ or $$\alpha = 1$$ we can use the Savage-Dickey method to express the posterior of $$\alpha$$ as a function of $$c$$ only:
 
 
 $$
@@ -486,7 +486,13 @@ $$
 \end{align*} 
 $$
 
-To obtain posterior samples from $$\alpha$$ we use the JAGS code:
+To obtain posterior samples from $$\alpha$$ we use the JAGS code found in `GCM_4_supermodels.txt`.
+
+```{r, eval = FALSE}
+modelFile = "GCM_4_supermodels.txt"
+```
+
+The code is reproduced here:
 
 ```{r, eval = FALSE}
 # Generalized Context Model
@@ -540,21 +546,14 @@ model{
 }
 ```
 
-NB the zero trick.
-
-This code is also in file `GCM_4_supermodels.txt`.
-
-```{r, eval = FALSE}
-modelFile = "GCM_4_supermodels.txt"
-```
-
+Since JAGS only allows sampling from or conditioning by distributions that it knows, we need to use the [zero trick](http://users.aims.ac.za/~mackay/BUGS/Manuals/Tricks.html) (alternatively: the one trick) to implement our custom linear-combination likelihood function.
 
 ```{r, echo = FALSE}
 modelFile = paste0(local_path,"GCM_4_supermodels.txt")
 ```
 
 
-We collect samples from the posterior of $$\alpha$$:
+We then collect samples from the posterior of $$\alpha$$:
 
 ```{r}
 jagsModel = jags.model(file = modelFile, 
