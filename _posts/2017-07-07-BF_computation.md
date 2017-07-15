@@ -36,7 +36,7 @@ If the Bayes factor is close to 1, then data $$D$$ does little to change our rel
  
 ### Marginal likelihoods
  
-While Bayes factors are conceptually appealing, their computation can still be very complex. The quantity $$P(D \mid M_i)$$ is often called the **marginal likelihood**. (It is also sometimes called the _evidence_ but this usage of the term may be misleading because in natural language we usually refer to observational data as 'evidence'.) This term looks inoccuous but it is not. It can be a viciously complicated integral, because the likelihood of observation $$D$$ under the model $$M_i$$ must quantify over all possible parameters of that model, weighed as usual by their priors:
+While Bayes factors are conceptually appealing, their computation can still be very complex. The quantity $$P(D \mid M_i)$$ is often called the **marginal likelihood**. (It is also sometimes called the _evidence_ but this usage of the term may be misleading because in natural language we usually refer to observational data as 'evidence'; rather the Bayes factor $$\frac{P(D \mid M_i)}{P(D \mid \neg M_i)}$$ is an plausible formalization of 'evidence' in favor of a model.) This term looks inoccuous but it is not. It can be a viciously complicated integral, because the likelihood of observation $$D$$ under the model $$M_i$$ must quantify over all possible parameters of that model, weighed as usual by their priors:
  
 $$ P(D \mid M_i) = \int P(\theta) \ P(D \mid \theta, M_i) \ \text{d}\theta$$ 
  
@@ -238,7 +238,7 @@ paste0("Approximate BF in favor of complex model (Savage-Dickey): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.282"
+## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.205"
 {% endhighlight %}
  
 In sum, the Savage-Dickey method is an elegant and practical method for computing (or approximating, if based on sampling) Bayes factors for properly nested models. It is particularly useful when the nested model fixes just a small number of parameters that are free in the nesting model. The method needs to go through two bottlenecks that can introduce imprecision in an estimate: first, we may have to rely on posterior samples; second, we may have to rely an numerical approximation of a point-density from the samples.
@@ -342,7 +342,7 @@ paste0("Approximate BF in favor of complex model (naive MC): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (naive MC): 4.467"
+## [1] "Approximate BF in favor of complex model (naive MC): 4.534"
 {% endhighlight %}
  
 It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also to the result from the Savage-Dickey method (the red line).
@@ -449,7 +449,7 @@ paste0("BF in favor of complex model (transcendental): ",
 
 
 {% highlight text %}
-## [1] "BF in favor of complex model (transcendental): 4.544"
+## [1] "BF in favor of complex model (transcendental): 5.307"
 {% endhighlight %}
  
 This method of estimation can be imprecise, especially when one model is much better than another. The intuitive reason is that whenever the MCMC chain sets $$m=i$$, the parameters for model $$j$$ are free to meander wherever they like. This, in turn, makes it less likely that a proposal with $$m=j$$ is accepted. One possible solution to this is to use so-called pseudo-priors: set the priors for parameters of model $$j$$ to some function that resembles their posterior distribution when $$m=i$$, but use the actual priors when $$m=j$$.
@@ -478,7 +478,7 @@ Since the posterior of $$\alpha$$ is a distribution which satisfies $$ \int P(\a
 $$
 \begin{align*}
 \frac{P( M_i \mid D )}{P(M_j \mid D)} & = \frac{P(M_i \mid D)}{P(M_{\text{super}} \mid D)} \frac{P(M_{\text{super}} \mid D)}{P(M_j  \mid D)} \\
-& = \frac{P(\alpha = 0 \mid D, M_{\text{super}})}{P(\alpha_0 \mid D, M_{\text{super}})} \frac{P(\alpha_0 \mid D, M_{\text{super}})} {P(\alpha = 1  \mid D, M_{\text{super}})} \\
+& = \frac{P(\alpha = 0 \mid D, M_{\text{super}})}{P(\alpha = 0\mid D, M_{\text{super}})} \frac{P(\alpha = 0 \mid D, M_{\text{super}})} {P(\alpha = 1  \mid D, M_{\text{super}})} \\
 & = \frac{P(\alpha = 0 \mid D, M_{\text{super}})}{P(\alpha = 1  \mid D, M_{\text{super}})} \\
 & = \frac{c}{m+c} = \frac{c}{2 - c}\,.
 \end{align*} 
@@ -592,7 +592,7 @@ paste0("BF in favor of complex model (supermodels): ",
 
 
 {% highlight text %}
-## [1] "BF in favor of complex model (supermodels): 4.197"
+## [1] "BF in favor of complex model (supermodels): 3.606"
 {% endhighlight %}
  
  

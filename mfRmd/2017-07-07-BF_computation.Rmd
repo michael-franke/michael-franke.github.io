@@ -10,7 +10,7 @@ published: false
 ```{r setup, include=FALSE, echo = FALSE, message = FALSE}
 knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE, results='hide',
                       dev.args = list(bg = 'transparent'), fig.align='center',
-                      cache=FALSE)
+                      cache=TRUE)
 show = function(x) { x }
 library(tidyverse)
 set.seed(36121978)
@@ -47,28 +47,27 @@ If the Bayes factor is close to 1, then data $$D$$ does little to change our rel
 
 ### Marginal likelihoods
 
-While Bayes factors are conceptually appealing, their computation can still be very complex. The quantity $$P(D \mid M_i)$$ is often called the **marginal likelihood**. (It is also sometimes called the _evidence_ but this usage of the term may be misleading because in natural language we usually refer to observational data as 'evidence'.) This term looks inoccuous but it is not. It can be a viciously complicated integral, because the likelihood of observation $$D$$ under the model $$M_i$$ must quantify over all possible parameters of that model, weighed as usual by their priors:
+While Bayes factors are conceptually appealing, their computation can still be very complex. The quantity $$P(D \mid M_i)$$ is often called the **marginal likelihood**. (It is also sometimes called the _evidence_ but this usage of the term may be misleading because in natural language we usually refer to observational data as 'evidence'; rather the Bayes factor $$\frac{P(D \mid M_i)}{P(D \mid \neg M_i)}$$ is an plausible formalization of 'evidence' in favor of a model.) This term looks inoccuous but it is not. It can be a viciously complicated integral, because the likelihood of observation $$D$$ under the model $$M_i$$ must quantify over all possible parameters of that model, weighed as usual by their priors:
 
-$$ P(D \mid M_i) = \int P(\theta) \ P(D \mid \theta, M_i) \ \text{d}\theta$$ 
+$$ P(D \mid M_i) = \int P(\theta \mid M_i) \ P(D \mid \theta, M_i) \ \text{d}\theta$$ 
 
 You may recognize in this integral the normalizing constant needed for parameter inference if we drop explicit reference to the specific model currently in focus:
 
 $$ P(\theta \mid D) = \frac{P(\theta) \ P(D \mid \theta)}{\int P(\theta') \ P(D \mid \theta') \ \text{d} \theta'} $$ 
 
-Normally, we would like to avoid having to calculate the marginal likelihood, which is exactly why MCMC methods are so great: they approximate the posterior distribution over paramters $$P(\theta \mid D)$$ _without_ knowledge or computation of the marginal likelihood. This makes clear why computing Bayes factors, in general, can be quite difficult or a substantial computational burden. 
+Normally, we would like to avoid having to calculate the marginal likelihood, which is exactly why MCMC methods are so great: they approximate the posterior distribution over parameters $$P(\theta \mid D)$$ _without_ knowledge or computation of the marginal likelihood. This makes clear why computing Bayes factors, in general, can be quite difficult or a substantial computational burden. 
 
 ### Methods for Bayes factor computation
 
-Two general approaches for computing or approximating Bayes factors can be distinguished. We can either target the marginal likelihood of each model in separation. Or, we can target the Bayes factor directly. Both approaches have advantages and disadvantages, as we will see presently.
+Two general approaches for computing or approximating Bayes factors can be distinguished. We can target the marginal likelihood of each model in separation. Or, we can target the Bayes factor directly. Both approaches have advantages and disadvantages, as we will see presently.
 
-The following will spell out XXX ways of computing a Bayes factor for the same models. In this way we can compare directly the results from each method and its results. The methods covere here are:
+The following will spell out some methods for computing a Bayes factor. We apply these methods to the same models so that we can compare directly the results from each method and its results. The methods covered here are:
 
 1. Savage-Dickey density ratio (only applicable for _nested models_; see below)
 2. naive Monte Carlo sampling
 3. transdimensional MCMC
 4. supermodels
 
-And, once we are at it, we will also have a look at posterior predictive $$p$$-values, just to make sure that model criticism is not confused with model comparison.
 
 ### The running-example model(s): Generalized Context Model
 
@@ -474,7 +473,7 @@ Since the posterior of $$\alpha$$ is a distribution which satisfies $$ \int P(\a
 $$
 \begin{align*}
 \frac{P( M_i \mid D )}{P(M_j \mid D)} & = \frac{P(M_i \mid D)}{P(M_{\text{super}} \mid D)} \frac{P(M_{\text{super}} \mid D)}{P(M_j  \mid D)} \\
-& = \frac{P(\alpha = 0 \mid D, M_{\text{super}})}{P(\alpha_0 \mid D, M_{\text{super}})} \frac{P(\alpha_0 \mid D, M_{\text{super}})} {P(\alpha = 1  \mid D, M_{\text{super}})} \\
+& = \frac{P(\alpha = 0 \mid D, M_{\text{super}})}{P(\alpha = 0\mid D, M_{\text{super}})} \frac{P(\alpha = 0 \mid D, M_{\text{super}})} {P(\alpha = 1  \mid D, M_{\text{super}})} \\
 & = \frac{P(\alpha = 0 \mid D, M_{\text{super}})}{P(\alpha = 1  \mid D, M_{\text{super}})} \\
 & = \frac{c}{m+c} = \frac{c}{2 - c}\,.
 \end{align*} 
