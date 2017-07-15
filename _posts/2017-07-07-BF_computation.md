@@ -242,7 +242,7 @@ paste0("Approximate BF in favor of complex model (Savage-Dickey): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.327"
+## [1] "Approximate BF in favor of complex model (Savage-Dickey): 4.424"
 {% endhighlight %}
  
 In sum, the Savage-Dickey method is an elegant and practical method for computing (or approximating, if based on sampling) Bayes factors for properly nested models. It is particularly useful when the nested model fixes just a small number of parameters that are free in the nesting model. The method needs to go through two bottlenecks that can introduce imprecision in an estimate: first, we may have to rely on posterior samples; second, we may have to rely an numerical approximation of a point-density from the samples.
@@ -347,7 +347,7 @@ paste0("Approximate BF in favor of complex model (naive MC): ",
 
 
 {% highlight text %}
-## [1] "Approximate BF in favor of complex model (naive MC): 4.599"
+## [1] "Approximate BF in favor of complex model (naive MC): 4.585"
 {% endhighlight %}
  
 It is diagnostic to see the temporal development of the Bayes factor approximation as more and more samples are taken. This is plotted here, comparing it also to the result from the Savage-Dickey method (the red line).
@@ -455,7 +455,7 @@ paste0("BF in favor of complex model (transcendental): ",
 
 
 {% highlight text %}
-## [1] "BF in favor of complex model (transcendental): 5.258"
+## [1] "BF in favor of complex model (transcendental): 5.509"
 {% endhighlight %}
  
 This method of estimation can be imprecise, especially when one model is much better than another. The intuitive reason is that whenever the MCMC chain sets $$m=i$$, the parameters for model $$j$$ are free to meander wherever they like. This, in turn, makes it less likely that a proposal with $$m=j$$ is accepted. One possible solution to this is to use so-called pseudo-priors: set the priors for parameters of model $$j$$ to some function that resembles their posterior distribution when $$m=i$$, but use the actual priors when $$m=j$$.
@@ -490,7 +490,14 @@ $$
 \end{align*} 
 $$
  
-To obtain posterior samples from $$\alpha$$ we use the JAGS code:
+To obtain posterior samples from $$\alpha$$ we use the JAGS code found in `GCM_4_supermodels.txt`.
+ 
+
+{% highlight r %}
+modelFile = "GCM_4_supermodels.txt"
+{% endhighlight %}
+ 
+The code is reproduced here:
  
 
 {% highlight r %}
@@ -545,20 +552,12 @@ model{
 }
 {% endhighlight %}
  
-NB the zero trick.
- 
-This code is also in file `GCM_4_supermodels.txt`.
- 
-
-{% highlight r %}
-modelFile = "GCM_4_supermodels.txt"
-{% endhighlight %}
- 
+Since JAGS only allows sampling from or conditioning by distributions that it knows, we need to use the [zero trick](http://users.aims.ac.za/~mackay/BUGS/Manuals/Tricks.html) (alternatively: the one trick) to implement our custom linear-combination likelihood function.
  
 
  
  
-We collect samples from the posterior of $$\alpha$$:
+We then collect samples from the posterior of $$\alpha$$:
  
 
 {% highlight r %}
@@ -598,9 +597,9 @@ paste0("BF in favor of complex model (supermodels): ",
 
 
 {% highlight text %}
-## [1] "BF in favor of complex model (supermodels): 4.716"
+## [1] "BF in favor of complex model (supermodels): 4.032"
 {% endhighlight %}
  
+### Summary
  
- 
-... **to be continued** ...
+The estimated Bayes factors all differed to a certain extent. The quality of the estimates could be enhanced by taking more samples in each case. Estimates that additionally depend on later approximate computations are generally less preferred. For example, we used logsplines to estimate the posterior density at a point based on MCMC samples for the Savage-Dickey method; we looked at the maximum likelihood estimate for intercept $$c$$ in the supermodels approach. My impression is that the most workable and scalable methods are those that approximate marginal likelihoods individually and do not require post-sampling approximations. Here, only naive MC sampling was covered. A great recent tutorial for more sophisticated methods can be found [here](https://arxiv.org/abs/1703.05984). In sum, although I like the supermodels approach best (conceptual elegance!),  currently my money is on bridge sampling whenever a model does not allow for a brute force method like grid approximation or naive MC sampling.

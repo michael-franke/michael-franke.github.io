@@ -587,6 +587,6 @@ paste0("BF in favor of complex model (supermodels): ",
        round(get_BF(filter(ggs(codaSamples), Parameter == "alpha")$value) ,3))
 ```
 
+### Summary
 
-
-... **to be continued** ...
+The estimated Bayes factors all differed to a certain extent. The quality of the estimates could be enhanced by taking more samples in each case. Estimates that additionally depend on later approximate computations are generally less preferred. For example, we used logsplines to estimate the posterior density at a point based on MCMC samples for the Savage-Dickey method; we looked at the maximum likelihood estimate for intercept $$c$$ in the supermodels approach. My impression is that the most workable and scalable methods are those that approximate marginal likelihoods individually and do not require post-sampling approximations. Here, only naive MC sampling was covered. A great recent tutorial for more sophisticated methods can be found [here](https://arxiv.org/abs/1703.05984). In sum, although I like the supermodels approach best (conceptual elegance!),  currently my money is on bridge sampling whenever a model does not allow for a brute force method like grid approximation or naive MC sampling.
