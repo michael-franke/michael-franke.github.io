@@ -13,16 +13,11 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
-July 10, 2017\   <span style = "color:firebrick">Anna Howell</span> (Tübingen)\
+July 17, 2017\   <span style = "color:firebrick">Robert D. Hawkins</span> (Stanford)\
 
-&nbsp;\          "Alternatives and Disjunction through the lens of Disjunctive Questions in Yoruba"\
-&nbsp;\          <span style = "color:gray">click [here](abstracts/004_Howell_2017.pdf) for abstract</span>\
+&nbsp;\          "Convention-formation in iterated reference games"\
 
-&nbsp;\          &nbsp;\
-
-July 17, 2017\    <span style = "color:firebrick">Robert D. Hawkins</span> (Stanford)\
-
-&nbsp;\          TBA\   
+&nbsp;\          <span style = "color:gray">Just as drivers depend on shared behavioral conventions to safely navigate traffic, successful communication depends on a set of shared linguistic conventions. All members of a language community share stable knowledge of global conventions, many of which evolved over long timescales. Yet communication partners are also remarkably flexible in their ability to adapt to local contexts and to dynamically coordinate on local, ad hoc conventions across a relatively small number of repeated interactions. In this talk, I’ll present results from several interactive communication games that investigate the cognitive mechanisms that support such flexibility. First, these results suggest that recent efforts to show failures in flexible social reasoning should in fact be reinterpreted as pragmatic successes. Second, they motivate a theory of local convention-formation where agents, though initially uncertain about word meanings in context, learn from and thus adapt to a partner who is assumed to be using language with such knowledge. We formalize both contributions in a computational model of language understanding as recursive social inference.</span>
 
 &nbsp;\          &nbsp;\
 
@@ -39,6 +34,13 @@ Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
 ### Past talks
 
 ---------------- ----------------------------------------------------
+July 10, 2017\   <span style = "color:firebrick">Anna Howell</span> (Tübingen)\
+
+&nbsp;\          "Alternatives and Disjunction through the lens of Disjunctive Questions in Yoruba"\
+&nbsp;\          <span style = "color:gray">click [here](abstracts/004_Howell_2017.pdf) for abstract</span>\
+
+&nbsp;\          &nbsp;\
+
 July 3, 2017\    <span style = "color:firebrick">Olivier Morin</span> (Jena)\
 
 &nbsp;\          "Cognition, history and chance in the evolution of visual culture"\
