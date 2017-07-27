@@ -13,11 +13,11 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
-July 17, 2017\   <span style = "color:firebrick">Robert D. Hawkins</span> (Stanford)\
+July 31, 2017\   <span style = "color:firebrick">Ciyang Qing</span> (Stanford)\
 
-&nbsp;\          "Convention-formation in iterated reference games"\
+&nbsp;\          "Unifying three Mandarin 'dou' constructions"\
 
-&nbsp;\          <span style = "color:gray">Just as drivers depend on shared behavioral conventions to safely navigate traffic, successful communication depends on a set of shared linguistic conventions. All members of a language community share stable knowledge of global conventions, many of which evolved over long timescales. Yet communication partners are also remarkably flexible in their ability to adapt to local contexts and to dynamically coordinate on local, ad hoc conventions across a relatively small number of repeated interactions. In this talk, I’ll present results from several interactive communication games that investigate the cognitive mechanisms that support such flexibility. First, these results suggest that recent efforts to show failures in flexible social reasoning should in fact be reinterpreted as pragmatic successes. Second, they motivate a theory of local convention-formation where agents, though initially uncertain about word meanings in context, learn from and thus adapt to a partner who is assumed to be using language with such knowledge. We formalize both contributions in a computational model of language understanding as recursive social inference.</span>
+&nbsp;\          <span style = "color:gray">In Mandarin Chinese, _dou_ is a versatile focus-sensitive particle. I will discuss three types of _dou_ constructions: (i) the scalar _lian ... dou_ construction, in which the focused constituent must appear to the left of _dou_, (ii) the universal _wh ... dou_ construction, in which the focused wh-constituent also must appear to the left of _dou_, and (iii) the _dou ... wh_ exhaustive question construction, in which the focused wh-constituent must appear to the right of _dou_. I will propose a semantics of _dou_ that operates on a two-dimensional Roothian system to derive the exhaustive question reading, and show that the restrictions on the order between the focused constituent and the particle _dou_ follow from this semantics of _dou_.</span>
 
 &nbsp;\          &nbsp;\
 
@@ -34,6 +34,14 @@ Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
 ### Past talks
 
 ---------------- ----------------------------------------------------
+July 17, 2017\   <span style = "color:firebrick">Robert D. Hawkins</span> (Stanford)\
+
+&nbsp;\          "Convention-formation in iterated reference games"\
+
+&nbsp;\          <span style = "color:gray">Just as drivers depend on shared behavioral conventions to safely navigate traffic, successful communication depends on a set of shared linguistic conventions. All members of a language community share stable knowledge of global conventions, many of which evolved over long timescales. Yet communication partners are also remarkably flexible in their ability to adapt to local contexts and to dynamically coordinate on local, ad hoc conventions across a relatively small number of repeated interactions. In this talk, I’ll present results from several interactive communication games that investigate the cognitive mechanisms that support such flexibility. First, these results suggest that recent efforts to show failures in flexible social reasoning should in fact be reinterpreted as pragmatic successes. Second, they motivate a theory of local convention-formation where agents, though initially uncertain about word meanings in context, learn from and thus adapt to a partner who is assumed to be using language with such knowledge. We formalize both contributions in a computational model of language understanding as recursive social inference.</span>
+
+&nbsp;\          &nbsp;\
+
 July 10, 2017\   <span style = "color:firebrick">Anna Howell</span> (Tübingen)\
 
 &nbsp;\          "Alternatives and Disjunction through the lens of Disjunctive Questions in Yoruba"\
