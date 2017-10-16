@@ -6,18 +6,16 @@ output:
 ---
 
 
-The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mondays from 10 to 12.
+The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mondays from 4pm (ct) to 6pm.
 
 <span style = "color:white"> dummy </span>
 
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
-July 31, 2017\   <span style = "color:firebrick">Ciyang Qing</span> (Stanford)\
+Nov 13, 2017\    <span style = "color:firebrick">Jack Tomlinson</span> (Berlin, ZAS)\
 
-&nbsp;\          "Unifying three Mandarin 'dou' constructions"\
-
-&nbsp;\          <span style = "color:gray">In Mandarin Chinese, _dou_ is a versatile focus-sensitive particle. I will discuss three types of _dou_ constructions: (i) the scalar _lian ... dou_ construction, in which the focused constituent must appear to the left of _dou_, (ii) the universal _wh ... dou_ construction, in which the focused wh-constituent also must appear to the left of _dou_, and (iii) the _dou ... wh_ exhaustive question construction, in which the focused wh-constituent must appear to the right of _dou_. I will propose a semantics of _dou_ that operates on a two-dimensional Roothian system to derive the exhaustive question reading, and show that the restrictions on the order between the focused constituent and the particle _dou_ follow from this semantics of _dou_.</span>
+&nbsp;\          TBA\   
 
 &nbsp;\          &nbsp;\
 
@@ -34,6 +32,14 @@ Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
 ### Past talks
 
 ---------------- ----------------------------------------------------
+July 31, 2017\   <span style = "color:firebrick">Ciyang Qing</span> (Stanford)\
+
+&nbsp;\          "Unifying three Mandarin 'dou' constructions"\
+
+&nbsp;\          <span style = "color:gray">In Mandarin Chinese, _dou_ is a versatile focus-sensitive particle. I will discuss three types of _dou_ constructions: (i) the scalar _lian ... dou_ construction, in which the focused constituent must appear to the left of _dou_, (ii) the universal _wh ... dou_ construction, in which the focused wh-constituent also must appear to the left of _dou_, and (iii) the _dou ... wh_ exhaustive question construction, in which the focused wh-constituent must appear to the right of _dou_. I will propose a semantics of _dou_ that operates on a two-dimensional Roothian system to derive the exhaustive question reading, and show that the restrictions on the order between the focused constituent and the particle _dou_ follow from this semantics of _dou_.</span>
+
+&nbsp;\          &nbsp;\
+
 July 17, 2017\   <span style = "color:firebrick">Robert D. Hawkins</span> (Stanford)\
 
 &nbsp;\          "Convention-formation in iterated reference games"\
