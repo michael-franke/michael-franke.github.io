@@ -13,7 +13,13 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
-Nov 13, 2017\    <span style = "color:firebrick">Jack Tomlinson</span> (Berlin, ZAS)\
+Oct 30, 2017\    <span style = "color:firebrick">Bob van Tiel</span> (Brussels & Berlin, ZAS)\
+
+&nbsp;\          TBA\   
+
+&nbsp;\          &nbsp;\
+
+Nov 06, 2017\    <span style = "color:firebrick">Jack Tomlinson</span> (Berlin, ZAS)\
 
 &nbsp;\          TBA\   
 
@@ -44,11 +50,11 @@ July 17, 2017\   <span style = "color:firebrick">Robert D. Hawkins</span> (Stanf
 
 &nbsp;\          "Convention-formation in iterated reference games"\
 
-&nbsp;\          <span style = "color:gray">Just as drivers depend on shared behavioral conventions to safely navigate traffic, successful communication depends on a set of shared linguistic conventions. All members of a language community share stable knowledge of global conventions, many of which evolved over long timescales. Yet communication partners are also remarkably flexible in their ability to adapt to local contexts and to dynamically coordinate on local, ad hoc conventions across a relatively small number of repeated interactions. In this talk, I’ll present results from several interactive communication games that investigate the cognitive mechanisms that support such flexibility. First, these results suggest that recent efforts to show failures in flexible social reasoning should in fact be reinterpreted as pragmatic successes. Second, they motivate a theory of local convention-formation where agents, though initially uncertain about word meanings in context, learn from and thus adapt to a partner who is assumed to be using language with such knowledge. We formalize both contributions in a computational model of language understanding as recursive social inference.</span>
+&nbsp;\          <span style = "color:gray">Just as drivers depend on shared behavioral conventions to safely navigate traffic, successful communication depends on a set of shared linguistic conventions. All members of a language community share stable knowledge of global conventions, many of which evolved over long timescales. Yet communication partners are also remarkably flexible in their ability to adapt to local contexts and to dynamically coordinate on local, ad hoc conventions across a relatively small number of repeated interactions. In this talk, I???ll present results from several interactive communication games that investigate the cognitive mechanisms that support such flexibility. First, these results suggest that recent efforts to show failures in flexible social reasoning should in fact be reinterpreted as pragmatic successes. Second, they motivate a theory of local convention-formation where agents, though initially uncertain about word meanings in context, learn from and thus adapt to a partner who is assumed to be using language with such knowledge. We formalize both contributions in a computational model of language understanding as recursive social inference.</span>
 
 &nbsp;\          &nbsp;\
 
-July 10, 2017\   <span style = "color:firebrick">Anna Howell</span> (Tübingen)\
+July 10, 2017\   <span style = "color:firebrick">Anna Howell</span> (T??bingen)\
 
 &nbsp;\          "Alternatives and Disjunction through the lens of Disjunctive Questions in Yoruba"\
 &nbsp;\          <span style = "color:gray">click [here](abstracts/004_Howell_2017.pdf) for abstract</span>\
@@ -61,7 +67,7 @@ July 3, 2017\    <span style = "color:firebrick">Olivier Morin</span> (Jena)\
 
 &nbsp;\          <span style = "color:gray">Worldwide visual culture provides ideal material to test and compare a range of hypotheses coming from cognitive science, cultural evolution, and cultural history. Images, designs and patterns are naturally well documented, and visual cognition is among the least controversial areas of cognitive science. Thus, questions that would receive tentative or debatable answers if asked about languages, or social norms, can be addressed with precision when visual culture is concerned. Two studies will be presented.</span>
 
-&nbsp;\          <span style = "color:gray">One describes widespread cognitive constraints on the shape of letters in 116 scripts (Thaï, Greek, Afáka, etc.). Orientation anisotropy, vertical symmetry dominance, and orientation-based segregation of letters, all left a clear mark on most of the world's writing systems. Contrary to the received view in cultural evolution, scripts did not gradually evolve to fit these cognitive constraints, nor did cultural selection play any role in the process.</span>
+&nbsp;\          <span style = "color:gray">One describes widespread cognitive constraints on the shape of letters in 116 scripts (Tha??, Greek, Af??ka, etc.). Orientation anisotropy, vertical symmetry dominance, and orientation-based segregation of letters, all left a clear mark on most of the world's writing systems. Contrary to the received view in cultural evolution, scripts did not gradually evolve to fit these cognitive constraints, nor did cultural selection play any role in the process.</span>
 
 &nbsp;\          <span style = "color:gray">Our second case study focuses on the diffusion of heraldic designs on coats of arms (between the late middle ages and early modern times). These designs could spread by imitation, but given the limited number of motifs and tinctures, the chances for some of them of being independently reinvented were substantial. A model which assumes that heraldic designs diffuse by independent reinvention only was tested on two heraldic corpus. The model predicts the appearance of actual designs in the historical record with surprising accuracy. These two studies suggest ways that a quantified history of visual culture can shed light on mechanisms of cultural change on a vast scale.</span>\
 
@@ -71,7 +77,7 @@ June 28, 2017\   <span style = "color:firebrick">Judith Degen</span> (Stanford)\
 
 &nbsp;\          "Mentioning atypical properties of objects is communicatively efficient" \
 
-&nbsp;\          <span style = "color:gray">What governs how much information speakers include in referring expressions? Atypical properties of objects are more likely to be included in referring expressions than typical ones (Sedivy 2003; Westerbeek et al 2015). For example, speakers are more likely to call a blue banana a “blue banana” and a yellow banana a "banana". A unified account of this phenomenon is lacking. We ask: when should a rational speaker mention an object’s color? Reference production is modeled within the Rational Speech Act framework (Frank & Goodman 2012). Utterances (e.g., “banana”, “blue”, and “blue banana”) are taken to have a graded semantics: rather than assuming all bananas are equally good instances of “banana”, we empirically elicited object-utterance typicality values for all possible utterances. Pragmatic speakers select utterances proportionally to the probability that a literal listener using a graded semantics will select the intended referent. We evaluate the proposed model on a dataset of freely produced referring expressions collected in an interactive reference game experiment via the web. We conclude that the systematicity with which speakers redundantly mention color implicates a system geared towards communicative efficiency rather than towards wasteful overinformativeness, and discuss potential extensions of this approach to other production phenomena, such as optional instrument mention.</span>\
+&nbsp;\          <span style = "color:gray">What governs how much information speakers include in referring expressions? Atypical properties of objects are more likely to be included in referring expressions than typical ones (Sedivy 2003; Westerbeek et al 2015). For example, speakers are more likely to call a blue banana a ???blue banana??? and a yellow banana a "banana". A unified account of this phenomenon is lacking. We ask: when should a rational speaker mention an object???s color? Reference production is modeled within the Rational Speech Act framework (Frank & Goodman 2012). Utterances (e.g., ???banana???, ???blue???, and ???blue banana???) are taken to have a graded semantics: rather than assuming all bananas are equally good instances of ???banana???, we empirically elicited object-utterance typicality values for all possible utterances. Pragmatic speakers select utterances proportionally to the probability that a literal listener using a graded semantics will select the intended referent. We evaluate the proposed model on a dataset of freely produced referring expressions collected in an interactive reference game experiment via the web. We conclude that the systematicity with which speakers redundantly mention color implicates a system geared towards communicative efficiency rather than towards wasteful overinformativeness, and discuss potential extensions of this approach to other production phenomena, such as optional instrument mention.</span>\
 
 &nbsp;\          &nbsp;\
 
@@ -81,7 +87,7 @@ May 29, 2017\    <span style = "color:firebrick">Suzanne Stevenson</span> (Toron
 
 &nbsp;\          (Joint work with Daphna Heller, Mindaugas Mozuraitis, and Chris Parisien)\
 
-&nbsp;\          <span style = "color:gray">Knowledge mismatch is inherent to communicative interaction, since conversational partners naturally differ in their knowledge and beliefs.  Effective conversational moves, such as asking a question or referring to an entity, crucially depend then on each participant acting appropriately with respect to which knowledge is privileged (unique to that participant) and which is shared among the participants.  For example, much work in linguistics suggests that a definite referring expression such as the knife must be interpreted in the context of mutual knowledge (“common ground”) in which there is a uniquely identifiable knife relevant to both conversational partners.</span>\
+&nbsp;\          <span style = "color:gray">Knowledge mismatch is inherent to communicative interaction, since conversational partners naturally differ in their knowledge and beliefs.  Effective conversational moves, such as asking a question or referring to an entity, crucially depend then on each participant acting appropriately with respect to which knowledge is privileged (unique to that participant) and which is shared among the participants.  For example, much work in linguistics suggests that a definite referring expression such as the knife must be interpreted in the context of mutual knowledge (???common ground???) in which there is a uniquely identifiable knife relevant to both conversational partners.</span>\
 
 &nbsp;\          <span style = "color:gray">What has been less clear is the moment-by-moment cognitive processing by which people reconcile knowledge mismatch in language production and interpretation.  We propose a theory and computational model in which differing views of relevant knowledge, both privileged to the individual and shared with the conversational partner, are simultaneously and probabilistically considered at the earliest moments of language processing.  This approach arises from a view of communicative interaction as a process requiring continual and rapid accessing and updating of both privileged and shared knowledge.</span>\
 
@@ -126,17 +132,17 @@ May 8, 2017\     <span style = "color:firebrick">Heather Burnett</span> (Paris)\
 &nbsp;\          "Signaling Games, Sociolinguistic Variation and the Construction of Style"\         
 &nbsp;\          <span style = "color:gray">In this presentation, I introduce social meaning games (SMGs), which are developed for the analysis of the strategic aspect of sociolinguistic variation (in the sense of Labov 1963, Labov 1966, et seq.). While remarks have been made (eg. Goffman 1970, Dror et al. 2013, Clark 2014) about the potential usefulness of game theory in the analysis of the meaning of variable linguistic phenomena (for example, variable use of the English (ING) suffix (1)), a general framework uniting variationist sociolinguistics with game theoretic pragmatics has yet to be developed.</span>\
 &nbsp;\          &nbsp;\
-&nbsp;\          <span style = "color:gray">(1) I’m workin’ on it vs I’m working on it..</span>\
+&nbsp;\          <span style = "color:gray">(1) I???m workin??? on it vs I???m working on it..</span>\
 &nbsp;\          &nbsp;\
-&nbsp;\          <span style = "color:gray">I propose that such a unification is possible through the integration of the *Third Wave* approach to the meaning of sociolinguistic variation (see Eckert 2000, 2008, 2012) with signalling games (Lewis 1969) and a Bayesian approach to speaker/listener reasoning (see Oaksford & Chater 2007 for a review). The combination of ‘signaling games + Bayesian reasoning’ has previously been argued to be particularly useful in the analysis of a large class of pragmatic phenomena, including scalar implicatures, manner implicatures and context-sensitive reference (see Franke & Jäger 2016 for an overview)..</span>\
+&nbsp;\          <span style = "color:gray">I propose that such a unification is possible through the integration of the *Third Wave* approach to the meaning of sociolinguistic variation (see Eckert 2000, 2008, 2012) with signalling games (Lewis 1969) and a Bayesian approach to speaker/listener reasoning (see Oaksford & Chater 2007 for a review). The combination of ???signaling games + Bayesian reasoning??? has previously been argued to be particularly useful in the analysis of a large class of pragmatic phenomena, including scalar implicatures, manner implicatures and context-sensitive reference (see Franke & J??ger 2016 for an overview)..</span>\
 
 &nbsp;\          <span style = "color:gray">I define the games and then show the predictions of this framework for both linguistic production and interpretation, as exemplified by the modeling of six empirical studies: .</span>\
 &nbsp;\          &nbsp;\
 &nbsp;\          <span style = "color:gray">PRODUCTION</span>\
 &nbsp;\          &nbsp;\
-&nbsp;\          <span style = "color:gray">1. Labov (1966)’s study of the social stratification of (ING, i.e -in’ vs -ing) in New York City.</span>\
-&nbsp;\          <span style = "color:gray">2. Labov (2012)’s study of President Obama and Sara Palin’s use of (ING) in formal vs informal settings.</span>\
-&nbsp;\          <span style = "color:gray">3. Gratton (2015)’s study of the use of (ING) by non-binary individuals (i.e., individuals whose gender identity does not respect the male/female binary) in their home vs a public coffee shop..</span>\
+&nbsp;\          <span style = "color:gray">1. Labov (1966)???s study of the social stratification of (ING, i.e -in??? vs -ing) in New York City.</span>\
+&nbsp;\          <span style = "color:gray">2. Labov (2012)???s study of President Obama and Sara Palin???s use of (ING) in formal vs informal settings.</span>\
+&nbsp;\          <span style = "color:gray">3. Gratton (2015)???s study of the use of (ING) by non-binary individuals (i.e., individuals whose gender identity does not respect the male/female binary) in their home vs a public coffee shop..</span>\
 &nbsp;\          &nbsp;\
 &nbsp;\          <span style = "color:gray">INTERPRETATION</span>\
 &nbsp;\          &nbsp;\
@@ -148,26 +154,26 @@ May 8, 2017\     <span style = "color:firebrick">Heather Burnett</span> (Paris)\
 &nbsp;\          &nbsp;\
 &nbsp;\          <span style = "color:gray">SELECTED REFERENCES.</span>\
 &nbsp;\          &nbsp;\
-&nbsp;\          <span style = "color:gray">Campbell-Kibler, K. (2007). Accent,(ing), and the social logic of listener perceptions. American speech, 82(1):32–64.</span>\
+&nbsp;\          <span style = "color:gray">Campbell-Kibler, K. (2007). Accent,(ing), and the social logic of listener perceptions. American speech, 82(1):32???64.</span>\
 &nbsp;\          <span style = "color:gray">Clark, R. (2011). Meaningful Games. Cambridge: MIT Press.</span>\
 &nbsp;\          <span style = "color:gray">Eckert, P. (2012). Three waves of variation study. Annual Revue of Anthropology. 41:87-100.</span>\
-&nbsp;\          <span style = "color:gray">Eckert, P. (2008). Variation and the indexical field. Journal of sociolinguistics, 12(4):453–476. </span>\
+&nbsp;\          <span style = "color:gray">Eckert, P. (2008). Variation and the indexical field. Journal of sociolinguistics, 12(4):453???476. </span>\
 &nbsp;\          <span style = "color:gray">Eckert, P. (2000). Language variation as social practice: The linguistic construction of identity in Belten High. Wiley-Blackwell.</span>\
-&nbsp;\          <span style = "color:gray">Franke, M. & Jäger, G. (2016). Probabilistic pragmatics, or why Bayes’ rule is probably important for pragmatics. Zeitschrift für  Sprachwissenschaft, 35:3–44. </span>\
+&nbsp;\          <span style = "color:gray">Franke, M. & J??ger, G. (2016). Probabilistic pragmatics, or why Bayes??? rule is probably important for pragmatics. Zeitschrift f??r  Sprachwissenschaft, 35:3???44. </span>\
 &nbsp;\          <span style = "color:gray">Goffman, E. (1970). Strategic interaction, volume 1. University of Pennsylvania Press. </span>\
-&nbsp;\          <span style = "color:gray">Gratton, C. (2015). Indexin’ Gender: Variable (ING) and the Creation of Non-Binary Trans Identities. Best poster at New Ways of Analyzing Linguistic Variation 44. U. Toronto</span>\
+&nbsp;\          <span style = "color:gray">Gratton, C. (2015). Indexin??? Gender: Variable (ING) and the Creation of Non-Binary Trans Identities. Best poster at New Ways of Analyzing Linguistic Variation 44. U. Toronto</span>\
 &nbsp;\          <span style = "color:gray">Labov, W. (1966). The Social Stratification of English in New York City. Washington DC:Center for Applied Linguistics.</span>\
 &nbsp;\          <span style = "color:gray">Labov, W. (2012). Dialect Diversity in America: The Politics of Language Change. Charlottesville: University of Virginia Press.</span>\
-&nbsp;\          <span style = "color:gray">Levon, E. (2014). Categories, stereotypes, and the linguistic perception of sexuality. Language in Society, 43(05):539–566. </span>\
+&nbsp;\          <span style = "color:gray">Levon, E. (2014). Categories, stereotypes, and the linguistic perception of sexuality. Language in Society, 43(05):539???566. </span>\
 &nbsp;\          <span style = "color:gray">Lewis, D. (1969). Convention: A Philosophical Study. Harvard University Press.</span>\
 &nbsp;\          <span style = "color:gray">Oaksford M. & N. Chater (2007). Bayesian Rationality: the probabilistic approach to human reasoning. OUP.</span>\
-&nbsp;\          <span style = "color:gray">Podesva, R. J., Reynolds, J., Callier, P., and Baptiste, J. (2015). Constraints on the social meaning of released/t: A production and perception study of us politicians. Language Variation and Change, 27(01):59–87.</span>\
+&nbsp;\          <span style = "color:gray">Podesva, R. J., Reynolds, J., Callier, P., and Baptiste, J. (2015). Constraints on the social meaning of released/t: A production and perception study of us politicians. Language Variation and Change, 27(01):59???87.</span>\
 &nbsp;\          &nbsp;\
 
 April 24, 2017\  <span style = "color:firebrick">Bill Thompson</span> (Nijmegen)\
 
 &nbsp;\          "Mapping Semantic Networks Across Languages: First Impressions"\
-&nbsp;\          <span style = "color:gray">Words carve up human experience into richly structured categories of events, objects, relationships, emotions, and ideas. Categories like these subserve human communication and interaction, but it has long been unclear how similar these categories are for speakers of different languages. Recent progress in applied machine learning and artificial intelligence has resulted in large scale machine-readable representations of semantic networks across many languages. I’ll present some preliminary results of a collaborative project whose goal is to leverage these resources, in combination with more traditional linguistic resources, to map patterns of regularity and diversity across semantic domains in many languages. I’ll also discus ways in which these inferred networks can be fused with agent-based simulation and experimental techniques to model the evolution of semantic systems.</span>\
+&nbsp;\          <span style = "color:gray">Words carve up human experience into richly structured categories of events, objects, relationships, emotions, and ideas. Categories like these subserve human communication and interaction, but it has long been unclear how similar these categories are for speakers of different languages. Recent progress in applied machine learning and artificial intelligence has resulted in large scale machine-readable representations of semantic networks across many languages. I???ll present some preliminary results of a collaborative project whose goal is to leverage these resources, in combination with more traditional linguistic resources, to map patterns of regularity and diversity across semantic domains in many languages. I???ll also discus ways in which these inferred networks can be fused with agent-based simulation and experimental techniques to model the evolution of semantic systems.</span>\
 &nbsp;\          &nbsp;\
 
 Jan 30, 2017\    <span style = "color:firebrick">Timo Roettger & Mathias Stoeber</span> (Cologne)\
@@ -181,10 +187,10 @@ Jan 16, 2017\    <span style = "color:firebrick">Maribel Romero</span> (Konstanz
 &nbsp;\          <span style = "color:gray">click [here](abstracts/romero-Tuebingen-ab.pdf) for abstract</span>\
 &nbsp;\          &nbsp;\
 
-Nov 28, 2016\    <span style = "color:firebrick">Thomas Müller</span> (Jena)\
+Nov 28, 2016\    <span style = "color:firebrick">Thomas M??ller</span> (Jena)\
 
 &nbsp;\          "'I see what you mean!' - The Influence of Common Perceptual Context and Perspective-Taking on the Evolution of Graphic Codes"\
-&nbsp;\          <span style = "color:gray">click [here](abstracts/002_MüllerEtal_2016.pdf) for abstract</span>\
+&nbsp;\          <span style = "color:gray">click [here](abstracts/002_M??llerEtal_2016.pdf) for abstract</span>\
 &nbsp;\          &nbsp;\
 
 Nov 14, 2016\    <span style = "color:firebrick">Daniel Gutzmann</span> (Cologne)\
@@ -195,16 +201,16 @@ Nov 14, 2016\    <span style = "color:firebrick">Daniel Gutzmann</span> (Cologne
 
 Oct 31, 2016\    <span style = "color:firebrick">Andreas Bischoff</span> (Freiburg)\
 
-&nbsp;\          "Lautwandelketten und Maximisierung akustischer Distinktivität"
+&nbsp;\          "Lautwandelketten und Maximisierung akustischer Distinktivit??t"
 
-&nbsp;\          <span style = "color:gray">Ein besonderes Phänomen des Lautwandels sind Lautwandelketten (engl. chain shifts). Als solche bezeichnet man den Effekt, dass ein Lautwandel einen weiteren Lautwandel auslöst. So kann ein Lautwandel /e/ > /ɪ/ einerseits die Ursache für einen folgenden Lautwandel /ɪ/ > /i/ (sog. Phonologischer Schub, engl. pushing) darstellen, andererseits auch einen Lautwandel /a/ > /e/ nach sich ziehen (sog. Phonologischer Sog, engl. pulling). Mit Hilfe von solchen Verschiebungsketten kann die akustische Distinktivität der Phoneme aufrecht erhalten werden und sind daher u. a. für die Theorie der self organization relevant. Der Vortrag wird das Phänomen aus akustischer, theoretischer und empirischer Sicht thematisieren und die Fragen stellen, wie oft diese erscheinen und wie wichtig sie als Ursache für Lautwandel sind.</span>\
+&nbsp;\          <span style = "color:gray">Ein besonderes Ph??nomen des Lautwandels sind Lautwandelketten (engl. chain shifts). Als solche bezeichnet man den Effekt, dass ein Lautwandel einen weiteren Lautwandel ausl??st. So kann ein Lautwandel /e/ > /??/ einerseits die Ursache f??r einen folgenden Lautwandel /??/ > /i/ (sog. Phonologischer Schub, engl. pushing) darstellen, andererseits auch einen Lautwandel /a/ > /e/ nach sich ziehen (sog. Phonologischer Sog, engl. pulling). Mit Hilfe von solchen Verschiebungsketten kann die akustische Distinktivit??t der Phoneme aufrecht erhalten werden und sind daher u. a. f??r die Theorie der self organization relevant. Der Vortrag wird das Ph??nomen aus akustischer, theoretischer und empirischer Sicht thematisieren und die Fragen stellen, wie oft diese erscheinen und wie wichtig sie als Ursache f??r Lautwandel sind.</span>\
 &nbsp;\          &nbsp;\
 
 July 5, 2016\    <span style = "color:firebrick">Ryan Cotterell</span> (Johns Hopkins)\
 
 &nbsp;\          "Modeling Word Forms Using Latent Underlying Morphs and Phonology"
 
-&nbsp;\          <span style = "color:gray">The observed pronunciations or spellings of words are often explained as arising from the “underlying forms” of their morphemes. These forms are latent strings that linguists try to reconstruct by hand. We propose to reconstruct them automatically at scale, enabling generalization to new words. Given some surface word types of a concatenative language along with the abstract morpheme sequences that they express, we show how to recover consistent underlying forms for these morphemes, together with the (stochastic) phonology that maps each concatenation of underlying forms to a surface form. Our technique involves loopy belief propagation in a natural directed graphical model whose variables are unknown strings and whose conditional distributions are encoded as finite-state machines with trainable weights. We define training and evaluation paradigms for the task of surface word prediction, and report results on subsets of 7 languages.</span>\
+&nbsp;\          <span style = "color:gray">The observed pronunciations or spellings of words are often explained as arising from the ???underlying forms??? of their morphemes. These forms are latent strings that linguists try to reconstruct by hand. We propose to reconstruct them automatically at scale, enabling generalization to new words. Given some surface word types of a concatenative language along with the abstract morpheme sequences that they express, we show how to recover consistent underlying forms for these morphemes, together with the (stochastic) phonology that maps each concatenation of underlying forms to a surface form. Our technique involves loopy belief propagation in a natural directed graphical model whose variables are unknown strings and whose conditional distributions are encoded as finite-state machines with trainable weights. We define training and evaluation paradigms for the task of surface word prediction, and report results on subsets of 7 languages.</span>\
 &nbsp;\          &nbsp;\
 
 
@@ -219,7 +225,7 @@ June 24, 2016\   <span style = "color:firebrick">Bodo Winter</span> (Merced, Bir
 
 &nbsp;\           "The interaction of functional pressure, redundancy and category variation in phonetic systems"
 
-&nbsp;\          <span style = "color:gray">At the level of individual speakers, evidence from natural speech corpora and laboratory investigations shows that the existence of similar lexical items promotes hyperarticulation of phonetic cues that distinguish them. In parallel, at diachronic time-scales evidence suggests that phoneme inventories evolve under the influence of a bias toward maintenance of existing lexico-semantic distinctions. How might these be causally related? Here we present simple exemplar-based simulations that help us explore hypotheses about a general linking mechanism between pressure to maintain lexical contrasts in individual usage events, and maintenance of phonemic contrasts over diachronic time scales. We show that redundancy in sound categories interacts with communicative pressure to modulate ‘cryptic variation’ in sound categories and show that within the model, this sub-phonemic variation shapes future sound change. </span>\
+&nbsp;\          <span style = "color:gray">At the level of individual speakers, evidence from natural speech corpora and laboratory investigations shows that the existence of similar lexical items promotes hyperarticulation of phonetic cues that distinguish them. In parallel, at diachronic time-scales evidence suggests that phoneme inventories evolve under the influence of a bias toward maintenance of existing lexico-semantic distinctions. How might these be causally related? Here we present simple exemplar-based simulations that help us explore hypotheses about a general linking mechanism between pressure to maintain lexical contrasts in individual usage events, and maintenance of phonemic contrasts over diachronic time scales. We show that redundancy in sound categories interacts with communicative pressure to modulate ???cryptic variation??? in sound categories and show that within the model, this sub-phonemic variation shapes future sound change. </span>\
 &nbsp;\          &nbsp;\
 
 &nbsp;\          <span style = "color:firebrick">Adam Ussishkin</span> (Arizona)\
@@ -231,7 +237,7 @@ June 13, 2016\   <span style = "color:firebrick">Marie-Christine Meyer</span> (B
 
 &nbsp;\           "Structural conditions on implicature computation: The latest news"
 
-&nbsp;\          <span style = "color:gray">This talk has two goals. First, to introduce the audience to an ongoing and open-ended debate in the field of formal pragmatics. The debate builds on seminal work by R. Katzir (2007, 2008, 2014) and concerns the role of structure in the definition of the set of alternatives that can be used in the computation of (scalar) implicatures. Structural constraints on alternatives have been shown to provide a solution to the so-called Symmetry Problem (Kroch 1972, von Fintel & Heim 1997), and more general well-formedness conditions on alternatives have been argued to underlie otherwise unrelated phenomena (e.g. Meyer 2015). But the idea that alternatives are structural objects which may as such be subject to structural constraints has recently come under attack in view of data that Katzir’s original proposal cannot account for (Swanson 2010, Trinh & Haida 2015, Romoli 2013). These new data will bring us to the second goal of the talk: To present even more new, i.e., newest data. I will argue that most of the seemingly problematic issues have been insufficiently analyzed and that factors which are completely independent of structural constraints on alternatives, viz.,the presupposition of contrastive connectives (e.g., Toosarvandani 2013) and principles of information encoding (e.g., Parikh 2001) have to be taken into account. Once this is accomplished, a new classification of the data ensues which makes it possible to disentangle genuine issues of the structural approach on the one hand, and confounding factors on the other.</span>\
+&nbsp;\          <span style = "color:gray">This talk has two goals. First, to introduce the audience to an ongoing and open-ended debate in the field of formal pragmatics. The debate builds on seminal work by R. Katzir (2007, 2008, 2014) and concerns the role of structure in the definition of the set of alternatives that can be used in the computation of (scalar) implicatures. Structural constraints on alternatives have been shown to provide a solution to the so-called Symmetry Problem (Kroch 1972, von Fintel & Heim 1997), and more general well-formedness conditions on alternatives have been argued to underlie otherwise unrelated phenomena (e.g. Meyer 2015). But the idea that alternatives are structural objects which may as such be subject to structural constraints has recently come under attack in view of data that Katzir???s original proposal cannot account for (Swanson 2010, Trinh & Haida 2015, Romoli 2013). These new data will bring us to the second goal of the talk: To present even more new, i.e., newest data. I will argue that most of the seemingly problematic issues have been insufficiently analyzed and that factors which are completely independent of structural constraints on alternatives, viz.,the presupposition of contrastive connectives (e.g., Toosarvandani 2013) and principles of information encoding (e.g., Parikh 2001) have to be taken into account. Once this is accomplished, a new classification of the data ensues which makes it possible to disentangle genuine issues of the structural approach on the one hand, and confounding factors on the other.</span>\
 &nbsp;\          &nbsp;\
 
 June 6, 2016\    <span style = "color:firebrick">Sven Lauer</span> (G&ouml;ttingen & Konstanz)\
