@@ -25,6 +25,12 @@ Nov 06, 2017\    <span style = "color:firebrick">Jack Tomlinson</span> (Berlin, 
 
 &nbsp;\          &nbsp;\
 
+Nov 13, 2017\    <span style = "color:firebrick">Matthias Urban</span> (Tübingen)\
+
+&nbsp;\          TBA\   
+
+&nbsp;\          &nbsp;\
+
 Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
 
 &nbsp;\          TBA\   
