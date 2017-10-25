@@ -15,7 +15,9 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ---------------- ----------------------------------------------------
 Oct 30, 2017\    <span style = "color:firebrick">Bob van Tiel</span> (Brussels & Berlin, ZAS)\
 
-&nbsp;\          TBA\   
+&nbsp;\          Processing “some” and “or”: evaluating theoretical models of pragmatic reasoning\   
+
+&nbsp;\          <span style = "color:gray">The standard view in natural language semantics holds that “or” expresses inclusive disjunction. In certain embedding contexts, however, “or” may take on a conjunctive meaning. Recent theorists have explained these conjunctive inferences as conversational implicatures. We evaluate this explanation by testing the processing profiles of four types of conjunctive inferences and comparing these with the processing profile of a bona fide conversational implicature that is hypothesised to be akin to conjunctive inferences, i.e., the scalar inference from “some” to “some but not all”. At face value, the results speak against the implicature-based explanation of conjunctive inferences. On a closer look, however, the results have more far-reaching consequences for the widespread assumption that processing data are indicative of the mechanism that underlies pragmatic inferencing.</span>
 
 &nbsp;\          &nbsp;\
 
