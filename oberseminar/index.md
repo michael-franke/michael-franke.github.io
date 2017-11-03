@@ -13,17 +13,15 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
-Oct 30, 2017\    <span style = "color:firebrick">Bob van Tiel</span> (Brussels & Berlin, ZAS)\
-
-&nbsp;\          Processing “some” and “or”: evaluating theoretical models of pragmatic reasoning\   
-
-&nbsp;\          <span style = "color:gray">The standard view in natural language semantics holds that “or” expresses inclusive disjunction. In certain embedding contexts, however, “or” may take on a conjunctive meaning. Recent theorists have explained these conjunctive inferences as conversational implicatures. We evaluate this explanation by testing the processing profiles of four types of conjunctive inferences and comparing these with the processing profile of a bona fide conversational implicature that is hypothesised to be akin to conjunctive inferences, i.e., the scalar inference from “some” to “some but not all”. At face value, the results speak against the implicature-based explanation of conjunctive inferences. On a closer look, however, the results have more far-reaching consequences for the widespread assumption that processing data are indicative of the mechanism that underlies pragmatic inferencing.</span>
-
-&nbsp;\          &nbsp;\
-
 Nov 06, 2017\    <span style = "color:firebrick">Jack Tomlinson</span> (Berlin, ZAS)\
 
-&nbsp;\          TBA\   
+&nbsp;\          "Be timely: how turn-taking bottleneck constrains the integration of QUDs into implicatures"\   
+
+&nbsp;\          <span style = "color:gray">Understanding pragmatic inferences can sometimes result in processing delays, but this depends on the availability of alternatives during processing (Degen & Tannenhaus, 2014, Bott & Chemla, 2016). One notable source of alternatives is the *Question Under Discussion* (QUDs) (Roberts, 2012) and this has been shown to predict whether a scalar implicature is derived or not (Cummins, 2015). However, even if alternatives are available to the listener, it is unknown whether integrating alternatives into implicatures is an effortless process (Zondervan, 2010). To answer this question, I present a novel method for testing the integration of QUDs into implicature processing; speicifically one that examines whether listeners can integrate alternatives at various turn-taking gaps (see  Levinson & Torreiria, 2016). In this tasks, overhearers are given explicit QUDs prior to overhearing an addressee respond to several questions implicity answering this QUD (via implicatures). If QUDs are accommodated prior to the derivation of the implicature, turn-taking gaps should have marginal effects on whether listeners derive the implicatures and implicature rates should be higher if scalar terms are found in sentence-intial postion (*predictive account*).  In contrast, if listeners need additional effort to integrate alternatives from QUD, then implicature rates should increase at longer turn-taking gaps (*delayed intergration account*) . To test this, I manipulated the sentential position of the scalar term, *einige* (some), (*Einige* haben bestanden vs. Bestanden haben *einige*) as well as the turn intervals (250, 750, 1250ms) between interlocutors question-answer sequences that participants overheard. Listeners had to respond to the intial QUD by clicking on “Yes” or “No” responses and their mouse path data were also collected and analyzed. </span>
+
+
+&nbsp;\          <span style = "color:gray">Overall, participants had lower implicature rates (chance level) for some-initial and some-final at short latencies (250ms). In contrast, some-final responses yielded higher implicature rates than some-intial at both 750ms and 1250ms intervals, suggesting an effect of focusing the scalar term. Critically, implicature rates decreased significantly below chance at 1250ms intervals and this was more the case for some-initial responses. The later finding suggests that longer turn-taking intervals are understood as hesitations, which reduce implicature rates. An analysis of the mouse-path data showed similar implicature patterns as found in Tomlinson et al (2013) at all intervals, albeit only for some-intial positions. Together this supports the idea that QUD integration is not automatic and can depend on cognitive constraints such as turn-taking gaps. These data also show that turn-taking gaps affect both the integration of alternatives and derivation of implicatures by adding additional epistemic information to the speaker. I expand on this idea in proposing a “Be timely” maxim and discuss the reasons why theories of scalar implicatures should account for turn-taking data. </span>
+
 
 &nbsp;\          &nbsp;\
 
@@ -46,6 +44,14 @@ Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
 ### Past talks
 
 ---------------- ----------------------------------------------------
+Oct 30, 2017\    <span style = "color:firebrick">Bob van Tiel</span> (Brussels & Berlin, ZAS)\
+
+&nbsp;\          "Processing “some” and “or”: evaluating theoretical models of pragmatic reasoning"\   
+
+&nbsp;\          <span style = "color:gray">The standard view in natural language semantics holds that “or” expresses inclusive disjunction. In certain embedding contexts, however, “or” may take on a conjunctive meaning. Recent theorists have explained these conjunctive inferences as conversational implicatures. We evaluate this explanation by testing the processing profiles of four types of conjunctive inferences and comparing these with the processing profile of a bona fide conversational implicature that is hypothesised to be akin to conjunctive inferences, i.e., the scalar inference from “some” to “some but not all”. At face value, the results speak against the implicature-based explanation of conjunctive inferences. On a closer look, however, the results have more far-reaching consequences for the widespread assumption that processing data are indicative of the mechanism that underlies pragmatic inferencing.</span>
+
+&nbsp;\          &nbsp;\
+
 July 31, 2017\   <span style = "color:firebrick">Ciyang Qing</span> (Stanford)\
 
 &nbsp;\          "Unifying three Mandarin 'dou' constructions"\
