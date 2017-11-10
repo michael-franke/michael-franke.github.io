@@ -13,25 +13,17 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
-Oct 30, 2017\    <span style = "color:firebrick">Bob van Tiel</span> (Brussels & Berlin, ZAS)\
-
-&nbsp;\          Processing “some” and “or”: evaluating theoretical models of pragmatic reasoning\   
-
-&nbsp;\          <span style = "color:gray">The standard view in natural language semantics holds that “or” expresses inclusive disjunction. In certain embedding contexts, however, “or” may take on a conjunctive meaning. Recent theorists have explained these conjunctive inferences as conversational implicatures. We evaluate this explanation by testing the processing profiles of four types of conjunctive inferences and comparing these with the processing profile of a bona fide conversational implicature that is hypothesised to be akin to conjunctive inferences, i.e., the scalar inference from “some” to “some but not all”. At face value, the results speak against the implicature-based explanation of conjunctive inferences. On a closer look, however, the results have more far-reaching consequences for the widespread assumption that processing data are indicative of the mechanism that underlies pragmatic inferencing.</span>
-
-&nbsp;\          &nbsp;\
-
-Nov 06, 2017\    <span style = "color:firebrick">Jack Tomlinson</span> (Berlin, ZAS)\
-
-&nbsp;\          TBA\   
-
-&nbsp;\          &nbsp;\
-
 Nov 13, 2017\    <span style = "color:firebrick">Matthias Urban</span> (Tübingen)\
 
-&nbsp;\          TBA\   
+&nbsp;\          "Language contact, language shift and the (linguistic) prehistory of the ancient Central Andes: a research program"\   
 
-&nbsp;\          &nbsp;\
+&nbsp;\          <span style = "color:gray">In this talk, I describe the research agenda of my newly established Emmy Noether Junior Research Group “The language dynamics of the ancient Central Andes” at Tübingen and illustrate its approach with a case study.</span>\
+
+&nbsp;\          <span style = "color:gray">To begin with I provide relevant background information on the linguistic landscape as well as the cultural trajectory of the Central Andes – coast and highland of Peru, highlands of western Bolivia, and the northern and northwesternmost parts of Argentina. I also sketch the state of the art of research on the linguistic prehistory and how it might relate to the cultural development of this center of pristine civilization in South America. Pointing out lacunae and neglected aspects in extant research, I move on to describe the general approach and “philosophy” of my group’s projected work, which focusses on language contact and language shift as a window to the prehistory of the Central Andes instead of expansion of the large Quechuan language family. I also provide short descriptions of planned subprojects.</span>\
+
+&nbsp;\          <span style = "color:gray">Finally, I zoom in on one particular area of the Central Andes, that of Chachapoyas on the eastern slopes of the Northern Peruvian Andes. In this area, a particular (now moribund) variety of Quechua is spoken which features structural characteristics that depart strongly from typical Quechan patterns. Given that Chachapoyas was the home of a particular ethnic group with a distinct material culture prior to Inca and then Spanish conquest in the late 15th and early 16th centuries AD, “substrate” influence from a local language conventionally known as Chacha is a real possibility. Unfortunately, however, Chachapoyas presents a “worst case scenario”: apart from placenames and personal names, however, the pre-Inca Chacha language is not documented at all. Based on an extrapolation of different lines of evidence –placenames and personal names, vocabulary items without Quechua cognates in Chachapoyas Quechua itself, and structural-typological considerations– I suggest that the language underlying Chachapoyas Quechua on the eastern slopes of Northern Peru could have been a close relative of the Cholón language, formerly spoken to the south of the Chachapoyas area.</span>\
+
+&nbsp;\          &nbsp;\   
 
 Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
 
@@ -46,6 +38,21 @@ Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
 ### Past talks
 
 ---------------- ----------------------------------------------------
+Nov 06, 2017\    <span style = "color:firebrick">Jack Tomlinson</span> (Berlin, ZAS)\
+
+&nbsp;\          "Be timely: how turn-taking bottleneck constrains the integration of QUDs into implicatures"\   
+
+&nbsp;\          &nbsp;\
+
+Oct 30, 2017\    <span style = "color:firebrick">Bob van Tiel</span> (Brussels & Berlin, ZAS)\
+
+&nbsp;\          Processing “some” and “or”: evaluating theoretical models of pragmatic reasoning\   
+
+&nbsp;\          <span style = "color:gray">The standard view in natural language semantics holds that “or” expresses inclusive disjunction. In certain embedding contexts, however, “or” may take on a conjunctive meaning. Recent theorists have explained these conjunctive inferences as conversational implicatures. We evaluate this explanation by testing the processing profiles of four types of conjunctive inferences and comparing these with the processing profile of a bona fide conversational implicature that is hypothesised to be akin to conjunctive inferences, i.e., the scalar inference from “some” to “some but not all”. At face value, the results speak against the implicature-based explanation of conjunctive inferences. On a closer look, however, the results have more far-reaching consequences for the widespread assumption that processing data are indicative of the mechanism that underlies pragmatic inferencing.</span>
+
+&nbsp;\          &nbsp;\
+
+
 July 31, 2017\   <span style = "color:firebrick">Ciyang Qing</span> (Stanford)\
 
 &nbsp;\          "Unifying three Mandarin 'dou' constructions"\
@@ -62,7 +69,7 @@ July 17, 2017\   <span style = "color:firebrick">Robert D. Hawkins</span> (Stanf
 
 &nbsp;\          &nbsp;\
 
-July 10, 2017\   <span style = "color:firebrick">Anna Howell</span> (T??bingen)\
+July 10, 2017\   <span style = "color:firebrick">Anna Howell</span> (Tübingen)\
 
 &nbsp;\          "Alternatives and Disjunction through the lens of Disjunctive Questions in Yoruba"\
 &nbsp;\          <span style = "color:gray">click [here](abstracts/004_Howell_2017.pdf) for abstract</span>\
