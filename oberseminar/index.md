@@ -13,14 +13,6 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
-Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
-
-&nbsp;\          "Dialects as a testing ground for theories of language change: closing the gap in a typology of mixed languages"   
-
-&nbsp;\          <span style = "color:gray">The study of dialect variation has proven a powerful tool to deepen our understanding of the fundamental mechanisms underlying language change: Variation between very closely related languages/varieties often creates living laboratories where "What happens if..."-questions can be assessed. After an overview of recent developments within this approach I will focus on a newly emerging but rapidly growing field of historical linguistics, namely the study of change induced by contact between closely related languages/varieties, and in particular on the emergence of radically mixed languages. Whereas the existing literature suggests that the results of heavy language contact are qualitatively different depending on whether the involved languages are closely related genetically or not, I will argue that this is not (always) the case: Rather, radically mixed languages, including languages with their lexicon inherited from one parental language but grammatical structure from another, may emerge, too, even if the parental languages are close cousins, as long as the appropriate sociolinguistic conditions for mixed language emergence are met. The case study is based on my own fieldwork in an Amish community in Indiana (USA). Amish Shwitzer is a mixed language that emerged as a result of intensive contact between Pennsylvania Dutch and Bernese Swiss German. Whereas grammatical structure has largely converged with Pennsylvania Dutch, Bernese Swiss German features are strikingly concentrated in the lexicon. This kind of compartmentalization has not been reported so far for mixed languages with closely related parents. The case study sheds new light on theories of mixed language emergence, in particular on concepts such as dominating language or widespread bilingualism, which are not applicable to the Amish Shwitzer situation.</span>\
-
-&nbsp;\          &nbsp;\
-
 Jan 22, 2018\    <span style = "color:firebrick">Harald Hammarström</span> (Jena)\
 
 &nbsp;\          "Deep and Shallow in Automated Cognate Recognition"   
@@ -32,6 +24,14 @@ Jan 28, 2018\    <span style = "color:firebrick">Markus Werning</span> (Bochum)\
 &nbsp;\          TBA\
 
 &nbsp;\          &nbsp;\
+
+Feb 5, 2018\    <span style = "color:firebrick">Barbara Tomaszewicz</span> (Cologne)\
+
+&nbsp;\          Focus association of ‘most’ and ‘only’ in a Visual Verification Task\
+
+&nbsp;\          <span style = "color:gray">click [here](abstracts/005_Tomaszewicz_2018.pdf) for abstract</span>\
+
+&nbsp;\          &nbsp;\
 --------------------------------------------------------------------------
 
 <span style = "color:white"> dummy </span>
@@ -40,6 +40,14 @@ Jan 28, 2018\    <span style = "color:firebrick">Markus Werning</span> (Bochum)\
 ### Past talks
 
 ---------------- ----------------------------------------------------
+Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
+
+&nbsp;\          "Dialects as a testing ground for theories of language change: closing the gap in a typology of mixed languages"   
+
+&nbsp;\          <span style = "color:gray">The study of dialect variation has proven a powerful tool to deepen our understanding of the fundamental mechanisms underlying language change: Variation between very closely related languages/varieties often creates living laboratories where "What happens if..."-questions can be assessed. After an overview of recent developments within this approach I will focus on a newly emerging but rapidly growing field of historical linguistics, namely the study of change induced by contact between closely related languages/varieties, and in particular on the emergence of radically mixed languages. Whereas the existing literature suggests that the results of heavy language contact are qualitatively different depending on whether the involved languages are closely related genetically or not, I will argue that this is not (always) the case: Rather, radically mixed languages, including languages with their lexicon inherited from one parental language but grammatical structure from another, may emerge, too, even if the parental languages are close cousins, as long as the appropriate sociolinguistic conditions for mixed language emergence are met. The case study is based on my own fieldwork in an Amish community in Indiana (USA). Amish Shwitzer is a mixed language that emerged as a result of intensive contact between Pennsylvania Dutch and Bernese Swiss German. Whereas grammatical structure has largely converged with Pennsylvania Dutch, Bernese Swiss German features are strikingly concentrated in the lexicon. This kind of compartmentalization has not been reported so far for mixed languages with closely related parents. The case study sheds new light on theories of mixed language emergence, in particular on concepts such as dominating language or widespread bilingualism, which are not applicable to the Amish Shwitzer situation.</span>\
+
+&nbsp;\          &nbsp;\
+
 Nov 13, 2017\    <span style = "color:firebrick">Matthias Urban</span> (Tübingen)\
 
 &nbsp;\          "Language contact, language shift and the (linguistic) prehistory of the ancient Central Andes: a research program"\   
