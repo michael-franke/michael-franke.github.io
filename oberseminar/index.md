@@ -25,7 +25,7 @@ Jan 28, 2018\    <span style = "color:firebrick">Markus Werning</span> (Bochum)\
 
 &nbsp;\          &nbsp;\
 
-Feb 5, 2018\    <span style = "color:firebrick">Barbara Tomaszewicz</span> (Cologne)\
+Feb 5, 2018\     <span style = "color:firebrick">Barbara Tomaszewicz</span> (Cologne)\
 
 &nbsp;\          Focus association of ‘most’ and ‘only’ in a Visual Verification Task\
 
