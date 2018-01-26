@@ -13,15 +13,13 @@ The Oberseminar will take place in room 1.13 at Wilhelmstrasse 19 on selected Mo
 ### Upcoming talks
 
 ---------------- ----------------------------------------------------
-Jan 22, 2018\    <span style = "color:firebrick">Harald Hammarström</span> (Jena)\
-
-&nbsp;\          "Deep and Shallow in Automated Cognate Recognition"   
-
-&nbsp;\          &nbsp;\
-
 Jan 28, 2018\    <span style = "color:firebrick">Markus Werning</span> (Bochum)\
 
-&nbsp;\          TBA\
+&nbsp;\          "When Pragmatics Trumps the Lexicon: Reversing the N400 effect in the Predictive Completion Task"\
+
+&nbsp;\          <span style = "color:gray">Due to learned statistical regularities, the lexical entries of nouns not only contain information about prototypical features ("tomatoes are red"), but also about typical purposes/functions ("books are for reading") and ways of bringing about things ("cakes are made by baking") (Pustejovsky, 1995). These are reflected by high semantic similarities between nouns and the respective verbs as measured by LSA or GloVe. When a verb follows a noun, greater semantic similarity should correlate with a higher probabilistic expectancy. However, according to Bayesian Pragmatics/Rational Speech Act Theory (Frank & Goodman, 2012), also pragmatic principles such Quantity and Relation should influence probabilistic expectations on how a sentence or discourse will be continued. Can pragmatics overturn lexical information - and if so - how and in which stage of the comprehension process?</span>\
+
+&nbsp;\          <span style = "color:gray">To investigate these questions, we introduce a Predictive Completion Task in which the hearer at every moment in a communicative situation generates a probabilistic expectation about how the speaker will continue a discourse (Cosentino, Baggio, Kontinen, & Werning, 2017; Werning & Cosentino, 2017). In two EEG experiments, we exploit the well-established observation that the conditional probability of a word given a preceding context is negatively correlated with the amplitude of its N400 component (Kuperberg & Jaeger, 2016). We observe that pragmatic factor can lead to a reversal of expectancy relative to predictions on the basis of lexical information.</span>\
 
 &nbsp;\          &nbsp;\
 
@@ -40,6 +38,13 @@ Feb 5, 2018\     <span style = "color:firebrick">Barbara Tomaszewicz</span> (Col
 ### Past talks
 
 ---------------- ----------------------------------------------------
+Jan 22, 2018\    <span style = "color:firebrick">Harald Hammarström</span> (Jena)\
+
+&nbsp;\          "Deep and Shallow in Automated Cognate Recognition"   
+
+&nbsp;\          <span style = "color:gray">Given a set of languages with wordlists, the problem of cognate identification is to decide which sets of forms are derived from a common source (List et al. 2017, Kondrak 2009 and references therein). Typically, cognate identification is performed by aligning words phonetically and checking if the similarity exceeds a human-tuned or pre-trained threshold value. However, if this threshold value is set too strict, only shallow cognates (drei vs three) will be discovered, while if set too loose, non-cognates along with deep cognates (aqua vs eau) will be retrieved.  We will argue that the use of a threshold value inherently poses this dilemma. As an alternative we propose a threshold-free approach to cognate identification with a different conceptualization. Only shallow cognates are targeted in each phase of cognate identification. Once shallow cognates have been identified, a (preliminary) most shallow subgroup may be inferred. This subgroup implies a proto-language which can be preliminarily reconstructed using the sound correspondences from the shallow cognates as a starting point. Shallow cognate identification may then be performed again, this time with the proto-language of the subgroup, and a new subgroup posited, and so forth iteratively. This way deep cognates may be recognized if and only if the modern forms become more similar the deeper we go back in time.</span>\
+
+&nbsp;\          &nbsp;\
 Nov 27, 2017\    <span style = "color:firebrick">Guido Seiler</span> (Munich)\
 
 &nbsp;\          "Dialects as a testing ground for theories of language change: closing the gap in a typology of mixed languages"   
