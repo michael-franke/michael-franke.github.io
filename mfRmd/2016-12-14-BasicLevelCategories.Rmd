@@ -3,8 +3,8 @@ layout: post
 title:  "First thoughts on adaptive optimality of basic-level categories"
 date:   2016-12-14
 categories: evolution
-status: process
-published: false
+status: done
+published: true
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>

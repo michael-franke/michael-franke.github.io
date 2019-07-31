@@ -3,8 +3,8 @@ layout: post
 title:  "Comparing null-hypothesis tests for binominal data"		
 date:   2016-09-30 14:48:32 +0100		
 categories: statistics		
-status: process
-published: false
+status: done
+published: true
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>

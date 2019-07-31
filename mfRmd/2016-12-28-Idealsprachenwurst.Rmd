@@ -3,8 +3,8 @@ layout: post
 title:  "Philosophie der Idealen Sprache goes Wahlkrampf"		
 date:   2016-12-28 16:40:00 +0100		
 categories: commentary, politics, humor		
-status: process
-published: false
+status: done
+published: true
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>

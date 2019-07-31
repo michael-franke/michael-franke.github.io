@@ -3,8 +3,8 @@ layout: post
 title: "Computing Bayes Factors"
 date:   2017-07-07
 categories: statistics, modeling
-status: process
-published: false
+status: done
+published: true
 ---
 
 ```{r setup, include=FALSE, echo = FALSE, message = FALSE}
