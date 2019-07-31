@@ -28,6 +28,7 @@ We have since renamed the software. I feel sorry for the rest of the team that t
 On the way of finding a new name, I learned how almost any sound sequence that could be or is an English word has either a sexual or negative connotation. My new worst friend over the last two weeks has been the [Urban Dictionary](https://www.urbandictionary.com). Here are some of the lowlights of acronym I considered (sticking to an acronym was for sports, obviously). You need to imagine me coming up with a candidate, starting to like it, and only *then* learning about the ridiculous connotations or other uses the word has:
 
 1. *"herb"* (helpers for experimental resesarch in the browser): can mean "nerd" or "idiot", especially after [a disastrous advertidinh campaign](https://www.youtube.com/watch?v=5oE5dkTanms) of a large fast food chain in the 80s. 
-2. *"saber* (simple architecture for browser expeRiments): can mean "pretty lady" or "a man whore or a man who sleeps around excessively with either man or woman" according to the [Urban Dictionary](https://www.urbandictionary.com/define.php?term=Saber).
-
+2. *"hep"* (helpers for making experiments portable): should be the predecessor of "hip" for something cool and fashionable, but there are also the ["hep-hep"-riots](https://en.wikipedia.org/wiki/Hep-Hep_riots)  
+3. *"saber"* (simple architecture for browser expeRiments): can mean "pretty lady" or "a man whore or a man who sleeps around excessively with either man or woman" according to the [Urban Dictionary](https://www.urbandictionary.com/define.php?term=Saber).
+4. *"fieb"* (framework for interactive experiments in the browser): should remind us for [Fiep Westendorp](https://en.wikipedia.org/wiki/Fiep_Westendorp) and her beautiful minimal design, but sound like "feeb" which can mean "idiot"
 
