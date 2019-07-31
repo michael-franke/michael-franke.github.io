@@ -17,3 +17,10 @@ Before _magpie was called "_magpie", it was called "_babe", which is an acronym 
  
 ![magpie](/mfpics/babe_logo.png)
  
+
+{% highlight r %}
+knitr::include_graphics("/mfpics/babe_logo.png")
+{% endhighlight %}
+
+<img src="//mfpics/babe_logo.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="400px" />
+ 
