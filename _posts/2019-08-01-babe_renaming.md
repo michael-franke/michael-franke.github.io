@@ -15,6 +15,11 @@ For about 2 years, we have worked on (what is now called) [_magpie](https://magp
  
 Before _magpie was called "_magpie", it was called "_babe", which was also acronym: 
  
-![magpie](/mfpics/babe_logo.png =300x)
+<img src="/mfpics/babe_logo.png" alt="babe_logo" width="300"/>
  
-The choice of "_babe" was a blunder. I chose it because I liked the sound of it, and I associated it with caring affection, closeness, intimacy. (I also associated it with a little piglet, but didn't want to use a piglet-based logo for fear of copyright issues.)
+The choice of "_babe" was a blunder. I chose it because I liked the sound of it, and I associated it with caring affection, closeness, intimacy. (I also associated it with a little piglet, but didn't want to use a piglet-based logo for fear of copyright issues.) That was pretty naive! The word "babe" also serves as a predicate to express superior sexual attractiveness. I thought that if we call the (abstract) product of our labor "_babe", it should be clear enough (not only under the most charitable interpreation) that we do not intend to refer to anything sexual. That is wrong!
+ 
+ 
+ 
+ 
+ 
