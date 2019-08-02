@@ -28,5 +28,7 @@ Coming up with a new name was quite painful, though! I'm not complaining. We sho
 1. *"herb"* (helpers for experimental resesarch in the browser): can mean "nerd" or "idiot", especially after [a disastrous advertizing campaign](https://www.youtube.com/watch?v=5oE5dkTanms) of a large fast food chain in the 80s.
 2. *"hep"* (helpers for making experiments portable): should be the predecessor of "hip" for something cool and fashionable, but there are also the ["hep-hep"-riots](https://en.wikipedia.org/wiki/Hep-Hep_riots).  
 3. *"saber"* (simple architecture for browser expeRiments): can mean "pretty lady" or "a man whore or a man who sleeps around excessively with either man or woman" according to the [Urban Dictionary](https://www.urbandictionary.com/define.php?term=Saber).
-4. *"fieb"* (framework for interactive experiments in the browser): should remind us of [Fiep Westendorp](https://en.wikipedia.org/wiki/Fiep_Westendorp) and her beautiful minimal design, but sound like "feeb" which can mean "idiot".
+4. *"sape"* (service architecture for portable experiments): a term used to express negative feelings towards a person in virtue of that person being human (from *homo sapiens*).
+5. *"fieb"* (framework for interactive experiments in the browser): should remind us of [Fiep Westendorp](https://en.wikipedia.org/wiki/Fiep_Westendorp) and her beautiful minimal design, but sound like "feeb" which can mean "idiot".
+5. 
  
